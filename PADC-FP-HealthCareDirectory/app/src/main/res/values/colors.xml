@@ -4,4 +4,13 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="line_color">#bebebe</color>
+
+    <color name="primary">#980000</color>
+    <color name="primary_dark">#5a0000</color>
+    <color name="primary_light">#FFECB3</color>
+    <color name="accent">#ee0707</color>
+    <color name="primary_text">#212121</color>
+    <color name="secondary_text">#757575</color>
+    <color name="icons">#212121</color>
+    <color name="divider">#BDBDBD</color>
 </resources>
