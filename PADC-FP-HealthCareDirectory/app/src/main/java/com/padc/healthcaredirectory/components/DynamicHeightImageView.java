@@ -1,8 +1,5 @@
 package com.padc.healthcaredirectory.components;
 
-/**
- * Created by Saw Yu Nwe on 9/6/2016.
- */
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ImageView;

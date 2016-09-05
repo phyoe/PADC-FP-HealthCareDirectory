@@ -16,7 +16,7 @@ import com.padc.healthcaredirectory.HealthCareDirectoryApp;
 import com.padc.healthcaredirectory.components.CustomTypefaceSpan;
 
 /**
- * Created by Saw Yu Nwe on 9/6/2016.
+ * Created by aung on 6/25/16.
  */
 public class MMFontUtils {
 

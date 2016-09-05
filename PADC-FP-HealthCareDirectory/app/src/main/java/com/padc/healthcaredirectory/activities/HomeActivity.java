@@ -1,26 +1,63 @@
 package com.padc.healthcaredirectory.activities;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.padc.healthcaredirectory.R;
+import com.padc.healthcaredirectory.utils.MMFontUtils;
 
-public class HomeActivity extends AppCompatActivity {
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
+public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
+    @BindView(R.id.drawer_layout)
+    DrawerLayout drawerLayout;
+
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
+
+    @BindView(R.id.navigation_view)
+    NavigationView navigationView;
+
+    @BindView(R.id.fab_search)
+    FloatingActionButton fabSearch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        ButterKnife.bind(this, this);
+
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        final ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayShowTitleEnabled(false);
+        }
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawerLayout.setDrawerListener(toggle);
+        toggle.syncState();
+
+        Menu leftMenu = navigationView.getMenu();
+        MMFontUtils.applyMMFontToMenu(leftMenu);
+        navigationView.setNavigationItemSelectedListener(this);
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab_search);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -50,5 +87,70 @@ public class HomeActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        drawerLayout.closeDrawer(GravityCompat.START);
+        fabSearch.setVisibility(View.VISIBLE);
+        switch (item.getItemId()) {
+            case R.id.menu_health_care_clinics:
+                navigateToHealthCareClinicList();
+                return true;
+            case R.id.menu_health_care_doctors:
+                navigateToHealthCareDoctorList();
+                return true;
+            case R.id.menu_health_care_veterinary:
+                navigateToHealthCareVeterinaryList();
+                return true;
+            case R.id.menu_health_care_diseases:
+                navigateToHealthCareDiseaseList();
+                return true;
+            case R.id.menu_health_care_articles:
+                navigateToHealthCareArticleList();
+                return true;
+            case R.id.menu_favourite_list:
+                navigateToHealthCareFavList();
+                return true;
+            case R.id.menu_help:
+                navigateToHelp();
+                return true;
+            case R.id.menu_about_us:
+                navigateToAboutUs();
+                return true;
+        }
+        return false;
+    }
+
+    private void navigateToHealthCareClinicList() {
+
+    }
+
+    private void navigateToHealthCareDoctorList() {
+
+    }
+
+    private void navigateToHealthCareVeterinaryList() {
+
+    }
+
+    private void navigateToHealthCareDiseaseList() {
+
+    }
+
+    private void navigateToHealthCareFavList() {
+
+    }
+
+    private void navigateToHelp() {
+
+    }
+
+    private void navigateToHealthCareArticleList() {
+
+    }
+
+    private void navigateToAboutUs() {
+
     }
 }

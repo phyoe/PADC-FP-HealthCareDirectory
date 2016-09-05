@@ -53,4 +53,18 @@
     <string name="str_phamacy_mail_label">Mail</string>
     <string name="str_phamacy_website_label">Website</string>
     <string name="str_phamacy_facebook_label">Facebook</string>
+
+    <string name="home_screen_title">PADC - က်န္းမာေရးလမ္းညႊန္</string>
+    <string name="health_care_clinics">ေဆးရံု/ေဆးခန္း/ေဆးဆိုင္မ်ား</string>
+    <string name="health_care_doctors">ဆရာ၀န္မ်ား</string>
+    <string name="health_care_diseases">အျဖစ္မ်ားေရာဂါမ်ား</string>
+    <string name="health_care_articles">က်န္းမာေရးေဆာင္းပါးမ်ား</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="str_help">အသံုးျပဳနည္း</string>
+    <string name="str_about_us">က်န္းမာေရးလမ္းညႊန္ဆိုတာ</string>
+    <string name="str_favourite_title">My Favourites</string>
+    <string name="str_favourite">Favourites</string>
+    <string name="health_care_veterinary">အိမ္ေမြးတိရစာၦန္ေစာင့္ေရွာက္မႈ</string>
+
 </resources>
