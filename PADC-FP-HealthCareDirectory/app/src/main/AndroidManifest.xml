@@ -12,8 +12,14 @@
         <activity
             android:name=".activities.HomeActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".activities.HospitalDetailActivity"></activity>
+        <activity android:name=".activities.ClinicDetailActivity">
+
+        </activity>
+        <activity android:name=".activities.PhamacyDetailActivity">
             <intent-filter>
+
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
