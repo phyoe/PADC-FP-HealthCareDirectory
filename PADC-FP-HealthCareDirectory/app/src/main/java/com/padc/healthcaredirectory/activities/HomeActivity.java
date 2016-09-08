@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.padc.healthcaredirectory.R;
+import com.padc.healthcaredirectory.fragments.HealthCarePagerFragment;
 import com.padc.healthcaredirectory.utils.MMFontUtils;
 
 import butterknife.BindView;
@@ -65,6 +66,11 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                         .setAction("Action", null).show();
             }
         });
+
+        if (savedInstanceState == null) {
+            navigateToTabLayout();
+        }
+
     }
 
     @Override
@@ -120,6 +126,12 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 return true;
         }
         return false;
+    }
+
+    private void navigateToTabLayout() {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fl_container, HealthCarePagerFragment.newInstance())
+                .commit();
     }
 
     private void navigateToHealthCareClinicList() {

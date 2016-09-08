@@ -10,7 +10,6 @@
     <string name="str_hospital_website">www.yangongeneralhospital.com</string>
     <string name="str_hospital_facebook">www.facebook.com/yangongenealhospital</string>
 
-
     <string name="str_hospital_name_label">အမည္</string>
     <string name="str_hospital_info_label">သတင္းအခ်က္အလက္</string>
     <string name="str_hospital_address_label">လိပ္စာ</string>
@@ -19,7 +18,6 @@
     <string name="str_hospital_website_label">Website</string>
     <string name="str_hospital_facebook_label">Facebook</string>
 
-
     <string name="str_clinic_name">မိုးသီး</string>
     <string name="str_clinic_info">ပုဂၢလိက ေဆးခန္းျဖစ္သည္။ ၂၄ နာရီဖြင့္သည္။</string>
     <string name="str_clinic_address">ယမံုနာလမ္း (ရႈခင္းသာလမ္းမၾကီး)၊ သာေကတျမိဳ႕နယ္။</string>
@@ -27,7 +25,6 @@
     <string name="str_clinic_mail">moetheeclinic@gmail.com</string>
     <string name="str_clinic_website">www.moetheeclinic.com</string>
     <string name="str_clinic_facebook">www.facebook.com/moetheeclinic</string>
-
 
     <string name="str_clinic_name_label">အမည္</string>
     <string name="str_clinic_info_label">သတင္းအခ်က္အလက္</string>
@@ -44,7 +41,6 @@
     <string name="str_phamacy_mail">sularbphamacy@gmail.com</string>
     <string name="str_phamacy_website">www.sularbphamacy.com</string>
     <string name="str_phamacy_facebook">www.facebook.com/sularbphamacy</string>
-
 
     <string name="str_phamacy_name_label">အမည္</string>
     <string name="str_phamacy_info_label">သတင္းအခ်က္အလက္</string>
@@ -66,5 +62,9 @@
     <string name="str_favourite_title">My Favourites</string>
     <string name="str_favourite">Favourites</string>
     <string name="health_care_veterinary">အိမ္ေမြးတိရစာၦန္ေစာင့္ေရွာက္မႈ</string>
+
+    <string name="health_care_hospital_tab">ေဆးရံု</string>
+    <string name="health_care_clinic_tab">ေဆးခန္း</string>
+    <string name="health_care_pharmacy_tab">ေဆးဆိုင္မ်ား</string>
 
 </resources>
