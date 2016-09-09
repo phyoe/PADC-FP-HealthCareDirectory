@@ -40,9 +40,9 @@ public class HealthCarePagerFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mHealthCareAdapter = new HealthCarePagerAdapter(getActivity().getSupportFragmentManager());
-        mHealthCareAdapter.addTab(HospitalListFragment.newInstance(), getString(R.string.health_care_hospital_tab));
-        mHealthCareAdapter.addTab(ClinicListFragment.newInstance(), getString(R.string.health_care_clinic_tab));
-        mHealthCareAdapter.addTab(PharmacyListFragment.newInstance(), getString(R.string.health_care_pharmacy_tab));
+        mHealthCareAdapter.addTab(HospitalListFragment.newInstance(), getString(R.string.health_care_hospital));
+        mHealthCareAdapter.addTab(ClinicListFragment.newInstance(), getString(R.string.health_care_clinic));
+        mHealthCareAdapter.addTab(PharmacyListFragment.newInstance(), getString(R.string.health_care_pharmacy));
     }
 
     @Override
