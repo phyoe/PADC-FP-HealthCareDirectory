@@ -14,15 +14,21 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.padc.healthcaredirectory.R;
+import com.padc.healthcaredirectory.data.vos.HealthCareVO;
 import com.padc.healthcaredirectory.fragments.HealthCarePagerFragment;
 import com.padc.healthcaredirectory.utils.MMFontUtils;
+import com.padc.healthcaredirectory.views.holders.HealthCareViewHolder;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class HomeActivity extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener,
+        HealthCareViewHolder.ControllerHealthCareItem {
 
     @BindView(R.id.drawer_layout)
     DrawerLayout drawerLayout;
@@ -47,19 +53,20 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         final ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayShowTitleEnabled(false);
+            actionBar.setHomeAsUpIndicator(R.drawable.ic_healthcare_launcher_icon);
+            actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.setDrawerListener(toggle);
-        toggle.syncState();
+        //toggle.syncState();
 
         Menu leftMenu = navigationView.getMenu();
         MMFontUtils.applyMMFontToMenu(leftMenu);
         navigationView.setNavigationItemSelectedListener(this);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab_search);
-        fab.setOnClickListener(new View.OnClickListener() {
+        fabSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
@@ -164,5 +171,14 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
     private void navigateToAboutUs() {
 
+    }
+
+    @Override
+    public void onTapHealthCare(HealthCareVO healthcare, ImageView ivHealthCare) {
+
+        Toast.makeText(getApplicationContext(), "Detail View will show ...", Toast.LENGTH_SHORT).show();
+
+        //Intent intent = HealthCareDetailActivity.newIntent(healthcare.getName());
+        //startActivity(intent);
     }
 }
