@@ -41,7 +41,11 @@ public class HospitalListFragment extends BaseFragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        controllerHealthCareItem = (HealthCareViewHolder.ControllerHealthCareItem) context;
+        if(context instanceof HealthCareViewHolder.ControllerHealthCareItem){
+            controllerHealthCareItem = (HealthCareViewHolder.ControllerHealthCareItem) context;
+        } else {
+            throw new RuntimeException("Unsupported Type");
+        }
     }
 
     @Override
