@@ -71,4 +71,8 @@ public class MMFontUtils {
             }
         }
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 4630c19fe442bb516d694646552914421eec0bb9
