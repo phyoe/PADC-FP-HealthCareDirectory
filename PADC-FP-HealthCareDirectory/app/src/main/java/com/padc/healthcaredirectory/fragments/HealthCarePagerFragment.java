@@ -23,8 +23,8 @@ import butterknife.ButterKnife;
  */
 public class HealthCarePagerFragment extends Fragment {
 
-    @BindView(R.id.tl_health_care)
-    TabLayout tlHealthCare;
+    @BindView(R.id.tablayout_health_care)
+    TabLayout tabLayoutHealthCare;
 
     @BindView(R.id.pager_health_care)
     ViewPager pagerHealthCare;
@@ -40,9 +40,9 @@ public class HealthCarePagerFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mHealthCareAdapter = new HealthCarePagerAdapter(getActivity().getSupportFragmentManager());
-        mHealthCareAdapter.addTab(HospitalListFragment.newInstance(), getString(R.string.health_care_hospital_tab));
-        mHealthCareAdapter.addTab(ClinicListFragment.newInstance(), getString(R.string.health_care_clinic_tab));
-        mHealthCareAdapter.addTab(PharmacyListFragment.newInstance(), getString(R.string.health_care_pharmacy_tab));
+        mHealthCareAdapter.addTab(HospitalListFragment.newInstance(), getString(R.string.health_care_hospital));
+        mHealthCareAdapter.addTab(ClinicListFragment.newInstance(), getString(R.string.health_care_clinic));
+        mHealthCareAdapter.addTab(PharmacyListFragment.newInstance(), getString(R.string.health_care_pharmacy));
     }
 
     @Override
@@ -54,9 +54,9 @@ public class HealthCarePagerFragment extends Fragment {
         pagerHealthCare.setAdapter(mHealthCareAdapter);
         pagerHealthCare.setOffscreenPageLimit(mHealthCareAdapter.getCount());
 
-        tlHealthCare.setupWithViewPager(pagerHealthCare);
+        tabLayoutHealthCare.setupWithViewPager(pagerHealthCare);
 
-        MMFontUtils.applyMMFontToTabLayout(tlHealthCare);
+        MMFontUtils.applyMMFontToTabLayout(tabLayoutHealthCare);
 
         return rootView;
     }

@@ -9,6 +9,7 @@
     <!-- Generic with ratio -->
     <dimen name="margin_small">4dp</dimen>
     <dimen name="margin_medium">8dp</dimen>
+    <dimen name="margin_medium_1">12dp</dimen>
     <dimen name="margin_medium_2">16dp</dimen>
     <dimen name="margin_medium_3">18dp</dimen>
     <dimen name="margin_large">24dp</dimen>
@@ -26,5 +27,8 @@
     <dimen name="left_menu_width">280dp</dimen>
     <dimen name="nav_header_vertical_spacing">16dp</dimen>
     <dimen name="nav_header_height">180dp</dimen>
+    <dimen name="icon_image_size">64dp</dimen>
+    <dimen name="card_elevation">2dp</dimen>
+    <dimen name="padding_bottom_for_fab">80dp</dimen>
 
 </resources>
