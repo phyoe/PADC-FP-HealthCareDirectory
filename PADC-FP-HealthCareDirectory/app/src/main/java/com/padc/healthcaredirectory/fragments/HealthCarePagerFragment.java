@@ -23,8 +23,8 @@ import butterknife.ButterKnife;
  */
 public class HealthCarePagerFragment extends Fragment {
 
-    @BindView(R.id.tl_health_care)
-    TabLayout tlHealthCare;
+    @BindView(R.id.tablayout_health_care)
+    TabLayout tabLayoutHealthCare;
 
     @BindView(R.id.pager_health_care)
     ViewPager pagerHealthCare;
@@ -54,9 +54,9 @@ public class HealthCarePagerFragment extends Fragment {
         pagerHealthCare.setAdapter(mHealthCareAdapter);
         pagerHealthCare.setOffscreenPageLimit(mHealthCareAdapter.getCount());
 
-        tlHealthCare.setupWithViewPager(pagerHealthCare);
+        tabLayoutHealthCare.setupWithViewPager(pagerHealthCare);
 
-        MMFontUtils.applyMMFontToTabLayout(tlHealthCare);
+        MMFontUtils.applyMMFontToTabLayout(tabLayoutHealthCare);
 
         return rootView;
     }
