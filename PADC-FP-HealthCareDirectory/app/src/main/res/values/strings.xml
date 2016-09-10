@@ -16,5 +16,9 @@
     <string name="str_favourite">Favourites</string>
     <string name="health_care_veterinary">အိမ္ေမြးတိရစာၦန္ေစာင့္ေရွာက္မႈ</string>
 
+    <string name="health_care_hospital_tab">ေဆးရံု</string>
+    <string name="health_care_clinic_tab">ေဆးခန္း</string>
+    <string name="health_care_pharmacy_tab">ေဆးဆိုင္မ်ား</string>
+
 
 </resources>
