@@ -56,7 +56,7 @@ public class PharmacyListFragment extends BaseFragment {
         ButterKnife.bind(this, rootView);
 
         //List<HealthCareVO> healthCareList = HealthCareModel.getInstance().getHealthCareList();
-        List<HealthCareVO> healthCareList = super.getTempData(R.string.health_care_pharmacy, HealthCareDirectoryConstants.FRAGMENT_PHARMACY);;
+        List<HealthCareVO> healthCareList = super.setTempData(R.string.health_care_pharmacy, HealthCareDirectoryConstants.FRAGMENT_PHARMACY);;
 
         mHealthCareAdapter = new HealthCareAdapter(healthCareList, controllerHealthCareItem);
         rvPharmacies.setAdapter(mHealthCareAdapter);

@@ -61,11 +61,16 @@
     <string name="str_about_us">က်န္းမာေရးလမ္းညႊန္ဆိုတာ</string>
     <string name="str_favourite_title">My Favourites</string>
     <string name="str_favourite">Favourites</string>
-    <string name="health_care_veterinary">အိမ္ေမြးတိရစာၦန္ေစာင့္ေရွာက္မႈ</string>
+    <string name="health_care_veterinary">အိမ္ေမြးတိရစာၦန္ဆိုင္ရာ</string>
 
     <string name="health_care_hospital">ေဆးရံု</string>
     <string name="health_care_clinic">ေဆးခန္း</string>
     <string name="health_care_pharmacy">ေဆးဆိုင္</string>
     <string name="dummy_township">စမ္းေခ်ာင္း</string>
+    <string name="dummy_address">No. 14, Baho Street Township, Yangon, Myanmar (Burma)</string>
+    <string name="dummy_phone_1">+95 1 230 4999</string>
+    <string name="dummy_phone_2">+95 1 538 055</string>
+    <string name="lbl_phone">ဖုန္းေခၚဆိုရန္</string>
+    <string name="lbl_detail">အေသးစိတ္</string>
 
 </resources>
