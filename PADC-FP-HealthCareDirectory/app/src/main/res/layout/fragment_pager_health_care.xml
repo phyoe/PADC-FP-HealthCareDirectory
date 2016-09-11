@@ -9,9 +9,9 @@
         android:id="@+id/tablayout_health_care"
         app:tabIndicatorColor="@color/primary"
         app:tabMode="fixed"
-        app:tabSelectedTextColor="@color/primary_bright"
+        app:tabSelectedTextColor="@color/primary_dark"
         app:tabTextAppearance="@android:style/TextAppearance.DeviceDefault.Widget.ActionMode.Subtitle"
-        app:tabTextColor="@color/primary_dark"
+        app:tabTextColor="@color/primary_bright"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

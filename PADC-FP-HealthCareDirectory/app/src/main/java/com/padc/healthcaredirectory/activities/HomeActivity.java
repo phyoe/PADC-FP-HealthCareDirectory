@@ -1,11 +1,15 @@
 package com.padc.healthcaredirectory.activities;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
@@ -31,6 +35,8 @@ public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
         HealthCareViewHolder.ControllerHealthCareItem {
 
+    private static final int MY_PERMISSIONS_REQUEST_CALL_PHONE = 100;
+
     @BindView(R.id.drawer_layout)
     DrawerLayout drawerLayout;
 
@@ -42,6 +48,8 @@ public class HomeActivity extends AppCompatActivity
 
     @BindView(R.id.fab_search)
     FloatingActionButton fabSearch;
+
+    private String numberToCall = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +69,6 @@ public class HomeActivity extends AppCompatActivity
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.setDrawerListener(toggle);
-        //toggle.syncState();
 
         Menu leftMenu = navigationView.getMenu();
         MMFontUtils.applyMMFontToMenu(leftMenu);
@@ -175,11 +182,34 @@ public class HomeActivity extends AppCompatActivity
     }
 
     @Override
+    public void onTapPhoneCall(HealthCareVO healthcare, ImageView ivHealthCare) {
+        if(healthcare.getPhones()[0] != null) {
+            numberToCall = healthcare.getPhones()[0];
+            makeCall(numberToCall);
+        }
+    }
+
+    @Override
     public void onTapHealthCare(HealthCareVO healthcare, ImageView ivHealthCare) {
 
         Toast.makeText(getApplicationContext(), "Detail View will show ...", Toast.LENGTH_SHORT).show();
 
         Intent intent = HospitalDetailActivity.newIntent(healthcare.getName());
+        startActivity(intent);
+    }
+
+    protected void makeCall(String numberToCall) {
+        numberToCall.replaceAll(" ", "");
+        Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + numberToCall));
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+            this.numberToCall = numberToCall;
+
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.CALL_PHONE},
+                    MY_PERMISSIONS_REQUEST_CALL_PHONE);
+
+            return;
+        }
         startActivity(intent);
     }
 }

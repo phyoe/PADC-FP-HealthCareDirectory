@@ -13,13 +13,19 @@
     </style>
 
     <style name="PrimaryTitle" parent="HealthCareCardView">
-        <item name="android:textSize">@dimen/text_regular_2x</item>
-        <item name="android:textColor">@color/text_black_ish</item>
+        <item name="android:textSize">@dimen/text_regular_3x</item>
+        <item name="android:textColor">@color/primary</item>
     </style>
 
     <style name="SecondaryTitle" parent="HealthCareCardView">
         <item name="android:textSize">@dimen/text_regular</item>
-        <item name="android:textColor">@color/primary_bright</item>
+        <item name="android:textColor">@color/black_overlay</item>
+    </style>
+
+    <style name="HealthCareCardButton">
+        <item name="android:background">@drawable/bg_rounded</item>
+        <item name="android:textColor">@color/primary</item>
+        <item name="android:padding">@dimen/margin_extra_small</item>
     </style>
 
     <style name="AppTheme.NoActionBar">

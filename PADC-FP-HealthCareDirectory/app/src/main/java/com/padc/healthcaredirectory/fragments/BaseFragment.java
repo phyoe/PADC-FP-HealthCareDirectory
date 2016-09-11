@@ -16,7 +16,7 @@ public class BaseFragment extends Fragment {
 
     protected static int gridColumnSpanCount = 1;
 
-    protected List<HealthCareVO> getTempData(int dummy_title, int fragment_id){
+    protected List<HealthCareVO> setTempData(int dummy_title, int fragment_id){
         List<HealthCareVO> healthCareList = new ArrayList<>();
         String category = "";
         switch (fragment_id){
@@ -25,10 +25,16 @@ public class BaseFragment extends Fragment {
             case 3 : category = HealthCareDirectoryConstants.STR_PHARMACY; break;
         }
 
+        String[] phones;
+        phones = new String[]{
+                getString(R.string.dummy_phone_1),
+                getString(R.string.dummy_phone_2)
+        };
         for(int i=0 ; i<10 ; i++){
             HealthCareVO healthcare = new HealthCareVO();
             healthcare.setName(getString(dummy_title) + " " + (i+1));
-            healthcare.setTownship(getString(R.string.dummy_township));
+            healthcare.setAddress(getString(R.string.dummy_address));
+            healthcare.setPhones(phones);
             healthcare.setCategory(category);
             healthCareList.add(healthcare);
         }
