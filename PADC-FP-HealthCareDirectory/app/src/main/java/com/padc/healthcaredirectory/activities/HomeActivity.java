@@ -187,8 +187,6 @@ public class HomeActivity extends AppCompatActivity
         if(healthcare.getPhones()[0] != null) {
             numberToCall = healthcare.getPhones()[0];
             makeCall(numberToCall);
-        } else {
-
         }
     }
 
