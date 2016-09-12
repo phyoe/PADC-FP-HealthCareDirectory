@@ -43,11 +43,14 @@ public class HealthCareViewHolder extends RecyclerView.ViewHolder implements Vie
 
     public void bindData(HealthCareVO healthCare) {
         mHealthCare = healthCare;
+        String phones = "+95 1 230 4999";
 
-        String[] arr_phones = healthCare.getPhones();
-        String phones = "";
-        for (String ph : arr_phones) {
-            phones = phones + ph + " ";
+        if(healthCare.getPhones() != null){
+            String[] arr_phones = healthCare.getPhones();
+            phones = "";
+            for (String ph : arr_phones) {
+                phones = phones + ph + ", ";
+            }
         }
         tvName.setText(healthCare.getName());
         tvAddress.setText(healthCare.getAddress());
@@ -55,7 +58,7 @@ public class HealthCareViewHolder extends RecyclerView.ViewHolder implements Vie
 
         String category = healthCare.getCategory();
         int img = R.drawable.dummy_healthcare;
-        if(category == HealthCareDirectoryConstants.STR_HOSPITAL) img = R.drawable.asia_royal_hospital;
+        if(category.contains(HealthCareDirectoryConstants.STR_HOSPITAL)) img = R.drawable.asia_royal_hospital;
         if(category == HealthCareDirectoryConstants.STR_CLINIC) img = R.drawable.dummy_clinic;
         if(category == HealthCareDirectoryConstants.STR_PHARMACY) img = R.drawable.dummy_pharmacy;
 
@@ -73,13 +76,13 @@ public class HealthCareViewHolder extends RecyclerView.ViewHolder implements Vie
     }
 
     public interface ControllerHealthCareItem {
-        void onTapPhoneCall(HealthCareVO healthcare, ImageView ivHealthCare);
+        void onTapPhoneCall(HealthCareVO healthcare);
         void onTapHealthCare(HealthCareVO healthcare, ImageView ivHealthCare);
     }
 
     @OnClick(R.id.btn_phone_call)
     public void onTapPhoneCall(View view) {
-        mController.onTapPhoneCall(mHealthCare, ivHealthCare);
+        mController.onTapPhoneCall(mHealthCare);
     }
 
     @OnClick(R.id.btn_detail)

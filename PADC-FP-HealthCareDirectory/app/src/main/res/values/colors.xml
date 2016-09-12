@@ -16,7 +16,7 @@
 
     <!-- theme adjacent color -->
     <color name="primary_bright">#BDBDBD</color>
-    <color name="accent_dark">#882061</color>
+    <color name="accent_dark">#980000</color>
 
     <!-- theme on white -->
     <color name="text_white_ish">#EEE</color>
