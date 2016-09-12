@@ -34,6 +34,16 @@
             android:text="@string/health_care_hospital"
             android:textAppearance="?android:textAppearanceLarge" />
 
+        <com.padc.healthcaredirectory.components.MMTextView
+            android:id="@+id/tv_category"
+            style="@style/SecondaryTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed"
+            android:padding="@dimen/margin_medium"
+            android:text="@string/health_care_hospital_category"
+            android:textAppearance="?android:textAppearanceLarge" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -44,12 +54,13 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="top"
                 android:src="@drawable/ic_location_24dp"
                 android:tint="@color/black_overlay" />
 
             <com.padc.healthcaredirectory.components.MMTextView
                 android:id="@+id/tv_address"
-                style="@style/SecondaryTitle"
+                style="@style/ContentText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/margin_medium_2"
@@ -66,13 +77,14 @@
 
             <ImageView
                 android:layout_width="wrap_content"
+                android:layout_gravity="top"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_phone_24dp"
                 android:tint="@color/black_overlay" />
 
             <TextView
                 android:id="@+id/tv_phone"
-                style="@style/SecondaryTitle"
+                style="@style/ContentText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/margin_medium_2"
@@ -101,7 +113,7 @@
                 style="@style/HealthCareCardButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="@dimen/margin_small"
+                android:layout_marginLeft="@dimen/margin_small"
                 android:layout_weight="1"
                 android:text="@string/lbl_detail" />
 
