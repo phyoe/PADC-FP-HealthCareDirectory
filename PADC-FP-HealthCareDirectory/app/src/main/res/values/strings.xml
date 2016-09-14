@@ -67,6 +67,11 @@
     <string name="lbl_detail">အေသးစိတ္</string>
     <string name="title_activity_test">TestActivity</string>
     <string name="healthcare_list_detail_transition_name">healthcare_list_detail_transition_name</string>
+    <string name="doctor_screen_title">ဆရာ၀န္မ်ား</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="article_screen_title">က်န္းမာေရးေဆာင္းပါးမ်ား</string>
 
 
 </resources>

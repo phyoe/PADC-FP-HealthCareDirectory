@@ -22,6 +22,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.padc.healthcaredirectory.HealthCareDirectoryApp;
 import com.padc.healthcaredirectory.R;
 import com.padc.healthcaredirectory.data.vos.HealthCareVO;
 import com.padc.healthcaredirectory.fragments.HealthCarePagerFragment;
@@ -117,22 +118,22 @@ public class HomeActivity extends AppCompatActivity
         fabSearch.setVisibility(View.VISIBLE);
         switch (item.getItemId()) {
             case R.id.menu_health_care_clinics:
-                navigateToHealthCareClinicList();
+                navigateToClinicList();
                 return true;
             case R.id.menu_health_care_doctors:
-                navigateToHealthCareDoctorList();
+                navigateToDoctorList();
                 return true;
             case R.id.menu_health_care_veterinary:
-                navigateToHealthCareVeterinaryList();
+                navigateToVeterinaryList();
                 return true;
             case R.id.menu_health_care_diseases:
-                navigateToHealthCareDiseaseList();
+                navigateToDiseaseList();
                 return true;
             case R.id.menu_health_care_articles:
-                navigateToHealthCareArticleList();
+                navigateToArticleList();
                 return true;
             case R.id.menu_favourite_list:
-                navigateToHealthCareFavList();
+                navigateToFavList();
                 return true;
             case R.id.menu_help:
                 navigateToHelp();
@@ -150,23 +151,26 @@ public class HomeActivity extends AppCompatActivity
                 .commit();
     }
 
-    private void navigateToHealthCareClinicList() {
+    private void navigateToClinicList() {
 
     }
 
-    private void navigateToHealthCareDoctorList() {
+    private void navigateToDoctorList() {
+        Toast.makeText(HealthCareDirectoryApp.getContext(), "Doctor will show ...", Toast.LENGTH_SHORT).show();
+
+        Intent intent = DoctorActivity.newIntent();
+        startActivity(intent);
+    }
+
+    private void navigateToVeterinaryList() {
 
     }
 
-    private void navigateToHealthCareVeterinaryList() {
+    private void navigateToDiseaseList() {
 
     }
 
-    private void navigateToHealthCareDiseaseList() {
-
-    }
-
-    private void navigateToHealthCareFavList() {
+    private void navigateToFavList() {
 
     }
 
@@ -174,8 +178,11 @@ public class HomeActivity extends AppCompatActivity
 
     }
 
-    private void navigateToHealthCareArticleList() {
+    private void navigateToArticleList() {
+        Toast.makeText(HealthCareDirectoryApp.getContext(), "Article will show ...", Toast.LENGTH_SHORT).show();
 
+        Intent inent = ArticleListActivity.newInent();
+        startActivity(inent);
     }
 
     private void navigateToAboutUs() {
