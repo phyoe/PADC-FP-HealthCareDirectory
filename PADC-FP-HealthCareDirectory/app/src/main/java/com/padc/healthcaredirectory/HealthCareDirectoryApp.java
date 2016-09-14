@@ -8,6 +8,8 @@ import android.content.Context;
  */
 public class HealthCareDirectoryApp extends Application {
 
+    public static String TAG = "HealthCareDirectoryApp";
+
     private static Context context;
 
     @Override

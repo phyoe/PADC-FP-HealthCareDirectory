@@ -29,7 +29,7 @@
 
     <style name="DetailInfoTitle" parent="HealthCareCardView">
         <item name="android:textSize">@dimen/text_regular_2x</item>
-        <item name="android:textColor">@color/black_overlay</item>
+        <item name="android:textColor">@color/primary</item>
     </style>
 
     <style name="HealthCareCardButton">
