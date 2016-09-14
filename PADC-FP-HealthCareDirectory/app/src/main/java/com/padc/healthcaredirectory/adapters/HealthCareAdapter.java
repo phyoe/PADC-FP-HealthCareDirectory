@@ -40,7 +40,7 @@ public class HealthCareAdapter extends RecyclerView.Adapter<HealthCareViewHolder
 
     @Override
     public void onBindViewHolder(HealthCareViewHolder holder, int position) {
-       holder.bindData(mHealthCareList.get(position));
+        holder.bindData(mHealthCareList.get(position));
     }
 
     @Override

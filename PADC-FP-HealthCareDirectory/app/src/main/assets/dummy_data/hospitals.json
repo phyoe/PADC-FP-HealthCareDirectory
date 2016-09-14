@@ -1,0 +1,43 @@
+[{
+  "id": 1,
+  "name": "ေဆးရံု - က",
+  "category": "hospital_public",
+  "category_mm": "ေဆးရံု (အစိုးရ)",
+  "address": "လိပ္စာ - က No. 14, Baho Street Township, Yangon, Myanmar (Burma)",
+  "township": "စမ္းေခ်ာင္း",
+  "city": "ရန္ကုန္",
+  "phones": ["01 123456", "01 789456", "01 456789"],
+  "email": "hospital1@gmail.com",
+  "website": "http://www.hospital1.com",
+  "facebook": "http://www.facebook.com/hospital1",
+  "mapinfo": "hospital1",
+  "images": ["Hospital_01.jpg", "Hospital_02.jpg", "Hospital_03.jpg"]
+}, {
+  "id": 2,
+  "name": "ေဆးရံု - ခ",
+  "category": "hospital_public",
+  "category_mm": "ေဆးရံု (အစိုးရ)",
+  "address": "လိပ္စာ - ခ No. 14, Baho Street Township, Yangon, Myanmar (Burma)",
+  "township": "ၾကည္ျမင္တိုင္",
+  "city": "ရန္ကုန္",
+  "phones": ["+95 1 230 4999", "+95 1 230 4000", "+95 1 230 4888"],
+  "email": "hospital2@gmail.com",
+  "website": "http://www.hospital2.com",
+  "facebook": "http://www.facebook.com/hospital2",
+  "mapinfo": "hospital2",
+  "images": ["Hospital_01.jpg", "Hospital_02.jpg", "Hospital_03.jpg"]
+}, {
+  "id": 3,
+  "name": "ေဆးရံု - ဂ",
+  "category": "hospital_public",
+  "category_mm": "ေဆးရံု (အစိုးရ)",
+  "address": "လိပ္စာ - ဂ No. 14, Baho Street Township, Yangon, Myanmar (Burma)",
+  "township": "အလံု",
+  "city": "ရန္ကုန္",
+  "phones": ["01 123456", "01 789456", "01 456789"],
+  "email": "hospital3@gmail.com",
+  "website": "http://www.hospital3.com",
+  "facebook": "http://www.facebook.com/hospital3",
+  "mapinfo": "hospital3",
+  "images": ["Hospital_01.jpg", "Hospital_02.jpg", "Hospital_03.jpg"]
+}]

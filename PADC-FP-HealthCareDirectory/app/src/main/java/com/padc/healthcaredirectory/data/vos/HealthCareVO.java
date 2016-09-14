@@ -7,6 +7,8 @@ import com.google.gson.annotations.SerializedName;
  */
 public class HealthCareVO {
 
+    public static String IMAGE_URL = "http://www.aungpyaephyo.xyz/healthcare_directory/";
+
     @SerializedName("id")
     private int id;
 
@@ -15,6 +17,9 @@ public class HealthCareVO {
 
     @SerializedName("category")
     private String category;
+
+    @SerializedName("category_mm")
+    private String category_mm;
 
     @SerializedName("address")
     private String address;
@@ -38,7 +43,9 @@ public class HealthCareVO {
     private String mapinfo;
 
     @SerializedName("images")
-    private String[] images;
+    private String[] stockPhotoPath;
+
+    private int photo_count;
 
     public int getId() {
         return id;
@@ -81,7 +88,7 @@ public class HealthCareVO {
     }
 
     public String[] getImages() {
-        return images;
+        return stockPhotoPath;
     }
 
     public void setId(int id) {
@@ -125,6 +132,38 @@ public class HealthCareVO {
     }
 
     public void setImages(String[] images) {
-        this.images = images;
+        this.stockPhotoPath = images;
+    }
+
+    public String getCategory_mm() {
+        return category_mm;
+    }
+
+    public void setCategory_mm(String category_mm) {
+        this.category_mm = category_mm;
+    }
+
+    public HealthCareVO(){
+        super();
+    }
+
+    public HealthCareVO(int id, String name, String address, String[] phones, String[] stockPhotoPath) {
+        this.id = id;
+        this.name = name;
+        this.address = address;
+        this.phones = phones;
+        this.stockPhotoPath = stockPhotoPath;
+        this.photo_count = stockPhotoPath.length;
+    }
+
+    public String[] getStockPhotoPath() {
+        for (int i = 0; i < getPhoto_count(); i++){
+            stockPhotoPath[i] = IMAGE_URL + stockPhotoPath[i];
+        }
+        return stockPhotoPath;
+    }
+
+    public int getPhoto_count() {
+        return photo_count;
     }
 }

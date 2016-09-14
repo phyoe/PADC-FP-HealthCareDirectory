@@ -19,7 +19,17 @@
 
     <style name="SecondaryTitle" parent="HealthCareCardView">
         <item name="android:textSize">@dimen/text_regular</item>
+        <item name="android:textColor">@color/primary_dark</item>
+    </style>
+
+    <style name="ContentText" parent="HealthCareCardView">
+        <item name="android:textSize">@dimen/text_regular</item>
         <item name="android:textColor">@color/black_overlay</item>
+    </style>
+
+    <style name="DetailInfoTitle" parent="HealthCareCardView">
+        <item name="android:textSize">@dimen/text_regular_2x</item>
+        <item name="android:textColor">@color/primary</item>
     </style>
 
     <style name="HealthCareCardButton">

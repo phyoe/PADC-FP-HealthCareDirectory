@@ -25,6 +25,7 @@ import android.widget.Toast;
 import com.padc.healthcaredirectory.R;
 import com.padc.healthcaredirectory.data.vos.HealthCareVO;
 import com.padc.healthcaredirectory.fragments.HealthCarePagerFragment;
+import com.padc.healthcaredirectory.utils.HealthCareDirectoryConstants;
 import com.padc.healthcaredirectory.utils.MMFontUtils;
 import com.padc.healthcaredirectory.views.holders.HealthCareViewHolder;
 
@@ -182,7 +183,7 @@ public class HomeActivity extends AppCompatActivity
     }
 
     @Override
-    public void onTapPhoneCall(HealthCareVO healthcare, ImageView ivHealthCare) {
+    public void onTapPhoneCall(HealthCareVO healthcare) {
         if(healthcare.getPhones()[0] != null) {
             numberToCall = healthcare.getPhones()[0];
             makeCall(numberToCall);
@@ -194,10 +195,24 @@ public class HomeActivity extends AppCompatActivity
 
         Toast.makeText(getApplicationContext(), "Detail View will show ...", Toast.LENGTH_SHORT).show();
 
-        Intent intent = HospitalDetailActivity.newIntent(healthcare.getName());
-        startActivity(intent);
-    }
+        int id = healthcare.getId();
+        String name = healthcare.getName();
+        String loadedCategory = healthcare.getCategory();
 
+        Intent intent = null;
+        if(loadedCategory.contains(HealthCareDirectoryConstants.STR_HOSPITAL)) {
+            intent = HospitalDetailActivity.newIntent(id);
+            startActivity(intent);
+        }
+        if(loadedCategory.contains(HealthCareDirectoryConstants.STR_CLINIC)) {
+            intent = ClinicDetailActivity.newIntent(name);
+            startActivity(intent);
+        }
+        if(loadedCategory.contains(HealthCareDirectoryConstants.STR_PHARMACY)) {
+            intent = PhamacyDetailActivity.newIntent(name);
+            startActivity(intent);
+        }
+    }
     protected void makeCall(String numberToCall) {
         numberToCall.replaceAll(" ", "");
         Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + numberToCall));
@@ -207,9 +222,8 @@ public class HomeActivity extends AppCompatActivity
             ActivityCompat.requestPermissions(this,
                     new String[]{Manifest.permission.CALL_PHONE},
                     MY_PERMISSIONS_REQUEST_CALL_PHONE);
-
-            return;
+        } else {
+            startActivity(intent);
         }
-        startActivity(intent);
     }
 }
