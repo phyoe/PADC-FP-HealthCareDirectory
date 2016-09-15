@@ -54,9 +54,9 @@ public class ArticleModel {
         return mArticleList;
     }
 
-    public ArticleVO getArticleByTitle(String title) {
+    public ArticleVO getArticleById(int id) {
         for (ArticleVO article : mArticleList) {
-            if (article.getTitle().equals(title)){
+            if (article.getId() == id){
                 return article;
             }
         }

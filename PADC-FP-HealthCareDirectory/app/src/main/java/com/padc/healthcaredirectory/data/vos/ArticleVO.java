@@ -7,6 +7,9 @@ import com.google.gson.annotations.SerializedName;
  */
 public class ArticleVO {
 
+    @SerializedName("id")
+    int id;
+
     @SerializedName("title")
     String title;
 
@@ -24,6 +27,10 @@ public class ArticleVO {
 
     @SerializedName("website")
     String website;
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public void setTitle(String title) {
         this.title = title;
@@ -47,6 +54,10 @@ public class ArticleVO {
 
     public void setWebsite(String website) {
         this.website = website;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getTitle() {

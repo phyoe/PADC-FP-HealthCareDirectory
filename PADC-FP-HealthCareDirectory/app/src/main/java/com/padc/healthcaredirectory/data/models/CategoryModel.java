@@ -24,7 +24,7 @@ public class CategoryModel {
 
     public CategoryModel() {
         super();
-        mCategoryList = initializeCategoryList();
+        //mCategoryList = initializeCategoryList();
     }
 
     public static CategoryModel getInstance(){

@@ -38,9 +38,18 @@
             android:name=".activities.DoctorActivity"
             android:parentActivityName=".activities.HomeActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activities.ArticleListActivity"
+        <activity
+            android:name=".activities.ArticleListActivity"
             android:parentActivityName=".activities.HomeActivity"
-            android:theme="@style/AppTheme.NoActionBar" ></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.ArticleDetailActivity"
+            android:parentActivityName=".activities.HomeActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.padc.healthcaredirectory.activities.HomeActivity" />
+        </activity>
     </application>
 
 </manifest>
