@@ -49,10 +49,8 @@ public class DoctorCategoryListFragment extends BaseFragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        //mControllerCategoryItem = (CategoryViewHolder.ControllerCategoryItem) context;
-        mControllerCategoryItem = (CategoryViewHolder.ControllerCategoryItem) context;
         if(context instanceof CategoryViewHolder.ControllerCategoryItem){
-
+            mControllerCategoryItem = (CategoryViewHolder.ControllerCategoryItem) context;
         } else {
             throw new RuntimeException("Unsupported Type");
         }
@@ -65,8 +63,8 @@ public class DoctorCategoryListFragment extends BaseFragment {
         View rootView = inflater.inflate(R.layout.fragment_doctor_category_list, container, false);
         ButterKnife.bind(this, rootView);
 
-        //List<CategoryVO> categoryList = CategoryModel.getInstance().getCategoryList();
-        List<CategoryVO> categoryList = super.setTempData();
+        List<CategoryVO> categoryList = CategoryModel.getInstance().getCategoryList();
+        //List<CategoryVO> categoryList = super.setTempData();
 
         mCategoryAdapter = new CategoryAdapter(categoryList, mControllerCategoryItem);
         rvDoctorCategories.setAdapter(mCategoryAdapter);

@@ -8,12 +8,15 @@ import android.support.v7.widget.Toolbar;
 
 import com.padc.healthcaredirectory.HealthCareDirectoryApp;
 import com.padc.healthcaredirectory.R;
+import com.padc.healthcaredirectory.data.vos.CategoryVO;
 import com.padc.healthcaredirectory.fragments.DoctorCategoryListFragment;
+import com.padc.healthcaredirectory.views.holders.CategoryViewHolder;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class DoctorActivity extends AppCompatActivity {
+public class DoctorActivity extends AppCompatActivity
+       implements CategoryViewHolder.ControllerCategoryItem {
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
@@ -43,5 +46,10 @@ public class DoctorActivity extends AppCompatActivity {
                     .replace(R.id.fl_container, fragment)
                     .commit();
         }
+    }
+
+    @Override
+    public void onTapCategory(CategoryVO category) {
+
     }
 }
