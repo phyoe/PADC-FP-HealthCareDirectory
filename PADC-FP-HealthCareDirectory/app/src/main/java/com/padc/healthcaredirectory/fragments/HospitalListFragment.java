@@ -3,7 +3,6 @@ package com.padc.healthcaredirectory.fragments;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -32,7 +31,7 @@ public class HospitalListFragment extends BaseFragment {
     RecyclerView rvHospitals;
 
     private HealthCareAdapter mHealthCareAdapter;
-    private HealthCareViewHolder.ControllerHealthCareItem controllerHealthCareItem;
+    private HealthCareViewHolder.ControllerHealthCareItem mControllerHealthCareItem;
 
     public static HospitalListFragment newInstance() {
         HospitalListFragment fragment = new HospitalListFragment();
@@ -43,18 +42,10 @@ public class HospitalListFragment extends BaseFragment {
     public void onAttach(Context context) {
         super.onAttach(context);
         if(context instanceof HealthCareViewHolder.ControllerHealthCareItem){
-            controllerHealthCareItem = (HealthCareViewHolder.ControllerHealthCareItem) context;
+            mControllerHealthCareItem = (HealthCareViewHolder.ControllerHealthCareItem) context;
         } else {
             throw new RuntimeException("Unsupported Type");
         }
-    }
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-       //mHealthCareAdapter = new HealthCareAdapter(HealthCareModel.getInstance().getHealthCareList(), controllerHealthCareItem);
-
     }
 
     @Override
@@ -67,7 +58,7 @@ public class HospitalListFragment extends BaseFragment {
         List<HealthCareVO> healthCareList = HealthCareModel.getInstance().getHealthCareList();
         //List<HealthCareVO> healthCareList = super.setTempData(R.string.health_care_hospital, HealthCareDirectoryConstants.FRAGMENT_HOSPITAL);
 
-        mHealthCareAdapter = new HealthCareAdapter(healthCareList, controllerHealthCareItem);
+        mHealthCareAdapter = new HealthCareAdapter(healthCareList, mControllerHealthCareItem);
         rvHospitals.setAdapter(mHealthCareAdapter);
 
         rvHospitals.setLayoutManager(new GridLayoutManager(getContext(), super.gridColumnSpanCount));

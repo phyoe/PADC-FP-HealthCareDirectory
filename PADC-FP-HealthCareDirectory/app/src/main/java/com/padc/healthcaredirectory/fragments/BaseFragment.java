@@ -3,6 +3,7 @@ package com.padc.healthcaredirectory.fragments;
 import android.support.v4.app.Fragment;
 
 import com.padc.healthcaredirectory.R;
+import com.padc.healthcaredirectory.data.vos.CategoryVO;
 import com.padc.healthcaredirectory.data.vos.HealthCareVO;
 import com.padc.healthcaredirectory.utils.HealthCareDirectoryConstants;
 
@@ -36,6 +37,18 @@ public class BaseFragment extends Fragment {
             healthcare.setAddress(getString(R.string.dummy_address));
             healthcare.setPhones(phones);
             healthcare.setCategory(category);
+            healthCareList.add(healthcare);
+        }
+        return healthCareList;
+    }
+
+    protected List<CategoryVO> setTempData(){
+        List<CategoryVO> healthCareList = new ArrayList<>();
+
+        for(int i=0 ; i<10 ; i++){
+            CategoryVO healthcare = new CategoryVO();
+            healthcare.setTitle("CategoryVO" + (i+1));
+            healthcare.setMmTitle("CategoryVO" + (i+1));
             healthCareList.add(healthcare);
         }
         return healthCareList;
