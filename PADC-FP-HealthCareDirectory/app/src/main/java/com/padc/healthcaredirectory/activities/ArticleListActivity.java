@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.widget.Toast;
 
 import com.padc.healthcaredirectory.HealthCareDirectoryApp;
 import com.padc.healthcaredirectory.R;
@@ -50,6 +51,13 @@ public class ArticleListActivity extends AppCompatActivity
 
     @Override
     public void onTapArticle(ArticleVO article) {
+
+        Toast.makeText(getApplicationContext(), "Detail View will show ...", Toast.LENGTH_SHORT).show();
+
+        int id = article.getId();
+
+        Intent intent = ArticleDetailActivity.newIntent(id);
+        startActivity(intent);
 
     }
 }
