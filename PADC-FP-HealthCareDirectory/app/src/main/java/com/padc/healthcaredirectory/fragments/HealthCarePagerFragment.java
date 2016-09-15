@@ -29,7 +29,7 @@ public class HealthCarePagerFragment extends Fragment {
     @BindView(R.id.pager_health_care)
     ViewPager pagerHealthCare;
 
-    private HealthCarePagerAdapter mHealthCareAdapter;
+    private HealthCarePagerAdapter mHealthCarePagerAdapter;
 
     public static Fragment newInstance() {
         HealthCarePagerFragment fragment = new HealthCarePagerFragment();
@@ -39,10 +39,10 @@ public class HealthCarePagerFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mHealthCareAdapter = new HealthCarePagerAdapter(getActivity().getSupportFragmentManager());
-        mHealthCareAdapter.addTab(HospitalListFragment.newInstance(), getString(R.string.health_care_hospital));
-        mHealthCareAdapter.addTab(ClinicListFragment.newInstance(), getString(R.string.health_care_clinic));
-        mHealthCareAdapter.addTab(PharmacyListFragment.newInstance(), getString(R.string.health_care_pharmacy));
+        mHealthCarePagerAdapter = new HealthCarePagerAdapter(getActivity().getSupportFragmentManager());
+        mHealthCarePagerAdapter.addTab(HospitalListFragment.newInstance(), getString(R.string.health_care_hospital));
+        mHealthCarePagerAdapter.addTab(ClinicListFragment.newInstance(), getString(R.string.health_care_clinic));
+        mHealthCarePagerAdapter.addTab(PharmacyListFragment.newInstance(), getString(R.string.health_care_pharmacy));
     }
 
     @Override
@@ -51,8 +51,8 @@ public class HealthCarePagerFragment extends Fragment {
         View rootView =  inflater.inflate(R.layout.fragment_pager_health_care, container, false);
         ButterKnife.bind(this, rootView);
 
-        pagerHealthCare.setAdapter(mHealthCareAdapter);
-        pagerHealthCare.setOffscreenPageLimit(mHealthCareAdapter.getCount());
+        pagerHealthCare.setAdapter(mHealthCarePagerAdapter);
+        pagerHealthCare.setOffscreenPageLimit(mHealthCarePagerAdapter.getCount());
 
         tabLayoutHealthCare.setupWithViewPager(pagerHealthCare);
 
