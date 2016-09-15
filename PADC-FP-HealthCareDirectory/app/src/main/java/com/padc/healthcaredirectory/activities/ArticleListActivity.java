@@ -8,12 +8,15 @@ import android.support.v7.widget.Toolbar;
 
 import com.padc.healthcaredirectory.HealthCareDirectoryApp;
 import com.padc.healthcaredirectory.R;
+import com.padc.healthcaredirectory.data.vos.ArticleVO;
 import com.padc.healthcaredirectory.fragments.ArticleListFragment;
+import com.padc.healthcaredirectory.views.holders.ArticleViewHolder;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class ArticleListActivity extends AppCompatActivity {
+public class ArticleListActivity extends AppCompatActivity
+        implements ArticleViewHolder.ControllerArticleItem {
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
@@ -43,5 +46,10 @@ public class ArticleListActivity extends AppCompatActivity {
                     .replace(R.id.fl_container, fragment)
                     .commit();
         }
+    }
+
+    @Override
+    public void onTapArticle(ArticleVO article) {
+
     }
 }

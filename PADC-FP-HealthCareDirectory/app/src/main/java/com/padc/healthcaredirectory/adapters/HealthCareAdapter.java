@@ -21,11 +21,6 @@ public class HealthCareAdapter extends RecyclerView.Adapter<HealthCareViewHolder
     private List<HealthCareVO> mHealthCareList;
     private HealthCareViewHolder.ControllerHealthCareItem mControllerHealthCareItem;
 
-    public HealthCareAdapter(List<HealthCareVO> healthCareList) {
-        mInflater = LayoutInflater.from(HealthCareDirectoryApp.getContext());
-        mHealthCareList = healthCareList;
-    }
-
     public HealthCareAdapter(List<HealthCareVO> healthCareList, HealthCareViewHolder.ControllerHealthCareItem controllerHealthCareItem) {
         mInflater = LayoutInflater.from(HealthCareDirectoryApp.getContext());
         mHealthCareList = healthCareList;
