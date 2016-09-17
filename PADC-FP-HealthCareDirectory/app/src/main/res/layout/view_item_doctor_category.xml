@@ -13,16 +13,6 @@
         android:paddingBottom="@dimen/margin_medium_1"
         android:paddingTop="@dimen/margin_medium_1">
 
-        <ImageView
-            android:id="@+id/iv_icon"
-            android:layout_width="@dimen/icon_image_size"
-            android:layout_height="@dimen/icon_image_size"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/margin_medium_2"
-            android:layout_marginRight="@dimen/margin_medium_2"
-            android:elevation="4dp"
-            android:src="@drawable/dummy_doctor" />
-
         <com.padc.healthcaredirectory.components.MMTextView
             android:id="@+id/tv_name"
             style="@style/ListViewItem"
@@ -31,6 +21,7 @@
             android:layout_alignTop="@id/iv_icon"
             android:layout_centerVertical="true"
             android:layout_marginBottom="@dimen/margin_medium"
+            android:layout_marginLeft="@dimen/margin_medium_2"
             android:layout_marginRight="@dimen/margin_small"
             android:layout_toRightOf="@+id/iv_icon"
             android:ellipsize="end"

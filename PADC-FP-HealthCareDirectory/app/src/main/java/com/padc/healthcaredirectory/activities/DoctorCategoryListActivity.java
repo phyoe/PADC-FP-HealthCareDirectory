@@ -8,28 +8,28 @@ import android.support.v7.widget.Toolbar;
 
 import com.padc.healthcaredirectory.HealthCareDirectoryApp;
 import com.padc.healthcaredirectory.R;
-import com.padc.healthcaredirectory.data.vos.CategoryVO;
+import com.padc.healthcaredirectory.data.vos.DoctorVO;
 import com.padc.healthcaredirectory.fragments.DoctorCategoryListFragment;
-import com.padc.healthcaredirectory.views.holders.CategoryViewHolder;
+import com.padc.healthcaredirectory.views.holders.DoctorCategoryViewHolder;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class DoctorActivity extends AppCompatActivity
-       implements CategoryViewHolder.ControllerCategoryItem {
+public class DoctorCategoryListActivity extends AppCompatActivity
+       implements DoctorCategoryViewHolder.ControllerDocotorCategoryItem {
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
 
     public static Intent newIntent(){
-        Intent intent = new Intent(HealthCareDirectoryApp.getContext(), DoctorActivity.class);
+        Intent intent = new Intent(HealthCareDirectoryApp.getContext(), DoctorCategoryListActivity.class);
         return intent;
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_doctor);
+        setContentView(R.layout.activity_doctor_category_list);
         ButterKnife.bind(this, this);
 
         setSupportActionBar(toolbar);
@@ -49,7 +49,12 @@ public class DoctorActivity extends AppCompatActivity
     }
 
     @Override
-    public void onTapCategory(CategoryVO category) {
+    public void onTapDoctorCategory(DoctorVO doctor) {
 
+        String categoryName = doctor.getCategory();
+        int doctorId = doctor.getId();
+
+        Intent intent = DoctorListActivity.newIntent(categoryName, doctorId);
+        startActivity(intent);
     }
 }

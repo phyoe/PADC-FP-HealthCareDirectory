@@ -1,18 +1,29 @@
 package com.padc.healthcaredirectory.fragments;
 
-
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.padc.healthcaredirectory.HealthCareDirectoryApp;
 import com.padc.healthcaredirectory.R;
-import com.padc.healthcaredirectory.adapters.CategoryAdapter;
-import com.padc.healthcaredirectory.views.holders.CategoryViewHolder;
+import com.padc.healthcaredirectory.activities.DoctorListActivity;
+import com.padc.healthcaredirectory.adapters.DoctorAdapter;
+import com.padc.healthcaredirectory.adapters.DoctorCategoryAdapter;
+import com.padc.healthcaredirectory.data.models.DoctorCategoryModel;
+import com.padc.healthcaredirectory.data.models.DoctorModel;
+import com.padc.healthcaredirectory.data.vos.DoctorCategoryVO;
+import com.padc.healthcaredirectory.data.vos.DoctorVO;
+import com.padc.healthcaredirectory.views.holders.DoctorCategoryViewHolder;
+import com.padc.healthcaredirectory.views.holders.DoctorViewHolder;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -25,8 +36,8 @@ public class DoctorCategoryListFragment extends BaseFragment {
     @BindView(R.id.rv_doctor_categories)
     RecyclerView rvDoctorCategories;
 
-    private CategoryAdapter mCategoryAdapter;
-    private CategoryViewHolder.ControllerCategoryItem mControllerCategoryItem;
+    private DoctorCategoryAdapter mDoctorCategoryAdapter;
+    private DoctorCategoryViewHolder.ControllerDocotorCategoryItem mControllerDocotorCategoryItem;
 
     public static DoctorCategoryListFragment newInstance(){
         DoctorCategoryListFragment fragment = new DoctorCategoryListFragment();
@@ -34,18 +45,10 @@ public class DoctorCategoryListFragment extends BaseFragment {
     }
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        //List<CategoryVO> categoryList = CategoryModel.getInstance().getCategoryList();
-        //mCategoryAdapter = new CategoryAdapter(categoryList, mControllerCategoryItem);
-    }
-
-    @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if(context instanceof CategoryViewHolder.ControllerCategoryItem){
-            //mControllerCategoryItem = (CategoryViewHolder.ControllerCategoryItem) context;
+        if(context instanceof DoctorCategoryViewHolder.ControllerDocotorCategoryItem){
+            mControllerDocotorCategoryItem = (DoctorCategoryViewHolder.ControllerDocotorCategoryItem) context;
         } else {
             throw new RuntimeException("Unsupported Type");
         }
@@ -58,15 +61,16 @@ public class DoctorCategoryListFragment extends BaseFragment {
         View rootView = inflater.inflate(R.layout.fragment_doctor_category_list, container, false);
         ButterKnife.bind(this, rootView);
 
-        /**
-        List<CategoryVO> categoryList = CategoryModel.getInstance().getCategoryList();
-        //List<CategoryVO> categoryList = super.setTempData();
+        List<DoctorVO> doctorList = DoctorModel.getInstance().getDoctorList();
+        //List<HealthCareVO> healthCareList = super.setTempData(R.string.health_care_hospital, HealthCareDirectoryConstants.FRAGMENT_HOSPITAL);
 
-        mCategoryAdapter = new CategoryAdapter(categoryList, mControllerCategoryItem);
-        rvDoctorCategories.setAdapter(mCategoryAdapter);
+        mDoctorCategoryAdapter = new DoctorCategoryAdapter(doctorList, mControllerDocotorCategoryItem);
+        rvDoctorCategories.setAdapter(mDoctorCategoryAdapter);
+
 
         rvDoctorCategories.setLayoutManager(new GridLayoutManager(getContext(), super.gridColumnSpanCount));
-        /**/
+
         return rootView;
     }
+
 }

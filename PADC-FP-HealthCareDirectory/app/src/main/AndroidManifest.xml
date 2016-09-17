@@ -35,9 +35,17 @@
             android:parentActivityName=".activities.HomeActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".activities.DoctorActivity"
+            android:name=".activities.DoctorCategoryListActivity"
             android:parentActivityName=".activities.HomeActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.DoctorListActivity"
+            android:parentActivityName=".activities.DoctorCategoryListActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.DoctorDetailActivity"
+            android:parentActivityName=".activities.DoctorListActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".activities.ArticleListActivity"
             android:parentActivityName=".activities.HomeActivity"
@@ -45,7 +53,7 @@
         <activity
             android:name=".activities.ArticleDetailActivity"
             android:parentActivityName=".activities.ArticleListActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
