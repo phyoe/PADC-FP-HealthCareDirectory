@@ -20,9 +20,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Toast;
 
-import com.padc.healthcaredirectory.HealthCareDirectoryApp;
 import com.padc.healthcaredirectory.R;
 import com.padc.healthcaredirectory.data.vos.ArticleVO;
 import com.padc.healthcaredirectory.data.vos.DoctorVO;
@@ -164,7 +162,7 @@ public class HomeActivity extends AppCompatActivity
     }
 
     private void navigateToDoctorList() {
-        Toast.makeText(HealthCareDirectoryApp.getContext(), "Doctor will show ...", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(HealthCareDirectoryApp.getContext(), "Doctor will show ...", Toast.LENGTH_SHORT).show();
 
         Intent intent = DoctorCategoryListActivity.newIntent();
         startActivity(intent);
@@ -187,7 +185,7 @@ public class HomeActivity extends AppCompatActivity
     }
 
     private void navigateToArticleList() {
-        Toast.makeText(HealthCareDirectoryApp.getContext(), "Article will show ...", Toast.LENGTH_SHORT).show();
+       //Toast.makeText(HealthCareDirectoryApp.getContext(), "Article will show ...", Toast.LENGTH_SHORT).show();
 
         Intent inent = ArticleListActivity.newInent();
         startActivity(inent);
@@ -208,7 +206,7 @@ public class HomeActivity extends AppCompatActivity
     @Override
     public void onTapHealthCare(HealthCareVO healthcare, ImageView ivHealthCare) {
 
-        Toast.makeText(getApplicationContext(), "Detail View will show ...", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(), "Detail View will show ...", Toast.LENGTH_SHORT).show();
 
         int id = healthcare.getId();
         String name = healthcare.getName();

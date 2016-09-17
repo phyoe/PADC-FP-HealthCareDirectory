@@ -25,6 +25,9 @@ public class DoctorVO {
     @SerializedName("image")
     String image;
 
+    @SerializedName("email")
+    String email;
+
     @SerializedName("facebook")
     String facebook;
 
@@ -45,6 +48,10 @@ public class DoctorVO {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public void setFacebook(String facebook) {
@@ -77,6 +84,10 @@ public class DoctorVO {
 
     public String getImage() {
         return image;
+    }
+
+    public String getEmail() {
+        return email;
     }
 
     public String getFacebook() {

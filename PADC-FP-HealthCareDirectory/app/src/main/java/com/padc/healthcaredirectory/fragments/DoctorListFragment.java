@@ -9,9 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
-import com.padc.healthcaredirectory.HealthCareDirectoryApp;
 import com.padc.healthcaredirectory.R;
 import com.padc.healthcaredirectory.adapters.DoctorAdapter;
 import com.padc.healthcaredirectory.data.models.DoctorModel;
@@ -26,8 +24,7 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DoctorListFragment extends BaseFragment
-        implements DoctorViewHolder.ControllerDocotorItem {
+public class DoctorListFragment extends BaseFragment {
 
     @BindView(R.id.rv_doctors)
     RecyclerView rvDoctors;
@@ -35,11 +32,8 @@ public class DoctorListFragment extends BaseFragment
     private DoctorAdapter mDoctorAdapter;
     private DoctorViewHolder.ControllerDocotorItem mControllerDocotorItem;
 
-    private static DoctorVO mDoctorList;
-
-    public static DoctorListFragment newInstance(DoctorVO doctorList){
+    public static DoctorListFragment newInstance(){
         DoctorListFragment fragment = new DoctorListFragment();
-        mDoctorList = doctorList;
         return fragment;
     }
 
@@ -72,9 +66,4 @@ public class DoctorListFragment extends BaseFragment
 
     }
 
-    @Override
-    public void onTapDoctor(DoctorVO doctor) {
-        Toast.makeText(HealthCareDirectoryApp.getContext(), "Doctor Name List will show ...", Toast.LENGTH_SHORT).show();
-
-    }
 }

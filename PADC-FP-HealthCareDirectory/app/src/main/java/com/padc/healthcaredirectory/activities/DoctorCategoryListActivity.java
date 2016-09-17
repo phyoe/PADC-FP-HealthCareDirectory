@@ -5,15 +5,12 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.widget.Toast;
 
 import com.padc.healthcaredirectory.HealthCareDirectoryApp;
 import com.padc.healthcaredirectory.R;
-import com.padc.healthcaredirectory.data.vos.DoctorCategoryVO;
 import com.padc.healthcaredirectory.data.vos.DoctorVO;
 import com.padc.healthcaredirectory.fragments.DoctorCategoryListFragment;
 import com.padc.healthcaredirectory.views.holders.DoctorCategoryViewHolder;
-import com.padc.healthcaredirectory.views.holders.DoctorViewHolder;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -54,11 +51,10 @@ public class DoctorCategoryListActivity extends AppCompatActivity
     @Override
     public void onTapDoctorCategory(DoctorVO doctor) {
 
-        Toast.makeText(HealthCareDirectoryApp.getContext(), "Doctor Name List View will show ...", Toast.LENGTH_SHORT).show();
-
         String categoryName = doctor.getCategory();
+        int doctorId = doctor.getId();
 
-        Intent intent = DoctorListActivity.newIntent(categoryName);
+        Intent intent = DoctorListActivity.newIntent(categoryName, doctorId);
         startActivity(intent);
     }
 }

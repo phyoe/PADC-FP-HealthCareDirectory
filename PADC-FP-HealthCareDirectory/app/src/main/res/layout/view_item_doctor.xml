@@ -25,7 +25,7 @@
 
         <com.padc.healthcaredirectory.components.MMTextView
             android:id="@+id/tv_name"
-            style="@style/PrimaryTitle"
+            style="@style/ListViewItem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignTop="@id/iv_icon"

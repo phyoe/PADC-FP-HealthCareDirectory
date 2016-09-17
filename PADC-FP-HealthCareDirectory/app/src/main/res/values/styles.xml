@@ -24,7 +24,7 @@
 
     <style name="ContentText" parent="HealthCareCardView">
         <item name="android:textSize">@dimen/text_regular</item>
-        <item name="android:textColor">@color/black_full</item>
+        <item name="android:textColor">@color/black_overlay</item>
         <item name="android:lineSpacingMultiplier">1.2</item>
     </style>
 
@@ -40,13 +40,18 @@
 
     <style name="ArticleDate" parent="HealthCareCardView">
         <item name="android:textSize">@dimen/text_regular</item>
-        <item name="android:textColor">@color/black_overlay</item>
+        <item name="android:textColor">@color/black_full</item>
     </style>
 
     <style name="HealthCareCardButton">
         <item name="android:background">@drawable/bg_rounded</item>
         <item name="android:textColor">@color/primary</item>
         <item name="android:padding">@dimen/margin_extra_small</item>
+    </style>
+
+    <style name="ListViewItem" parent="HealthCareCardView">
+        <item name="android:textSize">@dimen/text_regular_2x</item>
+        <item name="android:textColor">@color/primary_dark</item>
     </style>
 
     <style name="AppTheme.NoActionBar">

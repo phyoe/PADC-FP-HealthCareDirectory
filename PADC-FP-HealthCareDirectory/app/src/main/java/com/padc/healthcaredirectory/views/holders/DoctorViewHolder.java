@@ -9,7 +9,6 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.padc.healthcaredirectory.HealthCareDirectoryApp;
 import com.padc.healthcaredirectory.R;
-import com.padc.healthcaredirectory.data.vos.ArticleVO;
 import com.padc.healthcaredirectory.data.vos.DoctorVO;
 
 import butterknife.BindView;
@@ -19,6 +18,7 @@ import butterknife.ButterKnife;
  * Created by Phyoe Khant on 9/16/2016.
  */
 public class DoctorViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+
     @BindView(R.id.iv_icon)
     ImageView ivIcon;
 
@@ -53,7 +53,7 @@ public class DoctorViewHolder extends RecyclerView.ViewHolder implements View.On
 
     @Override
     public void onClick(View v) {
-
+        mController.onTapDoctor(mDoctor);
     }
 
     public interface ControllerDocotorItem {

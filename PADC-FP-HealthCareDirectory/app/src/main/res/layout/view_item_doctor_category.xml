@@ -15,12 +15,13 @@
 
         <com.padc.healthcaredirectory.components.MMTextView
             android:id="@+id/tv_name"
-            style="@style/PrimaryTitle"
+            style="@style/ListViewItem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignTop="@id/iv_icon"
             android:layout_centerVertical="true"
             android:layout_marginBottom="@dimen/margin_medium"
+            android:layout_marginLeft="@dimen/margin_medium_2"
             android:layout_marginRight="@dimen/margin_small"
             android:layout_toRightOf="@+id/iv_icon"
             android:ellipsize="end"
