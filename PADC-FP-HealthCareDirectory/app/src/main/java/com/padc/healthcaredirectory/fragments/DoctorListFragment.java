@@ -1,7 +1,7 @@
 package com.padc.healthcaredirectory.fragments;
 
+
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
@@ -13,14 +13,9 @@ import android.widget.Toast;
 
 import com.padc.healthcaredirectory.HealthCareDirectoryApp;
 import com.padc.healthcaredirectory.R;
-import com.padc.healthcaredirectory.activities.DoctorListActivity;
 import com.padc.healthcaredirectory.adapters.DoctorAdapter;
-import com.padc.healthcaredirectory.adapters.DoctorCategoryAdapter;
-import com.padc.healthcaredirectory.data.models.DoctorCategoryModel;
 import com.padc.healthcaredirectory.data.models.DoctorModel;
-import com.padc.healthcaredirectory.data.vos.DoctorCategoryVO;
 import com.padc.healthcaredirectory.data.vos.DoctorVO;
-import com.padc.healthcaredirectory.views.holders.DoctorCategoryViewHolder;
 import com.padc.healthcaredirectory.views.holders.DoctorViewHolder;
 
 import java.util.List;
@@ -31,24 +26,28 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DoctorCategoryListFragment extends BaseFragment {
+public class DoctorListFragment extends BaseFragment
+        implements DoctorViewHolder.ControllerDocotorItem {
 
-    @BindView(R.id.rv_doctor_categories)
-    RecyclerView rvDoctorCategories;
+    @BindView(R.id.rv_doctors)
+    RecyclerView rvDoctors;
 
-    private DoctorCategoryAdapter mDoctorCategoryAdapter;
-    private DoctorCategoryViewHolder.ControllerDocotorCategoryItem mControllerDocotorCategoryItem;
+    private DoctorAdapter mDoctorAdapter;
+    private DoctorViewHolder.ControllerDocotorItem mControllerDocotorItem;
 
-    public static DoctorCategoryListFragment newInstance(){
-        DoctorCategoryListFragment fragment = new DoctorCategoryListFragment();
+    private static DoctorVO mDoctorList;
+
+    public static DoctorListFragment newInstance(DoctorVO doctorList){
+        DoctorListFragment fragment = new DoctorListFragment();
+        mDoctorList = doctorList;
         return fragment;
     }
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if(context instanceof DoctorCategoryViewHolder.ControllerDocotorCategoryItem){
-            mControllerDocotorCategoryItem = (DoctorCategoryViewHolder.ControllerDocotorCategoryItem) context;
+        if(context instanceof DoctorViewHolder.ControllerDocotorItem){
+            mControllerDocotorItem = (DoctorViewHolder.ControllerDocotorItem) context;
         } else {
             throw new RuntimeException("Unsupported Type");
         }
@@ -58,19 +57,24 @@ public class DoctorCategoryListFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.fragment_doctor_category_list, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_doctor_list, container, false);
         ButterKnife.bind(this, rootView);
 
         List<DoctorVO> doctorList = DoctorModel.getInstance().getDoctorList();
         //List<HealthCareVO> healthCareList = super.setTempData(R.string.health_care_hospital, HealthCareDirectoryConstants.FRAGMENT_HOSPITAL);
 
-        mDoctorCategoryAdapter = new DoctorCategoryAdapter(doctorList, mControllerDocotorCategoryItem);
-        rvDoctorCategories.setAdapter(mDoctorCategoryAdapter);
+        mDoctorAdapter = new DoctorAdapter(doctorList, mControllerDocotorItem);
+        rvDoctors.setAdapter(mDoctorAdapter);
 
-
-        rvDoctorCategories.setLayoutManager(new GridLayoutManager(getContext(), super.gridColumnSpanCount));
+        rvDoctors.setLayoutManager(new GridLayoutManager(getContext(), super.gridColumnSpanCount));
 
         return rootView;
+
     }
 
+    @Override
+    public void onTapDoctor(DoctorVO doctor) {
+        Toast.makeText(HealthCareDirectoryApp.getContext(), "Doctor Name List will show ...", Toast.LENGTH_SHORT).show();
+
+    }
 }

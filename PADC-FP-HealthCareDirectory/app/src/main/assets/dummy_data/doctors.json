@@ -1,0 +1,64 @@
+[{
+  "id": 1,
+  "name": "ေဒါက္တာ ေအ",
+  "category": "doctor_general",
+  "category_mm": "အေထြေထြေရာဂါ",
+  "qualifications": "MBBS - q1 q2 q3",
+  "image": "doctor1.jpg",
+  "facebook": "https://www.facebook.com/doctor1",
+  "website": "https://www.doctor1.com",
+  "hospital_list": [{
+    "id": 1,
+    "name": "Hospital-A",
+    "days": "Monday to Friday",
+    "times": "5:00PM-8:00PM"
+  }],
+  "clinic_list": [{
+    "id": 1,
+    "name": "Clinic-A",
+    "days": "Tuesday, Wednesday",
+    "times": "10:00AM-1:00PM"
+  }]
+}, {
+  "id": 2,
+  "name": "ေဒါက္တာ ဘီ",
+  "category": "doctor_general",
+  "category_mm": "အေထြေထြေရာဂါ",
+  "qualifications": "MBBS - q1 q2 q3",
+  "image": "doctor2.jpg",
+  "facebook": "https://www.facebook.com/doctor2",
+  "website": "https://www.doctor2.com",
+  "hospital_list": [{
+    "id": 1,
+    "name": "Hospital-A",
+    "days": "Monday to Friday",
+    "times": "5:00PM-8:00PM"
+  }],
+  "clinic_list": [{
+    "id": 1,
+    "name": "Clinic-A",
+    "days": "Tuesday, Wednesday",
+    "times": "10:00AM-1:00PM"
+  }]
+}, {
+  "id": 3,
+  "name": "ေဒါက္တာ စီ",
+  "category": "doctor_heart",
+  "category_mm": "ႏွလံုုးေရာဂါ",
+  "qualifications": "MBBS - q1 q2 q3",
+  "image": "doctor3.jpg",
+  "facebook": "https://www.facebook.com/doctor3",
+  "website": "https://www.doctor3.com",
+  "hospital_list": [{
+    "id": 1,
+    "name": "Hospital-A",
+    "days": "Monday to Friday",
+    "times": "5:00PM-8:00PM"
+  }],
+  "clinic_list": [{
+    "id": 1,
+    "name": "Clinic-A",
+    "days": "Tuesday, Wednesday",
+    "times": "10:00AM-1:00PM"
+  }]
+}]

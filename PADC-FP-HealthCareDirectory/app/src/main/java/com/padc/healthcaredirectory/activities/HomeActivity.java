@@ -25,11 +25,14 @@ import android.widget.Toast;
 import com.padc.healthcaredirectory.HealthCareDirectoryApp;
 import com.padc.healthcaredirectory.R;
 import com.padc.healthcaredirectory.data.vos.ArticleVO;
+import com.padc.healthcaredirectory.data.vos.DoctorVO;
 import com.padc.healthcaredirectory.data.vos.HealthCareVO;
 import com.padc.healthcaredirectory.fragments.HealthCarePagerFragment;
 import com.padc.healthcaredirectory.utils.HealthCareDirectoryConstants;
 import com.padc.healthcaredirectory.utils.MMFontUtils;
 import com.padc.healthcaredirectory.views.holders.ArticleViewHolder;
+import com.padc.healthcaredirectory.views.holders.DoctorCategoryViewHolder;
+import com.padc.healthcaredirectory.views.holders.DoctorViewHolder;
 import com.padc.healthcaredirectory.views.holders.HealthCareViewHolder;
 
 import butterknife.BindView;
@@ -38,6 +41,8 @@ import butterknife.ButterKnife;
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
         HealthCareViewHolder.ControllerHealthCareItem,
+        DoctorCategoryViewHolder.ControllerDocotorCategoryItem,
+        DoctorViewHolder.ControllerDocotorItem,
         ArticleViewHolder.ControllerArticleItem {
 
     private static final int MY_PERMISSIONS_REQUEST_CALL_PHONE = 100;
@@ -161,7 +166,7 @@ public class HomeActivity extends AppCompatActivity
     private void navigateToDoctorList() {
         Toast.makeText(HealthCareDirectoryApp.getContext(), "Doctor will show ...", Toast.LENGTH_SHORT).show();
 
-        Intent intent = DoctorActivity.newIntent();
+        Intent intent = DoctorCategoryListActivity.newIntent();
         startActivity(intent);
     }
 
@@ -239,6 +244,16 @@ public class HomeActivity extends AppCompatActivity
 
     @Override
     public void onTapArticle(ArticleVO article) {
+
+    }
+
+    @Override
+    public void onTapDoctor(DoctorVO doctor) {
+
+    }
+
+    @Override
+    public void onTapDoctorCategory(DoctorVO doctor) {
 
     }
 }

@@ -35,8 +35,12 @@
             android:parentActivityName=".activities.HomeActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".activities.DoctorActivity"
+            android:name=".activities.DoctorCategoryListActivity"
             android:parentActivityName=".activities.HomeActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.DoctorListActivity"
+            android:parentActivityName=".activities.DoctorCategoryListActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.ArticleListActivity"
