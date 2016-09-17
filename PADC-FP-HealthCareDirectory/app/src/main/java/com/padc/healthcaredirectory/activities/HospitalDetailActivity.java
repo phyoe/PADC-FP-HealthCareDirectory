@@ -24,7 +24,7 @@ import butterknife.ButterKnife;
 
 public class HospitalDetailActivity extends AppCompatActivity {
 
-    @BindView(R.id.detail_toolbar)
+    @BindView(R.id.toolbar)
     Toolbar toolbar;
 
     @BindView(R.id.fab_favourite)
