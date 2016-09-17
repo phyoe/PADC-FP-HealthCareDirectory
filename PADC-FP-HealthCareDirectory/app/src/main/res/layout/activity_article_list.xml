@@ -32,12 +32,20 @@
         </android.support.v7.widget.Toolbar>
     </android.support.design.widget.AppBarLayout>
 
+    <!--
     <FrameLayout
         android:id="@+id/fl_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingBottom="@dimen/margin_medium_2"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+    -->
 
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pager_earthquake"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:background="#FFF" />
 
 </android.support.design.widget.CoordinatorLayout>
