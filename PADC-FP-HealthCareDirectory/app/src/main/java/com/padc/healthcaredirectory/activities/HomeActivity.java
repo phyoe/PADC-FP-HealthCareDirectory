@@ -25,13 +25,11 @@ import android.widget.Toast;
 import com.padc.healthcaredirectory.HealthCareDirectoryApp;
 import com.padc.healthcaredirectory.R;
 import com.padc.healthcaredirectory.data.vos.ArticleVO;
-import com.padc.healthcaredirectory.data.vos.CategoryVO;
 import com.padc.healthcaredirectory.data.vos.HealthCareVO;
 import com.padc.healthcaredirectory.fragments.HealthCarePagerFragment;
 import com.padc.healthcaredirectory.utils.HealthCareDirectoryConstants;
 import com.padc.healthcaredirectory.utils.MMFontUtils;
 import com.padc.healthcaredirectory.views.holders.ArticleViewHolder;
-import com.padc.healthcaredirectory.views.holders.CategoryViewHolder;
 import com.padc.healthcaredirectory.views.holders.HealthCareViewHolder;
 
 import butterknife.BindView;
@@ -40,7 +38,6 @@ import butterknife.ButterKnife;
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
         HealthCareViewHolder.ControllerHealthCareItem,
-        CategoryViewHolder.ControllerCategoryItem,
         ArticleViewHolder.ControllerArticleItem {
 
     private static final int MY_PERMISSIONS_REQUEST_CALL_PHONE = 100;
@@ -238,11 +235,6 @@ public class HomeActivity extends AppCompatActivity
         } else {
             startActivity(intent);
         }
-    }
-
-    @Override
-    public void onTapCategory(CategoryVO category) {
-
     }
 
     @Override

@@ -62,6 +62,7 @@ public class ArticleListFragment extends BaseFragment {
 
         rvArticles.setLayoutManager(new GridLayoutManager(getContext(), super.gridColumnSpanCount));
 
-        return rootView; }
+        return rootView;
+    }
 
 }
