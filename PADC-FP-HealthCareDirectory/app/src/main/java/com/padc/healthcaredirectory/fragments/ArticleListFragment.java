@@ -12,11 +12,9 @@ import android.view.ViewGroup;
 
 import com.padc.healthcaredirectory.R;
 import com.padc.healthcaredirectory.adapters.ArticleAdapter;
-import com.padc.healthcaredirectory.adapters.HealthCareInfoAdapter;
 import com.padc.healthcaredirectory.data.models.ArticleModel;
 import com.padc.healthcaredirectory.data.vos.ArticleVO;
 import com.padc.healthcaredirectory.views.holders.ArticleViewHolder;
-import com.padc.healthcaredirectory.views.holders.HealthCareInfoViewHolder;
 
 import java.util.List;
 
@@ -31,11 +29,15 @@ public class ArticleListFragment extends BaseFragment {
     @BindView(R.id.rv_articles)
     RecyclerView rvArticles;
 
+    /**/
     private ArticleAdapter mArticleAdapter;
     private ArticleViewHolder.ControllerArticleItem mControllerArticleItem;
+    /**/
 
+    /**
     private HealthCareInfoAdapter mHealthCareInfoAdapter;
     private HealthCareInfoViewHolder.ControllerHealthCareInfoItem mControllerHealthCareInfoItem;
+    /**/
 
     public static ArticleListFragment newInstance(){
         ArticleListFragment fragment = new ArticleListFragment();
