@@ -24,6 +24,7 @@ import android.widget.ImageView;
 import com.padc.healthcaredirectory.R;
 import com.padc.healthcaredirectory.data.vos.ArticleVO;
 import com.padc.healthcaredirectory.data.vos.DoctorVO;
+import com.padc.healthcaredirectory.data.vos.HealthCareInfoVO;
 import com.padc.healthcaredirectory.data.vos.HealthCareServiceVO;
 import com.padc.healthcaredirectory.data.vos.HealthCareVO;
 import com.padc.healthcaredirectory.fragments.HealthCarePagerFragment;
@@ -32,6 +33,7 @@ import com.padc.healthcaredirectory.utils.MMFontUtils;
 import com.padc.healthcaredirectory.views.holders.ArticleViewHolder;
 import com.padc.healthcaredirectory.views.holders.DoctorCategoryViewHolder;
 import com.padc.healthcaredirectory.views.holders.DoctorViewHolder;
+import com.padc.healthcaredirectory.views.holders.HealthCareInfoViewHolder;
 import com.padc.healthcaredirectory.views.holders.HealthCareServiceViewHolder;
 import com.padc.healthcaredirectory.views.holders.HealthCareViewHolder;
 
@@ -44,7 +46,8 @@ public class HomeActivity extends AppCompatActivity
         DoctorCategoryViewHolder.ControllerDocotorCategoryItem,
         DoctorViewHolder.ControllerDocotorItem,
         ArticleViewHolder.ControllerArticleItem,
-        HealthCareServiceViewHolder.ControllerHealthCareItem {
+        HealthCareServiceViewHolder.ControllerHealthCareItem,
+        HealthCareInfoViewHolder.ControllerHealthCareInfoItem {
 
     private static final int MY_PERMISSIONS_REQUEST_CALL_PHONE = 100;
 
@@ -265,6 +268,11 @@ public class HomeActivity extends AppCompatActivity
 
     @Override
     public void onTapHealthCareService(HealthCareServiceVO healthcare, ImageView ivHealthCare) {
+
+    }
+
+    @Override
+    public void onTapHealthCareInfo(HealthCareInfoVO healthCareInfo) {
 
     }
 }

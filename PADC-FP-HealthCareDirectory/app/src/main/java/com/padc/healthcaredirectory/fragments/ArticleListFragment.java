@@ -12,9 +12,11 @@ import android.view.ViewGroup;
 
 import com.padc.healthcaredirectory.R;
 import com.padc.healthcaredirectory.adapters.ArticleAdapter;
+import com.padc.healthcaredirectory.adapters.HealthCareInfoAdapter;
 import com.padc.healthcaredirectory.data.models.ArticleModel;
 import com.padc.healthcaredirectory.data.vos.ArticleVO;
 import com.padc.healthcaredirectory.views.holders.ArticleViewHolder;
+import com.padc.healthcaredirectory.views.holders.HealthCareInfoViewHolder;
 
 import java.util.List;
 
@@ -32,6 +34,9 @@ public class ArticleListFragment extends BaseFragment {
     private ArticleAdapter mArticleAdapter;
     private ArticleViewHolder.ControllerArticleItem mControllerArticleItem;
 
+    private HealthCareInfoAdapter mHealthCareInfoAdapter;
+    private HealthCareInfoViewHolder.ControllerHealthCareInfoItem mControllerHealthCareInfoItem;
+
     public static ArticleListFragment newInstance(){
         ArticleListFragment fragment = new ArticleListFragment();
         return fragment;
@@ -40,11 +45,21 @@ public class ArticleListFragment extends BaseFragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+        /**/
         if(context instanceof ArticleViewHolder.ControllerArticleItem){
             mControllerArticleItem = (ArticleViewHolder.ControllerArticleItem) context;
         } else {
             throw new RuntimeException("Unsupported Type");
         }
+        /**/
+
+        /**
+        if(context instanceof HealthCareInfoViewHolder.ControllerHealthCareInfoItem){
+            mControllerHealthCareInfoItem = (HealthCareInfoViewHolder.ControllerHealthCareInfoItem) context;
+        } else {
+            throw new RuntimeException("Unsupported Type");
+        }
+        /**/
     }
 
     @Override
@@ -54,11 +69,20 @@ public class ArticleListFragment extends BaseFragment {
         View rootView = inflater.inflate(R.layout.fragment_article_list, container, false);
         ButterKnife.bind(this, rootView);
 
+        /**/
         List<ArticleVO> articleList = ArticleModel.getInstance().getArticleList();
         //List<HealthCareVO> healthCareList = super.setTempData(R.string.health_care_hospital, HealthCareDirectoryConstants.FRAGMENT_HOSPITAL);
 
         mArticleAdapter = new ArticleAdapter(articleList, mControllerArticleItem);
         rvArticles.setAdapter(mArticleAdapter);
+        /**/
+
+        /**
+        List<HealthCareInfoVO> healthCareInfoList = HealthCareInfoModel.getInstance().getHealthCareInfoList();
+
+        mHealthCareInfoAdapter = new HealthCareInfoAdapter(healthCareInfoList, mControllerHealthCareInfoItem);
+        rvArticles.setAdapter(mHealthCareInfoAdapter);
+        /**/
 
         rvArticles.setLayoutManager(new GridLayoutManager(getContext(), super.gridColumnSpanCount));
 

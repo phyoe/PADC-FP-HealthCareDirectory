@@ -109,13 +109,11 @@ public class HealthCareServiceModel {
         return null;
     }
 
-    public PhoneVO getPhonesByHealthCareServiceId(int id) {
-        for (PhoneVO phone : mPhoneList) {
-           // if (phone.getId() == id) {
-             //   return healthcare;
-           // }
-        }
-        return null;
+    public ArrayList<PhoneVO> getPhonesByHealthCareServiceId(int serviceId) {
+        ArrayList<PhoneVO> phoneList = new ArrayList<PhoneVO>();
+
+
+        return phoneList;
     }
 
 }

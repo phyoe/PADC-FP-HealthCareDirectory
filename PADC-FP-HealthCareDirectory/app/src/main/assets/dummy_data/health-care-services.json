@@ -1,1378 +1,1374 @@
-{
-	"code": 200,
-	"message": "OK",
-	"health-care-services": [{
-		"health-care-id": 9900000001,
-		"health-care-name": "အာရွေတာ္၀င္",
-		"category": "hospital",
-		"category-mm": "ေဆးရံု",
-		"image": "asiaroyal.jpg",
-		"address": "14,Baho Road,Sanchaung,YANGON,MYANMAR.",
-		"email": "asiaroyal@asiaroyal.com.mm",
-		"website": "http://www.asiaroyalhospital.com",
-		"mapinfo": "http://maps.google.com/maps?daddr=asiaroyalhospital",
-		"facebook": "https://www.facebook.com/Asia-Royal-Hospital-246812222184086/?ref=br_rs",
-		"remark": "",
-		"phones": [{
-			"phone-id": 9000000001,
-			"phone-name": "+95 1 230 4999"
+[{
+	"health-care-id": 9900000001,
+	"health-care-name": "အာရွေတာ္၀င္",
+	"category": "hospital",
+	"category-mm": "ေဆးရံု",
+	"image": "asiaroyal.jpg",
+	"address": "14,Baho Road,Sanchaung,YANGON,MYANMAR.",
+	"email": "asiaroyal@asiaroyal.com.mm",
+	"website": "http://www.asiaroyalhospital.com",
+	"mapinfo": "http://maps.google.com/maps?daddr=asiaroyalhospital",
+	"facebook": "https://www.facebook.com/Asia-Royal-Hospital-246812222184086/?ref=br_rs",
+	"remark": "",
+	"phones": [{
+		"phone-id": 9000000001,
+		"phone-name": "+95 1 230 4999"
+	}, {
+		"phone-id": 9000000002,
+		"phone-name": "+95 1 538 055"
+	}],
+	"fax": [{
+		"fax-id": 9000000001,
+		"fax-name": "95 1 537296"
+	}],
+	"tags": [{
+		"tag-id": 9000000001,
+		"tag-name": "private",
+		"tag-name-mm": "ပုဂၢလိဂ"
+	}],
+	"operations": [{
+		"operation-id": 9000000001,
+		"operation-name": "အေရးေပၚလူနာကုသျခင္း"
+	}, {
+		"operation-id": 9000000002,
+		"operation-name": "မ်က္စိခြဲစိတ္ျခင္း"
+	}, {
+		"operation-id": 9000000003,
+		"operation-name": "Digital X-Ray"
+	}, {
+		"operation-id": 9000000004,
+		"operation-name": "Echo Cardiogram"
+	}],
+	"price-category": 5,
+	"available-doctors": [{
+		"doctor-id": 9000000001,
+		"doctor-name": "ပါေမာကၡ ဦးေဇာ္သန္းထြန္း",
+		"title": "MBBS, MRCP(UK), FRCP(Edin), FRCP(Glasgow)",
+		"speciality": {
+			"speciality-id": 9000000001,
+			"speciality-title": "အေထြေထြေရာဂါ"
+		},
+		"time-slots": [{
+			"time": "15:00 - 18:00",
+			"date": "Tuesday"
 		}, {
-			"phone-id": 9000000002,
-			"phone-name": "+95 1 538 055"
-		}],
-		"fax": [{
-			"fax-id": 9000000001,
-			"fax-name": "95 1 537296"
-		}],
-		"tags": [{
-			"tag-id": 9000000001,
-			"tag-name": "private",
-			"tag-name-mm": "ပုဂၢလိဂ"
-		}],
-		"operations": [{
-			"operation-id": 9000000001,
-			"operation-name": "အေရးေပၚလူနာကုသျခင္း"
+			"time": "15:00 - 18:00",
+			"date": "Thursday"
 		}, {
-			"operation-id": 9000000002,
-			"operation-name": "မ်က္စိခြဲစိတ္ျခင္း"
-		}, {
-			"operation-id": 9000000003,
-			"operation-name": "Digital X-Ray"
-		}, {
-			"operation-id": 9000000004,
-			"operation-name": "Echo Cardiogram"
-		}],
-		"price-category": 5,
-		"available-doctors": [{
-			"doctor-id": 9000000001,
-			"doctor-name": "ပါေမာကၡ ဦးေဇာ္သန္းထြန္း",
-			"title": "MBBS, MRCP(UK), FRCP(Edin), FRCP(Glasgow)",
-			"speciality": {
-				"speciality-id": 9000000001,
-				"speciality-title": "အေထြေထြေရာဂါ"
-			},
-			"time-slots": [{
-				"time": "15:00 - 18:00",
-				"date": "Tuesday"
-			}, {
-				"time": "15:00 - 18:00",
-				"date": "Thursday"
-			}, {
-				"time": "10:00 - 13:00",
-				"date": "Sunday"
-			}]
-		}, {
-			"doctor-id": 9000000002,
-			"doctor-name": "ေဒါက္တာ လဲ့လဲ့ေဌး",
-			"title": "MBBS, MMedSc (Int Med), Fellowship in Rheumatology (Singapore)",
-			"speciality": {
-				"speciality-id": 9000000002,
-				"speciality-title": "အရိုးအဆစ္အထူးကု"
-			},
-			"time-slots": [{
-				"time": "16:30 - 17:30",
-				"date": "Monday"
-			}, {
-				"time": "16:30 - 17:30",
-				"date": "Wednesday"
-			}, {
-				"time": "16:30 - 17:30",
-				"date": "Friday"
-			}]
-		}, {
-			"doctor-id": 9000000003,
-			"doctor-name": "ေဒါက္တာ ေဒၚမိုးမိုးစမ္း (တြဲဖတ္ပါေမာကၡ)",
-			"title": "MBBS, MMedSc (Int Med), DrMedSc (Gen Edu), FRCP (Glasgow)",
-			"speciality": {
-				"speciality-id": 9000000001,
-				"speciality-title": "အေထြေထြေရာဂါ"
-			},
-			"time-slots": [{
-				"time": "16:00",
-				"date": "Tuesday"
-			}, {
-				"time": "16:00",
-				"date": "Thursday"
-			}]
-		}, {
-			"doctor-id": 9000000004,
-			"doctor-name": "ပါေမာကၡ ဦးခ်စ္စိုး",
-			"title": "MBBS, MMedSc, MRCP (UK), DrMedSc (General Med), FRCP (Edin), Dip Med Ed",
-			"speciality": {
-				"speciality-id": 9000000002,
-				"speciality-title": "အရိုးအဆစ္အထူးကု"
-			},
-			"time-slots": [{
-				"time": "16:00 - 17:00",
-				"date": "Wednesday"
-			}, {
-				"time": "16:00 - 17:00",
-				"date": "Saturdary"
-			}]
-		}, {
-			"doctor-id": 9000000005,
-			"doctor-name": "ေဒါက္တာ ေအာင္ကိုကိုေက်ာ္",
-			"title": "MBBS, MMedSc (Int Med), MRCP (UK), Fellowship in Hepatology (Korea)",
-			"speciality": {
-				"speciality-id": 9000000003,
-				"speciality-title": "အသည္းေရာဂါအထူးကု"
-			},
-			"time-slots": [{
-				"time": "08:00 - 09:00",
-				"date": "Monday to Friday"
-			}]
+			"time": "10:00 - 13:00",
+			"date": "Sunday"
 		}]
 	}, {
-		"health-care-id": 9900000002,
-		"health-care-name": "ဗဟိုရ္စည္",
-		"category": "hospital",
-		"category-mm": "ေဆးရံု",
-		"image": "bahosihospital.jpg",
-		"address": "အမွတ္-ဘီ(၁-၆)(၃၁-၃၆)(၃၇/၃၈)၊ဗဟိုရ္စည္အိမ္ရာ၊လမ္းမေတာ္ၿမိဳ႕နယ္၊ရန္ကုန္ၿမိဳ႕။",
-		"email": "BAHOSI.MED@mptmail.net.mm",
-		"website": "http://www.bahosihospital.com",
-		"mapinfo": "http://maps.google.com/maps?daddr=bahosihospital",
-		"facebook": "http://www.facebook.com/bahosihospital",
-		"remark": "Our mission is to provide a comprehensive cost effective health care delivery system.",
-		"phones": [{
-			"phone-id": 9000000001,
-			"phone-name": "+95 1 2300502"
+		"doctor-id": 9000000002,
+		"doctor-name": "ေဒါက္တာ လဲ့လဲ့ေဌး",
+		"title": "MBBS, MMedSc (Int Med), Fellowship in Rheumatology (Singapore)",
+		"speciality": {
+			"speciality-id": 9000000002,
+			"speciality-title": "အရိုးအဆစ္အထူးကု"
+		},
+		"time-slots": [{
+			"time": "16:30 - 17:30",
+			"date": "Monday"
 		}, {
-			"phone-id": 9000000002,
-			"phone-name": "+95 1 2300631"
-		}],
-		"fax": [{
-			"fax-id": 9000000001,
-			"fax-name": "2300519"
-		}],
-		"tags": [{
-			"tag-id": 9000000001,
-			"tag-name": "private",
-			"tag-name-mm": "ပုဂၢလိဂ"
-		}],
-		"operations": [{
-			"operation-id": 9000000001,
-			"operation-name": "အေရးေပၚလူနာကုသျခင္း"
+			"time": "16:30 - 17:30",
+			"date": "Wednesday"
 		}, {
-			"operation-id": 9000000002,
-			"operation-name": "မ်က္စိခြဲစိတ္ျခင္း"
-		}, {
-			"operation-id": 9000000003,
-			"operation-name": "Digital X-Ray"
-		}, {
-			"operation-id": 9000000004,
-			"operation-name": "Echo Cardiogram"
-		}],
-		"price-category": 4,
-		"available-doctors": [{
-			"doctor-id": 9000000001,
-			"doctor-name": "ပါေမာကၡ ဦးေဇာ္သန္းထြန္း",
-			"title": "MBBS, MRCP(UK), FRCP(Edin), FRCP(Glasgow)",
-			"speciality": {
-				"speciality-id": 9000000001,
-				"speciality-title": "အေထြေထြေရာဂါ"
-			},
-			"time-slots": [{
-				"time": "15:00 - 18:00",
-				"date": "Tuesday"
-			}, {
-				"time": "15:00 - 18:00",
-				"date": "Thursday"
-			}, {
-				"time": "10:00 - 13:00",
-				"date": "Sunday"
-			}]
-		}, {
-			"doctor-id": 9000000003,
-			"doctor-name": "ေဒါက္တာ ေဒၚမိုးမိုးစမ္း (တြဲဖတ္ပါေမာကၡ)",
-			"title": "MBBS, MMedSc (Int Med), DrMedSc (Gen Edu), FRCP (Glasgow)",
-			"speciality": {
-				"speciality-id": 9000000001,
-				"speciality-title": "အေထြေထြေရာဂါ"
-			},
-			"time-slots": [{
-				"time": "16:00",
-				"date": "Tuesday"
-			}, {
-				"time": "16:00",
-				"date": "Thursday"
-			}]
-		}, {
-			"doctor-id": 9000000005,
-			"doctor-name": "ေဒါက္တာ ေအာင္ကိုကိုေက်ာ္",
-			"title": "MBBS, MMedSc (Int Med), MRCP (UK), Fellowship in Hepatology (Korea)",
-			"speciality": {
-				"speciality-id": 9000000003,
-				"speciality-title": "အသည္းေရာဂါအထူးကု"
-			},
-			"time-slots": [{
-				"time": "08:00 - 09:00",
-				"date": "Monday to Friday"
-			}]
+			"time": "16:30 - 17:30",
+			"date": "Friday"
 		}]
 	}, {
-		"health-care-id": 9900000003,
-		"health-care-name": "ရန္ကုန္ျပည္သူ႕ေဆးရံုႀကီး",
-		"category": "hospital",
-		"category-mm": "ေဆးရံု",
-		"image": "yghhealthcare.jpg",
-		"address": "Bo Gyoke Aung San Road, Lanmadaw Township , Yangon , Myanmar.",
-		"email": "",
-		"website": "http://www.yghhealthcare.org/",
-		"mapinfo": "http://maps.google.com/maps?daddr=yangongeneralhospital",
-		"facebook": "https://www.facebook.com/yghhealthcare/?fref=ts",
-		"remark": "Yangon General Hospital is 2000 bedded,Tertiary Care Teaching Hospital with more than 24 specialities are avaliable",
-		"phones": [{
-			"phone-id": 9000000001,
-			"phone-name": "+95 1 384493"
+		"doctor-id": 9000000003,
+		"doctor-name": "ေဒါက္တာ ေဒၚမိုးမိုးစမ္း (တြဲဖတ္ပါေမာကၡ)",
+		"title": "MBBS, MMedSc (Int Med), DrMedSc (Gen Edu), FRCP (Glasgow)",
+		"speciality": {
+			"speciality-id": 9000000001,
+			"speciality-title": "အေထြေထြေရာဂါ"
+		},
+		"time-slots": [{
+			"time": "16:00",
+			"date": "Tuesday"
 		}, {
-			"phone-id": 9000000002,
-			"phone-name": "+95 1 384494"
-		}, {
-			"phone-id": 9000000003,
-			"phone-name": "+95 1 384495"
-		}, {
-			"phone-id": 9000000004,
-			"phone-name": "+95 1 379106"
-		}],
-		"fax": [],
-		"tags": [{
-			"tag-id": 9000000001,
-			"tag-name": "public",
-			"tag-name-mm": "အစိုးရ"
-		}],
-		"operations": [{
-			"operation-id": 9000000001,
-			"operation-name": "အေရးေပၚလူနာကုသျခင္း"
-		}, {
-			"operation-id": 9000000002,
-			"operation-name": "မ်က္စိခြဲစိတ္ျခင္း"
-		}, {
-			"operation-id": 9000000003,
-			"operation-name": "Digital X-Ray"
-		}, {
-			"operation-id": 9000000004,
-			"operation-name": "Echo Cardiogram"
-		}],
-		"price-category": 4,
-		"available-doctors": [{
-			"doctor-id": 9000000003,
-			"doctor-name": "ေဒါက္တာ ေဒၚမိုးမိုးစမ္း (တြဲဖတ္ပါေမာကၡ)",
-			"title": "MBBS, MMedSc (Int Med), DrMedSc (Gen Edu), FRCP (Glasgow)",
-			"speciality": {
-				"speciality-id": 9000000001,
-				"speciality-title": "အေထြေထြေရာဂါ"
-			},
-			"time-slots": [{
-				"time": "16:00",
-				"date": "Tuesday"
-			}, {
-				"time": "16:00",
-				"date": "Thursday"
-			}]
-		}, {
-			"doctor-id": 9000000005,
-			"doctor-name": "ေဒါက္တာ ေအာင္ကိုကိုေက်ာ္",
-			"title": "MBBS, MMedSc (Int Med), MRCP (UK), Fellowship in Hepatology (Korea)",
-			"speciality": {
-				"speciality-id": 9000000003,
-				"speciality-title": "အသည္းေရာဂါအထူးကု"
-			},
-			"time-slots": [{
-				"time": "08:00 - 09:00",
-				"date": "Monday to Friday"
-			}]
+			"time": "16:00",
+			"date": "Thursday"
 		}]
 	}, {
-		"health-care-id": 9900000004,
-		"health-care-name": "ေရႊလမင္းေဆး႐ုံ",
-		"category": "hospital",
-		"category-mm": "ေဆးရံု",
-		"image": "shwelaminhospital.jpg",
-		"address": "အမွတ္(၁၅/၁၉) ေဇာ္ဂ်ီလမ္း၊လမ္းမေတာ္ၿမိိဳ႕နယ္၊ရန္ကုန္။",
-		"email": "",
-		"website": "http://www.shwelaminhospital.com",
-		"mapinfo": "http://maps.google.com/maps?daddr=shwelaminhospital",
-		"facebook": "https://www.facebook.com/pages/Shwe-La-Min-Hospital-%E1%80%B1%E1%80%9B%E1%82%8A%E1%80%9C%E1%80%99%E1%80%84%E1%80%B9%E1%80%B8%E1%80%B1%E1%80%86%E1%80%B8%E1%82%90%E1%80%AF%E1%80%B6/1542983242602150",
-		"remark": "",
-		"phones": [{
-			"phone-id": 9000000001,
-			"phone-name": "+95 1 2301948"
+		"doctor-id": 9000000004,
+		"doctor-name": "ပါေမာကၡ ဦးခ်စ္စိုး",
+		"title": "MBBS, MMedSc, MRCP (UK), DrMedSc (General Med), FRCP (Edin), Dip Med Ed",
+		"speciality": {
+			"speciality-id": 9000000002,
+			"speciality-title": "အရိုးအဆစ္အထူးကု"
+		},
+		"time-slots": [{
+			"time": "16:00 - 17:00",
+			"date": "Wednesday"
 		}, {
-			"phone-id": 9000000002,
-			"phone-name": "+95 1 2301949"
-		}, {
-			"phone-id": 9000000003,
-			"phone-name": "+95 1 2301950"
-		}],
-		"fax": [{
-			"fax-id": 9000000001,
-			"fax-name": "95 1 537296"
-		}],
-		"tags": [{
-			"tag-id": 9000000001,
-			"tag-name": "private",
-			"tag-name-mm": "ပုဂၢလိဂ"
-		}],
-		"operations": [{
-			"operation-id": 9000000001,
-			"operation-name": "အေရးေပၚလူနာကုသျခင္း"
-		}, {
-			"operation-id": 9000000002,
-			"operation-name": "မ်က္စိခြဲစိတ္ျခင္း"
-		}, {
-			"operation-id": 9000000003,
-			"operation-name": "Digital X-Ray"
-		}, {
-			"operation-id": 9000000004,
-			"operation-name": "Echo Cardiogram"
-		}],
-		"price-category": 5,
-		"available-doctors": [{
-			"doctor-id": 9000000002,
-			"doctor-name": "ေဒါက္တာ လဲ့လဲ့ေဌး",
-			"title": "MBBS, MMedSc (Int Med), Fellowship in Rheumatology (Singapore)",
-			"speciality": {
-				"speciality-id": 9000000002,
-				"speciality-title": "အရိုးအဆစ္အထူးကု"
-			},
-			"time-slots": [{
-				"time": "16:30 - 17:30",
-				"date": "Monday"
-			}, {
-				"time": "16:30 - 17:30",
-				"date": "Wednesday"
-			}, {
-				"time": "16:30 - 17:30",
-				"date": "Friday"
-			}]
-		}, {
-			"doctor-id": 9000000004,
-			"doctor-name": "ပါေမာကၡ ဦးခ်စ္စိုး",
-			"title": "MBBS, MMedSc, MRCP (UK), DrMedSc (General Med), FRCP (Edin), Dip Med Ed",
-			"speciality": {
-				"speciality-id": 9000000002,
-				"speciality-title": "အရိုးအဆစ္အထူးကု"
-			},
-			"time-slots": [{
-				"time": "16:00 - 17:00",
-				"date": "Wednesday"
-			}, {
-				"time": "16:00 - 17:00",
-				"date": "Saturdary"
-			}]
-		}, {
-			"doctor-id": 9000000005,
-			"doctor-name": "ေဒါက္တာ ေအာင္ကိုကိုေက်ာ္",
-			"title": "MBBS, MMedSc (Int Med), MRCP (UK), Fellowship in Hepatology (Korea)",
-			"speciality": {
-				"speciality-id": 9000000003,
-				"speciality-title": "အသည္းေရာဂါအထူးကု"
-			},
-			"time-slots": [{
-				"time": "08:00 - 09:00",
-				"date": "Monday to Friday"
-			}]
+			"time": "16:00 - 17:00",
+			"date": "Saturdary"
 		}]
 	}, {
-		"health-care-id": 9900000005,
-		"health-care-name": "၀ိတိုရိယ အေထြေထြေရာဂါကု ေဆး၇ံုၾကီး",
-		"category": "hospital",
-		"category-mm": "ေဆးရံု",
-		"image": "WitoriyaGeneralHospital.jpg",
-		"address": "No. 68, Taw Win Street, 9 Mile, Mayangone Township, Yangon.",
-		"email": "info@witoriyahospital.com",
-		"website": "http://www.victoriahospitalmyanmar.com/",
-		"mapinfo": "http://maps.google.com/maps?daddr=WitoriyaGeneralHospital",
-		"facebook": "https://www.facebook.com/WitoriyaGeneralHospital/posts/285125291521809",
-		"remark": "We are aimed to be the most trustworthy in health service and the highest standard hospital in private health sector of Myanmar.",
-		"phones": [{
-			"phone-id": 9000000001,
-			"phone-name": "+95 1 9666141"
-		}, {
-			"phone-id": 9000000002,
-			"phone-name": "+95 9 783666141"
-		}, {
-			"phone-id": 9000000003,
-			"phone-name": "+95 9 783666142"
-		}, {
-			"phone-id": 9000000004,
-			"phone-name": "+95 9 783666143"
-		}, {
-			"phone-id": 9000000005,
-			"phone-name": "+95 9 783666144"
-		}],
-		"fax": [{
-			"fax-id": 9000000001,
-			"fax-name": "+95 1 9666135"
-		}],
-		"tags": [{
-			"tag-id": 9000000001,
-			"tag-name": "private",
-			"tag-name-mm": "ပုဂၢလိဂ"
-		}],
-		"operations": [{
-			"operation-id": 9000000001,
-			"operation-name": "အေရးေပၚလူနာကုသျခင္း"
-		}, {
-			"operation-id": 9000000002,
-			"operation-name": "မ်က္စိခြဲစိတ္ျခင္း"
-		}, {
-			"operation-id": 9000000003,
-			"operation-name": "Digital X-Ray"
-		}, {
-			"operation-id": 9000000004,
-			"operation-name": "Echo Cardiogram"
-		}],
-		"price-category": 4,
-		"available-doctors": [{
-			"doctor-id": 9000000001,
-			"doctor-name": "ပါေမာကၡ ဦးေဇာ္သန္းထြန္း",
-			"title": "MBBS, MRCP(UK), FRCP(Edin), FRCP(Glasgow)",
-			"speciality": {
-				"speciality-id": 9000000001,
-				"speciality-title": "အေထြေထြေရာဂါ"
-			},
-			"time-slots": [{
-				"time": "15:00 - 18:00",
-				"date": "Tuesday"
-			}, {
-				"time": "15:00 - 18:00",
-				"date": "Thursday"
-			}, {
-				"time": "10:00 - 13:00",
-				"date": "Sunday"
-			}]
-		}, {
-			"doctor-id": 9000000002,
-			"doctor-name": "ေဒါက္တာ လဲ့လဲ့ေဌး",
-			"title": "MBBS, MMedSc (Int Med), Fellowship in Rheumatology (Singapore)",
-			"speciality": {
-				"speciality-id": 9000000002,
-				"speciality-title": "အရိုးအဆစ္အထူးကု"
-			},
-			"time-slots": [{
-				"time": "16:30 - 17:30",
-				"date": "Monday"
-			}, {
-				"time": "16:30 - 17:30",
-				"date": "Wednesday"
-			}, {
-				"time": "16:30 - 17:30",
-				"date": "Friday"
-			}]
-		}, {
-			"doctor-id": 9000000003,
-			"doctor-name": "ေဒါက္တာ ေဒၚမိုးမိုးစမ္း (တြဲဖတ္ပါေမာကၡ)",
-			"title": "MBBS, MMedSc (Int Med), DrMedSc (Gen Edu), FRCP (Glasgow)",
-			"speciality": {
-				"speciality-id": 9000000001,
-				"speciality-title": "အေထြေထြေရာဂါ"
-			},
-			"time-slots": [{
-				"time": "16:00",
-				"date": "Tuesday"
-			}, {
-				"time": "16:00",
-				"date": "Thursday"
-			}]
-		}, {
-			"doctor-id": 9000000004,
-			"doctor-name": "ပါေမာကၡ ဦးခ်စ္စိုး",
-			"title": "MBBS, MMedSc, MRCP (UK), DrMedSc (General Med), FRCP (Edin), Dip Med Ed",
-			"speciality": {
-				"speciality-id": 9000000002,
-				"speciality-title": "အရိုးအဆစ္အထူးကု"
-			},
-			"time-slots": [{
-				"time": "16:00 - 17:00",
-				"date": "Wednesday"
-			}, {
-				"time": "16:00 - 17:00",
-				"date": "Saturdary"
-			}]
-		}, {
-			"doctor-id": 9000000005,
-			"doctor-name": "ေဒါက္တာ ေအာင္ကိုကိုေက်ာ္",
-			"title": "MBBS, MMedSc (Int Med), MRCP (UK), Fellowship in Hepatology (Korea)",
-			"speciality": {
-				"speciality-id": 9000000003,
-				"speciality-title": "အသည္းေရာဂါအထူးကု"
-			},
-			"time-slots": [{
-				"time": "08:00 - 09:00",
-				"date": "Monday to Friday"
-			}]
+		"doctor-id": 9000000005,
+		"doctor-name": "ေဒါက္တာ ေအာင္ကိုကိုေက်ာ္",
+		"title": "MBBS, MMedSc (Int Med), MRCP (UK), Fellowship in Hepatology (Korea)",
+		"speciality": {
+			"speciality-id": 9000000003,
+			"speciality-title": "အသည္းေရာဂါအထူးကု"
+		},
+		"time-slots": [{
+			"time": "08:00 - 09:00",
+			"date": "Monday to Friday"
 		}]
-	}, {
-		"health-care-id": 8800000001,
-		"health-care-name": "နီနီ ေရာဂါရွာေဖြေရးႏွင့္ အထူးကုေဆးခန္း",
-		"category": "clinic",
-		"category-mm": "ေဆးခန္း",
-		"image": "ninihealthcare.jpg",
-		"address": "King Tower,101,Rose Bank Street,Ahlone Township,Yangon)",
-		"email": "info@nini-healthcare.com",
-		"website": "http://www.nini-healthcare.com",
-		"mapinfo": "http://maps.google.com/maps?daddr=ninihealthcare",
-		"facebook": "http://www.facebook.com/ninihealthcare",
-		"remark": "",
-		"phones": [{
-			"phone-id": 8000000001,
-			"phone-name": "+95 9 73207007"
-		}, {
-			"phone-id": 8000000002,
-			"phone-name": "+95 1 214503"
-		}, {
-			"phone-id": 8000000003,
-			"phone-name": "+95 9 8578686"
-		}],
-		"fax": [],
-		"tags": [{
-			"tag-id": 8000000001,
-			"tag-name": "general",
-			"tag-name-mm": "အေထြေထြေဆးကုခန္း"
-		}, {
-			"tag-id": 8000000002,
-			"tag-name": "diagnostics",
-			"tag-name-mm": "ေရာဂါရွာေဖြေရး"
-		}],
-		"operations": [{
-			"operation-id": 8000000001,
-			"operation-name": "General Medicine"
-		}, {
-			"operation-id": 8000000002,
-			"operation-name": "Cardiology and Cardiac Care"
-		}, {
-			"operation-id": 8000000003,
-			"operation-name": "Rheumatology"
-		}, {
-			"operation-id": 8000000004,
-			"operation-name": "Hematology/Oncology"
-		}, {
-			"operation-id": 8000000005,
-			"operation-name": "Hepatology/Gastroenterology"
-		}, {
-			"operation-id": 8000000006,
-			"operation-name": "General Surgery"
-		}, {
-			"operation-id": 8000000007,
-			"operation-name": "Gynaecology"
-		}, {
-			"operation-id": 8000000008,
-			"operation-name": "Nephrology (Renal Medicine)"
-		}, {
-			"operation-id": 8000000009,
-			"operation-name": "Neurology"
-		}, {
-			"operation-id": 8000000010,
-			"operation-name": "Dermatology"
-		}],
-		"price-category": 4,
-		"available-doctors": [{
-			"doctor-id": 9000000001,
-			"doctor-name": "ပါေမာကၡ ဦးေဇာ္သန္းထြန္း",
-			"title": "MBBS, MRCP(UK), FRCP(Edin), FRCP(Glasgow)",
-			"speciality": {
-				"speciality-id": 9000000001,
-				"speciality-title": "အေထြေထြေရာဂါ"
-			},
-			"time-slots": [{
-				"time": "15:00 - 18:00",
-				"date": "Tuesday"
-			}, {
-				"time": "15:00 - 18:00",
-				"date": "Thursday"
-			}, {
-				"time": "10:00 - 13:00",
-				"date": "Sunday"
-			}]
-		}, {
-			"doctor-id": 9000000002,
-			"doctor-name": "ေဒါက္တာ လဲ့လဲ့ေဌး",
-			"title": "MBBS, MMedSc (Int Med), Fellowship in Rheumatology (Singapore)",
-			"speciality": {
-				"speciality-id": 9000000002,
-				"speciality-title": "အရိုးအဆစ္အထူးကု"
-			},
-			"time-slots": [{
-				"time": "16:30 - 17:30",
-				"date": "Monday"
-			}, {
-				"time": "16:30 - 17:30",
-				"date": "Wednesday"
-			}, {
-				"time": "16:30 - 17:30",
-				"date": "Friday"
-			}]
-		}, {
-			"doctor-id": 9000000003,
-			"doctor-name": "ေဒါက္တာ ေဒၚမိုးမိုးစမ္း (တြဲဖတ္ပါေမာကၡ)",
-			"title": "MBBS, MMedSc (Int Med), DrMedSc (Gen Edu), FRCP (Glasgow)",
-			"speciality": {
-				"speciality-id": 9000000001,
-				"speciality-title": "အေထြေထြေရာဂါ"
-			},
-			"time-slots": [{
-				"time": "16:00",
-				"date": "Tuesday"
-			}, {
-				"time": "16:00",
-				"date": "Thursday"
-			}]
-		}, {
-			"doctor-id": 9000000004,
-			"doctor-name": "ပါေမာကၡ ဦးခ်စ္စိုး",
-			"title": "MBBS, MMedSc, MRCP (UK), DrMedSc (General Med), FRCP (Edin), Dip Med Ed",
-			"speciality": {
-				"speciality-id": 9000000002,
-				"speciality-title": "အရိုးအဆစ္အထူးကု"
-			},
-			"time-slots": [{
-				"time": "16:00 - 17:00",
-				"date": "Wednesday"
-			}, {
-				"time": "16:00 - 17:00",
-				"date": "Saturdary"
-			}]
-		}, {
-			"doctor-id": 9000000005,
-			"doctor-name": "ေဒါက္တာ ေအာင္ကိုကိုေက်ာ္",
-			"title": "MBBS, MMedSc (Int Med), MRCP (UK), Fellowship in Hepatology (Korea)",
-			"speciality": {
-				"speciality-id": 9000000003,
-				"speciality-title": "အသည္းေရာဂါအထူးကု"
-			},
-			"time-slots": [{
-				"time": "08:00 - 09:00",
-				"date": "Monday to Friday"
-			}]
-		}]
-	}, {
-		"health-care-id": 8800000002,
-		"health-care-name": "Moe Thauk Kyal",
-		"category": "clinic",
-		"category-mm": "ေဆးခန္း",
-		"image": "moethaukkyal.jpg",
-		"address": "47, Tha Pin Shwe Htee Rd,Ward (35)",
-		"email": "",
-		"website": "",
-		"mapinfo": "",
-		"facebook": "",
-		"remark": "",
-		"phones": [{
-			"phone-id": 8000000001,
-			"phone-name": "+95 9 5089000"
-		}, {
-			"phone-id": 8000000002,
-			"phone-name": "+95 9 791977910"
-		}],
-		"fax": [],
-		"tags": [{
-			"tag-id": 8000000001,
-			"tag-name": "general",
-			"tag-name-mm": "အေထြေထြေဆးကုခန္း"
-		}],
-		"operations": [{
-			"operation-id": 8000000001,
-			"operation-name": "General Medicine"
-		}, {
-			"operation-id": 8000000002,
-			"operation-name": "အိမ္ေရာက္၀န္ေဆာင္မႈေပးပါသည္။"
-		}],
-		"price-category": 2,
-		"available-doctors": [{
-			"doctor-id": 9000000001,
-			"doctor-name": "Dr. Myo Ingyin",
-			"title": "MBBS (Ygn), Certificate in Emergency Management, Certificate in Common Clinical Problems, Certificate in Critical Care Medicine (India)",
-			"speciality": {
-				"speciality-id": 9000000001,
-				"speciality-title": "အေထြေထြေရာဂါ"
-			},
-			"time-slots": [{
-				"time": "15:00 - 18:00",
-				"date": "Tuesday"
-			}, {
-				"time": "15:00 - 18:00",
-				"date": "Thursday"
-			}, {
-				"time": "10:00 - 13:00",
-				"date": "Sunday"
-			}]
-		}]
-	}, {
-		"health-care-id": 8800000003,
-		"health-care-name": "May Khalar",
-		"category": "clinic",
-		"category-mm": "ေဆးခန္း",
-		"image": "maykhalar.jpg",
-		"address": "327, Shwe Bon Tha St., Pabedan Township,Yangon.",
-		"email": "",
-		"website": "",
-		"mapinfo": "",
-		"facebook": "",
-		"remark": "",
-		"phones": [{
-			"phone-id": 8000000001,
-			"phone-name": "+95 1 375222"
-		}, {
-			"phone-id": 8000000002,
-			"phone-name": "+95 1 387721"
-		}],
-		"fax": [],
-		"tags": [{
-			"tag-id": 8000000001,
-			"tag-name": "general",
-			"tag-name-mm": "အေထြေထြေဆးကုခန္း"
-		}],
-		"operations": [{
-			"operation-id": 8000000001,
-			"operation-name": "General Medicine"
-		}],
-		"price-category": 4,
-		"available-doctors": [{
-			"doctor-id": 9000000003,
-			"doctor-name": "ေဒါက္တာ ေဒၚမိုးမိုးစမ္း (တြဲဖတ္ပါေမာကၡ)",
-			"title": "MBBS, MMedSc (Int Med), DrMedSc (Gen Edu), FRCP (Glasgow)",
-			"speciality": {
-				"speciality-id": 9000000001,
-				"speciality-title": "အေထြေထြေရာဂါ"
-			},
-			"time-slots": [{
-				"time": "16:00",
-				"date": "Tuesday"
-			}, {
-				"time": "16:00",
-				"date": "Thursday"
-			}]
-		}, {
-			"doctor-id": 9000000004,
-			"doctor-name": "ပါေမာကၡ ဦးခ်စ္စိုး",
-			"title": "MBBS, MMedSc, MRCP (UK), DrMedSc (General Med), FRCP (Edin), Dip Med Ed",
-			"speciality": {
-				"speciality-id": 9000000002,
-				"speciality-title": "အရိုးအဆစ္အထူးကု"
-			},
-			"time-slots": [{
-				"time": "16:00 - 17:00",
-				"date": "Wednesday"
-			}, {
-				"time": "16:00 - 17:00",
-				"date": "Saturdary"
-			}]
-		}, {
-			"doctor-id": 9000000005,
-			"doctor-name": "ေဒါက္တာ ေအာင္ကိုကိုေက်ာ္",
-			"title": "MBBS, MMedSc (Int Med), MRCP (UK), Fellowship in Hepatology (Korea)",
-			"speciality": {
-				"speciality-id": 9000000003,
-				"speciality-title": "အသည္းေရာဂါအထူးကု"
-			},
-			"time-slots": [{
-				"time": "08:00 - 09:00",
-				"date": "Monday to Friday"
-			}]
-		}]
-	}, {
-		"health-care-id": 8800000004,
-		"health-care-name": "သရဖူ အထူးကုေဆးခန္း",
-		"category": "clinic",
-		"category-mm": "ေဆးခန္း",
-		"image": "tharaphuclinic.jpg",
-		"address": "67/122 street Mingalar Taung Nyunt Township,Yangon",
-		"email": "",
-		"website": "",
-		"mapinfo": "",
-		"facebook": "https://www.facebook.com/tharaphuclinic/",
-		"remark": "",
-		"phones": [{
-			"phone-id": 8000000001,
-			"phone-name": "+95 2 91 265"
-		}],
-		"fax": [],
-		"tags": [{
-			"tag-id": 8000000001,
-			"tag-name": "general",
-			"tag-name-mm": "အေထြေထြေဆးကုခန္း"
-		}],
-		"operations": [{
-			"operation-id": 8000000001,
-			"operation-name": "သားဖြားမီးယပ္၊ကေလးအထူးကု"
-		}, {
-			"operation-id": 8000000002,
-			"operation-name": "အရိုးအေၾကာအထူးကု"
-		}],
-		"price-category": 4,
-		"available-doctors": [{
-			"doctor-id": 9000000001,
-			"doctor-name": "ပါေမာကၡ ဦးေဇာ္သန္းထြန္း",
-			"title": "MBBS, MRCP(UK), FRCP(Edin), FRCP(Glasgow)",
-			"speciality": {
-				"speciality-id": 9000000001,
-				"speciality-title": "အေထြေထြေရာဂါ"
-			},
-			"time-slots": [{
-				"time": "15:00 - 18:00",
-				"date": "Tuesday"
-			}, {
-				"time": "15:00 - 18:00",
-				"date": "Thursday"
-			}, {
-				"time": "10:00 - 13:00",
-				"date": "Sunday"
-			}]
-		}, {
-			"doctor-id": 9000000002,
-			"doctor-name": "ေဒါက္တာ လဲ့လဲ့ေဌး",
-			"title": "MBBS, MMedSc (Int Med), Fellowship in Rheumatology (Singapore)",
-			"speciality": {
-				"speciality-id": 9000000002,
-				"speciality-title": "အရိုးအဆစ္အထူးကု"
-			},
-			"time-slots": [{
-				"time": "16:30 - 17:30",
-				"date": "Monday"
-			}, {
-				"time": "16:30 - 17:30",
-				"date": "Wednesday"
-			}, {
-				"time": "16:30 - 17:30",
-				"date": "Friday"
-			}]
-		}, {
-			"doctor-id": 9000000003,
-			"doctor-name": "ေဒါက္တာ ေဒၚမိုးမိုးစမ္း (တြဲဖတ္ပါေမာကၡ)",
-			"title": "MBBS, MMedSc (Int Med), DrMedSc (Gen Edu), FRCP (Glasgow)",
-			"speciality": {
-				"speciality-id": 9000000001,
-				"speciality-title": "အေထြေထြေရာဂါ"
-			},
-			"time-slots": [{
-				"time": "16:00",
-				"date": "Tuesday"
-			}, {
-				"time": "16:00",
-				"date": "Thursday"
-			}]
-		}, {
-			"doctor-id": 9000000004,
-			"doctor-name": "ပါေမာကၡ ဦးခ်စ္စိုး",
-			"title": "MBBS, MMedSc, MRCP (UK), DrMedSc (General Med), FRCP (Edin), Dip Med Ed",
-			"speciality": {
-				"speciality-id": 9000000002,
-				"speciality-title": "အရိုးအဆစ္အထူးကု"
-			},
-			"time-slots": [{
-				"time": "16:00 - 17:00",
-				"date": "Wednesday"
-			}, {
-				"time": "16:00 - 17:00",
-				"date": "Saturdary"
-			}]
-		}, {
-			"doctor-id": 9000000005,
-			"doctor-name": "ေဒါက္တာ ေအာင္ကိုကိုေက်ာ္",
-			"title": "MBBS, MMedSc (Int Med), MRCP (UK), Fellowship in Hepatology (Korea)",
-			"speciality": {
-				"speciality-id": 9000000003,
-				"speciality-title": "အသည္းေရာဂါအထူးကု"
-			},
-			"time-slots": [{
-				"time": "08:00 - 09:00",
-				"date": "Monday to Friday"
-			}]
-		}]
-	}, {
-		"health-care-id": 8800000005,
-		"health-care-name": "Family Doctor Speicalist Clinic",
-		"category": "clinic",
-		"category-mm": "ေဆးခန္း",
-		"image": "FamilyDoctorSpecialistClinic.jpg",
-		"address": "No. SA-9, Aung Zay Ya Complex, Thit taw Quartar, Front of Sin Min Market, beside CB Bank, Alone Township.",
-		"email": "",
-		"website": "",
-		"mapinfo": "",
-		"facebook": "https://www.facebook.com/FamilyDoctorSpecialistClinic/",
-		"remark": "",
-		"phones": [{
-			"phone-id": 8000000001,
-			"phone-name": "+95 9 972 176786"
-		}],
-		"fax": [],
-		"tags": [{
-			"tag-id": 8000000001,
-			"tag-name": "general",
-			"tag-name-mm": "အေထြေထြေဆးကုခန္း"
-		}, {
-			"tag-id": 8000000002,
-			"tag-name": "diagnostics",
-			"tag-name-mm": "ေရာဂါရွာေဖြေရး"
-		}],
-		"price-category": 4,
-		"available-doctors": [{
-			"doctor-id": 9000000001,
-			"doctor-name": "ပါေမာကၡ ဦးေဇာ္သန္းထြန္း",
-			"title": "MBBS, MRCP(UK), FRCP(Edin), FRCP(Glasgow)",
-			"speciality": {
-				"speciality-id": 9000000001,
-				"speciality-title": "အေထြေထြေရာဂါ"
-			},
-			"time-slots": [{
-				"time": "15:00 - 18:00",
-				"date": "Tuesday"
-			}, {
-				"time": "15:00 - 18:00",
-				"date": "Thursday"
-			}, {
-				"time": "10:00 - 13:00",
-				"date": "Sunday"
-			}]
-		}, {
-			"doctor-id": 9000000002,
-			"doctor-name": "ေဒါက္တာ လဲ့လဲ့ေဌး",
-			"title": "MBBS, MMedSc (Int Med), Fellowship in Rheumatology (Singapore)",
-			"speciality": {
-				"speciality-id": 9000000002,
-				"speciality-title": "အရိုးအဆစ္အထူးကု"
-			},
-			"time-slots": [{
-				"time": "16:30 - 17:30",
-				"date": "Monday"
-			}, {
-				"time": "16:30 - 17:30",
-				"date": "Wednesday"
-			}, {
-				"time": "16:30 - 17:30",
-				"date": "Friday"
-			}]
-		}, {
-			"doctor-id": 9000000003,
-			"doctor-name": "ေဒါက္တာ ေဒၚမိုးမိုးစမ္း (တြဲဖတ္ပါေမာကၡ)",
-			"title": "MBBS, MMedSc (Int Med), DrMedSc (Gen Edu), FRCP (Glasgow)",
-			"speciality": {
-				"speciality-id": 9000000001,
-				"speciality-title": "အေထြေထြေရာဂါ"
-			},
-			"time-slots": [{
-				"time": "16:00",
-				"date": "Tuesday"
-			}, {
-				"time": "16:00",
-				"date": "Thursday"
-			}]
-		}, {
-			"doctor-id": 9000000004,
-			"doctor-name": "ပါေမာကၡ ဦးခ်စ္စိုး",
-			"title": "MBBS, MMedSc, MRCP (UK), DrMedSc (General Med), FRCP (Edin), Dip Med Ed",
-			"speciality": {
-				"speciality-id": 9000000002,
-				"speciality-title": "အရိုးအဆစ္အထူးကု"
-			},
-			"time-slots": [{
-				"time": "16:00 - 17:00",
-				"date": "Wednesday"
-			}, {
-				"time": "16:00 - 17:00",
-				"date": "Saturdary"
-			}]
-		}, {
-			"doctor-id": 9000000005,
-			"doctor-name": "ေဒါက္တာ ေအာင္ကိုကိုေက်ာ္",
-			"title": "MBBS, MMedSc (Int Med), MRCP (UK), Fellowship in Hepatology (Korea)",
-			"speciality": {
-				"speciality-id": 9000000003,
-				"speciality-title": "အသည္းေရာဂါအထူးကု"
-			},
-			"time-slots": [{
-				"time": "08:00 - 09:00",
-				"date": "Monday to Friday"
-			}]
-		}]
-	}, {
-		"health-care-id": 7700000001,
-		"health-care-name": "AA GROUP LIMITED",
-		"category": "pharmacy",
-		"category-mm": "ေဆးပစၥည္းအေရာင္းဆိုင္",
-		"image": "AApharmacy.jpg",
-		"address": "146,2nd Flr,Sule Pagoda Rd., Kyauktada township, Yangon, Myanmar.",
-		"email": "info.aagl99@gmail.com",
-		"website": "",
-		"mapinfo": "",
-		"facebook": "",
-		"remark": "",
-		"phones": [{
-			"phone-id": 7000000001,
-			"phone-name": "+95 1 251451"
-		}, {
-			"phone-id": 7000000002,
-			"phone-name": "+95 1 242481"
-		}, {
-			"phone-id": 7000000003,
-			"phone-name": "+95 9 2030771"
-		}],
-		"fax": [],
-		"tags": [{
-			"tag-id": 7000000001,
-			"tag-name": "medicine",
-			"tag-name-mm": "ႏိုင္ငံျခားေဆးမ်ိဳးစံု"
-		}, {
-			"tag-id": 7000000002,
-			"tag-name": "traditional",
-			"tag-name-mm": "ဗမာတိုင္းရင္းေဆးမ်ိဳးစံု"
-		}, {
-			"tag-id": 7000000003,
-			"tag-name": "equipment",
-			"tag-name-mm": "ေဆးရံုသံုးပစၥည္းမ်ား"
-		}],
-		"operations": [{
-			"operation-id": 7000000001,
-			"operation-name": "ေဆး၀ါးမ်ားေရာင္းခ်ျခင္း"
-		}, {
-			"operation-id": 7000000002,
-			"operation-name": "ေဆးရံုသံုးပစၥည္းမ်ားေရာင္းခ်ျခင္း"
-		}],
-		"price-category": 5,
-		"available-doctors": []
-	}, {
-		"health-care-id": 7700000002,
-		"health-care-name": "အဘထ",
-		"category": "pharmacy",
-		"category-mm": "ေဆးပစၥည္းအေရာင္းဆိုင္",
-		"image": "abahta.jpg",
-		"address": "D-5, Bldg E, Bayint Naung Rd., Puma Bldg, Ywar Ma (Mid) Ward, Insein Township, Yangon.",
-		"email": "",
-		"website": "",
-		"mapinfo": "",
-		"facebook": "",
-		"remark": "",
-		"phones": [{
-			"phone-id": 7000000001,
-			"phone-name": "+95 9 73242127"
-		}, {
-			"phone-id": 7000000002,
-			"phone-name": "+95 1 642047"
-		}],
-		"fax": [],
-		"tags": [{
-			"tag-id": 7000000001,
-			"tag-name": "traditional",
-			"tag-name-mm": "ဗမာတိုင္းရင္းေဆးမ်ိဳးစံု"
-		}],
-		"operations": [{
-			"operation-id": 7000000003,
-			"operation-name": "တိုင္းရင္းေဆးမ်ားေရာင္းခ်ျခင္း"
-		}],
-		"price-category": 5,
-		"available-doctors": []
-	}, {
-		"health-care-id": 7700000003,
-		"health-care-name": "ထြန္း ေဆးမ်ိဳးစံုေရာင္း၀ယ္ေရး",
-		"category": "pharmacy",
-		"category-mm": "ေဆးပစၥည္းအေရာင္းဆိုင္",
-		"image": "HtunPharmacy.jpg",
-		"address": "No (B-198,199,200,201),2nd Floor,Shwe Pyae Soan Market,Inside Mingalar Market Compound,Mingalar Taung Nyunt Township,Yangon,Myanmar.",
-		"email": "",
-		"website": "",
-		"mapinfo": "",
-		"facebook": "https://www.facebook.com/%E1%80%91%E1%80%BC%E1%80%94%E1%80%B9%E1%80%B8-%E1%80%B1%E1%80%86%E1%80%B8%E1%80%99%E1%80%BA%E1%80%AD%E1%80%B3%E1%80%B8%E1%80%85%E1%80%B6%E1%80%AF%E1%80%B1%E1%80%9B%E1%80%AC%E1%80%84%E1%80%B9%E1%80%B8%E1%81%80%E1%80%9A%E1%80%B9%E1%80%B1%E1%80%9B%E1%80%B8-224170644331560/",
-		"remark": "",
-		"phones": [{
-			"phone-id": 7000000001,
-			"phone-name": "+95 1 206206"
-		}],
-		"fax": [],
-		"tags": [{
-			"tag-id": 7000000001,
-			"tag-name": "medicine",
-			"tag-name-mm": "ႏိုင္ငံျခားေဆးမ်ိဳးစံု"
-		}, {
-			"tag-id": 7000000002,
-			"tag-name": "traditional",
-			"tag-name-mm": "ဗမာတိုင္းရင္းေဆးမ်ိဳးစံု"
-		}, {
-			"tag-id": 7000000003,
-			"tag-name": "equipment",
-			"tag-name-mm": "ေဆးရံုသံုးပစၥည္းမ်ား"
-		}],
-		"operations": [{
-			"operation-id": 7000000001,
-			"operation-name": "ေဆး၀ါးမ်ားေရာင္းခ်ျခင္း"
-		}, {
-			"operation-id": 7000000002,
-			"operation-name": "ေဆးရံုသံုးပစၥည္းမ်ားေရာင္းခ်ျခင္း"
-		}],
-		"price-category": 5,
-		"available-doctors": []
-	}, {
-		"health-care-id": 7700000004,
-		"health-care-name": "Thattant Pharmacy Store",
-		"category": "pharmacy",
-		"category-mm": "ေဆးပစၥည္းအေရာင္းဆိုင္",
-		"image": "ThattantPharmacy.jpg",
-		"address": "No.110,Sanchaung Street, Shin Saw Pu Ward.",
-		"email": "",
-		"website": "",
-		"mapinfo": "",
-		"facebook": "https://www.facebook.com/Thattant-Pharmacy-Store-690943151011888/",
-		"remark": "",
-		"phones": [{
-			"phone-id": 7000000001,
-			"phone-name": "+95 1 523 998"
-		}],
-		"fax": [],
-		"tags": [{
-			"tag-id": 7000000001,
-			"tag-name": "medicine",
-			"tag-name-mm": "ႏိုင္ငံျခားေဆးမ်ိဳးစံု"
-		}, {
-			"tag-id": 7000000002,
-			"tag-name": "traditional",
-			"tag-name-mm": "ဗမာတိုင္းရင္းေဆးမ်ိဳးစံု"
-		}],
-		"price-category": 2,
-		"available-doctors": []
-	}, {
-		"health-care-id": 7700000005,
-		"health-care-name": "Star Pharmacy",
-		"category": "pharmacy",
-		"category-mm": "ေဆးပစၥည္းအေရာင္းဆိုင္",
-		"image": "StarPharmacy.jpg",
-		"address": "40/B Insein Road (9)Block, Hlaing Township.",
-		"email": "",
-		"website": "",
-		"mapinfo": "",
-		"facebook": "https://www.facebook.com/Star-Pharmacy-1625457684332593/",
-		"remark": "",
-		"phones": [{
-			"phone-id": 7000000001,
-			"phone-name": "+95 9511 2445"
-		}],
-		"fax": [],
-		"tags": [{
-			"tag-id": 7000000001,
-			"tag-name": "medicine",
-			"tag-name-mm": "ႏိုင္ငံျခားေဆးမ်ိဳးစံု"
-		}, {
-			"tag-id": 7000000002,
-			"tag-name": "traditional",
-			"tag-name-mm": "ဗမာတိုင္းရင္းေဆးမ်ိဳးစံု"
-		}],
-		"operations": [{
-			"operation-id": 7000000001,
-			"operation-name": "ေဆး၀ါးမ်ားေရာင္းခ်ျခင္း"
-		}],
-		"price-category": 2,
-		"available-doctors": []
-	}, {
-		"health-care-id": 6600000001,
-		"health-care-name": "Pyay Veterinary Clinic",
-		"category": "vet",
-		"category-mm": "အိမ္ေမြးတိရစာၦန္ေစာင့္ေရွာက္မႈ",
-		"image": "PyayVet.jpg",
-		"address": "No. (471), Pyay Road, Ward-8, Kamayut Township, Yangon, Myanmar.",
-		"email": "info@pyayvetclinic.com",
-		"website": "https://www.pyayvetclinic.com/",
-		"mapinfo": "",
-		"facebook": "https://www.facebook.com/PyayVetClinic",
-		"remark": "Clinic opening hours are from 4:30 pm - 8:00 pm daily. If you want to make an appointment other than the hours mentioned above, please contact to the numbers listed above prior visiting.",
-		"phones": [{
-			"phone-id": 6000000001,
-			"phone-name": "+95 9 5262313"
-		}, {
-			"phone-id": 6000000002,
-			"phone-name": "+95 1 527526"
-		}, {
-			"phone-id": 6000000003,
-			"phone-name": "+95 9 36059888"
-		}],
-		"fax": [],
-		"tags": [{
-			"tag-id": 6000000001,
-			"tag-name": "clinic",
-			"tag-name-mm": "ေဆးကုခန္း"
-		}, {
-			"tag-id": 6000000002,
-			"tag-name": "medicine",
-			"tag-name-mm": "ေဆး၀ါးပစၥည္း"
-		}],
-		"operations": [{
-			"operation-id": 6000000001,
-			"operation-name": "Preventive Care"
-		}, {
-			"operation-id": 6000000002,
-			"operation-name": "Diagnosis and Treatment"
-		}, {
-			"operation-id": 6000000002,
-			"operation-name": "Surgery"
-		}, {
-			"operation-id": 6000000002,
-			"operation-name": "Consultation"
-		}],
-		"price-category": 5,
-		"available-doctors": []
-	}, {
-		"health-care-id": 6600000002,
-		"health-care-name": "MyPet",
-		"category": "vet",
-		"category-mm": "အိမ္ေမြးတိရစာၦန္ေစာင့္ေရွာက္မႈ",
-		"image": "MyPet.jpg",
-		"address": "83 B, U Chit Maung Road, Under Tarmwe Crossover Bridge, Bahan Township",
-		"email": "",
-		"website": "http://www.mypetmyanmar.com/",
-		"mapinfo": "",
-		"facebook": "https://www.facebook.com/mypetmyanmar/?fref=ts",
-		"remark": "MyPet | ျမန္မာႏိုင္ငံ၏ အလန္းတကာ့အလန္းဆံုး Pet Store! MyPet is Myanmar's Hottest Pet Store! Open Daily 9:00AM - 9:00PM",
-		"phones": [{
-			"phone-id": 6000000001,
-			"phone-name": "+95 9 969 688088"
-		}],
-		"fax": [],
-		"tags": [{
-			"tag-id": 6000000001,
-			"tag-name": "equipment",
-			"tag-name-mm": "အသံုးအဆာင္ပစၥည္း"
-		}],
-		"operations": [{
-			"operation-id": 6000000001,
-			"operation-name": "အိမ္ေမြးတိရစာၦန္ အသံုးအေဆာင္ပစၥည္းမ်ားကို လက္လီလက္ကား ေရာင္းခ်ေပးေနပါသည္။"
-		}],
-		"price-category": 4,
-		"available-doctors": []
-	}, {
-		"health-care-id": 6600000003,
-		"health-care-name": "VETs for PETs - Vet Clinic",
-		"category": "vet",
-		"category-mm": "အိမ္ေမြးတိရစာၦန္ေစာင့္ေရွာက္မႈ",
-		"image": "vetsforpets.jpg",
-		"address": "အမွတ္(38)ေျမညီ၊ ေက်ာင္းကုန္းလမ္း၊ စမ္းေခ်ာင္းၿမိဳ႕နယ္၊ရန္ကုန္။",
-		"email": "",
-		"website": "",
-		"mapinfo": "",
-		"facebook": "https://www.facebook.com/vetsforpets2014/",
-		"remark": "Be kind to your pets~",
-		"phones": [{
-			"phone-id": 6000000001,
-			"phone-name": "+95 9 250882718"
-		}, {
-			"phone-id": 6000000002,
-			"phone-name": "+95 9 421094066"
-		}, {
-			"phone-id": 6000000003,
-			"phone-name": "+95 9 781462981"
-		}],
-		"fax": [],
-		"tags": [{
-			"tag-id": 6000000001,
-			"tag-name": "clinic",
-			"tag-name-mm": "ေဆးကုခန္း"
-		}, {
-			"tag-id": 6000000002,
-			"tag-name": "medicine",
-			"tag-name-mm": "ေဆး၀ါးပစၥည္း"
-		}, {
-			"tag-id": 6000000003,
-			"tag-name": "equipment",
-			"tag-name-mm": "အသံုးအဆာင္ပစၥည္း"
-		}],
-		"operations": [{
-			"operation-id": 6000000001,
-			"operation-name": "Preventive Care"
-		}, {
-			"operation-id": 6000000002,
-			"operation-name": "Diagnosis and Treatment"
-		}, {
-			"operation-id": 6000000002,
-			"operation-name": "Surgery"
-		}, {
-			"operation-id": 6000000002,
-			"operation-name": "Consultation"
-		}],
-		"price-category": 5,
-		"available-doctors": []
-	}, {
-		"health-care-id": 6600000004,
-		"health-care-name": "DR. Kan Vet. Clinic & Pet Accessary Shop",
-		"category": "vet",
-		"category-mm": "အိမ္ေမြးတိရစာၦန္ေစာင့္ေရွာက္မႈ",
-		"image": "drkan.jpg",
-		"address": "No. 60-A, 6 1/2Mile, Pyay rd, Ward (11)",
-		"email": "",
-		"website": "",
-		"mapinfo": "",
-		"facebook": "",
-		"remark": "9:00 – 11:00 Am (Close on Sunday)",
-		"phones": [{
-			"phone-id": 6000000001,
-			"phone-name": "+95 1 538649"
-		}],
-		"fax": [],
-		"tags": [{
-			"tag-id": 6000000001,
-			"tag-name": "clinic",
-			"tag-name-mm": "ေဆးကုခန္း"
-		}, {
-			"tag-id": 6000000002,
-			"tag-name": "medicine",
-			"tag-name-mm": "ေဆး၀ါးပစၥည္း"
-		}, {
-			"tag-id": 6000000003,
-			"tag-name": "equipment",
-			"tag-name-mm": "အသံုးအဆာင္ပစၥည္း"
-		}],
-		"operations": [{
-			"operation-id": 6000000001,
-			"operation-name": "Preventive Care"
-		}, {
-			"operation-id": 6000000002,
-			"operation-name": "Diagnosis and Treatment"
-		}, {
-			"operation-id": 6000000002,
-			"operation-name": "Surgery"
-		}, {
-			"operation-id": 6000000002,
-			"operation-name": "Consultation"
-		}],
-		"price-category": 5,
-		"available-doctors": []
-	}, {
-		"health-care-id": 6600000005,
-		"health-care-name": "Royal Veterinary Clinic",
-		"category": "vet",
-		"category-mm": "အိမ္ေမြးတိရစာၦန္ေစာင့္ေရွာက္မႈ",
-		"image": "RoyalVet.jpg",
-		"address": "No. 287/B, Ground Floor,  Shwe Gon Daing rd, Shwe Gon Daing (Mid) Ward",
-		"email": "",
-		"website": "",
-		"mapinfo": "",
-		"facebook": "",
-		"remark": "8:00 – 11:00 Am, 4:00 – 8:00 Pm (Close on Sunday Morning)",
-		"phones": [{
-			"phone-id": 6000000001,
-			"phone-name": "+95 9 86 16037"
-		}],
-		"fax": [],
-		"tags": [{
-			"tag-id": 6000000001,
-			"tag-name": "clinic",
-			"tag-name-mm": "ေဆးကုခန္း"
-		}, {
-			"tag-id": 6000000002,
-			"tag-name": "medicine",
-			"tag-name-mm": "ေဆး၀ါးပစၥည္း"
-		}],
-		"operations": [{
-			"operation-id": 6000000001,
-			"operation-name": "Preventive Care"
-		}, {
-			"operation-id": 6000000002,
-			"operation-name": "Diagnosis and Treatment"
-		}, {
-			"operation-id": 6000000002,
-			"operation-name": "Surgery"
-		}, {
-			"operation-id": 6000000002,
-			"operation-name": "Consultation"
-		}],
-		"price-category": 3,
-		"available-doctors": []
 	}]
-}
+}, {
+	"health-care-id": 9900000002,
+	"health-care-name": "ဗဟိုရ္စည္",
+	"category": "hospital",
+	"category-mm": "ေဆးရံု",
+	"image": "bahosihospital.jpg",
+	"address": "အမွတ္-ဘီ(၁-၆)(၃၁-၃၆)(၃၇/၃၈)၊ဗဟိုရ္စည္အိမ္ရာ၊လမ္းမေတာ္ၿမိဳ႕နယ္၊ရန္ကုန္ၿမိဳ႕။",
+	"email": "BAHOSI.MED@mptmail.net.mm",
+	"website": "http://www.bahosihospital.com",
+	"mapinfo": "http://maps.google.com/maps?daddr=bahosihospital",
+	"facebook": "http://www.facebook.com/bahosihospital",
+	"remark": "Our mission is to provide a comprehensive cost effective health care delivery system.",
+	"phones": [{
+		"phone-id": 9000000001,
+		"phone-name": "+95 1 2300502"
+	}, {
+		"phone-id": 9000000002,
+		"phone-name": "+95 1 2300631"
+	}],
+	"fax": [{
+		"fax-id": 9000000001,
+		"fax-name": "2300519"
+	}],
+	"tags": [{
+		"tag-id": 9000000001,
+		"tag-name": "private",
+		"tag-name-mm": "ပုဂၢလိဂ"
+	}],
+	"operations": [{
+		"operation-id": 9000000001,
+		"operation-name": "အေရးေပၚလူနာကုသျခင္း"
+	}, {
+		"operation-id": 9000000002,
+		"operation-name": "မ်က္စိခြဲစိတ္ျခင္း"
+	}, {
+		"operation-id": 9000000003,
+		"operation-name": "Digital X-Ray"
+	}, {
+		"operation-id": 9000000004,
+		"operation-name": "Echo Cardiogram"
+	}],
+	"price-category": 4,
+	"available-doctors": [{
+		"doctor-id": 9000000001,
+		"doctor-name": "ပါေမာကၡ ဦးေဇာ္သန္းထြန္း",
+		"title": "MBBS, MRCP(UK), FRCP(Edin), FRCP(Glasgow)",
+		"speciality": {
+			"speciality-id": 9000000001,
+			"speciality-title": "အေထြေထြေရာဂါ"
+		},
+		"time-slots": [{
+			"time": "15:00 - 18:00",
+			"date": "Tuesday"
+		}, {
+			"time": "15:00 - 18:00",
+			"date": "Thursday"
+		}, {
+			"time": "10:00 - 13:00",
+			"date": "Sunday"
+		}]
+	}, {
+		"doctor-id": 9000000003,
+		"doctor-name": "ေဒါက္တာ ေဒၚမိုးမိုးစမ္း (တြဲဖတ္ပါေမာကၡ)",
+		"title": "MBBS, MMedSc (Int Med), DrMedSc (Gen Edu), FRCP (Glasgow)",
+		"speciality": {
+			"speciality-id": 9000000001,
+			"speciality-title": "အေထြေထြေရာဂါ"
+		},
+		"time-slots": [{
+			"time": "16:00",
+			"date": "Tuesday"
+		}, {
+			"time": "16:00",
+			"date": "Thursday"
+		}]
+	}, {
+		"doctor-id": 9000000005,
+		"doctor-name": "ေဒါက္တာ ေအာင္ကိုကိုေက်ာ္",
+		"title": "MBBS, MMedSc (Int Med), MRCP (UK), Fellowship in Hepatology (Korea)",
+		"speciality": {
+			"speciality-id": 9000000003,
+			"speciality-title": "အသည္းေရာဂါအထူးကု"
+		},
+		"time-slots": [{
+			"time": "08:00 - 09:00",
+			"date": "Monday to Friday"
+		}]
+	}]
+}, {
+	"health-care-id": 9900000003,
+	"health-care-name": "ရန္ကုန္ျပည္သူ႕ေဆးရံုႀကီး",
+	"category": "hospital",
+	"category-mm": "ေဆးရံု",
+	"image": "yghhealthcare.jpg",
+	"address": "Bo Gyoke Aung San Road, Lanmadaw Township , Yangon , Myanmar.",
+	"email": "",
+	"website": "http://www.yghhealthcare.org/",
+	"mapinfo": "http://maps.google.com/maps?daddr=yangongeneralhospital",
+	"facebook": "https://www.facebook.com/yghhealthcare/?fref=ts",
+	"remark": "Yangon General Hospital is 2000 bedded,Tertiary Care Teaching Hospital with more than 24 specialities are avaliable",
+	"phones": [{
+		"phone-id": 9000000001,
+		"phone-name": "+95 1 384493"
+	}, {
+		"phone-id": 9000000002,
+		"phone-name": "+95 1 384494"
+	}, {
+		"phone-id": 9000000003,
+		"phone-name": "+95 1 384495"
+	}, {
+		"phone-id": 9000000004,
+		"phone-name": "+95 1 379106"
+	}],
+	"fax": [],
+	"tags": [{
+		"tag-id": 9000000001,
+		"tag-name": "public",
+		"tag-name-mm": "အစိုးရ"
+	}],
+	"operations": [{
+		"operation-id": 9000000001,
+		"operation-name": "အေရးေပၚလူနာကုသျခင္း"
+	}, {
+		"operation-id": 9000000002,
+		"operation-name": "မ်က္စိခြဲစိတ္ျခင္း"
+	}, {
+		"operation-id": 9000000003,
+		"operation-name": "Digital X-Ray"
+	}, {
+		"operation-id": 9000000004,
+		"operation-name": "Echo Cardiogram"
+	}],
+	"price-category": 4,
+	"available-doctors": [{
+		"doctor-id": 9000000003,
+		"doctor-name": "ေဒါက္တာ ေဒၚမိုးမိုးစမ္း (တြဲဖတ္ပါေမာကၡ)",
+		"title": "MBBS, MMedSc (Int Med), DrMedSc (Gen Edu), FRCP (Glasgow)",
+		"speciality": {
+			"speciality-id": 9000000001,
+			"speciality-title": "အေထြေထြေရာဂါ"
+		},
+		"time-slots": [{
+			"time": "16:00",
+			"date": "Tuesday"
+		}, {
+			"time": "16:00",
+			"date": "Thursday"
+		}]
+	}, {
+		"doctor-id": 9000000005,
+		"doctor-name": "ေဒါက္တာ ေအာင္ကိုကိုေက်ာ္",
+		"title": "MBBS, MMedSc (Int Med), MRCP (UK), Fellowship in Hepatology (Korea)",
+		"speciality": {
+			"speciality-id": 9000000003,
+			"speciality-title": "အသည္းေရာဂါအထူးကု"
+		},
+		"time-slots": [{
+			"time": "08:00 - 09:00",
+			"date": "Monday to Friday"
+		}]
+	}]
+}, {
+	"health-care-id": 9900000004,
+	"health-care-name": "ေရႊလမင္းေဆး႐ုံ",
+	"category": "hospital",
+	"category-mm": "ေဆးရံု",
+	"image": "shwelaminhospital.jpg",
+	"address": "အမွတ္(၁၅/၁၉) ေဇာ္ဂ်ီလမ္း၊လမ္းမေတာ္ၿမိိဳ႕နယ္၊ရန္ကုန္။",
+	"email": "",
+	"website": "http://www.shwelaminhospital.com",
+	"mapinfo": "http://maps.google.com/maps?daddr=shwelaminhospital",
+	"facebook": "https://www.facebook.com/pages/Shwe-La-Min-Hospital-%E1%80%B1%E1%80%9B%E1%82%8A%E1%80%9C%E1%80%99%E1%80%84%E1%80%B9%E1%80%B8%E1%80%B1%E1%80%86%E1%80%B8%E1%82%90%E1%80%AF%E1%80%B6/1542983242602150",
+	"remark": "",
+	"phones": [{
+		"phone-id": 9000000001,
+		"phone-name": "+95 1 2301948"
+	}, {
+		"phone-id": 9000000002,
+		"phone-name": "+95 1 2301949"
+	}, {
+		"phone-id": 9000000003,
+		"phone-name": "+95 1 2301950"
+	}],
+	"fax": [{
+		"fax-id": 9000000001,
+		"fax-name": "95 1 537296"
+	}],
+	"tags": [{
+		"tag-id": 9000000001,
+		"tag-name": "private",
+		"tag-name-mm": "ပုဂၢလိဂ"
+	}],
+	"operations": [{
+		"operation-id": 9000000001,
+		"operation-name": "အေရးေပၚလူနာကုသျခင္း"
+	}, {
+		"operation-id": 9000000002,
+		"operation-name": "မ်က္စိခြဲစိတ္ျခင္း"
+	}, {
+		"operation-id": 9000000003,
+		"operation-name": "Digital X-Ray"
+	}, {
+		"operation-id": 9000000004,
+		"operation-name": "Echo Cardiogram"
+	}],
+	"price-category": 5,
+	"available-doctors": [{
+		"doctor-id": 9000000002,
+		"doctor-name": "ေဒါက္တာ လဲ့လဲ့ေဌး",
+		"title": "MBBS, MMedSc (Int Med), Fellowship in Rheumatology (Singapore)",
+		"speciality": {
+			"speciality-id": 9000000002,
+			"speciality-title": "အရိုးအဆစ္အထူးကု"
+		},
+		"time-slots": [{
+			"time": "16:30 - 17:30",
+			"date": "Monday"
+		}, {
+			"time": "16:30 - 17:30",
+			"date": "Wednesday"
+		}, {
+			"time": "16:30 - 17:30",
+			"date": "Friday"
+		}]
+	}, {
+		"doctor-id": 9000000004,
+		"doctor-name": "ပါေမာကၡ ဦးခ်စ္စိုး",
+		"title": "MBBS, MMedSc, MRCP (UK), DrMedSc (General Med), FRCP (Edin), Dip Med Ed",
+		"speciality": {
+			"speciality-id": 9000000002,
+			"speciality-title": "အရိုးအဆစ္အထူးကု"
+		},
+		"time-slots": [{
+			"time": "16:00 - 17:00",
+			"date": "Wednesday"
+		}, {
+			"time": "16:00 - 17:00",
+			"date": "Saturdary"
+		}]
+	}, {
+		"doctor-id": 9000000005,
+		"doctor-name": "ေဒါက္တာ ေအာင္ကိုကိုေက်ာ္",
+		"title": "MBBS, MMedSc (Int Med), MRCP (UK), Fellowship in Hepatology (Korea)",
+		"speciality": {
+			"speciality-id": 9000000003,
+			"speciality-title": "အသည္းေရာဂါအထူးကု"
+		},
+		"time-slots": [{
+			"time": "08:00 - 09:00",
+			"date": "Monday to Friday"
+		}]
+	}]
+}, {
+	"health-care-id": 9900000005,
+	"health-care-name": "၀ိတိုရိယ အေထြေထြေရာဂါကု ေဆး၇ံုၾကီး",
+	"category": "hospital",
+	"category-mm": "ေဆးရံု",
+	"image": "WitoriyaGeneralHospital.jpg",
+	"address": "No. 68, Taw Win Street, 9 Mile, Mayangone Township, Yangon.",
+	"email": "info@witoriyahospital.com",
+	"website": "http://www.victoriahospitalmyanmar.com/",
+	"mapinfo": "http://maps.google.com/maps?daddr=WitoriyaGeneralHospital",
+	"facebook": "https://www.facebook.com/WitoriyaGeneralHospital/posts/285125291521809",
+	"remark": "We are aimed to be the most trustworthy in health service and the highest standard hospital in private health sector of Myanmar.",
+	"phones": [{
+		"phone-id": 9000000001,
+		"phone-name": "+95 1 9666141"
+	}, {
+		"phone-id": 9000000002,
+		"phone-name": "+95 9 783666141"
+	}, {
+		"phone-id": 9000000003,
+		"phone-name": "+95 9 783666142"
+	}, {
+		"phone-id": 9000000004,
+		"phone-name": "+95 9 783666143"
+	}, {
+		"phone-id": 9000000005,
+		"phone-name": "+95 9 783666144"
+	}],
+	"fax": [{
+		"fax-id": 9000000001,
+		"fax-name": "+95 1 9666135"
+	}],
+	"tags": [{
+		"tag-id": 9000000001,
+		"tag-name": "private",
+		"tag-name-mm": "ပုဂၢလိဂ"
+	}],
+	"operations": [{
+		"operation-id": 9000000001,
+		"operation-name": "အေရးေပၚလူနာကုသျခင္း"
+	}, {
+		"operation-id": 9000000002,
+		"operation-name": "မ်က္စိခြဲစိတ္ျခင္း"
+	}, {
+		"operation-id": 9000000003,
+		"operation-name": "Digital X-Ray"
+	}, {
+		"operation-id": 9000000004,
+		"operation-name": "Echo Cardiogram"
+	}],
+	"price-category": 4,
+	"available-doctors": [{
+		"doctor-id": 9000000001,
+		"doctor-name": "ပါေမာကၡ ဦးေဇာ္သန္းထြန္း",
+		"title": "MBBS, MRCP(UK), FRCP(Edin), FRCP(Glasgow)",
+		"speciality": {
+			"speciality-id": 9000000001,
+			"speciality-title": "အေထြေထြေရာဂါ"
+		},
+		"time-slots": [{
+			"time": "15:00 - 18:00",
+			"date": "Tuesday"
+		}, {
+			"time": "15:00 - 18:00",
+			"date": "Thursday"
+		}, {
+			"time": "10:00 - 13:00",
+			"date": "Sunday"
+		}]
+	}, {
+		"doctor-id": 9000000002,
+		"doctor-name": "ေဒါက္တာ လဲ့လဲ့ေဌး",
+		"title": "MBBS, MMedSc (Int Med), Fellowship in Rheumatology (Singapore)",
+		"speciality": {
+			"speciality-id": 9000000002,
+			"speciality-title": "အရိုးအဆစ္အထူးကု"
+		},
+		"time-slots": [{
+			"time": "16:30 - 17:30",
+			"date": "Monday"
+		}, {
+			"time": "16:30 - 17:30",
+			"date": "Wednesday"
+		}, {
+			"time": "16:30 - 17:30",
+			"date": "Friday"
+		}]
+	}, {
+		"doctor-id": 9000000003,
+		"doctor-name": "ေဒါက္တာ ေဒၚမိုးမိုးစမ္း (တြဲဖတ္ပါေမာကၡ)",
+		"title": "MBBS, MMedSc (Int Med), DrMedSc (Gen Edu), FRCP (Glasgow)",
+		"speciality": {
+			"speciality-id": 9000000001,
+			"speciality-title": "အေထြေထြေရာဂါ"
+		},
+		"time-slots": [{
+			"time": "16:00",
+			"date": "Tuesday"
+		}, {
+			"time": "16:00",
+			"date": "Thursday"
+		}]
+	}, {
+		"doctor-id": 9000000004,
+		"doctor-name": "ပါေမာကၡ ဦးခ်စ္စိုး",
+		"title": "MBBS, MMedSc, MRCP (UK), DrMedSc (General Med), FRCP (Edin), Dip Med Ed",
+		"speciality": {
+			"speciality-id": 9000000002,
+			"speciality-title": "အရိုးအဆစ္အထူးကု"
+		},
+		"time-slots": [{
+			"time": "16:00 - 17:00",
+			"date": "Wednesday"
+		}, {
+			"time": "16:00 - 17:00",
+			"date": "Saturdary"
+		}]
+	}, {
+		"doctor-id": 9000000005,
+		"doctor-name": "ေဒါက္တာ ေအာင္ကိုကိုေက်ာ္",
+		"title": "MBBS, MMedSc (Int Med), MRCP (UK), Fellowship in Hepatology (Korea)",
+		"speciality": {
+			"speciality-id": 9000000003,
+			"speciality-title": "အသည္းေရာဂါအထူးကု"
+		},
+		"time-slots": [{
+			"time": "08:00 - 09:00",
+			"date": "Monday to Friday"
+		}]
+	}]
+}, {
+	"health-care-id": 8800000001,
+	"health-care-name": "နီနီ ေရာဂါရွာေဖြေရးႏွင့္ အထူးကုေဆးခန္း",
+	"category": "clinic",
+	"category-mm": "ေဆးခန္း",
+	"image": "ninihealthcare.jpg",
+	"address": "King Tower,101,Rose Bank Street,Ahlone Township,Yangon)",
+	"email": "info@nini-healthcare.com",
+	"website": "http://www.nini-healthcare.com",
+	"mapinfo": "http://maps.google.com/maps?daddr=ninihealthcare",
+	"facebook": "http://www.facebook.com/ninihealthcare",
+	"remark": "",
+	"phones": [{
+		"phone-id": 8000000001,
+		"phone-name": "+95 9 73207007"
+	}, {
+		"phone-id": 8000000002,
+		"phone-name": "+95 1 214503"
+	}, {
+		"phone-id": 8000000003,
+		"phone-name": "+95 9 8578686"
+	}],
+	"fax": [],
+	"tags": [{
+		"tag-id": 8000000001,
+		"tag-name": "general",
+		"tag-name-mm": "အေထြေထြေဆးကုခန္း"
+	}, {
+		"tag-id": 8000000002,
+		"tag-name": "diagnostics",
+		"tag-name-mm": "ေရာဂါရွာေဖြေရး"
+	}],
+	"operations": [{
+		"operation-id": 8000000001,
+		"operation-name": "General Medicine"
+	}, {
+		"operation-id": 8000000002,
+		"operation-name": "Cardiology and Cardiac Care"
+	}, {
+		"operation-id": 8000000003,
+		"operation-name": "Rheumatology"
+	}, {
+		"operation-id": 8000000004,
+		"operation-name": "Hematology/Oncology"
+	}, {
+		"operation-id": 8000000005,
+		"operation-name": "Hepatology/Gastroenterology"
+	}, {
+		"operation-id": 8000000006,
+		"operation-name": "General Surgery"
+	}, {
+		"operation-id": 8000000007,
+		"operation-name": "Gynaecology"
+	}, {
+		"operation-id": 8000000008,
+		"operation-name": "Nephrology (Renal Medicine)"
+	}, {
+		"operation-id": 8000000009,
+		"operation-name": "Neurology"
+	}, {
+		"operation-id": 8000000010,
+		"operation-name": "Dermatology"
+	}],
+	"price-category": 4,
+	"available-doctors": [{
+		"doctor-id": 9000000001,
+		"doctor-name": "ပါေမာကၡ ဦးေဇာ္သန္းထြန္း",
+		"title": "MBBS, MRCP(UK), FRCP(Edin), FRCP(Glasgow)",
+		"speciality": {
+			"speciality-id": 9000000001,
+			"speciality-title": "အေထြေထြေရာဂါ"
+		},
+		"time-slots": [{
+			"time": "15:00 - 18:00",
+			"date": "Tuesday"
+		}, {
+			"time": "15:00 - 18:00",
+			"date": "Thursday"
+		}, {
+			"time": "10:00 - 13:00",
+			"date": "Sunday"
+		}]
+	}, {
+		"doctor-id": 9000000002,
+		"doctor-name": "ေဒါက္တာ လဲ့လဲ့ေဌး",
+		"title": "MBBS, MMedSc (Int Med), Fellowship in Rheumatology (Singapore)",
+		"speciality": {
+			"speciality-id": 9000000002,
+			"speciality-title": "အရိုးအဆစ္အထူးကု"
+		},
+		"time-slots": [{
+			"time": "16:30 - 17:30",
+			"date": "Monday"
+		}, {
+			"time": "16:30 - 17:30",
+			"date": "Wednesday"
+		}, {
+			"time": "16:30 - 17:30",
+			"date": "Friday"
+		}]
+	}, {
+		"doctor-id": 9000000003,
+		"doctor-name": "ေဒါက္တာ ေဒၚမိုးမိုးစမ္း (တြဲဖတ္ပါေမာကၡ)",
+		"title": "MBBS, MMedSc (Int Med), DrMedSc (Gen Edu), FRCP (Glasgow)",
+		"speciality": {
+			"speciality-id": 9000000001,
+			"speciality-title": "အေထြေထြေရာဂါ"
+		},
+		"time-slots": [{
+			"time": "16:00",
+			"date": "Tuesday"
+		}, {
+			"time": "16:00",
+			"date": "Thursday"
+		}]
+	}, {
+		"doctor-id": 9000000004,
+		"doctor-name": "ပါေမာကၡ ဦးခ်စ္စိုး",
+		"title": "MBBS, MMedSc, MRCP (UK), DrMedSc (General Med), FRCP (Edin), Dip Med Ed",
+		"speciality": {
+			"speciality-id": 9000000002,
+			"speciality-title": "အရိုးအဆစ္အထူးကု"
+		},
+		"time-slots": [{
+			"time": "16:00 - 17:00",
+			"date": "Wednesday"
+		}, {
+			"time": "16:00 - 17:00",
+			"date": "Saturdary"
+		}]
+	}, {
+		"doctor-id": 9000000005,
+		"doctor-name": "ေဒါက္တာ ေအာင္ကိုကိုေက်ာ္",
+		"title": "MBBS, MMedSc (Int Med), MRCP (UK), Fellowship in Hepatology (Korea)",
+		"speciality": {
+			"speciality-id": 9000000003,
+			"speciality-title": "အသည္းေရာဂါအထူးကု"
+		},
+		"time-slots": [{
+			"time": "08:00 - 09:00",
+			"date": "Monday to Friday"
+		}]
+	}]
+}, {
+	"health-care-id": 8800000002,
+	"health-care-name": "Moe Thauk Kyal",
+	"category": "clinic",
+	"category-mm": "ေဆးခန္း",
+	"image": "moethaukkyal.jpg",
+	"address": "47, Tha Pin Shwe Htee Rd,Ward (35)",
+	"email": "",
+	"website": "",
+	"mapinfo": "",
+	"facebook": "",
+	"remark": "",
+	"phones": [{
+		"phone-id": 8000000001,
+		"phone-name": "+95 9 5089000"
+	}, {
+		"phone-id": 8000000002,
+		"phone-name": "+95 9 791977910"
+	}],
+	"fax": [],
+	"tags": [{
+		"tag-id": 8000000001,
+		"tag-name": "general",
+		"tag-name-mm": "အေထြေထြေဆးကုခန္း"
+	}],
+	"operations": [{
+		"operation-id": 8000000001,
+		"operation-name": "General Medicine"
+	}, {
+		"operation-id": 8000000002,
+		"operation-name": "အိမ္ေရာက္၀န္ေဆာင္မႈေပးပါသည္။"
+	}],
+	"price-category": 2,
+	"available-doctors": [{
+		"doctor-id": 9000000001,
+		"doctor-name": "Dr. Myo Ingyin",
+		"title": "MBBS (Ygn), Certificate in Emergency Management, Certificate in Common Clinical Problems, Certificate in Critical Care Medicine (India)",
+		"speciality": {
+			"speciality-id": 9000000001,
+			"speciality-title": "အေထြေထြေရာဂါ"
+		},
+		"time-slots": [{
+			"time": "15:00 - 18:00",
+			"date": "Tuesday"
+		}, {
+			"time": "15:00 - 18:00",
+			"date": "Thursday"
+		}, {
+			"time": "10:00 - 13:00",
+			"date": "Sunday"
+		}]
+	}]
+}, {
+	"health-care-id": 8800000003,
+	"health-care-name": "May Khalar",
+	"category": "clinic",
+	"category-mm": "ေဆးခန္း",
+	"image": "maykhalar.jpg",
+	"address": "327, Shwe Bon Tha St., Pabedan Township,Yangon.",
+	"email": "",
+	"website": "",
+	"mapinfo": "",
+	"facebook": "",
+	"remark": "",
+	"phones": [{
+		"phone-id": 8000000001,
+		"phone-name": "+95 1 375222"
+	}, {
+		"phone-id": 8000000002,
+		"phone-name": "+95 1 387721"
+	}],
+	"fax": [],
+	"tags": [{
+		"tag-id": 8000000001,
+		"tag-name": "general",
+		"tag-name-mm": "အေထြေထြေဆးကုခန္း"
+	}],
+	"operations": [{
+		"operation-id": 8000000001,
+		"operation-name": "General Medicine"
+	}],
+	"price-category": 4,
+	"available-doctors": [{
+		"doctor-id": 9000000003,
+		"doctor-name": "ေဒါက္တာ ေဒၚမိုးမိုးစမ္း (တြဲဖတ္ပါေမာကၡ)",
+		"title": "MBBS, MMedSc (Int Med), DrMedSc (Gen Edu), FRCP (Glasgow)",
+		"speciality": {
+			"speciality-id": 9000000001,
+			"speciality-title": "အေထြေထြေရာဂါ"
+		},
+		"time-slots": [{
+			"time": "16:00",
+			"date": "Tuesday"
+		}, {
+			"time": "16:00",
+			"date": "Thursday"
+		}]
+	}, {
+		"doctor-id": 9000000004,
+		"doctor-name": "ပါေမာကၡ ဦးခ်စ္စိုး",
+		"title": "MBBS, MMedSc, MRCP (UK), DrMedSc (General Med), FRCP (Edin), Dip Med Ed",
+		"speciality": {
+			"speciality-id": 9000000002,
+			"speciality-title": "အရိုးအဆစ္အထူးကု"
+		},
+		"time-slots": [{
+			"time": "16:00 - 17:00",
+			"date": "Wednesday"
+		}, {
+			"time": "16:00 - 17:00",
+			"date": "Saturdary"
+		}]
+	}, {
+		"doctor-id": 9000000005,
+		"doctor-name": "ေဒါက္တာ ေအာင္ကိုကိုေက်ာ္",
+		"title": "MBBS, MMedSc (Int Med), MRCP (UK), Fellowship in Hepatology (Korea)",
+		"speciality": {
+			"speciality-id": 9000000003,
+			"speciality-title": "အသည္းေရာဂါအထူးကု"
+		},
+		"time-slots": [{
+			"time": "08:00 - 09:00",
+			"date": "Monday to Friday"
+		}]
+	}]
+}, {
+	"health-care-id": 8800000004,
+	"health-care-name": "သရဖူ အထူးကုေဆးခန္း",
+	"category": "clinic",
+	"category-mm": "ေဆးခန္း",
+	"image": "tharaphuclinic.jpg",
+	"address": "67/122 street Mingalar Taung Nyunt Township,Yangon",
+	"email": "",
+	"website": "",
+	"mapinfo": "",
+	"facebook": "https://www.facebook.com/tharaphuclinic/",
+	"remark": "",
+	"phones": [{
+		"phone-id": 8000000001,
+		"phone-name": "+95 2 91 265"
+	}],
+	"fax": [],
+	"tags": [{
+		"tag-id": 8000000001,
+		"tag-name": "general",
+		"tag-name-mm": "အေထြေထြေဆးကုခန္း"
+	}],
+	"operations": [{
+		"operation-id": 8000000001,
+		"operation-name": "သားဖြားမီးယပ္၊ကေလးအထူးကု"
+	}, {
+		"operation-id": 8000000002,
+		"operation-name": "အရိုးအေၾကာအထူးကု"
+	}],
+	"price-category": 4,
+	"available-doctors": [{
+		"doctor-id": 9000000001,
+		"doctor-name": "ပါေမာကၡ ဦးေဇာ္သန္းထြန္း",
+		"title": "MBBS, MRCP(UK), FRCP(Edin), FRCP(Glasgow)",
+		"speciality": {
+			"speciality-id": 9000000001,
+			"speciality-title": "အေထြေထြေရာဂါ"
+		},
+		"time-slots": [{
+			"time": "15:00 - 18:00",
+			"date": "Tuesday"
+		}, {
+			"time": "15:00 - 18:00",
+			"date": "Thursday"
+		}, {
+			"time": "10:00 - 13:00",
+			"date": "Sunday"
+		}]
+	}, {
+		"doctor-id": 9000000002,
+		"doctor-name": "ေဒါက္တာ လဲ့လဲ့ေဌး",
+		"title": "MBBS, MMedSc (Int Med), Fellowship in Rheumatology (Singapore)",
+		"speciality": {
+			"speciality-id": 9000000002,
+			"speciality-title": "အရိုးအဆစ္အထူးကု"
+		},
+		"time-slots": [{
+			"time": "16:30 - 17:30",
+			"date": "Monday"
+		}, {
+			"time": "16:30 - 17:30",
+			"date": "Wednesday"
+		}, {
+			"time": "16:30 - 17:30",
+			"date": "Friday"
+		}]
+	}, {
+		"doctor-id": 9000000003,
+		"doctor-name": "ေဒါက္တာ ေဒၚမိုးမိုးစမ္း (တြဲဖတ္ပါေမာကၡ)",
+		"title": "MBBS, MMedSc (Int Med), DrMedSc (Gen Edu), FRCP (Glasgow)",
+		"speciality": {
+			"speciality-id": 9000000001,
+			"speciality-title": "အေထြေထြေရာဂါ"
+		},
+		"time-slots": [{
+			"time": "16:00",
+			"date": "Tuesday"
+		}, {
+			"time": "16:00",
+			"date": "Thursday"
+		}]
+	}, {
+		"doctor-id": 9000000004,
+		"doctor-name": "ပါေမာကၡ ဦးခ်စ္စိုး",
+		"title": "MBBS, MMedSc, MRCP (UK), DrMedSc (General Med), FRCP (Edin), Dip Med Ed",
+		"speciality": {
+			"speciality-id": 9000000002,
+			"speciality-title": "အရိုးအဆစ္အထူးကု"
+		},
+		"time-slots": [{
+			"time": "16:00 - 17:00",
+			"date": "Wednesday"
+		}, {
+			"time": "16:00 - 17:00",
+			"date": "Saturdary"
+		}]
+	}, {
+		"doctor-id": 9000000005,
+		"doctor-name": "ေဒါက္တာ ေအာင္ကိုကိုေက်ာ္",
+		"title": "MBBS, MMedSc (Int Med), MRCP (UK), Fellowship in Hepatology (Korea)",
+		"speciality": {
+			"speciality-id": 9000000003,
+			"speciality-title": "အသည္းေရာဂါအထူးကု"
+		},
+		"time-slots": [{
+			"time": "08:00 - 09:00",
+			"date": "Monday to Friday"
+		}]
+	}]
+}, {
+	"health-care-id": 8800000005,
+	"health-care-name": "Family Doctor Speicalist Clinic",
+	"category": "clinic",
+	"category-mm": "ေဆးခန္း",
+	"image": "FamilyDoctorSpecialistClinic.jpg",
+	"address": "No. SA-9, Aung Zay Ya Complex, Thit taw Quartar, Front of Sin Min Market, beside CB Bank, Alone Township.",
+	"email": "",
+	"website": "",
+	"mapinfo": "",
+	"facebook": "https://www.facebook.com/FamilyDoctorSpecialistClinic/",
+	"remark": "",
+	"phones": [{
+		"phone-id": 8000000001,
+		"phone-name": "+95 9 972 176786"
+	}],
+	"fax": [],
+	"tags": [{
+		"tag-id": 8000000001,
+		"tag-name": "general",
+		"tag-name-mm": "အေထြေထြေဆးကုခန္း"
+	}, {
+		"tag-id": 8000000002,
+		"tag-name": "diagnostics",
+		"tag-name-mm": "ေရာဂါရွာေဖြေရး"
+	}],
+	"price-category": 4,
+	"available-doctors": [{
+		"doctor-id": 9000000001,
+		"doctor-name": "ပါေမာကၡ ဦးေဇာ္သန္းထြန္း",
+		"title": "MBBS, MRCP(UK), FRCP(Edin), FRCP(Glasgow)",
+		"speciality": {
+			"speciality-id": 9000000001,
+			"speciality-title": "အေထြေထြေရာဂါ"
+		},
+		"time-slots": [{
+			"time": "15:00 - 18:00",
+			"date": "Tuesday"
+		}, {
+			"time": "15:00 - 18:00",
+			"date": "Thursday"
+		}, {
+			"time": "10:00 - 13:00",
+			"date": "Sunday"
+		}]
+	}, {
+		"doctor-id": 9000000002,
+		"doctor-name": "ေဒါက္တာ လဲ့လဲ့ေဌး",
+		"title": "MBBS, MMedSc (Int Med), Fellowship in Rheumatology (Singapore)",
+		"speciality": {
+			"speciality-id": 9000000002,
+			"speciality-title": "အရိုးအဆစ္အထူးကု"
+		},
+		"time-slots": [{
+			"time": "16:30 - 17:30",
+			"date": "Monday"
+		}, {
+			"time": "16:30 - 17:30",
+			"date": "Wednesday"
+		}, {
+			"time": "16:30 - 17:30",
+			"date": "Friday"
+		}]
+	}, {
+		"doctor-id": 9000000003,
+		"doctor-name": "ေဒါက္တာ ေဒၚမိုးမိုးစမ္း (တြဲဖတ္ပါေမာကၡ)",
+		"title": "MBBS, MMedSc (Int Med), DrMedSc (Gen Edu), FRCP (Glasgow)",
+		"speciality": {
+			"speciality-id": 9000000001,
+			"speciality-title": "အေထြေထြေရာဂါ"
+		},
+		"time-slots": [{
+			"time": "16:00",
+			"date": "Tuesday"
+		}, {
+			"time": "16:00",
+			"date": "Thursday"
+		}]
+	}, {
+		"doctor-id": 9000000004,
+		"doctor-name": "ပါေမာကၡ ဦးခ်စ္စိုး",
+		"title": "MBBS, MMedSc, MRCP (UK), DrMedSc (General Med), FRCP (Edin), Dip Med Ed",
+		"speciality": {
+			"speciality-id": 9000000002,
+			"speciality-title": "အရိုးအဆစ္အထူးကု"
+		},
+		"time-slots": [{
+			"time": "16:00 - 17:00",
+			"date": "Wednesday"
+		}, {
+			"time": "16:00 - 17:00",
+			"date": "Saturdary"
+		}]
+	}, {
+		"doctor-id": 9000000005,
+		"doctor-name": "ေဒါက္တာ ေအာင္ကိုကိုေက်ာ္",
+		"title": "MBBS, MMedSc (Int Med), MRCP (UK), Fellowship in Hepatology (Korea)",
+		"speciality": {
+			"speciality-id": 9000000003,
+			"speciality-title": "အသည္းေရာဂါအထူးကု"
+		},
+		"time-slots": [{
+			"time": "08:00 - 09:00",
+			"date": "Monday to Friday"
+		}]
+	}]
+}, {
+	"health-care-id": 7700000001,
+	"health-care-name": "AA GROUP LIMITED",
+	"category": "pharmacy",
+	"category-mm": "ေဆးပစၥည္းအေရာင္းဆိုင္",
+	"image": "AApharmacy.jpg",
+	"address": "146,2nd Flr,Sule Pagoda Rd., Kyauktada township, Yangon, Myanmar.",
+	"email": "info.aagl99@gmail.com",
+	"website": "",
+	"mapinfo": "",
+	"facebook": "",
+	"remark": "",
+	"phones": [{
+		"phone-id": 7000000001,
+		"phone-name": "+95 1 251451"
+	}, {
+		"phone-id": 7000000002,
+		"phone-name": "+95 1 242481"
+	}, {
+		"phone-id": 7000000003,
+		"phone-name": "+95 9 2030771"
+	}],
+	"fax": [],
+	"tags": [{
+		"tag-id": 7000000001,
+		"tag-name": "medicine",
+		"tag-name-mm": "ႏိုင္ငံျခားေဆးမ်ိဳးစံု"
+	}, {
+		"tag-id": 7000000002,
+		"tag-name": "traditional",
+		"tag-name-mm": "ဗမာတိုင္းရင္းေဆးမ်ိဳးစံု"
+	}, {
+		"tag-id": 7000000003,
+		"tag-name": "equipment",
+		"tag-name-mm": "ေဆးရံုသံုးပစၥည္းမ်ား"
+	}],
+	"operations": [{
+		"operation-id": 7000000001,
+		"operation-name": "ေဆး၀ါးမ်ားေရာင္းခ်ျခင္း"
+	}, {
+		"operation-id": 7000000002,
+		"operation-name": "ေဆးရံုသံုးပစၥည္းမ်ားေရာင္းခ်ျခင္း"
+	}],
+	"price-category": 5,
+	"available-doctors": []
+}, {
+	"health-care-id": 7700000002,
+	"health-care-name": "အဘထ",
+	"category": "pharmacy",
+	"category-mm": "ေဆးပစၥည္းအေရာင္းဆိုင္",
+	"image": "abahta.jpg",
+	"address": "D-5, Bldg E, Bayint Naung Rd., Puma Bldg, Ywar Ma (Mid) Ward, Insein Township, Yangon.",
+	"email": "",
+	"website": "",
+	"mapinfo": "",
+	"facebook": "",
+	"remark": "",
+	"phones": [{
+		"phone-id": 7000000001,
+		"phone-name": "+95 9 73242127"
+	}, {
+		"phone-id": 7000000002,
+		"phone-name": "+95 1 642047"
+	}],
+	"fax": [],
+	"tags": [{
+		"tag-id": 7000000001,
+		"tag-name": "traditional",
+		"tag-name-mm": "ဗမာတိုင္းရင္းေဆးမ်ိဳးစံု"
+	}],
+	"operations": [{
+		"operation-id": 7000000003,
+		"operation-name": "တိုင္းရင္းေဆးမ်ားေရာင္းခ်ျခင္း"
+	}],
+	"price-category": 5,
+	"available-doctors": []
+}, {
+	"health-care-id": 7700000003,
+	"health-care-name": "ထြန္း ေဆးမ်ိဳးစံုေရာင္း၀ယ္ေရး",
+	"category": "pharmacy",
+	"category-mm": "ေဆးပစၥည္းအေရာင္းဆိုင္",
+	"image": "HtunPharmacy.jpg",
+	"address": "No (B-198,199,200,201),2nd Floor,Shwe Pyae Soan Market,Inside Mingalar Market Compound,Mingalar Taung Nyunt Township,Yangon,Myanmar.",
+	"email": "",
+	"website": "",
+	"mapinfo": "",
+	"facebook": "https://www.facebook.com/%E1%80%91%E1%80%BC%E1%80%94%E1%80%B9%E1%80%B8-%E1%80%B1%E1%80%86%E1%80%B8%E1%80%99%E1%80%BA%E1%80%AD%E1%80%B3%E1%80%B8%E1%80%85%E1%80%B6%E1%80%AF%E1%80%B1%E1%80%9B%E1%80%AC%E1%80%84%E1%80%B9%E1%80%B8%E1%81%80%E1%80%9A%E1%80%B9%E1%80%B1%E1%80%9B%E1%80%B8-224170644331560/",
+	"remark": "",
+	"phones": [{
+		"phone-id": 7000000001,
+		"phone-name": "+95 1 206206"
+	}],
+	"fax": [],
+	"tags": [{
+		"tag-id": 7000000001,
+		"tag-name": "medicine",
+		"tag-name-mm": "ႏိုင္ငံျခားေဆးမ်ိဳးစံု"
+	}, {
+		"tag-id": 7000000002,
+		"tag-name": "traditional",
+		"tag-name-mm": "ဗမာတိုင္းရင္းေဆးမ်ိဳးစံု"
+	}, {
+		"tag-id": 7000000003,
+		"tag-name": "equipment",
+		"tag-name-mm": "ေဆးရံုသံုးပစၥည္းမ်ား"
+	}],
+	"operations": [{
+		"operation-id": 7000000001,
+		"operation-name": "ေဆး၀ါးမ်ားေရာင္းခ်ျခင္း"
+	}, {
+		"operation-id": 7000000002,
+		"operation-name": "ေဆးရံုသံုးပစၥည္းမ်ားေရာင္းခ်ျခင္း"
+	}],
+	"price-category": 5,
+	"available-doctors": []
+}, {
+	"health-care-id": 7700000004,
+	"health-care-name": "Thattant Pharmacy Store",
+	"category": "pharmacy",
+	"category-mm": "ေဆးပစၥည္းအေရာင္းဆိုင္",
+	"image": "ThattantPharmacy.jpg",
+	"address": "No.110,Sanchaung Street, Shin Saw Pu Ward.",
+	"email": "",
+	"website": "",
+	"mapinfo": "",
+	"facebook": "https://www.facebook.com/Thattant-Pharmacy-Store-690943151011888/",
+	"remark": "",
+	"phones": [{
+		"phone-id": 7000000001,
+		"phone-name": "+95 1 523 998"
+	}],
+	"fax": [],
+	"tags": [{
+		"tag-id": 7000000001,
+		"tag-name": "medicine",
+		"tag-name-mm": "ႏိုင္ငံျခားေဆးမ်ိဳးစံု"
+	}, {
+		"tag-id": 7000000002,
+		"tag-name": "traditional",
+		"tag-name-mm": "ဗမာတိုင္းရင္းေဆးမ်ိဳးစံု"
+	}],
+	"price-category": 2,
+	"available-doctors": []
+}, {
+	"health-care-id": 7700000005,
+	"health-care-name": "Star Pharmacy",
+	"category": "pharmacy",
+	"category-mm": "ေဆးပစၥည္းအေရာင္းဆိုင္",
+	"image": "StarPharmacy.jpg",
+	"address": "40/B Insein Road (9)Block, Hlaing Township.",
+	"email": "",
+	"website": "",
+	"mapinfo": "",
+	"facebook": "https://www.facebook.com/Star-Pharmacy-1625457684332593/",
+	"remark": "",
+	"phones": [{
+		"phone-id": 7000000001,
+		"phone-name": "+95 9511 2445"
+	}],
+	"fax": [],
+	"tags": [{
+		"tag-id": 7000000001,
+		"tag-name": "medicine",
+		"tag-name-mm": "ႏိုင္ငံျခားေဆးမ်ိဳးစံု"
+	}, {
+		"tag-id": 7000000002,
+		"tag-name": "traditional",
+		"tag-name-mm": "ဗမာတိုင္းရင္းေဆးမ်ိဳးစံု"
+	}],
+	"operations": [{
+		"operation-id": 7000000001,
+		"operation-name": "ေဆး၀ါးမ်ားေရာင္းခ်ျခင္း"
+	}],
+	"price-category": 2,
+	"available-doctors": []
+}, {
+	"health-care-id": 6600000001,
+	"health-care-name": "Pyay Veterinary Clinic",
+	"category": "vet",
+	"category-mm": "အိမ္ေမြးတိရစာၦန္ေစာင့္ေရွာက္မႈ",
+	"image": "PyayVet.jpg",
+	"address": "No. (471), Pyay Road, Ward-8, Kamayut Township, Yangon, Myanmar.",
+	"email": "info@pyayvetclinic.com",
+	"website": "https://www.pyayvetclinic.com/",
+	"mapinfo": "",
+	"facebook": "https://www.facebook.com/PyayVetClinic",
+	"remark": "Clinic opening hours are from 4:30 pm - 8:00 pm daily. If you want to make an appointment other than the hours mentioned above, please contact to the numbers listed above prior visiting.",
+	"phones": [{
+		"phone-id": 6000000001,
+		"phone-name": "+95 9 5262313"
+	}, {
+		"phone-id": 6000000002,
+		"phone-name": "+95 1 527526"
+	}, {
+		"phone-id": 6000000003,
+		"phone-name": "+95 9 36059888"
+	}],
+	"fax": [],
+	"tags": [{
+		"tag-id": 6000000001,
+		"tag-name": "clinic",
+		"tag-name-mm": "ေဆးကုခန္း"
+	}, {
+		"tag-id": 6000000002,
+		"tag-name": "medicine",
+		"tag-name-mm": "ေဆး၀ါးပစၥည္း"
+	}],
+	"operations": [{
+		"operation-id": 6000000001,
+		"operation-name": "Preventive Care"
+	}, {
+		"operation-id": 6000000002,
+		"operation-name": "Diagnosis and Treatment"
+	}, {
+		"operation-id": 6000000002,
+		"operation-name": "Surgery"
+	}, {
+		"operation-id": 6000000002,
+		"operation-name": "Consultation"
+	}],
+	"price-category": 5,
+	"available-doctors": []
+}, {
+	"health-care-id": 6600000002,
+	"health-care-name": "MyPet",
+	"category": "vet",
+	"category-mm": "အိမ္ေမြးတိရစာၦန္ေစာင့္ေရွာက္မႈ",
+	"image": "MyPet.jpg",
+	"address": "83 B, U Chit Maung Road, Under Tarmwe Crossover Bridge, Bahan Township",
+	"email": "",
+	"website": "http://www.mypetmyanmar.com/",
+	"mapinfo": "",
+	"facebook": "https://www.facebook.com/mypetmyanmar/?fref=ts",
+	"remark": "MyPet | ျမန္မာႏိုင္ငံ၏ အလန္းတကာ့အလန္းဆံုး Pet Store! MyPet is Myanmar's Hottest Pet Store! Open Daily 9:00AM - 9:00PM",
+	"phones": [{
+		"phone-id": 6000000001,
+		"phone-name": "+95 9 969 688088"
+	}],
+	"fax": [],
+	"tags": [{
+		"tag-id": 6000000001,
+		"tag-name": "equipment",
+		"tag-name-mm": "အသံုးအဆာင္ပစၥည္း"
+	}],
+	"operations": [{
+		"operation-id": 6000000001,
+		"operation-name": "အိမ္ေမြးတိရစာၦန္ အသံုးအေဆာင္ပစၥည္းမ်ားကို လက္လီလက္ကား ေရာင္းခ်ေပးေနပါသည္။"
+	}],
+	"price-category": 4,
+	"available-doctors": []
+}, {
+	"health-care-id": 6600000003,
+	"health-care-name": "VETs for PETs - Vet Clinic",
+	"category": "vet",
+	"category-mm": "အိမ္ေမြးတိရစာၦန္ေစာင့္ေရွာက္မႈ",
+	"image": "vetsforpets.jpg",
+	"address": "အမွတ္(38)ေျမညီ၊ ေက်ာင္းကုန္းလမ္း၊ စမ္းေခ်ာင္းၿမိဳ႕နယ္၊ရန္ကုန္။",
+	"email": "",
+	"website": "",
+	"mapinfo": "",
+	"facebook": "https://www.facebook.com/vetsforpets2014/",
+	"remark": "Be kind to your pets~",
+	"phones": [{
+		"phone-id": 6000000001,
+		"phone-name": "+95 9 250882718"
+	}, {
+		"phone-id": 6000000002,
+		"phone-name": "+95 9 421094066"
+	}, {
+		"phone-id": 6000000003,
+		"phone-name": "+95 9 781462981"
+	}],
+	"fax": [],
+	"tags": [{
+		"tag-id": 6000000001,
+		"tag-name": "clinic",
+		"tag-name-mm": "ေဆးကုခန္း"
+	}, {
+		"tag-id": 6000000002,
+		"tag-name": "medicine",
+		"tag-name-mm": "ေဆး၀ါးပစၥည္း"
+	}, {
+		"tag-id": 6000000003,
+		"tag-name": "equipment",
+		"tag-name-mm": "အသံုးအဆာင္ပစၥည္း"
+	}],
+	"operations": [{
+		"operation-id": 6000000001,
+		"operation-name": "Preventive Care"
+	}, {
+		"operation-id": 6000000002,
+		"operation-name": "Diagnosis and Treatment"
+	}, {
+		"operation-id": 6000000002,
+		"operation-name": "Surgery"
+	}, {
+		"operation-id": 6000000002,
+		"operation-name": "Consultation"
+	}],
+	"price-category": 5,
+	"available-doctors": []
+}, {
+	"health-care-id": 6600000004,
+	"health-care-name": "DR. Kan Vet. Clinic & Pet Accessary Shop",
+	"category": "vet",
+	"category-mm": "အိမ္ေမြးတိရစာၦန္ေစာင့္ေရွာက္မႈ",
+	"image": "drkan.jpg",
+	"address": "No. 60-A, 6 1/2Mile, Pyay rd, Ward (11)",
+	"email": "",
+	"website": "",
+	"mapinfo": "",
+	"facebook": "",
+	"remark": "9:00 – 11:00 Am (Close on Sunday)",
+	"phones": [{
+		"phone-id": 6000000001,
+		"phone-name": "+95 1 538649"
+	}],
+	"fax": [],
+	"tags": [{
+		"tag-id": 6000000001,
+		"tag-name": "clinic",
+		"tag-name-mm": "ေဆးကုခန္း"
+	}, {
+		"tag-id": 6000000002,
+		"tag-name": "medicine",
+		"tag-name-mm": "ေဆး၀ါးပစၥည္း"
+	}, {
+		"tag-id": 6000000003,
+		"tag-name": "equipment",
+		"tag-name-mm": "အသံုးအဆာင္ပစၥည္း"
+	}],
+	"operations": [{
+		"operation-id": 6000000001,
+		"operation-name": "Preventive Care"
+	}, {
+		"operation-id": 6000000002,
+		"operation-name": "Diagnosis and Treatment"
+	}, {
+		"operation-id": 6000000002,
+		"operation-name": "Surgery"
+	}, {
+		"operation-id": 6000000002,
+		"operation-name": "Consultation"
+	}],
+	"price-category": 5,
+	"available-doctors": []
+}, {
+	"health-care-id": 6600000005,
+	"health-care-name": "Royal Veterinary Clinic",
+	"category": "vet",
+	"category-mm": "အိမ္ေမြးတိရစာၦန္ေစာင့္ေရွာက္မႈ",
+	"image": "RoyalVet.jpg",
+	"address": "No. 287/B, Ground Floor,  Shwe Gon Daing rd, Shwe Gon Daing (Mid) Ward",
+	"email": "",
+	"website": "",
+	"mapinfo": "",
+	"facebook": "",
+	"remark": "8:00 – 11:00 Am, 4:00 – 8:00 Pm (Close on Sunday Morning)",
+	"phones": [{
+		"phone-id": 6000000001,
+		"phone-name": "+95 9 86 16037"
+	}],
+	"fax": [],
+	"tags": [{
+		"tag-id": 6000000001,
+		"tag-name": "clinic",
+		"tag-name-mm": "ေဆးကုခန္း"
+	}, {
+		"tag-id": 6000000002,
+		"tag-name": "medicine",
+		"tag-name-mm": "ေဆး၀ါးပစၥည္း"
+	}],
+	"operations": [{
+		"operation-id": 6000000001,
+		"operation-name": "Preventive Care"
+	}, {
+		"operation-id": 6000000002,
+		"operation-name": "Diagnosis and Treatment"
+	}, {
+		"operation-id": 6000000002,
+		"operation-name": "Surgery"
+	}, {
+		"operation-id": 6000000002,
+		"operation-name": "Consultation"
+	}],
+	"price-category": 3,
+	"available-doctors": []
+}]

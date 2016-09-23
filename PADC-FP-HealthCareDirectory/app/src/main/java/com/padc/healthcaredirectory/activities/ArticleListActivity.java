@@ -9,14 +9,17 @@ import android.support.v7.widget.Toolbar;
 import com.padc.healthcaredirectory.HealthCareDirectoryApp;
 import com.padc.healthcaredirectory.R;
 import com.padc.healthcaredirectory.data.vos.ArticleVO;
+import com.padc.healthcaredirectory.data.vos.HealthCareInfoVO;
 import com.padc.healthcaredirectory.fragments.ArticleListFragment;
 import com.padc.healthcaredirectory.views.holders.ArticleViewHolder;
+import com.padc.healthcaredirectory.views.holders.HealthCareInfoViewHolder;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class ArticleListActivity extends AppCompatActivity
-        implements ArticleViewHolder.ControllerArticleItem {
+        implements ArticleViewHolder.ControllerArticleItem,
+        HealthCareInfoViewHolder.ControllerHealthCareInfoItem {
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
@@ -55,6 +58,14 @@ public class ArticleListActivity extends AppCompatActivity
 
         Intent intent = ArticleDetailActivity.newIntent(id);
         startActivity(intent);
+    }
 
+    @Override
+    public void onTapHealthCareInfo(HealthCareInfoVO healthCareInfo) {
+
+        int id = healthCareInfo.getId();
+
+        Intent intent = ArticleDetailActivity.newIntent(id);
+        startActivity(intent);
     }
 }

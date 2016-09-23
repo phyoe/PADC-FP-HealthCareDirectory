@@ -2,8 +2,6 @@ package com.padc.healthcaredirectory.data.vos;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.util.ArrayList;
-
 /**
  * Created by Phyoe Khant on 9/21/2016.
  */
@@ -17,8 +15,10 @@ public class HealthCareInfoVO {
     @SerializedName("title")
     private String title;
 
+    /**
     @SerializedName("author")
     private ArrayList<AuthorVO> author;
+    /**/
 
     @SerializedName("short-description")
     private String shortDescription;
@@ -48,13 +48,17 @@ public class HealthCareInfoVO {
         this.title = title;
     }
 
+    /**
     public ArrayList<AuthorVO> getAuthor() {
         return author;
     }
+    /**/
 
+    /**
     public void setAuthor(ArrayList<AuthorVO> author) {
         this.author = author;
     }
+    /**/
 
     public String getShortDescription() {
         return shortDescription;
