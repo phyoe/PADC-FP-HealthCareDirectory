@@ -1,4 +1,4 @@
-package com.padc.healthcaredirectory.persistence;
+package com.padc.healthcaredirectory.data.persistence;
 
 import android.content.ContentResolver;
 import android.content.ContentUris;
@@ -81,8 +81,8 @@ public class HealthCareContract {
 
         public static final String TABLE_NAME = "healthcare_service_phones";
 
-        public static final String COLUMN_SERVICE_ID     = "healthcare_service_id";
         public static final String COLUMN_ID             = "phone_id";
+        public static final String COLUMN_SERVICE_ID     = "healthcare_service_id";
         public static final String COLUMN_NAME           = "phone_name";
 
         public static Uri buildServicePhoneUri(long id) {
@@ -95,6 +95,9 @@ public class HealthCareContract {
             return CONTENT_URI.buildUpon()
                     .appendQueryParameter(COLUMN_SERVICE_ID, healthCareServiceId)
                     .build();
+        }
+        public static String getHealthCareServiceIdFromParam(Uri uri) {
+            return uri.getQueryParameter(COLUMN_SERVICE_ID);
         }
     }
 

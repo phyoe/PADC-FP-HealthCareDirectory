@@ -2,8 +2,8 @@ package com.padc.healthcaredirectory.data.agents;
 
 import com.padc.healthcaredirectory.data.models.HealthCareInfoModel;
 import com.padc.healthcaredirectory.data.models.HealthCareServiceModel;
-import com.padc.healthcaredirectory.responses.HealthCareInfoListResponse;
-import com.padc.healthcaredirectory.responses.HealthCareServiceListResponse;
+import com.padc.healthcaredirectory.data.responses.HealthCareInfoListResponse;
+import com.padc.healthcaredirectory.data.responses.HealthCareServiceListResponse;
 import com.padc.healthcaredirectory.utils.CommonInstance;
 import com.padc.healthcaredirectory.utils.HealthCareDirectoryConstants;
 

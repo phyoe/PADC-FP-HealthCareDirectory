@@ -1,7 +1,7 @@
 package com.padc.healthcaredirectory.data.agents;
 
-import com.padc.healthcaredirectory.responses.HealthCareInfoListResponse;
-import com.padc.healthcaredirectory.responses.HealthCareServiceListResponse;
+import com.padc.healthcaredirectory.data.responses.HealthCareInfoListResponse;
+import com.padc.healthcaredirectory.data.responses.HealthCareServiceListResponse;
 import com.padc.healthcaredirectory.utils.HealthCareDirectoryConstants;
 
 import retrofit2.Call;
