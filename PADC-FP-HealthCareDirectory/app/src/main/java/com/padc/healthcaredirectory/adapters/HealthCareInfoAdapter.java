@@ -42,4 +42,9 @@ public class HealthCareInfoAdapter  extends RecyclerView.Adapter<HealthCareInfoV
     public int getItemCount() {
         return mHealthCareInfoList.size();
     }
+
+    public void setNewData(List<HealthCareInfoVO> newHealthCareInfoList) {
+        mHealthCareInfoList = newHealthCareInfoList;
+        notifyDataSetChanged();//framework method
+    }
 }

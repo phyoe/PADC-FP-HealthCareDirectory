@@ -2,7 +2,7 @@ package com.padc.healthcaredirectory.data.models;
 
 import com.google.gson.reflect.TypeToken;
 import com.padc.healthcaredirectory.data.vos.ArticleVO;
-import com.padc.healthcaredirectory.utils.CommonInstances;
+import com.padc.healthcaredirectory.utils.CommonInstance;
 import com.padc.healthcaredirectory.utils.JsonUtils;
 
 import org.json.JSONException;
@@ -40,7 +40,7 @@ public class ArticleModel {
             String dummyArticleList = JsonUtils.getInstance().loadDummyData(DUMMY_ARTICLE_LIST);
             Type listType = new TypeToken<List<ArticleVO>>() {
             }.getType();
-            articleList = CommonInstances.getGsonInstance().fromJson(dummyArticleList, listType);
+            articleList = CommonInstance.getGsonInstance().fromJson(dummyArticleList, listType);
 
         } catch (IOException e) {
             e.printStackTrace();

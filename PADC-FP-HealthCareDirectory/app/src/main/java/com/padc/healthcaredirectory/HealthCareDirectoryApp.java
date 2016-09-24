@@ -16,6 +16,10 @@ public class HealthCareDirectoryApp extends Application {
     public void onCreate() {
         super.onCreate();
         context = getApplicationContext();
+
+        //From Network Layer
+        //RetrofitDataAgent.getInstance().loadHealthCareServices();
+        //RetrofitDataAgent.getInstance().loadHealthCareInfos();
     }
 
     public static Context getContext() {

@@ -9,17 +9,23 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.padc.healthcaredirectory.R;
 import com.padc.healthcaredirectory.adapters.ArticleAdapter;
+import com.padc.healthcaredirectory.adapters.HealthCareInfoAdapter;
 import com.padc.healthcaredirectory.data.models.ArticleModel;
 import com.padc.healthcaredirectory.data.vos.ArticleVO;
+import com.padc.healthcaredirectory.data.vos.HealthCareInfoVO;
+import com.padc.healthcaredirectory.events.DataEvent;
 import com.padc.healthcaredirectory.views.holders.ArticleViewHolder;
+import com.padc.healthcaredirectory.views.holders.HealthCareInfoViewHolder;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import de.greenrobot.event.EventBus;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -34,7 +40,7 @@ public class ArticleListFragment extends BaseFragment {
     private ArticleViewHolder.ControllerArticleItem mControllerArticleItem;
     /**/
 
-    /**
+    /**/
     private HealthCareInfoAdapter mHealthCareInfoAdapter;
     private HealthCareInfoViewHolder.ControllerHealthCareInfoItem mControllerHealthCareInfoItem;
     /**/
@@ -91,4 +97,28 @@ public class ArticleListFragment extends BaseFragment {
         return rootView;
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        EventBus eventBus = EventBus.getDefault();
+        if (!eventBus.isRegistered(this)) {
+            eventBus.register(this);
+        }
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        EventBus eventBus = EventBus.getDefault();
+        eventBus.unregister(this);
+    }
+
+    public void onEventMainThread(DataEvent.HealthCareInfoDataLoadedEvent event) {
+        String extra = event.getExtraMessage();
+        Toast.makeText(getContext(), "Extra : " + extra, Toast.LENGTH_SHORT).show();
+
+        List<HealthCareInfoVO> newHealthCareInfoList = event.getHealthCareInfoList();
+        mHealthCareInfoAdapter.setNewData(newHealthCareInfoList);
+        mHealthCareInfoAdapter.notifyDataSetChanged();
+    }
 }

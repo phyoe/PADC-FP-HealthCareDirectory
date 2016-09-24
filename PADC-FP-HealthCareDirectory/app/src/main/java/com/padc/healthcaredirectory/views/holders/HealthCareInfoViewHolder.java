@@ -1,13 +1,11 @@
 package com.padc.healthcaredirectory.views.holders;
 
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.padc.healthcaredirectory.HealthCareDirectoryApp;
 import com.padc.healthcaredirectory.R;
 import com.padc.healthcaredirectory.data.vos.HealthCareInfoVO;
 
@@ -38,9 +36,9 @@ public class HealthCareInfoViewHolder extends RecyclerView.ViewHolder implements
     public void bindData(HealthCareInfoVO healthCareInfo) {
         mHealthCareInfo = healthCareInfo;
 
-        Log.d(HealthCareDirectoryApp.TAG, healthCareInfo.getTitle());
+        //Log.d(HealthCareDirectoryApp.TAG, healthCareInfo.getTitle());
 
-        tvTitle.setText(healthCareInfo.getTitle());
+       // tvTitle.setText(healthCareInfo.getTitle());
 
         int img = R.drawable.dummy_article;
         Glide.with(ivIcon.getContext())
