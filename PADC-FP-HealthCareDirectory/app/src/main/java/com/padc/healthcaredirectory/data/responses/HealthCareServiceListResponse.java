@@ -1,4 +1,4 @@
-package com.padc.healthcaredirectory.responses;
+package com.padc.healthcaredirectory.data.responses;
 
 import com.google.gson.annotations.SerializedName;
 import com.padc.healthcaredirectory.data.vos.HealthCareServiceVO;
