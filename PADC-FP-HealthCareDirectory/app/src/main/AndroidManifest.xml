@@ -4,6 +4,7 @@
 
     <!-- Implicit Intents -->
     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".HealthCareDirectoryApp"
@@ -49,7 +50,9 @@
         <activity
             android:name=".activities.ArticleListActivity"
             android:parentActivityName=".activities.HomeActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar" >
+
+        </activity>
         <activity
             android:name=".activities.ArticleDetailActivity"
             android:parentActivityName=".activities.ArticleListActivity"

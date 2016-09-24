@@ -1,9 +1,12 @@
 package com.padc.healthcaredirectory.data.models;
 
+import android.util.Log;
+
 import com.google.gson.reflect.TypeToken;
 import com.padc.healthcaredirectory.data.vos.HealthCareServiceVO;
 import com.padc.healthcaredirectory.data.vos.PhoneVO;
-import com.padc.healthcaredirectory.utils.CommonInstances;
+import com.padc.healthcaredirectory.events.DataEvent;
+import com.padc.healthcaredirectory.utils.CommonInstance;
 import com.padc.healthcaredirectory.utils.JsonUtils;
 
 import org.json.JSONException;
@@ -13,10 +16,14 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
+import de.greenrobot.event.EventBus;
+
 /**
  * Created by Phyoe Khant on 9/21/2016.
  */
-public class HealthCareServiceModel {
+public class HealthCareServiceModel extends BaseModel {
+
+    public static final String BROADCAST_DATA_LOADED = "BROADCAST_DATA_LOADED";
 
     private static final String DUMMY_HEALTHCARE_SERVICE_LIST = "health-care-services.json";
 
@@ -26,8 +33,18 @@ public class HealthCareServiceModel {
     private List<PhoneVO> mPhoneList;
     
     public HealthCareServiceModel() {
+        /**/
+        //From Network Layer
+        Log.d("Data", "data");
+        mHealthCareServiceList = new ArrayList<>();
+        dataAgent.loadHealthCareServices();
+        /**/
+
+        /**
+        //From Json file
         super();
         mHealthCareServiceList = initializeHealthCareService();
+        /**/
     }
 
     public static HealthCareServiceModel getInstance(){
@@ -47,7 +64,7 @@ public class HealthCareServiceModel {
             String dummyHealthCareServiceList = JsonUtils.getInstance().loadDummyData(DUMMY_HEALTHCARE_SERVICE_LIST);
             Type listType = new TypeToken<List<HealthCareServiceVO>>() {
             }.getType();
-            healthCareServiceList = CommonInstances.getGsonInstance().fromJson(dummyHealthCareServiceList, listType);
+            healthCareServiceList = CommonInstance.getGsonInstance().fromJson(dummyHealthCareServiceList, listType);
             /**/
 
             /**
@@ -116,4 +133,26 @@ public class HealthCareServiceModel {
         return phoneList;
     }
 
+    /**
+     * for Network Layer
+     */
+    public void notifyHealthCareServiceLoaded(List<HealthCareServiceVO> healthCareServiceList) {
+        //Notify that the data is ready - using LocalBroadcast
+        mHealthCareServiceList = healthCareServiceList;
+
+        broadcastHealthCareServiceLoadedWithEventBus();
+    }
+
+    public void notifyErrorInLoadingHealthCareService(String message) {
+
+    }
+
+    private void broadcastHealthCareServiceLoadedWithEventBus() {
+        EventBus.getDefault().post(new DataEvent.HealthCareServiceDataLoadedEvent("extra-in-broadcast", mHealthCareServiceList));
+    }
+
+    public void loadHealthCareServices()
+    {
+        dataAgent.loadHealthCareServices();
+    }
 }

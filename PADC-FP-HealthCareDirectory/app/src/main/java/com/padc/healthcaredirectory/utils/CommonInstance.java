@@ -5,7 +5,7 @@ import com.google.gson.Gson;
 /**
  * Created by aung on 12/12/15.
  */
-public class CommonInstances {
+public class CommonInstance {
 
     private static Gson gson = new Gson();
 

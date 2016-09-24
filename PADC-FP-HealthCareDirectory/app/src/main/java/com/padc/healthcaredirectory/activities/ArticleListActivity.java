@@ -63,9 +63,5 @@ public class ArticleListActivity extends AppCompatActivity
     @Override
     public void onTapHealthCareInfo(HealthCareInfoVO healthCareInfo) {
 
-        int id = healthCareInfo.getId();
-
-        Intent intent = ArticleDetailActivity.newIntent(id);
-        startActivity(intent);
     }
 }

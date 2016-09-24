@@ -2,7 +2,7 @@ package com.padc.healthcaredirectory.data.models;
 
 import com.google.gson.reflect.TypeToken;
 import com.padc.healthcaredirectory.data.vos.HealthCareVO;
-import com.padc.healthcaredirectory.utils.CommonInstances;
+import com.padc.healthcaredirectory.utils.CommonInstance;
 import com.padc.healthcaredirectory.utils.JsonUtils;
 
 import org.json.JSONException;
@@ -43,7 +43,7 @@ public class HealthCareModel {
             String dummyHealthCareList = JsonUtils.getInstance().loadDummyData(DUMMY_HOSPITAL_LIST);
             Type listType = new TypeToken<List<HealthCareVO>>() {
             }.getType();
-            healthCareList = CommonInstances.getGsonInstance().fromJson(dummyHealthCareList, listType);
+            healthCareList = CommonInstance.getGsonInstance().fromJson(dummyHealthCareList, listType);
 
         } catch (IOException e) {
             e.printStackTrace();
