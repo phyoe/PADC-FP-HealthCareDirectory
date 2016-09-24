@@ -51,6 +51,34 @@ public class HealthCareModel {
             e.printStackTrace();
         }
         return healthCareList;
+
+        /**
+        List<Restarutant> list = new ArrayList<Restarutant>();
+        try {
+            JSONObject json = new JSONObject(thepreviousjson);
+            JSONArray jArray = json.getJSONArray("restaurant");
+            for (int i = 0; i < jArray.length(); i++) {
+                JSONObject json_data = jArray.getJSONObject(i);
+                Restarutant data = new Restarutant();// Create Object Here
+                data.setName(json_data.getString("name"));
+                data.setPhotoUrl(json_data.getString("photo"));
+                data.setAddress(json_data.getString("address"));
+                data.setArea(json_data.getString("area"));
+                data.setCity(json_data.getString("city"));
+                JSONObject cuisines = json_data.getJSONObject("cuisines");
+                Cuisines cuisine = new Cuisines();// Create Object here
+                cuisine.setFirst(cuisines.getString("first"));
+                cuisine.setSecond(cuisines.getString("second"));
+                data.setCuisines(cuisine);// setting the cuisine
+                list.add(data);// Finally adding the model to List
+
+            }
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        /**/
+
     }
 
 
