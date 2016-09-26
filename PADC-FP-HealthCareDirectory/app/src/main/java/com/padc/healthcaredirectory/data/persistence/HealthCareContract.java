@@ -39,18 +39,18 @@ public class HealthCareContract {
 
         public static final String TABLE_NAME = "healthcare_services";
 
-        public static final String COLUMN_ID                = "healthcare_service_id";
-        public static final String COLUMN_NAME              = "healthcare_service_name";
-        public static final String COLUMN_CATEGORY          = "category";
-        public static final String COLUMN_CATEGORY_MM       = "category_mm";
-        public static final String COLUMN_IMAGE             = "image";
-        public static final String COLUMN_ADDRESS           = "address";
-        public static final String COLUMN_EMAIL             = "email";
-        public static final String COLUMN_WEBSITE           = "website";
-        public static final String COLUMN_MAPINFO           = "mapinfo";
-        public static final String COLUMN_FACEBOOK          = "facebook";
-        public static final String COLUMN_REMARK            = "remark";
-        public static final String COLUMN_PRICE_CATEGORY    = "price_category";
+        public static final String COLUMN_HEALTHCARE_SERVICE_ID     = "healthcare_service_id";
+        public static final String COLUMN_HEALTHCARE_SERVICE_NAME   = "healthcare_service_name";
+        public static final String COLUMN_CATEGORY                  = "category";
+        public static final String COLUMN_CATEGORY_MM               = "category_mm";
+        public static final String COLUMN_IMAGE                     = "image";
+        public static final String COLUMN_ADDRESS                   = "address";
+        public static final String COLUMN_EMAIL                     = "email";
+        public static final String COLUMN_WEBSITE                   = "website";
+        public static final String COLUMN_MAPINFO                   = "mapinfo";
+        public static final String COLUMN_FACEBOOK                  = "facebook";
+        public static final String COLUMN_REMARK                    = "remark";
+        public static final String COLUMN_PRICE_CATEGORY            = "price_category";
 
         public static Uri buildHealthCareServiceUri(long id) {
             //content://com.padc.healthcaredirectory/healthcare_services/1
@@ -60,12 +60,12 @@ public class HealthCareContract {
         public static Uri buildHealthCareServiceUriWithName(String healthCareServiceName) {
             //content://com.padc.healthcaredirectory/healthcare_services?healthcare_service_name=Asiaroyal
             return CONTENT_URI.buildUpon()
-                    .appendQueryParameter(COLUMN_NAME, healthCareServiceName)
+                    .appendQueryParameter(COLUMN_HEALTHCARE_SERVICE_NAME, healthCareServiceName)
                     .build();
         }
 
         public static String getNameFromParam(Uri uri) {
-            return uri.getQueryParameter(COLUMN_NAME);
+            return uri.getQueryParameter(COLUMN_HEALTHCARE_SERVICE_NAME);
         }
     }
 
@@ -81,19 +81,19 @@ public class HealthCareContract {
 
         public static final String TABLE_NAME = "healthcare_service_phones";
 
-        public static final String COLUMN_ID             = "phone_id";
-        public static final String COLUMN_SERVICE_ID     = "healthcare_service_id";
-        public static final String COLUMN_NAME           = "phone_name";
+        public static final String COLUMN_PHONE_ID      = "phone_id";
+        public static final String COLUMN_SERVICE_ID    = "healthcare_service_id";
+        public static final String COLUMN_PHONE_NAME    = "phone_name";
 
-        public static Uri buildServicePhoneUri(long id) {
+        public static Uri buildHealthCareServicePhoneUri(long id) {
             //content://com.padc.healthcaredirectory/healthcare_service_phones/1
             return ContentUris.withAppendedId(CONTENT_URI, id);
         }
 
-        public static Uri buildHealthCareServicePhoneUriWithParentId(String healthCareServiceId) {
+        public static Uri buildHealthCareServicePhoneUriWithServiceId(long healthCareServiceId) {
             //content://com.padc.healthcaredirectory/healthcare_service_phones?healthcare_service_id=xxxx
             return CONTENT_URI.buildUpon()
-                    .appendQueryParameter(COLUMN_SERVICE_ID, healthCareServiceId)
+                    .appendQueryParameter(COLUMN_SERVICE_ID, String.valueOf(healthCareServiceId))
                     .build();
         }
         public static String getHealthCareServiceIdFromParam(Uri uri) {
@@ -137,22 +137,23 @@ public class HealthCareContract {
 
         public static final String TABLE_NAME = "healthcare_infos";
 
-        public static final String COLUMN_ID                = "healthcare_info_id";
-        public static final String COLUMN_TITLE             = "title";
-        public static final String COLUMN_SHORT_DESC        = "short_description";
-        public static final String COLUMN_PUBLISHED_DATE    = "published_date";
-        public static final String COLUMN_COMPLETE_URL      = "complete_url";
-        public static final String COLUMN_INFO_TYPE         = "info_type";
+        public static final String COLUMN_HEALTHCARE_INFO_ID    = "healthcare_info_id";
+        public static final String COLUMN_TITLE                 = "title";
+        public static final String COLUMN_SHORT_DESC            = "short_description";
+        public static final String COLUMN_PUBLISHED_DATE        = "published_date";
+        public static final String COLUMN_COMPLETE_URL          = "complete_url";
+        public static final String COLUMN_INFO_TYPE             = "info_type";
 
         public static Uri buildHealthCareInfoUri(long id) {
             //content://com.padc.healthcaredirectory/healthcare_infos/1
             return ContentUris.withAppendedId(CONTENT_URI, id);
         }
 
-        public static Uri buildHealthCareInfoUriWithTitle(String title) {
-            //content://com.padc.healthcaredirectory/healthcare_services?title=Asiaroyal
+        public static Uri buildHealthCareInfoUriWithInfoId(long info_id) {
+            //content://com.padc.healthcaredirectory/healthcare_infos?title=xxx
+
             return CONTENT_URI.buildUpon()
-                    .appendQueryParameter(COLUMN_TITLE, title)
+                    .appendQueryParameter(COLUMN_HEALTHCARE_INFO_ID, String.valueOf(info_id))
                     .build();
         }
 
@@ -162,6 +163,35 @@ public class HealthCareContract {
     }
 
     public static final class HealthCareInfoAuthorEntry implements BaseColumns{
+        public static final Uri CONTENT_URI =
+                BASE_CONTENT_URI.buildUpon().appendPath(PATH_HEALTHCARE_INFO_AUTHORS).build();
 
+        public static final String DIR_TYPE =
+                ContentResolver.CURSOR_DIR_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH_HEALTHCARE_INFO_AUTHORS;
+
+        public static final String ITEM_TYPE =
+                ContentResolver.CURSOR_ITEM_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH_HEALTHCARE_INFO_AUTHORS;
+
+        public static final String TABLE_NAME = "healthcare_info_authors";
+
+        public static final String COLUMN_AUTHOR_ID         = "author_id";
+        public static final String COLUMN_INFO_ID           = "healthcare_service_id";
+        public static final String COLUMN_AUTHOR_NAME       = "author_name";
+        public static final String COLUMN_AUTHOR_PICTURE    = "author_picture";
+
+        public static Uri buildHealthCareInfoAuthorUri(long id) {
+            //content://com.padc.healthcaredirectory/healthcare_info_authors/1
+            return ContentUris.withAppendedId(CONTENT_URI, id);
+        }
+
+        public static Uri buildHealthCareInfoAuthorUriWithInfoId(long healthCareInfoId) {
+            //content://com.padc.healthcaredirectory/healthcare_info_authors?healthcare_service_id=xxxx
+            return CONTENT_URI.buildUpon()
+                    .appendQueryParameter(COLUMN_INFO_ID, String.valueOf(healthCareInfoId))
+                    .build();
+        }
+        public static String getHealthCareInfoIdFromParam(Uri uri) {
+            return uri.getQueryParameter(COLUMN_INFO_ID);
+        }
     }
 }

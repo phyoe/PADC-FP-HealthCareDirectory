@@ -29,7 +29,7 @@ public class HealthCareInfoAdapter  extends RecyclerView.Adapter<HealthCareInfoV
 
     @Override
     public HealthCareInfoViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = mInflater.inflate(R.layout.view_item_healthcare, parent, false);
+        View itemView = mInflater.inflate(R.layout.view_item_article, parent, false);
         return new HealthCareInfoViewHolder(itemView, mControllerHealthCareInfoItem);
     }
 

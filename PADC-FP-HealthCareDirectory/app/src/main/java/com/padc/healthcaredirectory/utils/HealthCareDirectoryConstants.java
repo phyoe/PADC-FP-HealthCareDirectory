@@ -11,6 +11,12 @@ public class HealthCareDirectoryConstants {
     public static final String PARAM_ACCESS_TOKEN = "access_token";
     public static final String ACCESS_TOKEN = "b002c7e1a528b7cb460933fc2875e916";
 
+    //Loader ID
+    public static final int HEALTHCARE_SERVICE_LIST_LOADER = 1;
+    public static final int HEALTHCARE_SERVICE_DETAIL_LOADER = 2;
+    public static final int HEALTHCARE_INFO_LIST_LOADER = 3;
+    public static final int HEALTHCARE_INFO_DETAIL_LOADER = 4;
+
     //Fragment
     public static final int FRAGMENT_HOSPITAL = 1;
     public static final int FRAGMENT_CLINIC = 2;

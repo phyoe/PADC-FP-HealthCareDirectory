@@ -16,7 +16,7 @@ public class HealthCareInfoListResponse {
     @SerializedName("message")
     private String message;
 
-    @SerializedName("health-care-info")
+    @SerializedName("healthcare-info")
     private ArrayList<HealthCareInfoVO> healthCareInfoList;
 
     public int getCode() {

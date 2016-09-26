@@ -1,5 +1,7 @@
 package com.padc.healthcaredirectory.data.agents;
 
+import android.util.Log;
+
 import com.padc.healthcaredirectory.data.models.HealthCareInfoModel;
 import com.padc.healthcaredirectory.data.models.HealthCareServiceModel;
 import com.padc.healthcaredirectory.data.responses.HealthCareInfoListResponse;
@@ -79,20 +81,22 @@ public class RetrofitDataAgent implements HealthCareDataAgent {
         loadHealthCareInfoCall.enqueue(new Callback<HealthCareInfoListResponse>() {
             @Override
             public void onResponse(Call<HealthCareInfoListResponse> call, Response<HealthCareInfoListResponse> response) {
-                HealthCareInfoListResponse healthCareInfoListResponse = response.body();
-                if(healthCareInfoListResponse == null)
-                {
-                    HealthCareInfoModel.getInstance().notifyErrorInLoadingHealthCareInfo(response.message());
-                }
-                else
-                {
-                    HealthCareInfoModel.getInstance().notifyHealthCareInfoLoaded(healthCareInfoListResponse.getHealthCareInfoList());
+                if (response.isSuccessful()) {
+                    HealthCareInfoListResponse healthCareInfoListResponse = response.body();
+                    if (healthCareInfoListResponse == null) {
+                        HealthCareInfoModel.getInstance().notifyErrorInLoadingHealthCareInfo(response.message());
+                    } else {
+                        HealthCareInfoModel.getInstance().notifyHealthCareInfoLoaded(healthCareInfoListResponse.getHealthCareInfoList());
+                    }
+                } else {
+                    Log.e("DataAgent", "Loading Health Care Not Success");
                 }
             }
 
             @Override
             public void onFailure(Call<HealthCareInfoListResponse> call, Throwable throwable) {
-
+                Log.e("DataAgent", "Loading Health Care Failure : " + throwable.getMessage());
+                throwable.printStackTrace();
                 HealthCareInfoModel.getInstance().notifyErrorInLoadingHealthCareInfo(throwable.getMessage());
             }
         });

@@ -75,10 +75,10 @@ public class HealthCareInfoModel extends BaseModel {
         return mHealthCareInfoList;
     }
 
-    public HealthCareInfoVO getHealthCareInfoById(int id) {
-        for (HealthCareInfoVO healthcare : mHealthCareInfoList) {
-            if (healthcare.getId() == id) {
-                return healthcare;
+    public HealthCareInfoVO getHealthCareInfoById(long id) {
+        for (HealthCareInfoVO healthcareInfo : mHealthCareInfoList) {
+            if (healthcareInfo.getId() == id) {
+                return healthcareInfo;
             }
         }
         return null;
@@ -90,6 +90,9 @@ public class HealthCareInfoModel extends BaseModel {
     public void notifyHealthCareInfoLoaded(List<HealthCareInfoVO> healthCareInfoList) {
         //Notify that the data is ready - using LocalBroadcast
         mHealthCareInfoList = healthCareInfoList;
+
+        //keep the data in persistent layer.
+        HealthCareInfoVO.saveHealthCareInfo(mHealthCareInfoList);
 
         broadcastHealthCareInfoLoadedWithEventBus();
     }
@@ -105,5 +108,12 @@ public class HealthCareInfoModel extends BaseModel {
     public void loadHealthCareInfos()
     {
         dataAgent.loadHealthCareInfos();
+    }
+
+    /**
+     * for Persistence Layer
+     */
+    public void setStoredData(List<HealthCareInfoVO> healthCareInfoList) {
+        mHealthCareInfoList = healthCareInfoList;
     }
 }

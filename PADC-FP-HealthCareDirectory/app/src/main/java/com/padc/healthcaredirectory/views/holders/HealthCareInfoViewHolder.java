@@ -38,7 +38,7 @@ public class HealthCareInfoViewHolder extends RecyclerView.ViewHolder implements
 
         //Log.d(HealthCareDirectoryApp.TAG, healthCareInfo.getTitle());
 
-       // tvTitle.setText(healthCareInfo.getTitle());
+        tvTitle.setText(healthCareInfo.getTitle());
 
         int img = R.drawable.dummy_article;
         Glide.with(ivIcon.getContext())

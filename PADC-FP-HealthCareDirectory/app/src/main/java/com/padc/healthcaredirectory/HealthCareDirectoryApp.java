@@ -3,6 +3,8 @@ package com.padc.healthcaredirectory;
 import android.app.Application;
 import android.content.Context;
 
+import com.padc.healthcaredirectory.data.agents.RetrofitDataAgent;
+
 /**
  * Created by Phyoe Khant on 9/4/2016.
  */
@@ -19,7 +21,7 @@ public class HealthCareDirectoryApp extends Application {
 
         //From Network Layer
         //RetrofitDataAgent.getInstance().loadHealthCareServices();
-        //RetrofitDataAgent.getInstance().loadHealthCareInfos();
+        RetrofitDataAgent.getInstance().loadHealthCareInfos();
     }
 
     public static Context getContext() {

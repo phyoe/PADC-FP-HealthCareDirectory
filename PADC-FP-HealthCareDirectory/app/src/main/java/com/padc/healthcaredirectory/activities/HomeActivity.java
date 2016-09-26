@@ -3,6 +3,7 @@ package com.padc.healthcaredirectory.activities;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -10,6 +11,8 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.LoaderManager;
+import android.support.v4.content.Loader;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
@@ -47,7 +50,8 @@ public class HomeActivity extends AppCompatActivity
         DoctorViewHolder.ControllerDocotorItem,
         ArticleViewHolder.ControllerArticleItem,
         HealthCareServiceViewHolder.ControllerHealthCareItem,
-        HealthCareInfoViewHolder.ControllerHealthCareInfoItem {
+        HealthCareInfoViewHolder.ControllerHealthCareInfoItem,
+        LoaderManager.LoaderCallbacks<Cursor> {
 
     private static final int MY_PERMISSIONS_REQUEST_CALL_PHONE = 100;
 
@@ -273,6 +277,24 @@ public class HomeActivity extends AppCompatActivity
 
     @Override
     public void onTapHealthCareInfo(HealthCareInfoVO healthCareInfo) {
+
+    }
+
+    /**
+     * For Persistence Layer
+     */
+    @Override
+    public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+        return null;
+    }
+
+    @Override
+    public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+
+    }
+
+    @Override
+    public void onLoaderReset(Loader<Cursor> loader) {
 
     }
 }

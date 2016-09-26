@@ -8,7 +8,7 @@ import com.google.gson.annotations.SerializedName;
 public class AuthorVO {
 
     @SerializedName("author-id")
-    private int authorId;
+    private long authorId;
 
     @SerializedName("author-name")
     private String authorName;
@@ -16,11 +16,11 @@ public class AuthorVO {
     @SerializedName("author-picture")
     private String authorPicture;
 
-    public int getAuthorId() {
+    public long getAuthorId() {
         return authorId;
     }
 
-    public void setAuthorId(int authorId) {
+    public void setAuthorId(long authorId) {
         this.authorId = authorId;
     }
 
