@@ -16,8 +16,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class ArticleListActivity extends AppCompatActivity
-        implements //ArticleViewHolder.ControllerArticleItem,
-        HealthCareInfoViewHolder.ControllerHealthCareInfoItem {
+        implements HealthCareInfoViewHolder.ControllerHealthCareInfoItem {
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;

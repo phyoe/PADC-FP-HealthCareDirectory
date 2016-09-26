@@ -25,7 +25,6 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.padc.healthcaredirectory.R;
-import com.padc.healthcaredirectory.data.vos.ArticleVO;
 import com.padc.healthcaredirectory.data.vos.DoctorVO;
 import com.padc.healthcaredirectory.data.vos.HealthCareInfoVO;
 import com.padc.healthcaredirectory.data.vos.HealthCareServiceVO;
@@ -33,7 +32,6 @@ import com.padc.healthcaredirectory.data.vos.HealthCareVO;
 import com.padc.healthcaredirectory.fragments.HealthCarePagerFragment;
 import com.padc.healthcaredirectory.utils.HealthCareDirectoryConstants;
 import com.padc.healthcaredirectory.utils.MMFontUtils;
-import com.padc.healthcaredirectory.views.holders.ArticleViewHolder;
 import com.padc.healthcaredirectory.views.holders.DoctorCategoryViewHolder;
 import com.padc.healthcaredirectory.views.holders.DoctorViewHolder;
 import com.padc.healthcaredirectory.views.holders.HealthCareInfoViewHolder;
@@ -48,7 +46,6 @@ public class HomeActivity extends AppCompatActivity
         HealthCareViewHolder.ControllerHealthCareItem,
         DoctorCategoryViewHolder.ControllerDocotorCategoryItem,
         DoctorViewHolder.ControllerDocotorItem,
-        ArticleViewHolder.ControllerArticleItem,
         HealthCareServiceViewHolder.ControllerHealthCareItem,
         HealthCareInfoViewHolder.ControllerHealthCareInfoItem,
         LoaderManager.LoaderCallbacks<Cursor> {
@@ -248,11 +245,6 @@ public class HomeActivity extends AppCompatActivity
         } else {
             startActivity(intent);
         }
-    }
-
-    @Override
-    public void onTapArticle(ArticleVO article) {
-
     }
 
     @Override

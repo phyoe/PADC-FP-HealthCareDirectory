@@ -23,14 +23,12 @@ import android.widget.Toast;
 
 import com.padc.healthcaredirectory.HealthCareDirectoryApp;
 import com.padc.healthcaredirectory.R;
-import com.padc.healthcaredirectory.adapters.ArticleAdapter;
 import com.padc.healthcaredirectory.adapters.HealthCareInfoAdapter;
 import com.padc.healthcaredirectory.data.models.HealthCareInfoModel;
 import com.padc.healthcaredirectory.data.persistence.HealthCareContract;
 import com.padc.healthcaredirectory.data.vos.HealthCareInfoVO;
 import com.padc.healthcaredirectory.events.DataEvent;
 import com.padc.healthcaredirectory.utils.HealthCareDirectoryConstants;
-import com.padc.healthcaredirectory.views.holders.ArticleViewHolder;
 import com.padc.healthcaredirectory.views.holders.HealthCareInfoViewHolder;
 
 import java.util.ArrayList;
@@ -49,15 +47,8 @@ public class ArticleListFragment extends BaseFragment
     @BindView(R.id.rv_articles)
     RecyclerView rvArticles;
 
-    /**/
-    private ArticleAdapter mArticleAdapter;
-    private ArticleViewHolder.ControllerArticleItem mControllerArticleItem;
-    /**/
-
-    /**/
     private HealthCareInfoAdapter mHealthCareInfoAdapter;
     private HealthCareInfoViewHolder.ControllerHealthCareInfoItem mControllerHealthCareInfoItem;
-    /**/
 
     public static ArticleListFragment newInstance(){
         ArticleListFragment fragment = new ArticleListFragment();
@@ -67,21 +58,12 @@ public class ArticleListFragment extends BaseFragment
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        /**
-        if(context instanceof ArticleViewHolder.ControllerArticleItem){
-            mControllerArticleItem = (ArticleViewHolder.ControllerArticleItem) context;
-        } else {
-            throw new RuntimeException("Unsupported Type");
-        }
-        /**/
 
-        /**/
         if(context instanceof HealthCareInfoViewHolder.ControllerHealthCareInfoItem){
             mControllerHealthCareInfoItem = (HealthCareInfoViewHolder.ControllerHealthCareInfoItem) context;
         } else {
             throw new RuntimeException("Unsupported Type");
         }
-        /**/
     }
 
     @Override
@@ -91,20 +73,10 @@ public class ArticleListFragment extends BaseFragment
         View rootView = inflater.inflate(R.layout.fragment_article_list, container, false);
         ButterKnife.bind(this, rootView);
 
-        /**
-        List<ArticleVO> articleList = ArticleModel.getInstance().getArticleList();
-        //List<HealthCareVO> healthCareList = super.setTempData(R.string.health_care_hospital, HealthCareDirectoryConstants.FRAGMENT_HOSPITAL);
-
-        mArticleAdapter = new ArticleAdapter(articleList, mControllerArticleItem);
-        rvArticles.setAdapter(mArticleAdapter);
-        /**/
-
-        /**/
         List<HealthCareInfoVO> healthCareInfoList = HealthCareInfoModel.getInstance().getHealthCareInfoList();
 
         mHealthCareInfoAdapter = new HealthCareInfoAdapter(healthCareInfoList, mControllerHealthCareInfoItem);
         rvArticles.setAdapter(mHealthCareInfoAdapter);
-        /**/
 
         rvArticles.setLayoutManager(new GridLayoutManager(getContext(), super.gridColumnSpanCount));
 
