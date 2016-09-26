@@ -48,17 +48,6 @@ public class ArticleListActivity extends AppCompatActivity
         }
     }
 
-    /**
-    @Override
-    public void onTapArticle(ArticleVO article) {
-
-        int id = article.getId();
-
-        Intent intent = ArticleDetailActivity.newIntent(id);
-        startActivity(intent);
-    }
-    /**/
-
     @Override
     public void onTapHealthCareInfo(HealthCareInfoVO healthCareInfo) {
 

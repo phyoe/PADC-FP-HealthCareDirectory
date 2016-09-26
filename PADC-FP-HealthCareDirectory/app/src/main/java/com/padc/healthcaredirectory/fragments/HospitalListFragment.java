@@ -47,18 +47,20 @@ public class HospitalListFragment extends BaseFragment {
     public void onAttach(Context context) {
         super.onAttach(context);
 
-        /**
+        /**/
         if(context instanceof HealthCareViewHolder.ControllerHealthCareItem){
             mControllerHealthCareItem = (HealthCareViewHolder.ControllerHealthCareItem) context;
         } else {
             throw new RuntimeException("Unsupported Type");
         }
         /**/
+        /**
         if(context instanceof HealthCareServiceViewHolder.ControllerHealthCareItem){
             mControllerHealthCareServiceItem = (HealthCareServiceViewHolder.ControllerHealthCareItem) context;
         } else {
             throw new RuntimeException("Unsupported Type");
         }
+        /**/
     }
 
     @Override
