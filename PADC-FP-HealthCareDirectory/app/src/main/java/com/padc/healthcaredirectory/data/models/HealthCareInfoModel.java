@@ -22,9 +22,9 @@ import de.greenrobot.event.EventBus;
  * Created by Phyoe Khant on 9/23/2016.
  */
 public class HealthCareInfoModel extends BaseModel {
-
+    //From Network Layer
     public static final String BROADCAST_DATA_LOADED = "BROADCAST_DATA_LOADED";
-
+    //From Json file
     private static final String DUMMY_HEALTHCARE_INFO_LIST = "health-care-info.json";
 
     private static HealthCareInfoModel objInstance;

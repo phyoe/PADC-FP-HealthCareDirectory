@@ -16,13 +16,14 @@ import java.util.List;
  */
 public class HealthCareInfoVO {
 
-    public static String IMAGE_URL = "http://www.aungpyaephyo.xyz/healthcare_directory/";
-
     @SerializedName("id")
     private long id;
 
     @SerializedName("title")
     private String title;
+
+    @SerializedName("image")
+    private String image;
 
     @SerializedName("author")
     private AuthorVO author;
@@ -39,9 +40,6 @@ public class HealthCareInfoVO {
     @SerializedName("info-type")
     private String infoType;
 
-    //@SerializedName("img_url")
-    //private String imgUrl;
-
     public long getId() {
         return id;
     }
@@ -56,6 +54,14 @@ public class HealthCareInfoVO {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public AuthorVO getAuthor() {
@@ -97,17 +103,6 @@ public class HealthCareInfoVO {
     public void setInfoType(String infoType) {
         this.infoType = infoType;
     }
-
-    /**
-    public String getImgUrl() {
-        return imgUrl;
-    }
-
-    public void setImgUrl(String imgUrl) {
-        this.imgUrl = imgUrl;
-    }
-    /**/
-
 
     /**
      * For Persistence Layer
@@ -153,6 +148,7 @@ public class HealthCareInfoVO {
         ContentValues cv = new ContentValues();
         cv.put(HealthCareContract.HealthCareInfoEntry.COLUMN_HEALTHCARE_INFO_ID, id);
         cv.put(HealthCareContract.HealthCareInfoEntry.COLUMN_TITLE, title);
+        //cv.put(HealthCareContract.HealthCareInfoEntry.COLUMN_IMAGE, image);
         cv.put(HealthCareContract.HealthCareInfoEntry.COLUMN_SHORT_DESC, shortDescription);
         cv.put(HealthCareContract.HealthCareInfoEntry.COLUMN_PUBLISHED_DATE, publishedDate);
         cv.put(HealthCareContract.HealthCareInfoEntry.COLUMN_COMPLETE_URL, completeUrl);
@@ -165,21 +161,11 @@ public class HealthCareInfoVO {
 
         healthCareInfo.id = data.getInt(data.getColumnIndex(HealthCareContract.HealthCareInfoEntry.COLUMN_HEALTHCARE_INFO_ID));
         healthCareInfo.title = data.getString(data.getColumnIndex(HealthCareContract.HealthCareInfoEntry.COLUMN_TITLE));
+        //healthCareInfo.image = data.getString(data.getColumnIndex(HealthCareContract.HealthCareInfoEntry.COLUMN_IMAGE));
         healthCareInfo.shortDescription = data.getString(data.getColumnIndex(HealthCareContract.HealthCareInfoEntry.COLUMN_SHORT_DESC));
         healthCareInfo.publishedDate = data.getString(data.getColumnIndex(HealthCareContract.HealthCareInfoEntry.COLUMN_PUBLISHED_DATE));
         healthCareInfo.completeUrl = data.getString(data.getColumnIndex(HealthCareContract.HealthCareInfoEntry.COLUMN_COMPLETE_URL));
         healthCareInfo.infoType = data.getString(data.getColumnIndex(HealthCareContract.HealthCareInfoEntry.COLUMN_INFO_TYPE));
-
-        /**
-        long author_id = data.getInt(data.getColumnIndex(HealthCareContract.HealthCareInfoAuthorEntry.COLUMN_AUTHOR_ID));
-        healthCareInfo.author.setAuthorId(author_id);
-
-        String author_name = data.getString(data.getColumnIndex(HealthCareContract.HealthCareInfoAuthorEntry.COLUMN_AUTHOR_NAME));
-        healthCareInfo.author.setAuthorName(author_name);
-
-        String author_picture = data.getString(data.getColumnIndex(HealthCareContract.HealthCareInfoAuthorEntry.COLUMN_AUTHOR_PICTURE));
-        healthCareInfo.author.setAuthorPicture(author_picture);
-        /**/
 
         return healthCareInfo;
     }
