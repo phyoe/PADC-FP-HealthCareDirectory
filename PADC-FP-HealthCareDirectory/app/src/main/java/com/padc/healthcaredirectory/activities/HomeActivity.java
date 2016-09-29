@@ -181,6 +181,9 @@ public class HomeActivity extends AppCompatActivity
 
     private void navigateToDiseaseList() {
 
+        Intent intent = DiseaseListActivity.newIntent();
+        startActivity(intent);
+
     }
 
     private void navigateToFavList() {
