@@ -1,16 +1,16 @@
 [{
   "id": 1,
-  "name": "ေဆးရံု - က",
+  "name": "အာရွေတာ္၀င္",
   "category": "hospital_public",
   "category_mm": "ေဆးရံု (အစိုးရ)",
   "address": "လိပ္စာ - က No. 14, Baho Street Township, Yangon, Myanmar (Burma)",
   "township": "စမ္းေခ်ာင္း",
   "city": "ရန္ကုန္",
-  "phones": ["01 123456", "01 789456", "01 456789"],
-  "email": "hospital1@gmail.com",
-  "website": "http://www.hospital1.com",
-  "facebook": "http://www.facebook.com/hospital1",
-  "mapinfo": "hospital1",
+  "phones": ["+95 1 230 4999", "+95 1 538 055", "95 1 537296"],
+  "email": "asiaroyal@asiaroyal.com.mm",
+  "website": "http://www.asiaroyalhospital.com",
+  "facebook": "https://www.facebook.com/Asia-Royal-Hospital-246812222184086/?ref=br_rs",
+  "mapinfo": "http://maps.google.com/maps?daddr=asiaroyalhospital",
   "images": ["Hospital_01.jpg", "Hospital_02.jpg", "Hospital_03.jpg"]
 }, {
   "id": 2,
