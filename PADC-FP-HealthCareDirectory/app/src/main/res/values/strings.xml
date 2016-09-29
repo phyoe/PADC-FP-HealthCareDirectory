@@ -92,4 +92,16 @@
     <string name="dummy_website">https://www.sitename.com/1678802282351604/1818536395044858/?type=3</string>
     <string name="str_readmore">ဆက္ဖတ္ရန္</string>
 
+    <!-- Disease List + Detail -->
+    <string name="disease_screen_title">အျဖစ္မ်ားေရာဂါမ်ား</string>
+    <string name="dummy_disease_title">နား၊ ႏွာေခါင္း၊ လည္ေခ်ာင္းေရာဂါ</string>
+    <string name="dummy_disease_author">သိုက္ရာဇာ</string>
+    <string name="dummy_disease_reference">ျမ၀တီ</string>
+    <string name="dummy_disease_website">http://www.ygnnews.com/2014/01/blog-post_9225.html</string>
+    <string name="dummy_disease_description">ႏွာေခါင္းႏွင့္ လည္ေခ်ာင္းသည္ လူ႔ကိုယ္ခႏၶာ၏
+        အဓိက အေရးႀကီးေသာ အဂၤါျဖစ္ၿပီး အသက္႐ွဴသြင္း ႐ွဴထုတ္ရာႏွင့္ စကားေျပာရာတြင္ အဓိက အေရးပါသည္။
+        ယခုေခတ္တြင္ စက္မႈလုပ္ငန္းမ်ား ေခတ္မီဖြံ႕ၿဖိဳး တိုးတက္လာသည္ႏွင့္ အမွ် ပတ္ဝန္းက်င္ ေလထုသည္လည္း
+        ညစ္ညမ္းလာေသာေၾကာင့္ ႏွာေခါင္း ေရာင္နာႏွင့္ လည္ေခ်ာင္းေရာင္ ေရာဂါ အမ်ဳိးမ်ဳိး ျဖစ္ေပၚလာသည္။</string>
+
+
 </resources>
