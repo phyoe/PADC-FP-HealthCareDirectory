@@ -174,6 +174,9 @@ public class HomeActivity extends BaseActivity
 
     private void navigateToDiseaseList() {
 
+        Intent intent = DiseaseListActivity.newIntent();
+        startActivity(intent);
+
     }
 
     private void navigateToFavList() {

@@ -46,12 +46,11 @@
         <activity
             android:name=".activities.DoctorDetailActivity"
             android:parentActivityName=".activities.DoctorListActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.ArticleListActivity"
             android:parentActivityName=".activities.HomeActivity"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.ArticleDetailActivity"
             android:parentActivityName=".activities.ArticleListActivity"
@@ -60,8 +59,8 @@
             android:parentActivityName=".activities.ArticleListActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
         <provider
-            android:authorities="com.padc.healthcaredirectory"
             android:name=".data.persistence.HealthCareProvider"
+            android:authorities="com.padc.healthcaredirectory"
             android:exported="false"
             android:syncable="true" />
 
@@ -95,6 +94,13 @@
             android:parentActivityName=".activities.VeterinarySpaDetailActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
 
+        <activity
+            android:name=".activities.DiseaseListActivity"
+            android:parentActivityName=".activities.DiseaseListActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activities.DiseaseDetailActivity"
+            android:parentActivityName=".activities.DiseaseDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>
