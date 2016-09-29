@@ -127,6 +127,13 @@ public class ArticleDetailActivity extends AppCompatActivity
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
         boolean findData = false;
         if (data != null && data.moveToFirst()) {
+            mHealthCareInfo = HealthCareInfoVO.parseFromCursor(data);
+            mHealthCareInfo.setAuthor(HealthCareInfoVO.loadHealthCareInfoAuthorByInfoId(mHealthCareInfoId));
+
+            if (mHealthCareInfo.getId() == mHealthCareInfoId) {
+                bindData(mHealthCareInfo);
+                findData = true;
+            }
             while (data.moveToNext()) {
                 if (!findData) {
                     mHealthCareInfo = HealthCareInfoVO.parseFromCursor(data);
@@ -154,9 +161,9 @@ public class ArticleDetailActivity extends AppCompatActivity
         tvArticleAuthor.setText(healthCareInfo.getAuthor().getAuthorName());
         tvArticleWebsite.setText(healthCareInfo.getCompleteUrl());
 
-        //String imageUrl = mHealthCareInfo.getimgUrl();
+        String imageUrl = mHealthCareInfo.getImage();
         Glide.with(imgArticle.getContext())
-                .load(R.drawable.article_img) //.load(imageUrl)
+                .load(imageUrl)
                 .fitCenter()
                 .placeholder(R.drawable.article_img)
                 .error(R.drawable.article_img)

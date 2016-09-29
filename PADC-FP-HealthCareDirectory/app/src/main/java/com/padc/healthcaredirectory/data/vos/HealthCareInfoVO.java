@@ -148,7 +148,7 @@ public class HealthCareInfoVO {
         ContentValues cv = new ContentValues();
         cv.put(HealthCareContract.HealthCareInfoEntry.COLUMN_HEALTHCARE_INFO_ID, id);
         cv.put(HealthCareContract.HealthCareInfoEntry.COLUMN_TITLE, title);
-        //cv.put(HealthCareContract.HealthCareInfoEntry.COLUMN_IMAGE, image);
+        cv.put(HealthCareContract.HealthCareInfoEntry.COLUMN_IMAGE, image);
         cv.put(HealthCareContract.HealthCareInfoEntry.COLUMN_SHORT_DESC, shortDescription);
         cv.put(HealthCareContract.HealthCareInfoEntry.COLUMN_PUBLISHED_DATE, publishedDate);
         cv.put(HealthCareContract.HealthCareInfoEntry.COLUMN_COMPLETE_URL, completeUrl);
@@ -161,7 +161,7 @@ public class HealthCareInfoVO {
 
         healthCareInfo.id = data.getInt(data.getColumnIndex(HealthCareContract.HealthCareInfoEntry.COLUMN_HEALTHCARE_INFO_ID));
         healthCareInfo.title = data.getString(data.getColumnIndex(HealthCareContract.HealthCareInfoEntry.COLUMN_TITLE));
-        //healthCareInfo.image = data.getString(data.getColumnIndex(HealthCareContract.HealthCareInfoEntry.COLUMN_IMAGE));
+        healthCareInfo.image = data.getString(data.getColumnIndex(HealthCareContract.HealthCareInfoEntry.COLUMN_IMAGE));
         healthCareInfo.shortDescription = data.getString(data.getColumnIndex(HealthCareContract.HealthCareInfoEntry.COLUMN_SHORT_DESC));
         healthCareInfo.publishedDate = data.getString(data.getColumnIndex(HealthCareContract.HealthCareInfoEntry.COLUMN_PUBLISHED_DATE));
         healthCareInfo.completeUrl = data.getString(data.getColumnIndex(HealthCareContract.HealthCareInfoEntry.COLUMN_COMPLETE_URL));
