@@ -94,6 +94,50 @@
     <string name="lbl_share">Share</string>
 
 
+    <!-- Veterinary List +Category-->
+    <string name="veterinary_screen_title">အိမ္ေမြးတိရစာၦန္ဆိုင္ရာ</string>
+    <string name="veterinary_clinic_title">အိမ္ေမြးတိရစာၦန္ ေဆးကုခန္းမ်ား</string>
+    <string name="veterinary_equipment_title">အိမ္ေမြးတိရစာၦန္ အသံုးအေဆာင္ဆိုင္ရာ</string>
+    <string name="veterinary_medicine_title">အိမ္ေမြးတိရစာၦန္ ေဆး၀ါးပစၥည္းဆိုင္္</string>
+    <string name="veterinary_spa_title">Pet Spa</string>
+
+    <!-- Veterinary Clinic Detail-->
+    <string name="veterinary_clinic_name">ေမလိခ</string>
+    <string name="veterinary_clinic_address">အမွတ္ (၃၆၀ ခ)၊ ၀ိုင္ယာလက္ ၁ လမ္း၊ ကမာၻေအးဘုရားလမ္း၊ မရမ္းကုန္းျမိဳ႕နယ္</string>
+    <string name="veterinary_clinic_phone">09421071288</string>
+    <string name="veterinary_clinic_mail">maylikha@gmail.com</string>
+    <string name="veterinary_clinic_website">www.maylikhavetclinic.com</string>
+    <string name="veterinary_clinic_facebook">www.facebook.com/pyay-vet-clinic</string>
+
+    <!-- Veterinary Equipment Detail-->
+    <string name="veterinary_equipment_name">ေမလိခ</string>
+    <string name="veterinary_equipment_address">အမွတ္ (၃၆၀ ခ)၊ ၀ိုင္ယာလက္ ၁ လမ္း၊ ကမာၻေအးဘုရားလမ္း၊ မရမ္းကုန္းျမိဳ႕နယ္</string>
+    <string name="veterinary_equipment_phone">09421071288</string>
+    <string name="veterinary_equipment_mail">maylikha@gmail.com</string>
+    <string name="veterinary_equipment_website">www.maylikhavetclinic.com</string>
+    <string name="veterinary_equipment_facebook">www.facebook.com/May-Li-Kha</string>
+
+    <!-- Veterinary Medicine Detail-->
+    <string name="veterinary_medicine_name">မင္း</string>
+    <string name="veterinary_medicine_address">အမွတ္ (၇)၊ ျမင့္မိုရ္လမ္း၊ စမ္းေခ်ာင္းျမိဳ႕နယ္္</string>
+    <string name="veterinary_medicine_phone">095014606</string>
+    <string name="veterinary_medicine_mail">minvetclinic@gmail.com</string>
+    <string name="veterinary_medicine_website">https://www.minvetclinic.com/</string>
+    <string name="veterinary_medicine_facebook">www.facebook.com/min-vet-clinic</string>
+
+    <!-- Veterinary Spa Detail-->
+    <string name="veterinary_spa_name">Diamond Apex Pet Care Center</string>
+    <string name="veterinary_spa_address">အမွတ္(၃၇)၊ ေအာင္ေဇယ်လမ္း၊ ေက်ာက္ကုန္း၊ ရန္ကင္းျမိဳ႕နယ္္</string>
+    <string name="veterinary_spa_phone">09262190500</string>
+    <string name="veterinary_spa_mail">diamondapexpetcare@gmail.com</string>
+    <string name="veterinary_spa_website">https://www.diamondapexpetcare.com/</string>
+    <string name="veterinary_spa_facebook">www.facebook.com/diamond-apex-pet-care-center</string>
+
+    <string name="str_veterinary_clinic_info_label">ေဆးခန္းအခ်က္အလက္</string>
+    <string name="str_veterinary_equipment_info_label">အသံုးေဆာင္ပစၥည္းဆိုင္ အခ်က္အလက္္</string>
+    <string name="str_veterinary_medicine_info_label">ေဆး၀ါးပစၥည္းဆိုင္ အခ်က္အလက္္</string>
+    <string name="str_veterinary_spa_info_label">Spa Information</string>
+
 
 
 </resources>

@@ -65,6 +65,36 @@
             android:exported="false"
             android:syncable="true" />
 
+        <activity
+            android:name=".activities.VeterinaryCategoryActivity"
+            android:parentActivityName=".activities.VeterinaryCategoryActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".activities.VeterinaryClinicListActivity"
+            android:parentActivityName=".activities.VeterinaryClinicListActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".activities.VeterinaryClinicDetailActivity"
+            android:parentActivityName=".activities.VeterinaryClinicDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".activities.VeterinaryEquipmentDetailActivity"
+            android:parentActivityName=".activities.VeterinaryEquipmentDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity
+            android:name=".activities.VeterinaryMedicineDetailActivity"
+            android:parentActivityName=".activities.VeterinaryMedicineDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity
+            android:name=".activities.VeterinarySpaDetailActivity"
+            android:parentActivityName=".activities.VeterinarySpaDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
     </application>
 
 </manifest>
