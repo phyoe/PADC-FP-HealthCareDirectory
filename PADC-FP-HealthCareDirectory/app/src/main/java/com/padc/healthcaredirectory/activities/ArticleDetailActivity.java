@@ -108,7 +108,6 @@ public class ArticleDetailActivity extends AppCompatActivity
         getSupportLoaderManager().initLoader(HealthCareDirectoryConstants.HEALTHCARE_INFO_DETAIL_LOADER, null, this);
     }
 
-
     /**
      * For Persistence Layer
      */
@@ -127,7 +126,7 @@ public class ArticleDetailActivity extends AppCompatActivity
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
         boolean findData = false;
         if (data != null && data.moveToFirst()) {
-            while (data.moveToNext()) {
+           do {
                 if (!findData) {
                     mHealthCareInfo = HealthCareInfoVO.parseFromCursor(data);
                     mHealthCareInfo.setAuthor(HealthCareInfoVO.loadHealthCareInfoAuthorByInfoId(mHealthCareInfoId));
@@ -137,7 +136,7 @@ public class ArticleDetailActivity extends AppCompatActivity
                         findData = true;
                     }
                 }
-            }
+            } while (data.moveToNext());
         }
     }
 
@@ -154,9 +153,9 @@ public class ArticleDetailActivity extends AppCompatActivity
         tvArticleAuthor.setText(healthCareInfo.getAuthor().getAuthorName());
         tvArticleWebsite.setText(healthCareInfo.getCompleteUrl());
 
-        //String imageUrl = mHealthCareInfo.getimgUrl();
+        String imageUrl = mHealthCareInfo.getImage();
         Glide.with(imgArticle.getContext())
-                .load(R.drawable.article_img) //.load(imageUrl)
+                .load(imageUrl)
                 .fitCenter()
                 .placeholder(R.drawable.article_img)
                 .error(R.drawable.article_img)

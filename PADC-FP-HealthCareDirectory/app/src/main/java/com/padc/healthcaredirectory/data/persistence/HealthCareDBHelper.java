@@ -14,7 +14,7 @@ import com.padc.healthcaredirectory.data.persistence.HealthCareContract.HealthCa
  */
 public class HealthCareDBHelper extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 4;
     public static final String DATABASE_NAME = "healthcares.db";
 
     private static final String SQL_CREATE_HEALTHCARE_SERVICES_TABLE = "CREATE TABLE " + HealthCareServiceEntry.TABLE_NAME + " (" +
@@ -50,10 +50,11 @@ public class HealthCareDBHelper extends SQLiteOpenHelper {
             HealthCareInfoEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
             HealthCareInfoEntry.COLUMN_HEALTHCARE_INFO_ID + " INTEGER NOT NULL, "+
             HealthCareInfoEntry.COLUMN_TITLE + " TEXT NOT NULL, "+
+            HealthCareInfoEntry.COLUMN_IMAGE + " TEXT NULL, "+
             HealthCareInfoEntry.COLUMN_SHORT_DESC + " TEXT NOT NULL, "+
             HealthCareInfoEntry.COLUMN_PUBLISHED_DATE + " TEXT NULL, "+
             HealthCareInfoEntry.COLUMN_COMPLETE_URL + " TEXT NULL, "+
-            HealthCareInfoEntry.COLUMN_INFO_TYPE + " TEXT NOT NULL, "+
+            HealthCareInfoEntry.COLUMN_INFO_TYPE + " TEXT NULL, "+
 
             " UNIQUE (" + HealthCareInfoEntry.COLUMN_HEALTHCARE_INFO_ID + ") ON CONFLICT IGNORE" +
             " );";

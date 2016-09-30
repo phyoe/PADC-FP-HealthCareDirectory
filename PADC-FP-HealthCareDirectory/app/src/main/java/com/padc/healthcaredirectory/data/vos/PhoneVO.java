@@ -8,16 +8,16 @@ import com.google.gson.annotations.SerializedName;
 public class PhoneVO {
 
     @SerializedName("phone-id")
-    private int phoneId;
+    private long phoneId;
 
     @SerializedName("phone-name")
     private String phoneName;
 
-    public int getPhoneId() {
+    public long getPhoneId() {
         return phoneId;
     }
 
-    public void setPhoneId(int phoneId) {
+    public void setPhoneId(long phoneId) {
         this.phoneId = phoneId;
     }
 

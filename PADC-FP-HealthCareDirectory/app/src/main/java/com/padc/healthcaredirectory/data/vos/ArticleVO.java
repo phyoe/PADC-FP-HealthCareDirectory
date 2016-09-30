@@ -8,7 +8,7 @@ import com.google.gson.annotations.SerializedName;
 public class ArticleVO {
 
     @SerializedName("id")
-    int id;
+    long id;
 
     @SerializedName("title")
     String title;
@@ -56,7 +56,7 @@ public class ArticleVO {
         this.website = website;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 

@@ -52,7 +52,7 @@ public class DoctorCategoryListActivity extends AppCompatActivity
     public void onTapDoctorCategory(DoctorVO doctor) {
 
         String categoryName = doctor.getCategory();
-        int doctorId = doctor.getId();
+        long doctorId = doctor.getId();
 
         Intent intent = DoctorListActivity.newIntent(categoryName, doctorId);
         startActivity(intent);

@@ -4,7 +4,6 @@ import android.util.Log;
 
 import com.google.gson.reflect.TypeToken;
 import com.padc.healthcaredirectory.data.vos.HealthCareServiceVO;
-import com.padc.healthcaredirectory.data.vos.PhoneVO;
 import com.padc.healthcaredirectory.events.DataEvent;
 import com.padc.healthcaredirectory.utils.CommonInstance;
 import com.padc.healthcaredirectory.utils.JsonUtils;
@@ -30,7 +29,6 @@ public class HealthCareServiceModel extends BaseModel {
     private static HealthCareServiceModel objInstance;
 
     private List<HealthCareServiceVO> mHealthCareServiceList;
-    private List<PhoneVO> mPhoneList;
     
     public HealthCareServiceModel() {
         /**/
@@ -67,43 +65,6 @@ public class HealthCareServiceModel extends BaseModel {
             healthCareServiceList = CommonInstance.getGsonInstance().fromJson(dummyHealthCareServiceList, listType);
             /**/
 
-            /**
-            try {
-                JSONObject json = new JSONObject(dummyHealthCareServiceList);
-                JSONArray jArray = json.getJSONArray("health-care-info");
-                for (int i = 0; i < jArray.length(); i++) {
-                    JSONObject json_data = jArray.getJSONObject(i);
-                    HealthCareServiceVO data = new HealthCareServiceVO();// Create Object Here
-                    data.setHealthCareId(json_data.getInt("health-care-id"));
-                    data.setHealthCareName(json_data.getString("health-care-name"));
-                    data.setCategory(json_data.getString("category"));
-                    data.setCategoryMM(json_data.getString("category-mm"));
-                    data.setImage(json_data.getString("image"));
-                    data.setAddress(json_data.getString("address"));
-                    data.setEmail(json_data.getString("email"));
-                    data.setWebsite(json_data.getString("website"));
-                    data.setMapinfo(json_data.getString("mapinfo"));
-                    data.setFacebook(json_data.getString("facebook"));
-                    data.setRemark(json_data.getString("remark"));
-
-                    JSONObject phones = json_data.getJSONObject("phones");
-                    ArrayList<PhoneVO> phoneList = new ArrayList<PhoneVO>();// Create Object here
-                    for (int j = 0; j < phones.length(); j++) {
-                        PhoneVO phone = new PhoneVO();// Create Object here
-
-                        phone.setPhoneId(phones.getInt("phone-id"));
-                        phone.setPhoneName(phones.getString("phone-name"));
-                        phoneList.add(phone);// setting the phone
-                    }
-                    data.setPhones(phoneList);
-                    list.add(data);// Finally adding the model to List
-                }
-
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            /**/
-
         } catch (IOException e) {
             e.printStackTrace();
         } catch (JSONException e) {
@@ -126,19 +87,15 @@ public class HealthCareServiceModel extends BaseModel {
         return null;
     }
 
-    public ArrayList<PhoneVO> getPhonesByHealthCareServiceId(int serviceId) {
-        ArrayList<PhoneVO> phoneList = new ArrayList<PhoneVO>();
-
-
-        return phoneList;
-    }
-
     /**
      * for Network Layer
      */
     public void notifyHealthCareServiceLoaded(List<HealthCareServiceVO> healthCareServiceList) {
         //Notify that the data is ready - using LocalBroadcast
         mHealthCareServiceList = healthCareServiceList;
+
+        //keep the data in persistent layer.
+        HealthCareServiceVO.saveHealthCareService(mHealthCareServiceList);
 
         broadcastHealthCareServiceLoadedWithEventBus();
     }
@@ -154,5 +111,12 @@ public class HealthCareServiceModel extends BaseModel {
     public void loadHealthCareServices()
     {
         dataAgent.loadHealthCareServices();
+    }
+
+    /**
+     * for Persistence Layer
+     */
+    public void setStoredData(List<HealthCareServiceVO> healthCareServiceList) {
+        mHealthCareServiceList = healthCareServiceList;
     }
 }

@@ -10,7 +10,7 @@ public class HealthCareVO {
     public static String IMAGE_URL = "http://www.aungpyaephyo.xyz/healthcare_directory/";
 
     @SerializedName("id")
-    private int id;
+    private long id;
 
     @SerializedName("name")
     private String name;
@@ -47,7 +47,7 @@ public class HealthCareVO {
 
     private int photo_count;
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
