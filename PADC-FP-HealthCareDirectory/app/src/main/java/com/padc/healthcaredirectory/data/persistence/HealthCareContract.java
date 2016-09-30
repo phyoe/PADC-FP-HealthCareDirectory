@@ -57,10 +57,10 @@ public class HealthCareContract {
             return ContentUris.withAppendedId(CONTENT_URI, id);
         }
 
-        public static Uri buildHealthCareServiceUriWithName(String healthCareServiceName) {
-            //content://com.padc.healthcaredirectory/healthcare_services?healthcare_service_name=Asiaroyal
+        public static Uri buildHealthCareServiceUriWithServiceId(long healthCareServiceId) {
+            //content://com.padc.healthcaredirectory/healthcare_services?healthcare_service_id=xxxx
             return CONTENT_URI.buildUpon()
-                    .appendQueryParameter(COLUMN_HEALTHCARE_SERVICE_NAME, healthCareServiceName)
+                    .appendQueryParameter(COLUMN_HEALTHCARE_SERVICE_ID, String.valueOf(healthCareServiceId))
                     .build();
         }
 

@@ -1,18 +1,24 @@
 package com.padc.healthcaredirectory.data.vos;
 
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.util.Log;
+
 import com.google.gson.annotations.SerializedName;
+import com.padc.healthcaredirectory.HealthCareDirectoryApp;
+import com.padc.healthcaredirectory.data.persistence.HealthCareContract;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Phyoe Khant on 9/20/2016.
  */
 public class HealthCareServiceVO {
 
-    public static String IMAGE_URL = "http://www.aungpyaephyo.xyz/healthcare_directory/";
-
     @SerializedName("health-care-id")
-    private int healthCareId;
+    private long healthCareId;
 
     @SerializedName("health-care-name")
     private String healthCareName;
@@ -44,10 +50,14 @@ public class HealthCareServiceVO {
     @SerializedName("remark")
     private String remark;
 
+    @SerializedName("price-category")
+    private int priceCategory;
+
+    /**
     @SerializedName("phones")
     private ArrayList<PhoneVO> phones;
 
-    @SerializedName("phones")
+    @SerializedName("fax")
     private ArrayList<FaxVO> fax;
 
     @SerializedName("tags")
@@ -56,17 +66,16 @@ public class HealthCareServiceVO {
     @SerializedName("operations")
     private ArrayList<OperationVO> operations;
 
-    @SerializedName("price-category")
-    private int priceCategory;
 
     @SerializedName("available-doctors")
     private ArrayList<AvailableDoctorVO> doctors;
+    /**/
 
-    public int getHealthCareId() {
+    public long getHealthCareId() {
         return healthCareId;
     }
 
-    public void setHealthCareId(int healthCareId) {
+    public void setHealthCareId(long healthCareId) {
         this.healthCareId = healthCareId;
     }
 
@@ -150,6 +159,15 @@ public class HealthCareServiceVO {
         this.remark = remark;
     }
 
+    public int getPriceCategory() {
+        return priceCategory;
+    }
+
+    public void setPriceCategory(int priceCategory) {
+        this.priceCategory = priceCategory;
+    }
+
+    /**
     public ArrayList<PhoneVO> getPhones() {
         return phones;
     }
@@ -182,14 +200,6 @@ public class HealthCareServiceVO {
         this.operations = operations;
     }
 
-    public int getPriceCategory() {
-        return priceCategory;
-    }
-
-    public void setPriceCategory(int priceCategory) {
-        this.priceCategory = priceCategory;
-    }
-
     public ArrayList<AvailableDoctorVO> getDoctors() {
         return doctors;
     }
@@ -197,6 +207,108 @@ public class HealthCareServiceVO {
     public void setDoctors(ArrayList<AvailableDoctorVO> doctors) {
         this.doctors = doctors;
     }
+    /**/
 
+    /**
+     * For Persistence Layer
+     */
+    public static void saveHealthCareService(List<HealthCareServiceVO> healthCareServiceList) {
+        Context context = HealthCareDirectoryApp.getContext();
+        ContentValues[] healthCareServiceCVs = new ContentValues[healthCareServiceList.size()];
+        for (int index = 0; index < healthCareServiceList.size(); index++) {
+            HealthCareServiceVO healthCareService = healthCareServiceList.get(index);
+            healthCareServiceCVs[index] = healthCareService.parseToContentValues();
 
+            /**
+            //Bulk insert into phones.
+            long service_id = healthCareService.getHealthCareId();
+            ArrayList<PhoneVO> phoneList = null; //healthCareService.getPhones();
+            HealthCareServiceVO.saveHealthCareServicePhones(service_id, phoneList);
+            /**/
+        }
+
+        //Bulk insert into healthcare_service.
+        int insertedCount = context.getContentResolver().bulkInsert(HealthCareContract.HealthCareServiceEntry.CONTENT_URI, healthCareServiceCVs);
+
+        Log.d(HealthCareDirectoryApp.TAG, "Bulk inserted into HelthcareService table : " + insertedCount);
+    }
+
+    private ContentValues parseToContentValues() {
+        ContentValues cv = new ContentValues();
+        cv.put(HealthCareContract.HealthCareServiceEntry.COLUMN_HEALTHCARE_SERVICE_ID, healthCareId);
+        cv.put(HealthCareContract.HealthCareServiceEntry.COLUMN_HEALTHCARE_SERVICE_NAME, healthCareName);
+        cv.put(HealthCareContract.HealthCareServiceEntry.COLUMN_CATEGORY, category);
+        cv.put(HealthCareContract.HealthCareServiceEntry.COLUMN_CATEGORY_MM, categoryMM);
+        cv.put(HealthCareContract.HealthCareServiceEntry.COLUMN_IMAGE, image);
+        cv.put(HealthCareContract.HealthCareServiceEntry.COLUMN_ADDRESS, address);
+        cv.put(HealthCareContract.HealthCareServiceEntry.COLUMN_EMAIL, email);
+        cv.put(HealthCareContract.HealthCareServiceEntry.COLUMN_WEBSITE, website);
+        cv.put(HealthCareContract.HealthCareServiceEntry.COLUMN_MAPINFO, mapinfo);
+        cv.put(HealthCareContract.HealthCareServiceEntry.COLUMN_FACEBOOK, facebook);
+        cv.put(HealthCareContract.HealthCareServiceEntry.COLUMN_REMARK, remark);
+        cv.put(HealthCareContract.HealthCareServiceEntry.COLUMN_PRICE_CATEGORY, priceCategory);
+        return cv;
+    }
+
+    public static HealthCareServiceVO parseFromCursor(Cursor data) {
+        HealthCareServiceVO healthCareService = new HealthCareServiceVO();
+
+        healthCareService.healthCareId      = data.getLong(data.getColumnIndex(HealthCareContract.HealthCareServiceEntry.COLUMN_HEALTHCARE_SERVICE_ID));
+        healthCareService.healthCareName    = data.getString(data.getColumnIndex(HealthCareContract.HealthCareServiceEntry.COLUMN_HEALTHCARE_SERVICE_NAME));
+        healthCareService.category          = data.getString(data.getColumnIndex(HealthCareContract.HealthCareServiceEntry.COLUMN_CATEGORY));
+        healthCareService.categoryMM        = data.getString(data.getColumnIndex(HealthCareContract.HealthCareServiceEntry.COLUMN_CATEGORY_MM));
+        healthCareService.image             = data.getString(data.getColumnIndex(HealthCareContract.HealthCareServiceEntry.COLUMN_IMAGE));
+        healthCareService.address           = data.getString(data.getColumnIndex(HealthCareContract.HealthCareServiceEntry.COLUMN_ADDRESS));
+        healthCareService.email             = data.getString(data.getColumnIndex(HealthCareContract.HealthCareServiceEntry.COLUMN_EMAIL));
+        healthCareService.website           = data.getString(data.getColumnIndex(HealthCareContract.HealthCareServiceEntry.COLUMN_WEBSITE));
+        healthCareService.mapinfo           = data.getString(data.getColumnIndex(HealthCareContract.HealthCareServiceEntry.COLUMN_MAPINFO));
+        healthCareService.facebook          = data.getString(data.getColumnIndex(HealthCareContract.HealthCareServiceEntry.COLUMN_FACEBOOK));
+        healthCareService.remark            = data.getString(data.getColumnIndex(HealthCareContract.HealthCareServiceEntry.COLUMN_REMARK));
+        healthCareService.priceCategory     = data.getInt(data.getColumnIndex(HealthCareContract.HealthCareServiceEntry.COLUMN_PRICE_CATEGORY));
+
+        return healthCareService;
+    }
+
+    private static void saveHealthCareServicePhones(long service_id, ArrayList<PhoneVO> phoneList) {
+        ContentValues[] healthCareServicePhoneCVs = new ContentValues[phoneList.size()];
+        for (int index = 0; index < phoneList.size(); index++) {
+            PhoneVO phone = phoneList.get(index);
+
+            ContentValues cv = new ContentValues();
+            long phone_id = phone.getPhoneId();
+            String phone_name = phone.getPhoneName();
+            cv.put(HealthCareContract.HealthCareServicePhoneEntry.COLUMN_SERVICE_ID, service_id);
+            cv.put(HealthCareContract.HealthCareServicePhoneEntry.COLUMN_PHONE_ID, phone_id);
+            cv.put(HealthCareContract.HealthCareServicePhoneEntry.COLUMN_PHONE_NAME, phone_name);
+
+            healthCareServicePhoneCVs[index] = cv;
+        }
+
+        Context context = HealthCareDirectoryApp.getContext();
+        int insertCount = context.getContentResolver().bulkInsert(HealthCareContract.HealthCareServicePhoneEntry.CONTENT_URI, healthCareServicePhoneCVs);
+
+        Log.d(HealthCareDirectoryApp.TAG, "Bulk inserted into healthcare_service_phone table : " + insertCount);
+    }
+
+    public static ArrayList<PhoneVO> loadHealthCareServicePhoneByServiceId(long service_id) {
+        Context context = HealthCareDirectoryApp.getContext();
+        ArrayList<PhoneVO> phoneList = new ArrayList<>();
+
+        Cursor cursor = context.getContentResolver().query(HealthCareContract.HealthCareServicePhoneEntry.buildHealthCareServicePhoneUriWithServiceId(service_id),
+                null, null, null, null);
+
+        if(cursor != null && cursor.moveToFirst()) {
+            do {
+                long phone_id = cursor.getLong(cursor.getColumnIndex(HealthCareContract.HealthCareServicePhoneEntry.COLUMN_PHONE_ID));
+                String phone_name = cursor.getString(cursor.getColumnIndex(HealthCareContract.HealthCareServicePhoneEntry.COLUMN_PHONE_NAME));
+
+                PhoneVO phone = new PhoneVO();
+                phone.setPhoneId(phone_id);
+                phone.setPhoneName(phone_name);
+                phoneList.add(phone);
+
+            } while (cursor.moveToNext());
+        }
+        return phoneList;
+    }
 }

@@ -8,12 +8,12 @@ import com.google.gson.annotations.SerializedName;
 public class SpecialityVO {
 
     @SerializedName("speciality-id")
-    private int specialityId;
+    private long specialityId;
 
     @SerializedName("speciality-title")
     private String specialityTitle;
 
-    public int getSpecialityId() {
+    public long getSpecialityId() {
         return specialityId;
     }
 

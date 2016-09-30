@@ -8,7 +8,7 @@ import com.google.gson.annotations.SerializedName;
 public class DoctorVO {
 
     @SerializedName("id")
-    int id;
+    long id;
 
     @SerializedName("category")
     String category;
@@ -70,7 +70,7 @@ public class DoctorVO {
         this.categoryMM = categoryMM;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 

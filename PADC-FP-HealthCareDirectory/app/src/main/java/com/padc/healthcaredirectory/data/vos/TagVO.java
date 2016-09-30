@@ -8,7 +8,7 @@ import com.google.gson.annotations.SerializedName;
 public class TagVO {
 
     @SerializedName("tag-id")
-    private int tagId;
+    private long tagId;
 
     @SerializedName("tag-name")
     private String tagName;
@@ -16,7 +16,7 @@ public class TagVO {
     @SerializedName("tag-name-mm")
     private String tagNameMM;
 
-    public int getTagId() {
+    public long getTagId() {
         return tagId;
     }
 

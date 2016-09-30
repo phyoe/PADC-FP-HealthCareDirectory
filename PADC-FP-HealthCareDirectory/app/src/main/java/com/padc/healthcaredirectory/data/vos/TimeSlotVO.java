@@ -7,11 +7,22 @@ import com.google.gson.annotations.SerializedName;
  */
 public class TimeSlotVO {
 
+    @SerializedName("time-slot-id")
+    private long timeSlotId;
+
     @SerializedName("time")
     private String time;
 
     @SerializedName("date")
     private String date;
+
+    public long getTimeSlotId() {
+        return timeSlotId;
+    }
+
+    public void setTimeSlotId(long timeSlotId) {
+        this.timeSlotId = timeSlotId;
+    }
 
     public String getTime() {
         return time;

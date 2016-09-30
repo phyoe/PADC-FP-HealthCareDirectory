@@ -56,20 +56,22 @@ public class RetrofitDataAgent implements HealthCareDataAgent {
         loadHealthCareServiceCall.enqueue(new Callback<HealthCareServiceListResponse>() {
             @Override
             public void onResponse(Call<HealthCareServiceListResponse> call, Response<HealthCareServiceListResponse> response) {
-                HealthCareServiceListResponse healthCareServiceListResponse = response.body();
-                if(healthCareServiceListResponse == null)
-                {
-                    HealthCareServiceModel.getInstance().notifyErrorInLoadingHealthCareService(response.message());
-                }
-                else
-                {
-                    HealthCareServiceModel.getInstance().notifyHealthCareServiceLoaded(healthCareServiceListResponse.getHealthCareServiceList());
+                if (response.isSuccessful()) {
+                    HealthCareServiceListResponse healthCareServiceListResponse = response.body();
+                    if (healthCareServiceListResponse == null) {
+                        HealthCareServiceModel.getInstance().notifyErrorInLoadingHealthCareService(response.message());
+                    } else {
+                        HealthCareServiceModel.getInstance().notifyHealthCareServiceLoaded(healthCareServiceListResponse.getHealthCareServiceList());
+                    }
+                } else {
+                    Log.e("DataAgent", "Loading Health Care Service Not Success");
                 }
             }
 
             @Override
             public void onFailure(Call<HealthCareServiceListResponse> call, Throwable throwable) {
-
+                Log.e("DataAgent", "Loading Health Care Service Failure : " + throwable.getMessage());
+                throwable.printStackTrace();
                 HealthCareServiceModel.getInstance().notifyErrorInLoadingHealthCareService(throwable.getMessage());
             }
         });
@@ -89,13 +91,13 @@ public class RetrofitDataAgent implements HealthCareDataAgent {
                         HealthCareInfoModel.getInstance().notifyHealthCareInfoLoaded(healthCareInfoListResponse.getHealthCareInfoList());
                     }
                 } else {
-                    Log.e("DataAgent", "Loading Health Care Not Success");
+                    Log.e("DataAgent", "Loading Health Care Info Not Success");
                 }
             }
 
             @Override
             public void onFailure(Call<HealthCareInfoListResponse> call, Throwable throwable) {
-                Log.e("DataAgent", "Loading Health Care Failure : " + throwable.getMessage());
+                Log.e("DataAgent", "Loading Health Care Info Failure : " + throwable.getMessage());
                 throwable.printStackTrace();
                 HealthCareInfoModel.getInstance().notifyErrorInLoadingHealthCareInfo(throwable.getMessage());
             }

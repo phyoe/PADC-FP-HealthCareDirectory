@@ -3,7 +3,6 @@ package com.padc.healthcaredirectory.data.models;
 import android.util.Log;
 
 import com.google.gson.reflect.TypeToken;
-import com.padc.healthcaredirectory.data.vos.AuthorVO;
 import com.padc.healthcaredirectory.data.vos.HealthCareInfoVO;
 import com.padc.healthcaredirectory.events.DataEvent;
 import com.padc.healthcaredirectory.utils.CommonInstance;
@@ -30,7 +29,6 @@ public class HealthCareInfoModel extends BaseModel {
     private static HealthCareInfoModel objInstance;
 
     private List<HealthCareInfoVO> mHealthCareInfoList;
-    private List<AuthorVO> mAuthorList;
 
     public HealthCareInfoModel() {
         /**/

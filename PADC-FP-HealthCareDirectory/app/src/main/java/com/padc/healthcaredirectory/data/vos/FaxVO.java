@@ -8,12 +8,12 @@ import com.google.gson.annotations.SerializedName;
 public class FaxVO {
 
     @SerializedName("fax-id")
-    private int faxId;
+    private long faxId;
 
     @SerializedName("fax-name")
     private String faxName;
 
-    public int getFaxId() {
+    public long getFaxId() {
         return faxId;
     }
 

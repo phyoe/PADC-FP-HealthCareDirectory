@@ -8,7 +8,6 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.padc.healthcaredirectory.R;
 import com.padc.healthcaredirectory.data.vos.HealthCareServiceVO;
-import com.padc.healthcaredirectory.utils.HealthCareDirectoryConstants;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -25,6 +24,9 @@ public class HealthCareServiceViewHolder extends RecyclerView.ViewHolder impleme
     @BindView(R.id.tv_name)
     TextView tvName;
 
+    @BindView(R.id.tv_category)
+    TextView tvCategory;
+
     @BindView(R.id.tv_address)
     TextView tvAddress;
 
@@ -32,7 +34,6 @@ public class HealthCareServiceViewHolder extends RecyclerView.ViewHolder impleme
     TextView tvPhone;
 
     private ControllerHealthCareItem mController;
-
     private HealthCareServiceVO mHealthCareService;
 
     public HealthCareServiceViewHolder(View itemView, ControllerHealthCareItem controller) {
@@ -44,9 +45,10 @@ public class HealthCareServiceViewHolder extends RecyclerView.ViewHolder impleme
 
     public void bindData(HealthCareServiceVO healthCare) {
         mHealthCareService = healthCare;
-        String phones = "";
 
+        //For Retrieve from Offline Json
         /**
+        String phones = "";
         if(healthCare.getPhones() != null){
             String[] arr_phones = healthCare.getPhones();
             for (String ph : arr_phones) {
@@ -55,17 +57,20 @@ public class HealthCareServiceViewHolder extends RecyclerView.ViewHolder impleme
         } else {
             throw new NullPointerException("Data is empty.");
         }
-        /**/
-        tvName.setText(healthCare.getHealthCareName());
-        tvAddress.setText(healthCare.getAddress());
-        tvPhone.setText(phones);
 
         String category = healthCare.getCategory();
         int img = R.drawable.dummy_healthcare;
         if(category.contains(HealthCareDirectoryConstants.STR_HOSPITAL)) img = R.drawable.asia_royal_hospital;
         if(category == HealthCareDirectoryConstants.STR_CLINIC) img = R.drawable.dummy_clinic;
         if(category == HealthCareDirectoryConstants.STR_PHARMACY) img = R.drawable.dummy_pharmacy;
+        /**/
 
+        tvName.setText(healthCare.getHealthCareName());
+        tvCategory.setText(healthCare.getCategoryMM());
+        tvAddress.setText(healthCare.getAddress());
+        //tvPhone.setText(healthCare.getPhones().get(0).getPhoneName());
+
+        String img = healthCare.getImage();
         Glide.with(ivHealthCare.getContext())
                 .load(img)
                 .centerCrop()

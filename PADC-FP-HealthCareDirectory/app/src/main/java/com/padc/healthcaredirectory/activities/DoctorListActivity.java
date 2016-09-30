@@ -30,7 +30,7 @@ implements DoctorViewHolder.ControllerDocotorItem {
     private static final String IE_DOCTOR_ID = "IE_DOCTOR_ID";
     /**/
 
-    public static Intent newIntent(String categoryName, int doctorId ){
+    public static Intent newIntent(String categoryName, long doctorId ){
         Intent intent = new Intent(HealthCareDirectoryApp.getContext(), DoctorListActivity.class);
         //intent.putExtra(IE_CATEGORY_NAME, categoryName);
         //intent.putExtra(IE_DOCTOR_ID, doctorId);
@@ -67,7 +67,7 @@ implements DoctorViewHolder.ControllerDocotorItem {
     @Override
     public void onTapDoctor(DoctorVO doctor) {
 
-        int id = doctor.getId();
+        long id = doctor.getId();
 
         Intent intent = DoctorDetailActivity.newIntent(id);
         startActivity(intent);

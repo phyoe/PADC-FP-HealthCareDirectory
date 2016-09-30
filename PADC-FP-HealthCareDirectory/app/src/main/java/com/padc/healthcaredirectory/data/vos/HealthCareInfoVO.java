@@ -115,11 +115,11 @@ public class HealthCareInfoVO {
             healthCareInfoCVs[index] = healthCareInfo.parseToContentValues();
 
             //Bulk insert into author.
-            long service_id = healthCareInfo.getId();
+            long info_id = healthCareInfo.getId();
             long author_id = healthCareInfo.getAuthor().getAuthorId();
             String author_name = healthCareInfo.getAuthor().getAuthorName();
             String author_picture = healthCareInfo.getAuthor().getAuthorPicture();
-            HealthCareInfoVO.saveHealthCareInfoAuthor(service_id, author_id, author_name, author_picture);
+            HealthCareInfoVO.saveHealthCareInfoAuthor(info_id, author_id, author_name, author_picture);
         }
 
         //Bulk insert into healthcare_info.
@@ -159,13 +159,13 @@ public class HealthCareInfoVO {
     public static HealthCareInfoVO parseFromCursor(Cursor data) {
         HealthCareInfoVO healthCareInfo = new HealthCareInfoVO();
 
-        healthCareInfo.id = data.getInt(data.getColumnIndex(HealthCareContract.HealthCareInfoEntry.COLUMN_HEALTHCARE_INFO_ID));
-        healthCareInfo.title = data.getString(data.getColumnIndex(HealthCareContract.HealthCareInfoEntry.COLUMN_TITLE));
-        healthCareInfo.image = data.getString(data.getColumnIndex(HealthCareContract.HealthCareInfoEntry.COLUMN_IMAGE));
+        healthCareInfo.id               = data.getLong(data.getColumnIndex(HealthCareContract.HealthCareInfoEntry.COLUMN_HEALTHCARE_INFO_ID));
+        healthCareInfo.title            = data.getString(data.getColumnIndex(HealthCareContract.HealthCareInfoEntry.COLUMN_TITLE));
+        healthCareInfo.image            = data.getString(data.getColumnIndex(HealthCareContract.HealthCareInfoEntry.COLUMN_IMAGE));
         healthCareInfo.shortDescription = data.getString(data.getColumnIndex(HealthCareContract.HealthCareInfoEntry.COLUMN_SHORT_DESC));
-        healthCareInfo.publishedDate = data.getString(data.getColumnIndex(HealthCareContract.HealthCareInfoEntry.COLUMN_PUBLISHED_DATE));
-        healthCareInfo.completeUrl = data.getString(data.getColumnIndex(HealthCareContract.HealthCareInfoEntry.COLUMN_COMPLETE_URL));
-        healthCareInfo.infoType = data.getString(data.getColumnIndex(HealthCareContract.HealthCareInfoEntry.COLUMN_INFO_TYPE));
+        healthCareInfo.publishedDate    = data.getString(data.getColumnIndex(HealthCareContract.HealthCareInfoEntry.COLUMN_PUBLISHED_DATE));
+        healthCareInfo.completeUrl      = data.getString(data.getColumnIndex(HealthCareContract.HealthCareInfoEntry.COLUMN_COMPLETE_URL));
+        healthCareInfo.infoType         = data.getString(data.getColumnIndex(HealthCareContract.HealthCareInfoEntry.COLUMN_INFO_TYPE));
 
         return healthCareInfo;
     }

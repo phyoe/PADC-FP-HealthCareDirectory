@@ -108,7 +108,6 @@ public class ArticleDetailActivity extends AppCompatActivity
         getSupportLoaderManager().initLoader(HealthCareDirectoryConstants.HEALTHCARE_INFO_DETAIL_LOADER, null, this);
     }
 
-
     /**
      * For Persistence Layer
      */
@@ -127,14 +126,7 @@ public class ArticleDetailActivity extends AppCompatActivity
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
         boolean findData = false;
         if (data != null && data.moveToFirst()) {
-            mHealthCareInfo = HealthCareInfoVO.parseFromCursor(data);
-            mHealthCareInfo.setAuthor(HealthCareInfoVO.loadHealthCareInfoAuthorByInfoId(mHealthCareInfoId));
-
-            if (mHealthCareInfo.getId() == mHealthCareInfoId) {
-                bindData(mHealthCareInfo);
-                findData = true;
-            }
-            while (data.moveToNext()) {
+           do {
                 if (!findData) {
                     mHealthCareInfo = HealthCareInfoVO.parseFromCursor(data);
                     mHealthCareInfo.setAuthor(HealthCareInfoVO.loadHealthCareInfoAuthorByInfoId(mHealthCareInfoId));
@@ -144,7 +136,7 @@ public class ArticleDetailActivity extends AppCompatActivity
                         findData = true;
                     }
                 }
-            }
+            } while (data.moveToNext());
         }
     }
 

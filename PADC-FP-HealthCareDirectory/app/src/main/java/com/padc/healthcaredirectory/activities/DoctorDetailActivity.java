@@ -45,7 +45,7 @@ public class DoctorDetailActivity extends AppCompatActivity {
 
     private static final String IE_DOCTOR_ID = "IE_DOCTOR_ID";
 
-    public static Intent newIntent(int doctorId) {
+    public static Intent newIntent(long doctorId) {
         Intent intent = new Intent(HealthCareDirectoryApp.getContext(), DoctorDetailActivity.class);
         intent.putExtra(IE_DOCTOR_ID, doctorId);
         return intent;

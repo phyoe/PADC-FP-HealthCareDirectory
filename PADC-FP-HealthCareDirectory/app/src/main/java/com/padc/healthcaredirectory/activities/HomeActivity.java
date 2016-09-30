@@ -3,7 +3,6 @@ package com.padc.healthcaredirectory.activities;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -11,8 +10,6 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.LoaderManager;
-import android.support.v4.content.Loader;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
@@ -47,8 +44,7 @@ public class HomeActivity extends AppCompatActivity
         DoctorCategoryViewHolder.ControllerDocotorCategoryItem,
         DoctorViewHolder.ControllerDocotorItem,
         HealthCareServiceViewHolder.ControllerHealthCareItem,
-        HealthCareInfoViewHolder.ControllerHealthCareInfoItem,
-        LoaderManager.LoaderCallbacks<Cursor> {
+        HealthCareInfoViewHolder.ControllerHealthCareInfoItem {
 
     private static final int MY_PERMISSIONS_REQUEST_CALL_PHONE = 100;
 
@@ -215,7 +211,7 @@ public class HomeActivity extends AppCompatActivity
 
         //Toast.makeText(getApplicationContext(), "Detail View will show ...", Toast.LENGTH_SHORT).show();
 
-        int id = healthcare.getId();
+        long id = healthcare.getId();
         String name = healthcare.getName();
         String loadedCategory = healthcare.getCategory();
 
@@ -264,29 +260,28 @@ public class HomeActivity extends AppCompatActivity
 
     @Override
     public void onTapHealthCareService(HealthCareServiceVO healthcare, ImageView ivHealthCare) {
+        long id = healthcare.getHealthCareId();
+        String name = healthcare.getHealthCareName();
+        String loadedCategory = healthcare.getCategory();
 
+        Intent intent = null;
+
+        if(loadedCategory.contains(HealthCareDirectoryConstants.STR_HOSPITAL)) {
+            intent = HospitalDetailActivity.newIntent(id);
+            startActivity(intent);
+        }
+        if(loadedCategory.contains(HealthCareDirectoryConstants.STR_CLINIC)) {
+            intent = ClinicDetailActivity.newIntent(name);
+            startActivity(intent);
+        }
+        if(loadedCategory.contains(HealthCareDirectoryConstants.STR_PHARMACY)) {
+            intent = PhamacyDetailActivity.newIntent(name);
+            startActivity(intent);
+        }
     }
 
     @Override
     public void onTapHealthCareInfo(HealthCareInfoVO healthCareInfo) {
-
-    }
-
-    /**
-     * For Persistence Layer
-     */
-    @Override
-    public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-        return null;
-    }
-
-    @Override
-    public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-
-    }
-
-    @Override
-    public void onLoaderReset(Loader<Cursor> loader) {
 
     }
 }

@@ -20,7 +20,7 @@ public class HealthCareDirectoryApp extends Application {
         context = getApplicationContext();
 
         //From Network Layer
-        //RetrofitDataAgent.getInstance().loadHealthCareServices();
+        RetrofitDataAgent.getInstance().loadHealthCareServices();
         RetrofitDataAgent.getInstance().loadHealthCareInfos();
     }
 

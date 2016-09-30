@@ -8,12 +8,12 @@ import com.google.gson.annotations.SerializedName;
 public class OperationVO {
 
     @SerializedName("operation-id")
-    private int operationId;
+    private long operationId;
 
     @SerializedName("operation-name")
     private String operationName;
 
-    public int getOperationId() {
+    public long getOperationId() {
         return operationId;
     }
 
