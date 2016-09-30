@@ -173,6 +173,8 @@ public class HomeActivity extends AppCompatActivity
 
     private void navigateToVeterinaryList() {
 
+        Intent inent = VeterinaryCategoryActivity.newIntent();
+        startActivity(inent);
     }
 
     private void navigateToDiseaseList() {
