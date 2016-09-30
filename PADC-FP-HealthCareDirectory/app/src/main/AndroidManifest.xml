@@ -101,6 +101,7 @@
         <activity android:name=".activities.DiseaseDetailActivity"
             android:parentActivityName=".activities.DiseaseDetailActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
+
     </application>
 
 </manifest>
