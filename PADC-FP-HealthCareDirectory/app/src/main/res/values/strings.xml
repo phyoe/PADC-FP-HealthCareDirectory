@@ -93,6 +93,18 @@
     <string name="str_readmore">ဆက္ဖတ္ရန္</string>
     <string name="lbl_share">Share</string>
 
+    <!-- Disease List + Detail -->
+    <string name="disease_screen_title">အျဖစ္မ်ားေရာဂါမ်ား</string>
+    <string name="dummy_disease_title">နား၊ ႏွာေခါင္း၊ လည္ေခ်ာင္းေရာဂါ</string>
+    <string name="dummy_disease_author">သိုက္ရာဇာ</string>
+    <string name="dummy_disease_reference">ျမ၀တီ</string>
+    <string name="dummy_disease_website">http://www.ygnnews.com/2014/01/blog-post_9225.html</string>
+    <string name="dummy_disease_description">ႏွာေခါင္းႏွင့္ လည္ေခ်ာင္းသည္ လူ႔ကိုယ္ခႏၶာ၏
+        အဓိက အေရးႀကီးေသာ အဂၤါျဖစ္ၿပီး အသက္႐ွဴသြင္း ႐ွဴထုတ္ရာႏွင့္ စကားေျပာရာတြင္ အဓိက အေရးပါသည္။
+        ယခုေခတ္တြင္ စက္မႈလုပ္ငန္းမ်ား ေခတ္မီဖြံ႕ၿဖိဳး တိုးတက္လာသည္ႏွင့္ အမွ် ပတ္ဝန္းက်င္ ေလထုသည္လည္း
+        ညစ္ညမ္းလာေသာေၾကာင့္ ႏွာေခါင္း ေရာင္နာႏွင့္ လည္ေခ်ာင္းေရာင္ ေရာဂါ အမ်ဳိးမ်ဳိး ျဖစ္ေပၚလာသည္။</string>
+
+
     <!-- Veterinary List +Category-->
     <string name="veterinary_screen_title">အိမ္ေမြးတိရစာၦန္ဆိုင္ရာ</string>
     <string name="veterinary_clinic_title">အိမ္ေမြးတိရစာၦန္ ေဆးကုခန္းမ်ား</string>
@@ -136,18 +148,6 @@
     <string name="str_veterinary_equipment_info_label">အသံုးေဆာင္ပစၥည္းဆိုင္ အခ်က္အလက္္</string>
     <string name="str_veterinary_medicine_info_label">ေဆး၀ါးပစၥည္းဆိုင္ အခ်က္အလက္္</string>
     <string name="str_veterinary_spa_info_label">Spa Information</string>
-
-
-    <!-- Disease List + Detail -->
-    <string name="disease_screen_title">အျဖစ္မ်ားေရာဂါမ်ား</string>
-    <string name="dummy_disease_title">နား၊ ႏွာေခါင္း၊ လည္ေခ်ာင္းေရာဂါ</string>
-    <string name="dummy_disease_author">သိုက္ရာဇာ</string>
-    <string name="dummy_disease_reference">ျမ၀တီ</string>
-    <string name="dummy_disease_website">http://www.ygnnews.com/2014/01/blog-post_9225.html</string>
-    <string name="dummy_disease_description">ႏွာေခါင္းႏွင့္ လည္ေခ်ာင္းသည္ လူ႔ကိုယ္ခႏၶာ၏
-        အဓိက အေရးႀကီးေသာ အဂၤါျဖစ္ၿပီး အသက္႐ွဴသြင္း ႐ွဴထုတ္ရာႏွင့္ စကားေျပာရာတြင္ အဓိက အေရးပါသည္။
-        ယခုေခတ္တြင္ စက္မႈလုပ္ငန္းမ်ား ေခတ္မီဖြံ႕ၿဖိဳး တိုးတက္လာသည္ႏွင့္ အမွ် ပတ္ဝန္းက်င္ ေလထုသည္လည္း
-        ညစ္ညမ္းလာေသာေၾကာင့္ ႏွာေခါင္း ေရာင္နာႏွင့္ လည္ေခ်ာင္းေရာင္ ေရာဂါ အမ်ဳိးမ်ဳိး ျဖစ္ေပၚလာသည္။</string>
-
+    
 
 </resources>
