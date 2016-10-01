@@ -74,8 +74,8 @@ public class HealthCareServiceViewHolder extends RecyclerView.ViewHolder impleme
         Glide.with(ivHealthCare.getContext())
                 .load(img)
                 .centerCrop()
-                .placeholder(R.drawable.dummy_healthcare)
-                .error(R.drawable.dummy_healthcare)
+                .placeholder(R.drawable.healthcare_photo_placeholder)
+                .error(R.drawable.healthcare_photo_placeholder)
                 .into(ivHealthCare);
     }
 
@@ -94,9 +94,11 @@ public class HealthCareServiceViewHolder extends RecyclerView.ViewHolder impleme
         mController.onTapPhoneCall(mHealthCareService);
     }
 
-    @OnClick(R.id.btn_detail)
-    public void onTapHealthCare(View view) {
-        mController.onTapHealthCareService(mHealthCareService, ivHealthCare);
-    }
+    /**
+     @OnClick(R.id.btn_detail)
+     public void onTapHealthCare(View view) {
+     mController.onTapHealthCareService(mHealthCareService, ivHealthCare);
+     }
+     /**/
 
 }

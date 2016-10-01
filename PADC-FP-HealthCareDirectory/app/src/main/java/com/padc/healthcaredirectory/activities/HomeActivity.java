@@ -129,9 +129,11 @@ public class HomeActivity extends AppCompatActivity
             case R.id.menu_health_care_clinics:
                 navigateToClinicList();
                 return true;
-            case R.id.menu_health_care_doctors:
+            /**
+             case R.id.menu_health_care_doctors:
                 navigateToDoctorList();
                 return true;
+            /**/
             case R.id.menu_health_care_veterinary:
                 navigateToVeterinaryList();
                 return true;

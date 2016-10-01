@@ -53,7 +53,12 @@ public class ArticleListActivity extends AppCompatActivity
 
         long id = healthCareInfo.getId();
 
-        Intent intent = ArticleDetailActivity.newIntent(id);
+        /**
+         Intent intent = ArticleDetailActivity.newIntent(id);
+         startActivity(intent);
+         /**/
+
+        Intent intent = ArticleDetailWebViewActivity.newIntent(id);
         startActivity(intent);
     }
 }

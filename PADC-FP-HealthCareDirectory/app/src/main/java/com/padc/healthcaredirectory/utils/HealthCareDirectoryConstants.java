@@ -16,6 +16,7 @@ public class HealthCareDirectoryConstants {
     public static final int HEALTHCARE_SERVICE_DETAIL_LOADER = 2;
     public static final int HEALTHCARE_INFO_LIST_LOADER = 3;
     public static final int HEALTHCARE_INFO_DETAIL_LOADER = 4;
+    public static final int HEALTHCARE_INFO_DETAIL_WEBVIEW_LOADER =5;
 
     //Fragment
     public static final int FRAGMENT_HOSPITAL = 1;

@@ -11,11 +11,13 @@ import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.padc.healthcaredirectory.HealthCareDirectoryApp;
@@ -28,7 +30,7 @@ import com.padc.healthcaredirectory.utils.HealthCareDirectoryConstants;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class HospitalDetailActivity extends AppCompatActivity
+public class HospitalDetailActivity extends BaseActivity
         implements LoaderManager.LoaderCallbacks<Cursor>{
 
     @BindView(R.id.toolbar)
@@ -57,6 +59,27 @@ public class HospitalDetailActivity extends AppCompatActivity
         Intent intent = new Intent(HealthCareDirectoryApp.getContext(), HospitalDetailActivity.class);
         intent.putExtra(IE_SERVCE_ID, serviceId);
         return intent;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_share, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id) {
+            case R.id.action_share:
+                String imageUrl = mHealthCareService.getImage();
+                Toast.makeText(HealthCareDirectoryApp.getContext(), getString(R.string.lbl_share), Toast.LENGTH_SHORT).show();
+                sendViaShareIntent(mHealthCareService.getHealthCareName() + " - " + imageUrl);
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -149,8 +172,8 @@ public class HospitalDetailActivity extends AppCompatActivity
         Glide.with(imgHospital.getContext())
                 .load(imageUrl)
                 .fitCenter()
-                .placeholder(R.drawable.hospital_picture)
-                .error(R.drawable.hospital_picture)
+                .placeholder(R.drawable.healthcare_photo_placeholder)
+                .error(R.drawable.healthcare_photo_placeholder)
                 .into(imgHospital);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {

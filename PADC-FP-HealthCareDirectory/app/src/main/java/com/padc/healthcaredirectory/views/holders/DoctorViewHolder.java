@@ -46,8 +46,8 @@ public class DoctorViewHolder extends RecyclerView.ViewHolder implements View.On
         Glide.with(ivIcon.getContext())
                 .load(img)
                 .centerCrop()
-                .placeholder(R.drawable.dummy_doctor)
-                .error(R.drawable.dummy_doctor)
+                .placeholder(R.drawable.healthcare_photo_placeholder)
+                .error(R.drawable.healthcare_photo_placeholder)
                 .into(ivIcon);
     }
 

@@ -77,8 +77,8 @@ public class DoctorDetailActivity extends AppCompatActivity {
         Glide.with(imgDoctor.getContext())
                 .load(R.drawable.dummy_doctor)
                 .fitCenter()
-                .placeholder(R.drawable.dummy_doctor)
-                .error(R.drawable.dummy_doctor)
+                .placeholder(R.drawable.healthcare_photo_placeholder)
+                .error(R.drawable.healthcare_photo_placeholder)
                 .into(imgDoctor);
     }
 }

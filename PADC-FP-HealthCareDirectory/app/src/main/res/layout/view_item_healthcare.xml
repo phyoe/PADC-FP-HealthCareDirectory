@@ -30,7 +30,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-condensed"
-            android:padding="@dimen/margin_medium"
+            android:paddingLeft="@dimen/margin_medium"
+            android:paddingTop="@dimen/margin_medium"
             android:text="@string/health_care_hospital"
             android:textAppearance="?android:textAppearanceLarge" />
 
@@ -40,7 +41,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-condensed"
-            android:padding="@dimen/margin_medium"
+            android:paddingLeft="@dimen/margin_medium"
+            android:paddingTop="@dimen/margin_medium"
             android:text="@string/health_care_hospital_category"
             android:textAppearance="?android:textAppearanceLarge" />
 
@@ -49,12 +51,13 @@
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:padding="@dimen/margin_small">
+            android:paddingLeft="@dimen/margin_medium"
+            android:paddingTop="@dimen/margin_medium">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="top"
+                android:layout_gravity="center_horizontal"
                 android:src="@drawable/ic_location_24dp"
                 android:tint="@color/black_overlay" />
 
@@ -73,12 +76,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="@dimen/margin_small">
+            android:paddingLeft="@dimen/margin_medium"
+            android:paddingTop="@dimen/margin_medium">
 
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_gravity="top"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="top|right"
                 android:src="@drawable/ic_phone_24dp"
                 android:tint="@color/black_overlay" />
 
@@ -104,10 +109,11 @@
                 style="@style/HealthCareCardButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="@dimen/margin_small"
                 android:layout_weight="1"
                 android:text="@string/lbl_phone" />
 
+            <!--
+            android:layout_marginRight="@dimen/margin_small"
             <com.padc.healthcaredirectory.components.MMButton
                 android:id="@+id/btn_detail"
                 style="@style/HealthCareCardButton"
@@ -116,6 +122,7 @@
                 android:layout_marginLeft="@dimen/margin_small"
                 android:layout_weight="1"
                 android:text="@string/lbl_detail" />
+            -->
 
         </LinearLayout>
 

@@ -56,7 +56,9 @@
             android:name=".activities.ArticleDetailActivity"
             android:parentActivityName=".activities.ArticleListActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-
+        <activity android:name=".activities.ArticleDetailWebViewActivity"
+            android:parentActivityName=".activities.ArticleListActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <provider
             android:authorities="com.padc.healthcaredirectory"
             android:name=".data.persistence.HealthCareProvider"

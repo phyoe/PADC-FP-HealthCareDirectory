@@ -17,21 +17,19 @@
             style="@style/DetailInfoTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/margin_medium"
+            android:paddingBottom="@dimen/margin_medium"
             android:text="@string/str_hospital_info_label" />
 
         <!-- Address -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
             android:orientation="horizontal"
             android:padding="@dimen/margin_small">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="top"
                 android:src="@drawable/ic_location_24dp" />
 
             <com.padc.healthcaredirectory.components.MMTextView
@@ -82,7 +80,7 @@
 
             <TextView
                 android:id="@+id/tv_email"
-                style="@style/LinkText"
+                style="@style/ContentText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/margin_medium_2"
@@ -105,9 +103,11 @@
 
             <TextView
                 android:id="@+id/tv_website"
-                style="@style/LinkText"
+                style="@style/ContentText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:ellipsize="end"
                 android:layout_marginLeft="@dimen/margin_medium_2"
                 android:text="@string/str_website" />
 
@@ -121,16 +121,18 @@
             android:padding="@dimen/margin_small">
 
             <ImageView
-                android:layout_width="@dimen/icon_size"
+                android:layout_width="@dimen/icon_width"
                 android:layout_height="@dimen/icon_size"
                 android:layout_gravity="top"
                 android:src="@drawable/ic_facebook_24dp" />
 
             <TextView
                 android:id="@+id/tv_facebook"
-                style="@style/LinkText"
+                style="@style/ContentText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:ellipsize="end"
                 android:layout_marginLeft="@dimen/margin_medium_2"
                 android:text="@string/str_facebook" />
 

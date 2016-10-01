@@ -7,57 +7,42 @@ import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.view.View;
+import android.webkit.WebChromeClient;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.padc.healthcaredirectory.HealthCareDirectoryApp;
 import com.padc.healthcaredirectory.R;
 import com.padc.healthcaredirectory.data.persistence.HealthCareContract;
-import com.padc.healthcaredirectory.data.vos.ArticleVO;
 import com.padc.healthcaredirectory.data.vos.HealthCareInfoVO;
 import com.padc.healthcaredirectory.utils.HealthCareDirectoryConstants;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class ArticleDetailActivity extends BaseActivity
+public class ArticleDetailWebViewActivity extends AppCompatActivity
         implements LoaderManager.LoaderCallbacks<Cursor>{
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
 
-    @BindView(R.id.img_article)
-    ImageView imgArticle;
+    @BindView(R.id.wv_web)
+    WebView wvWeb;
 
-    @BindView(R.id.tv_article_title)
-    TextView tvArticleTitle;
-
-    @BindView(R.id.tv_article_date)
-    TextView tvArticleDate;
-
-    @BindView(R.id.tv_article_description)
-    TextView tvArticleDescription;
-
-    @BindView(R.id.tv_article_author)
-    TextView tvArticleAuthor;
-
-    @BindView(R.id.tv_article_website)
-    TextView tvArticleWebsite;
-
-    private ArticleVO mArticle;
     private long mHealthCareInfoId;
-
     private HealthCareInfoVO mHealthCareInfo;
 
     private static final String IE_INFO_ID = "IE_INFO_ID";
 
     public static Intent newIntent(long infoId) {
-        Intent intent = new Intent(HealthCareDirectoryApp.getContext(), ArticleDetailActivity.class);
+        Intent intent = new Intent(HealthCareDirectoryApp.getContext(), ArticleDetailWebViewActivity.class);
         intent.putExtra(IE_INFO_ID, infoId);
         return intent;
     }
@@ -74,9 +59,7 @@ public class ArticleDetailActivity extends BaseActivity
         int id = item.getItemId();
         switch (id) {
             case R.id.action_share:
-                String imageUrl = mHealthCareInfo.getImage();
                 Toast.makeText(HealthCareDirectoryApp.getContext(), getString(R.string.lbl_share), Toast.LENGTH_SHORT).show();
-                sendViaShareIntent(mHealthCareInfo.getTitle() + " - " + imageUrl);
                 return true;
         }
 
@@ -86,7 +69,7 @@ public class ArticleDetailActivity extends BaseActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_article_detail);
+        setContentView(R.layout.activity_article_detail_web_view);
         ButterKnife.bind(this, this);
 
         setSupportActionBar(toolbar);
@@ -98,39 +81,9 @@ public class ArticleDetailActivity extends BaseActivity
         }
 
         mHealthCareInfoId = getIntent().getLongExtra(IE_INFO_ID, 0);
+        getSupportLoaderManager().initLoader(HealthCareDirectoryConstants.HEALTHCARE_INFO_DETAIL_WEBVIEW_LOADER, null, this);
 
-        //Data retrieve from Offline Json
-        /**
-        mArticle = ArticleModel.getInstance().getArticleById(mArticleId);
-        tvArticleTitle.setText(mArticle.getTitle());
-        tvArticleDate.setText(mArticle.getArticleDate());
-        tvArticleDescription.setText(mArticle.getDescription());
-        tvArticleAuthor.setText(mArticle.getAuthor());
-        tvArticleWebsite.setText(mArticle.getWebsite());
-        /**/
-
-        /**
-        //Data retrieve from Network Layer
-        mHealthCareInfo = HealthCareInfoModel.getInstance().getHealthCareInfoById(mHealthCareInfoId);
-        tvArticleTitle.setText(mHealthCareInfo.getTitle());
-        tvArticleDate.setText(mHealthCareInfo.getPublishedDate());
-        tvArticleDescription.setText(mHealthCareInfo.getShortDescription());
-        tvArticleAuthor.setText(mHealthCareInfo.getAuthor().getAuthorName());
-        tvArticleWebsite.setText(mHealthCareInfo.getCompleteUrl());
-
-        //String imageUrl = mHealthCareInfo.getimgUrl();
-        Glide.with(imgArticle.getContext())
-                .load(R.drawable.article_img) //.load(imageUrl)
-                .fitCenter()
-                .placeholder(R.drawable.article_img)
-                .error(R.drawable.article_img)
-                .into(imgArticle);
-        /**/
-
-        //For Persistence Layer
-        getSupportLoaderManager().initLoader(HealthCareDirectoryConstants.HEALTHCARE_INFO_DETAIL_LOADER, null, this);
     }
-
     /**
      * For Persistence Layer
      */
@@ -144,12 +97,11 @@ public class ArticleDetailActivity extends BaseActivity
                 null
         );
     }
-
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
         boolean findData = false;
         if (data != null && data.moveToFirst()) {
-           do {
+            while (data.moveToNext()) {
                 if (!findData) {
                     mHealthCareInfo = HealthCareInfoVO.parseFromCursor(data);
                     mHealthCareInfo.setAuthor(HealthCareInfoVO.loadHealthCareInfoAuthorByInfoId(mHealthCareInfoId));
@@ -159,30 +111,35 @@ public class ArticleDetailActivity extends BaseActivity
                         findData = true;
                     }
                 }
-            } while (data.moveToNext());
+            }
         }
     }
-
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
 
     }
     private void bindData(HealthCareInfoVO healthCareInfo) {
-
         //Data retrieve from Persistence Layer
-        tvArticleTitle.setText(healthCareInfo.getTitle());
-        tvArticleDate.setText(healthCareInfo.getPublishedDate());
-        tvArticleDescription.setText(healthCareInfo.getShortDescription());
-        tvArticleAuthor.setText(healthCareInfo.getAuthor().getAuthorName());
-        tvArticleWebsite.setText(healthCareInfo.getCompleteUrl());
+        String url = healthCareInfo.getCompleteUrl();
 
-        String imageUrl = mHealthCareInfo.getImage();
-        Glide.with(imgArticle.getContext())
-                .load(imageUrl)
-                .fitCenter()
-                .placeholder(R.drawable.healthcare_photo_placeholder)
-                .error(R.drawable.healthcare_photo_placeholder)
-                .into(imgArticle);
+        Log.e("WebView URL : ", url);
 
+        // Websettings to setup the webview
+        WebSettings webSettings = wvWeb.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        webSettings.setDomStorageEnabled(true);
+        webSettings.setAppCachePath(this.getCacheDir().getAbsolutePath());
+        webSettings.setAppCacheEnabled(true);
+        webSettings.setUseWideViewPort(true);
+        webSettings.setLoadWithOverviewMode(true);
+        webSettings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
+
+        wvWeb.setWebChromeClient(new WebChromeClient());
+
+        wvWeb.requestFocus(View.FOCUS_DOWN);
+        wvWeb.setFocusable(true);
+
+        wvWeb.loadUrl(url);
     }
+
 }

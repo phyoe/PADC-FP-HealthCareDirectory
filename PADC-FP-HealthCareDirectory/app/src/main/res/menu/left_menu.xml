@@ -7,10 +7,12 @@
             android:icon="@drawable/ic_clinic_24dp"
             android:title="@string/health_care_clinics" />
 
+        <!--
         <item
             android:id="@+id/menu_health_care_doctors"
             android:icon="@drawable/ic_doctor_24dp"
             android:title="@string/health_care_doctors" />
+        -->
 
         <item
             android:id="@+id/menu_health_care_veterinary"
