@@ -17,11 +17,26 @@ import butterknife.ButterKnife;
  */
 public class HealthCareInfoViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
-    @BindView(R.id.iv_icon)
-    ImageView ivIcon;
+    @BindView(R.id.iv_author)
+    ImageView ivAuthor;
 
-    @BindView(R.id.tv_title)
-    TextView tvTitle;
+    @BindView(R.id.tv_author_name)
+    TextView tvAuthorName;
+
+    @BindView(R.id.tv_article_date)
+    TextView tvArticleDate;
+
+    @BindView(R.id.tv_article_title)
+    TextView tvArticleTitle;
+
+    @BindView(R.id.tv_article_description)
+    TextView tvArticleDescription;
+
+    @BindView(R.id.iv_article)
+    ImageView ivArticle;
+
+    @BindView(R.id.tv_article_link)
+    TextView tvArticleLink;
 
     private ControllerHealthCareInfoItem mController;
     private HealthCareInfoVO mHealthCareInfo;
@@ -38,15 +53,27 @@ public class HealthCareInfoViewHolder extends RecyclerView.ViewHolder implements
 
         //Log.d(HealthCareDirectoryApp.TAG, healthCareInfo.getTitle());
 
-        tvTitle.setText(healthCareInfo.getTitle());
+        tvAuthorName.setText(healthCareInfo.getAuthor().getAuthorName());
+        tvArticleDate.setText(healthCareInfo.getPublishedDate());
+        tvArticleTitle.setText(healthCareInfo.getTitle());
+        tvArticleDescription.setText(healthCareInfo.getShortDescription());
+        tvArticleLink.setText(healthCareInfo.getCompleteUrl());
 
-        int img = R.drawable.dummy_article;
-        Glide.with(ivIcon.getContext())
-                .load(img)
+        String author_pic = healthCareInfo.getAuthor().getAuthorPicture();
+        Glide.with(ivAuthor.getContext())
+                .load(author_pic)
                 .centerCrop()
-                .placeholder(R.drawable.dummy_article)
-                .error(R.drawable.dummy_article)
-                .into(ivIcon);
+                .placeholder(R.drawable.dummy_avatar)
+                .error(R.drawable.dummy_avatar)
+                .into(ivAuthor);
+
+        String article_pic = healthCareInfo.getImage();
+        Glide.with(ivArticle.getContext())
+                .load(article_pic)
+                .centerCrop()
+                .placeholder(R.drawable.healthcare_photo_placeholder)
+                .error(R.drawable.healthcare_photo_placeholder)
+                .into(ivArticle);
     }
 
     @Override

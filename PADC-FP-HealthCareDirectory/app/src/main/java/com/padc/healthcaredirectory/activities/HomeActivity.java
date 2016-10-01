@@ -1,20 +1,15 @@
 package com.padc.healthcaredirectory.activities;
 
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -38,7 +33,7 @@ import com.padc.healthcaredirectory.views.holders.HealthCareViewHolder;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class HomeActivity extends AppCompatActivity
+public class HomeActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener,
         HealthCareViewHolder.ControllerHealthCareItem,
         DoctorCategoryViewHolder.ControllerDocotorCategoryItem,
@@ -46,7 +41,6 @@ public class HomeActivity extends AppCompatActivity
         HealthCareServiceViewHolder.ControllerHealthCareItem,
         HealthCareInfoViewHolder.ControllerHealthCareInfoItem {
 
-    private static final int MY_PERMISSIONS_REQUEST_CALL_PHONE = 100;
 
     @BindView(R.id.drawer_layout)
     DrawerLayout drawerLayout;
@@ -60,7 +54,6 @@ public class HomeActivity extends AppCompatActivity
     @BindView(R.id.fab_search)
     FloatingActionButton fabSearch;
 
-    private String numberToCall = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -203,7 +196,7 @@ public class HomeActivity extends AppCompatActivity
     @Override
     public void onTapPhoneCall(HealthCareVO healthcare) {
         if(healthcare.getPhones()[0] != null) {
-            numberToCall = healthcare.getPhones()[0];
+            String numberToCall = healthcare.getPhones()[0];
             makeCall(numberToCall);
         }
     }
@@ -231,19 +224,6 @@ public class HomeActivity extends AppCompatActivity
             startActivity(intent);
         }
     }
-    protected void makeCall(String numberToCall) {
-        numberToCall.replaceAll(" ", "");
-        Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + numberToCall));
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-            this.numberToCall = numberToCall;
-
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.CALL_PHONE},
-                    MY_PERMISSIONS_REQUEST_CALL_PHONE);
-        } else {
-            startActivity(intent);
-        }
-    }
 
     @Override
     public void onTapDoctor(DoctorVO doctor) {
@@ -257,7 +237,12 @@ public class HomeActivity extends AppCompatActivity
 
     @Override
     public void onTapPhoneCall(HealthCareServiceVO healthcare) {
-
+        /**
+        if(healthcare.getPhones()[0] != null) {
+            String numberToCall = healthcare.getPhones()[0];
+            makeCall(numberToCall);
+        }
+        /**/
     }
 
     @Override

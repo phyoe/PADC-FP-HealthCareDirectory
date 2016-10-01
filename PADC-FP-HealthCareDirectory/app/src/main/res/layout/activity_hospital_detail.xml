@@ -27,7 +27,7 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <ImageView
-                android:id="@+id/img_hospital"
+                android:id="@+id/img_service"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fitsSystemWindows="true"
@@ -65,7 +65,7 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <include
-            layout="@layout/inc_hospital_detail"
+            layout="@layout/inc_service_detail"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 

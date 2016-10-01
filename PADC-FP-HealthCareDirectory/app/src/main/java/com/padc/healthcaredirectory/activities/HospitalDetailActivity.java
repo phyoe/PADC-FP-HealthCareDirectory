@@ -29,6 +29,7 @@ import com.padc.healthcaredirectory.utils.HealthCareDirectoryConstants;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class HospitalDetailActivity extends BaseActivity
         implements LoaderManager.LoaderCallbacks<Cursor>{
@@ -39,11 +40,32 @@ public class HospitalDetailActivity extends BaseActivity
     @BindView(R.id.fab_favourite)
     FloatingActionButton fabFavourite;
 
-    @BindView(R.id.tv_hospital_name)
-    TextView tvHospitalName;
+    @BindView(R.id.img_service)
+    ImageView imgService;
 
-    @BindView(R.id.img_hospital)
-    ImageView imgHospital;
+    @BindView(R.id.tv_service_name)
+    TextView tvServiceName;
+
+    @BindView(R.id.tv_service_category)
+    TextView tvServiceCategory;
+
+    @BindView(R.id.tv_service_address)
+    TextView tvServiceAddress;
+
+    @BindView(R.id.tv_service_phone)
+    TextView tvServicePhone;
+
+    @BindView(R.id.tv_service_email)
+    TextView tvServiceEmail;
+
+    @BindView(R.id.tv_service_website)
+    TextView tvServiceWebsite;
+
+    @BindView(R.id.tv_service_facebook)
+    TextView tvServiceFacebook;
+
+    @BindView(R.id.img_service_map)
+    ImageView imgServiceMap;
 
     @BindView(R.id.collapsing_toolbar)
     CollapsingToolbarLayout collapsingToolbar;
@@ -165,22 +187,51 @@ public class HospitalDetailActivity extends BaseActivity
     private void bindData(HealthCareServiceVO healthCareService) {
 
         //Data retrieve from Persistence Layer
-        tvHospitalName.setText(healthCareService.getHealthCareName());
+        tvServiceName.setText(healthCareService.getHealthCareName());
+        tvServiceCategory.setText(healthCareService.getCategoryMM());
+
+        String address = (!healthCareService.getAddress().isEmpty())? healthCareService.getAddress() : HealthCareDirectoryConstants.STR_NO_DATA;
+        tvServiceAddress.setText(address);
+
+        //tvServicePhone.setText(healthCareService.getPhones());
+
+        String email = (!healthCareService.getEmail().isEmpty())? healthCareService.getEmail() : HealthCareDirectoryConstants.STR_NO_DATA;
+        tvServiceEmail.setText(email);
+
+        String website = (!healthCareService.getWebsite().isEmpty())? healthCareService.getWebsite() : HealthCareDirectoryConstants.STR_NO_DATA;
+        tvServiceWebsite.setText(website);
+        //openInCDCUrl(SafetyFirstConstants.URI_TO_OPEN_IN_CDC);
+
+        String facebook = (!healthCareService.getFacebook().isEmpty())? healthCareService.getFacebook() : HealthCareDirectoryConstants.STR_NO_DATA;
+        tvServiceFacebook.setText(facebook);
+        // openInFacebook(SafetyFirstConstants.URI_TO_OPEN_IN_FACEBOOK);
+
         collapsingToolbar.setTitle(healthCareService.getHealthCareName());
 
-        String imageUrl = mHealthCareService.getImage();
-        Glide.with(imgHospital.getContext())
+        String imageUrl = healthCareService.getImage();
+        Glide.with(imgService.getContext())
                 .load(imageUrl)
                 .fitCenter()
                 .placeholder(R.drawable.healthcare_photo_placeholder)
                 .error(R.drawable.healthcare_photo_placeholder)
-                .into(imgHospital);
+                .into(imgService);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Context context = HealthCareDirectoryApp.getContext();
             String transitionName = context.getResources().getString(R.string.healthcare_list_detail_transition_name);
-            imgHospital.setTransitionName(transitionName);
+            imgService.setTransitionName(transitionName);
         }
+    }
 
+    @OnClick(R.id.tv_service_website)
+    public void onTapWebsiteURL(View view) {
+        String website = mHealthCareService.getWebsite();
+        super.openInWebsiteUrl(website);
+    }
+
+    @OnClick(R.id.tv_service_facebook)
+    public void onTapFacebook(View view) {
+        String facebook = mHealthCareService.getFacebook();
+        super.openInFacebook(facebook);
     }
 }
