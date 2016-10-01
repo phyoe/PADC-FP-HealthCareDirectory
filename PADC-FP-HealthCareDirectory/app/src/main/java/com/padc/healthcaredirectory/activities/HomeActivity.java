@@ -168,9 +168,14 @@ public class HomeActivity extends BaseActivity
 
     private void navigateToVeterinaryList() {
 
+        Intent inent = VeterinaryCategoryActivity.newIntent();
+        startActivity(inent);
     }
 
     private void navigateToDiseaseList() {
+
+        Intent intent = DiseaseListActivity.newIntent();
+        startActivity(intent);
 
     }
 
