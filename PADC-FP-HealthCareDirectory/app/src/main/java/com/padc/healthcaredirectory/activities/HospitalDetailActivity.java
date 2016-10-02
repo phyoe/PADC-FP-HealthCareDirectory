@@ -204,11 +204,9 @@ public class HospitalDetailActivity extends BaseActivity
 
         String website = (!healthCareService.getWebsite().isEmpty())? healthCareService.getWebsite() : HealthCareDirectoryConstants.STR_NO_DATA;
         tvServiceWebsite.setText(website);
-        //openInCDCUrl(SafetyFirstConstants.URI_TO_OPEN_IN_CDC);
 
         String facebook = (!healthCareService.getFacebook().isEmpty())? healthCareService.getFacebook() : HealthCareDirectoryConstants.STR_NO_DATA;
         tvServiceFacebook.setText(facebook);
-        // openInFacebook(SafetyFirstConstants.URI_TO_OPEN_IN_FACEBOOK);
 
         collapsingToolbar.setTitle(healthCareService.getHealthCareName());
 

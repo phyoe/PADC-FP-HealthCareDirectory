@@ -148,6 +148,7 @@ public class HealthCareContract {
         public static final String COLUMN_TAG_ID        = "tag_id";
         public static final String COLUMN_SERVICE_ID    = "healthcare_service_id";
         public static final String COLUMN_TAG_NAME      = "tag_name";
+        public static final String COLUMN_TAG_NAME_MM   = "tag_name_mm";
 
         public static Uri buildHealthCareServiceTagUri(long id) {
             //content://com.padc.healthcaredirectory/healthcare_service_tags/1
@@ -245,7 +246,7 @@ public class HealthCareContract {
         public static final String COLUMN_SPECIALITY_ID     = "speciality_id";
         public static final String COLUMN_SERVICE_ID        = "healthcare_service_id";
         public static final String COLUMN_SERVICE_DOCTOR_ID = "healthcare_service_doctor_id";
-        public static final String COLUMN_SPECIALITY_NAME   = "speciality_title";
+        public static final String COLUMN_SPECIALITY_TITLE  = "speciality_title";
 
         public static Uri buildHealthCareServiceDoctorSpecialityUri(long id) {
             //content://com.padc.healthcaredirectory/healthcare_service_doctor_specialities/1

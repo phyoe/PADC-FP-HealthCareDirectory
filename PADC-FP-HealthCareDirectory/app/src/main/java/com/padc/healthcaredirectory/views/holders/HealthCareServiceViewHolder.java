@@ -8,7 +8,6 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.padc.healthcaredirectory.R;
 import com.padc.healthcaredirectory.data.vos.HealthCareServiceVO;
-import com.padc.healthcaredirectory.utils.HealthCareDirectoryConstants;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -31,8 +30,10 @@ public class HealthCareServiceViewHolder extends RecyclerView.ViewHolder impleme
     @BindView(R.id.tv_address)
     TextView tvAddress;
 
+    /**
     @BindView(R.id.tv_phone)
     TextView tvPhone;
+    /**/
 
     private ControllerHealthCareItem mController;
     private HealthCareServiceVO mHealthCareService;
@@ -70,9 +71,12 @@ public class HealthCareServiceViewHolder extends RecyclerView.ViewHolder impleme
         tvCategory.setText(healthCare.getCategoryMM());
         tvAddress.setText(healthCare.getAddress());
 
-        String phone = (!healthCare.getPhones().isEmpty())?
-                healthCare.getPhones().get(0).getPhoneName() : HealthCareDirectoryConstants.STR_NO_DATA;
+        /**
+        List<PhoneVO> healthCarePhones = healthCare.getPhones();
+        String phone = (healthCarePhones != null && !healthCarePhones.isEmpty())?
+                healthCarePhones.get(0).getPhoneName() : HealthCareDirectoryConstants.STR_NO_DATA;
         tvPhone.setText(phone);
+        /**/
 
         String img = healthCare.getImage();
         Glide.with(ivHealthCare.getContext())

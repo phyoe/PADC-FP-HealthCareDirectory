@@ -19,7 +19,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.padc.healthcaredirectory.HealthCareDirectoryApp;
 import com.padc.healthcaredirectory.R;
@@ -110,12 +109,14 @@ public class HospitalListFragment extends BaseFragment
     }
 
     public void onEventMainThread(DataEvent.HealthCareServiceDataLoadedEvent event) {
+        /*
         String extra = event.getExtraMessage();
         Toast.makeText(getContext(), "Extra : " + extra, Toast.LENGTH_SHORT).show();
 
         List<HealthCareServiceVO> newHealthCareServiceList = event.getHealthCareServiceList();
         mHealthCareServiceAdapter.setNewData(newHealthCareServiceList);
         mHealthCareServiceAdapter.notifyDataSetChanged();
+        */
     }
 
     @Override
@@ -150,11 +151,13 @@ public class HospitalListFragment extends BaseFragment
         @Override
         public void onReceive(Context context, Intent intent) {
             //TODO instructions when the new data is ready.
+            /*
             String extra = intent.getStringExtra("key-for-extra");
             Toast.makeText(getContext(), "Extra : " + extra, Toast.LENGTH_SHORT).show();
 
             List<HealthCareServiceVO> newHealthCareServiceList = HealthCareServiceModel.getInstance().getHealthCareServiceList();
             mHealthCareServiceAdapter.setNewData(newHealthCareServiceList);
+            */
         }
     };
 
@@ -181,7 +184,7 @@ public class HospitalListFragment extends BaseFragment
         if (data != null && data.moveToFirst()) {
             do {
                 HealthCareServiceVO healthCareService = HealthCareServiceVO.parseFromCursor(data);
-                //HealthCareServiceVO.setPhones(HealthCareInfoVO.loadHealthCareInfoAuthorByInfoId(healthCareService.getId()));
+                healthCareService.setPhones(HealthCareServiceVO.loadHealthCareServicePhoneByServiceId(healthCareService.getHealthCareId()));
                 healthCareServiceList.add(healthCareService);
             } while (data.moveToNext());
         }
@@ -190,7 +193,6 @@ public class HospitalListFragment extends BaseFragment
         mHealthCareServiceAdapter.setNewData(healthCareServiceList);
 
         HealthCareServiceModel.getInstance().setStoredData(healthCareServiceList);
-
     }
 
     @Override

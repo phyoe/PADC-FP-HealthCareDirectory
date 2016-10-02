@@ -55,7 +55,6 @@ public class HealthCareServiceModel extends BaseModel {
     private List<HealthCareServiceVO> initializeHealthCareService() {
 
         List<HealthCareServiceVO> healthCareServiceList = new ArrayList<>();
-        //ArrayList<HealthCareServiceVO> list = new ArrayList<HealthCareServiceVO>();
 
         try {
 

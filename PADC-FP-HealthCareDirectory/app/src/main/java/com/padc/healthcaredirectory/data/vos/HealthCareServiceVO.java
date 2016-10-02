@@ -55,7 +55,7 @@ public class HealthCareServiceVO {
 
     @SerializedName("phones")
     private ArrayList<PhoneVO> phones;
-    /**
+
     @SerializedName("fax")
     private ArrayList<FaxVO> fax;
 
@@ -65,9 +65,9 @@ public class HealthCareServiceVO {
     @SerializedName("operations")
     private ArrayList<OperationVO> operations;
 
-
     @SerializedName("available-doctors")
     private ArrayList<AvailableDoctorVO> doctors;
+    /**
     /**/
 
     public long getHealthCareId() {
@@ -174,7 +174,7 @@ public class HealthCareServiceVO {
     public void setPhones(ArrayList<PhoneVO> phones) {
         this.phones = phones;
     }
-    /**
+
     public ArrayList<FaxVO> getFax() {
         return fax;
     }
@@ -206,6 +206,7 @@ public class HealthCareServiceVO {
     public void setDoctors(ArrayList<AvailableDoctorVO> doctors) {
         this.doctors = doctors;
     }
+    /**
     /**/
 
     /**
@@ -268,6 +269,9 @@ public class HealthCareServiceVO {
         return healthCareService;
     }
 
+    /**
+     * HealthCareServicePhones
+     */
     private static void saveHealthCareServicePhones(long service_id, ArrayList<PhoneVO> phoneList) {
         ContentValues[] healthCareServicePhoneCVs = new ContentValues[phoneList.size()];
         for (int index = 0; index < phoneList.size(); index++) {
@@ -309,5 +313,69 @@ public class HealthCareServiceVO {
             } while (cursor.moveToNext());
         }
         return phoneList;
+    }
+
+    /**
+     * HealthCareServiceFax
+     */
+    private static void saveHealthCareServiceFax(long service_id, ArrayList<FaxVO> faxList) {
+        ContentValues[] healthCareServiceFaxCVs = new ContentValues[faxList.size()];
+        for (int index = 0; index < faxList.size(); index++) {
+            FaxVO fax = faxList.get(index);
+
+            ContentValues cv = new ContentValues();
+            long fax_id = fax.getFaxId();
+            String fax_name = fax.getFaxName();
+            cv.put(HealthCareContract.HealthCareServiceFaxEntry.COLUMN_SERVICE_ID, service_id);
+            cv.put(HealthCareContract.HealthCareServiceFaxEntry.COLUMN_FAX_ID, fax_id);
+            cv.put(HealthCareContract.HealthCareServiceFaxEntry.COLUMN_FAX_NAME, fax_name);
+
+            healthCareServiceFaxCVs[index] = cv;
+        }
+
+        Context context = HealthCareDirectoryApp.getContext();
+        int insertCount = context.getContentResolver().bulkInsert(HealthCareContract.HealthCareServiceFaxEntry.CONTENT_URI, healthCareServiceFaxCVs);
+
+        Log.d(HealthCareDirectoryApp.TAG, "Bulk inserted into healthcare_service_fax table : " + insertCount);
+    }
+    public static ArrayList<FaxVO> loadHealthCareServiceFaxByServiceId(long service_id){
+        Context context = HealthCareDirectoryApp.getContext();
+        ArrayList<FaxVO> faxList = new ArrayList<>();
+
+        Cursor cursor = context.getContentResolver().query(HealthCareContract.HealthCareServiceFaxEntry.buildHealthCareServiceFaxUriWithServiceId(service_id),
+                null, null, null, null);
+
+        if(cursor != null && cursor.moveToFirst()) {
+            do {
+                long fax_id = cursor.getLong(cursor.getColumnIndex(HealthCareContract.HealthCareServiceFaxEntry.COLUMN_FAX_ID));
+                String fax_name = cursor.getString(cursor.getColumnIndex(HealthCareContract.HealthCareServiceFaxEntry.COLUMN_FAX_NAME));
+
+                FaxVO fax = new FaxVO();
+                fax.setFaxId(fax_id);
+                fax.setFaxName(fax_name);
+                faxList.add(fax);
+
+            } while (cursor.moveToNext());
+        }
+        return faxList;
+    }
+
+    /**
+     * HealthCareServiceTag
+     */
+    private static void saveHealthCareServiceTag(long service_id, ArrayList<TagVO> tagList) {
+
+    }
+    public static ArrayList<TagVO> loadHealthCareServiceTagByServiceId(long service_id){
+        return null;
+    }
+    /**
+     * HealthCareServiceOperation
+     */
+    private static void saveHealthCareServiceTag(long service_id, ArrayList<TagVO> tagList) {
+
+    }
+    public static ArrayList<TagVO> loadHealthCareServiceTagByServiceId(long service_id){
+        return null;
     }
 }

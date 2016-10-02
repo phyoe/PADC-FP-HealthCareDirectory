@@ -11,10 +11,16 @@ import android.net.Uri;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
-import com.padc.healthcaredirectory.data.persistence.HealthCareContract.HealthCareInfoEntry;
-import com.padc.healthcaredirectory.data.persistence.HealthCareContract.HealthCareServiceEntry;
-import com.padc.healthcaredirectory.data.persistence.HealthCareContract.HealthCareServicePhoneEntry;
 import com.padc.healthcaredirectory.data.persistence.HealthCareContract.HealthCareInfoAuthorEntry;
+import com.padc.healthcaredirectory.data.persistence.HealthCareContract.HealthCareInfoEntry;
+import com.padc.healthcaredirectory.data.persistence.HealthCareContract.HealthCareServiceDoctorEntry;
+import com.padc.healthcaredirectory.data.persistence.HealthCareContract.HealthCareServiceDoctorSpecialityEntry;
+import com.padc.healthcaredirectory.data.persistence.HealthCareContract.HealthCareServiceDoctorTimeslotEntry;
+import com.padc.healthcaredirectory.data.persistence.HealthCareContract.HealthCareServiceEntry;
+import com.padc.healthcaredirectory.data.persistence.HealthCareContract.HealthCareServiceOperationEntry;
+import com.padc.healthcaredirectory.data.persistence.HealthCareContract.HealthCareServiceFaxEntry;
+import com.padc.healthcaredirectory.data.persistence.HealthCareContract.HealthCareServicePhoneEntry;
+import com.padc.healthcaredirectory.data.persistence.HealthCareContract.HealthCareServiceTagEntry;
 
 /**
  * Created by Phyoe Khant on 9/23/2016.
@@ -23,13 +29,39 @@ public class HealthCareProvider extends ContentProvider {
 
     public static final int HEALTHCARE_SERVICES = 100;
     public static final int HEALTHCARE_SERVICE_PHONES = 200;
-    public static final int HEALTHCARE_INFOS = 300;
-    public static final int HEALTHCARE_INFO_AUTHORS = 400;
+    public static final int HEALTHCARE_SERVICE_FAX = 300;
+    public static final int HEALTHCARE_SERVICE_TAGS = 400;
+    public static final int HEALTHCARE_SERVICE_OPERATIONS = 500;
+    public static final int HEALTHCARE_SERVICE_DOCTORS = 600;
+    public static final int HEALTHCARE_SERVICE_DOCTORS_SPECIALITIES = 700;
+    public static final int HEALTHCARE_SERVICE_DOCTORS_TIMESLOTS = 800;
 
-    private static final String sHealthcareServiceNameSelection = HealthCareServiceEntry.COLUMN_HEALTHCARE_SERVICE_NAME + " = ?";
-    private static final String sHealthcareServicePhoneSelectionWithServiceId = HealthCareServicePhoneEntry.COLUMN_SERVICE_ID + " = ?";
-    private static final String sHealthcareInfoTitleSelection = HealthCareInfoEntry.COLUMN_TITLE + " = ?";
-    private static final String sHealthcareInfoAuthorSelectionWithInfoId = HealthCareInfoAuthorEntry.COLUMN_INFO_ID + " = ?";
+    public static final int HEALTHCARE_INFOS = 900;
+    public static final int HEALTHCARE_INFO_AUTHORS = 910;
+
+    private static final String sHealthcareServiceNameSelection =
+            HealthCareServiceEntry.COLUMN_HEALTHCARE_SERVICE_NAME + " = ?";
+    private static final String sHealthcareServicePhoneSelectionWithServiceId =
+            HealthCareServicePhoneEntry.COLUMN_SERVICE_ID + " = ?";
+    private static final String sHealthcareServiceFaxSelectionWithServiceId =
+            HealthCareServiceFaxEntry.COLUMN_SERVICE_ID + " = ?";
+    private static final String sHealthcareServiceTagSelectionWithServiceId =
+            HealthCareServiceTagEntry.COLUMN_SERVICE_ID + " = ?";
+    private static final String sHealthcareServiceOperationSelectionWithServiceId =
+            HealthCareServiceOperationEntry.COLUMN_SERVICE_ID + " = ?";
+    private static final String sHealthcareServiceDoctorSelectionWithServiceId =
+            HealthCareServiceDoctorEntry.COLUMN_SERVICE_ID + " = ?";
+    private static final String sHealthcareServiceDoctorSpecialitySelectionWithServiceId =
+            HealthCareServiceDoctorSpecialityEntry.COLUMN_SERVICE_ID + " = ?" +
+            HealthCareServiceDoctorSpecialityEntry.COLUMN_SERVICE_DOCTOR_ID + " = ?";
+    private static final String sHealthcareServiceDoctorTimeslotSelectionWithServiceId =
+            HealthCareServiceDoctorTimeslotEntry.COLUMN_SERVICE_ID + " = ?" +
+            HealthCareServiceDoctorTimeslotEntry.COLUMN_SERVICE_DOCTOR_ID + " = ?";
+
+    private static final String sHealthcareInfoTitleSelection =
+            HealthCareInfoEntry.COLUMN_TITLE + " = ?";
+    private static final String sHealthcareInfoAuthorSelectionWithInfoId =
+            HealthCareInfoAuthorEntry.COLUMN_INFO_ID + " = ?";
 
     private static final UriMatcher sUriMatcher = buildUriMatcher();
     private HealthCareDBHelper mHealthCareDBHelper;
@@ -62,12 +94,98 @@ public class HealthCareProvider extends ContentProvider {
                         sortOrder);
                 break;
             case HEALTHCARE_SERVICE_PHONES:
-                String service_id = HealthCareServicePhoneEntry.getHealthCareServiceIdFromParam(uri);
-                if (service_id != null) {
+                String serviceIdPhone = HealthCareServicePhoneEntry.getHealthCareServiceIdFromParam(uri);
+                if (serviceIdPhone != null) {
                     selection = sHealthcareServicePhoneSelectionWithServiceId;
-                    selectionArgs = new String[]{service_id};
+                    selectionArgs = new String[]{serviceIdPhone};
                 }
                 queryCursor = mHealthCareDBHelper.getReadableDatabase().query(HealthCareContract.HealthCareServicePhoneEntry.TABLE_NAME,
+                        projection,
+                        selection,
+                        selectionArgs,
+                        null,
+                        null,
+                        sortOrder);
+                break;
+            case HEALTHCARE_SERVICE_FAX:
+                String serviceIdFax = HealthCareServiceFaxEntry.getHealthCareServiceIdFromParam(uri);
+                if (serviceIdFax != null) {
+                    selection = sHealthcareServiceFaxSelectionWithServiceId;
+                    selectionArgs = new String[]{serviceIdFax};
+                }
+                queryCursor = mHealthCareDBHelper.getReadableDatabase().query(HealthCareContract.HealthCareServiceFaxEntry.TABLE_NAME,
+                        projection,
+                        selection,
+                        selectionArgs,
+                        null,
+                        null,
+                        sortOrder);
+                break;
+            case HEALTHCARE_SERVICE_TAGS:
+                String serviceIdTag = HealthCareServiceTagEntry.getHealthCareServiceIdFromParam(uri);
+                if (serviceIdTag != null) {
+                    selection = sHealthcareServiceTagSelectionWithServiceId;
+                    selectionArgs = new String[]{serviceIdTag};
+                }
+                queryCursor = mHealthCareDBHelper.getReadableDatabase().query(HealthCareContract.HealthCareServiceTagEntry.TABLE_NAME,
+                        projection,
+                        selection,
+                        selectionArgs,
+                        null,
+                        null,
+                        sortOrder);
+                break;
+            case HEALTHCARE_SERVICE_OPERATIONS:
+                String serviceIdOperation = HealthCareServiceOperationEntry.getHealthCareServiceIdFromParam(uri);
+                if (serviceIdOperation != null) {
+                    selection = sHealthcareServiceOperationSelectionWithServiceId;
+                    selectionArgs = new String[]{serviceIdOperation};
+                }
+                queryCursor = mHealthCareDBHelper.getReadableDatabase().query(HealthCareContract.HealthCareServiceOperationEntry.TABLE_NAME,
+                        projection,
+                        selection,
+                        selectionArgs,
+                        null,
+                        null,
+                        sortOrder);
+                break;
+            case HEALTHCARE_SERVICE_DOCTORS:
+                String serviceIdDoctor = HealthCareServiceDoctorEntry.getHealthCareServiceIdFromParam(uri);
+                if (serviceIdDoctor != null) {
+                    selection = sHealthcareServiceDoctorSelectionWithServiceId;
+                    selectionArgs = new String[]{serviceIdDoctor};
+                }
+                queryCursor = mHealthCareDBHelper.getReadableDatabase().query(HealthCareContract.HealthCareServiceDoctorEntry.TABLE_NAME,
+                        projection,
+                        selection,
+                        selectionArgs,
+                        null,
+                        null,
+                        sortOrder);
+                break;
+            case HEALTHCARE_SERVICE_DOCTORS_SPECIALITIES:
+                String serviceIdDoctorSpe = HealthCareServiceDoctorSpecialityEntry.getHealthCareServiceIdFromParam(uri);
+                String doctorIdDoctorSpe = HealthCareServiceDoctorSpecialityEntry.getHealthCareServiceDoctorIdFromParam(uri);
+                if (serviceIdDoctorSpe != null) {
+                    selection = sHealthcareServiceDoctorSpecialitySelectionWithServiceId;
+                    selectionArgs = new String[]{serviceIdDoctorSpe, doctorIdDoctorSpe};
+                }
+                queryCursor = mHealthCareDBHelper.getReadableDatabase().query(HealthCareContract.HealthCareServiceDoctorSpecialityEntry.TABLE_NAME,
+                        projection,
+                        selection,
+                        selectionArgs,
+                        null,
+                        null,
+                        sortOrder);
+                break;
+            case HEALTHCARE_SERVICE_DOCTORS_TIMESLOTS:
+                String serviceIdDoctorTimeSlot = HealthCareServiceDoctorTimeslotEntry.getHealthCareServiceIdFromParam(uri);
+                String doctorIdDoctorTimeSlot = HealthCareServiceDoctorTimeslotEntry.getHealthCareServiceDoctorIdFromParam(uri);
+                if (serviceIdDoctorTimeSlot != null) {
+                    selection = sHealthcareServiceDoctorTimeslotSelectionWithServiceId;
+                    selectionArgs = new String[]{serviceIdDoctorTimeSlot, doctorIdDoctorTimeSlot};
+                }
+                queryCursor = mHealthCareDBHelper.getReadableDatabase().query(HealthCareContract.HealthCareServiceDoctorTimeslotEntry.TABLE_NAME,
                         projection,
                         selection,
                         selectionArgs,
@@ -123,6 +241,18 @@ public class HealthCareProvider extends ContentProvider {
                 return HealthCareContract.HealthCareServiceEntry.DIR_TYPE;
             case HEALTHCARE_SERVICE_PHONES:
                 return HealthCareContract.HealthCareServicePhoneEntry.DIR_TYPE;
+            case HEALTHCARE_SERVICE_FAX:
+                return HealthCareContract.HealthCareServiceFaxEntry.DIR_TYPE;
+            case HEALTHCARE_SERVICE_TAGS:
+                return HealthCareContract.HealthCareServiceTagEntry.DIR_TYPE;
+            case HEALTHCARE_SERVICE_OPERATIONS:
+                return HealthCareContract.HealthCareServiceOperationEntry.DIR_TYPE;
+            case HEALTHCARE_SERVICE_DOCTORS:
+                return HealthCareContract.HealthCareServiceDoctorEntry.DIR_TYPE;
+            case HEALTHCARE_SERVICE_DOCTORS_SPECIALITIES:
+                return HealthCareContract.HealthCareServiceDoctorSpecialityEntry.DIR_TYPE;
+            case HEALTHCARE_SERVICE_DOCTORS_TIMESLOTS:
+                return HealthCareContract.HealthCareServiceDoctorTimeslotEntry.DIR_TYPE;
             case HEALTHCARE_INFOS:
                 return HealthCareContract.HealthCareInfoEntry.DIR_TYPE;
             case HEALTHCARE_INFO_AUTHORS:
@@ -152,6 +282,60 @@ public class HealthCareProvider extends ContentProvider {
                 long _id = db.insert(HealthCareContract.HealthCareServicePhoneEntry.TABLE_NAME, null, contentValues);
                 if (_id > 0) {
                     insertedUri = HealthCareContract.HealthCareServicePhoneEntry.buildHealthCareServicePhoneUri(_id);
+                } else {
+                    throw new SQLException("Failed to insert row into " + uri);
+                }
+                break;
+            }
+            case HEALTHCARE_SERVICE_FAX: {
+                long _id = db.insert(HealthCareContract.HealthCareServiceFaxEntry.TABLE_NAME, null, contentValues);
+                if (_id > 0) {
+                    insertedUri = HealthCareContract.HealthCareServiceFaxEntry.buildHealthCareServiceFaxUri(_id);
+                } else {
+                    throw new SQLException("Failed to insert row into " + uri);
+                }
+                break;
+            }
+            case HEALTHCARE_SERVICE_TAGS: {
+                long _id = db.insert(HealthCareContract.HealthCareServiceTagEntry.TABLE_NAME, null, contentValues);
+                if (_id > 0) {
+                    insertedUri = HealthCareContract.HealthCareServiceTagEntry.buildHealthCareServiceTagUri(_id);
+                } else {
+                    throw new SQLException("Failed to insert row into " + uri);
+                }
+                break;
+            }
+            case HEALTHCARE_SERVICE_OPERATIONS: {
+                long _id = db.insert(HealthCareContract.HealthCareServiceOperationEntry.TABLE_NAME, null, contentValues);
+                if (_id > 0) {
+                    insertedUri = HealthCareContract.HealthCareServiceOperationEntry.buildHealthCareServiceOperationUri(_id);
+                } else {
+                    throw new SQLException("Failed to insert row into " + uri);
+                }
+                break;
+            }
+            case HEALTHCARE_SERVICE_DOCTORS: {
+                long _id = db.insert(HealthCareContract.HealthCareServiceDoctorEntry.TABLE_NAME, null, contentValues);
+                if (_id > 0) {
+                    insertedUri = HealthCareContract.HealthCareServiceDoctorEntry.buildHealthCareServiceDoctorUri(_id);
+                } else {
+                    throw new SQLException("Failed to insert row into " + uri);
+                }
+                break;
+            }
+            case HEALTHCARE_SERVICE_DOCTORS_SPECIALITIES: {
+                long _id = db.insert(HealthCareContract.HealthCareServiceDoctorSpecialityEntry.TABLE_NAME, null, contentValues);
+                if (_id > 0) {
+                    insertedUri = HealthCareContract.HealthCareServiceDoctorSpecialityEntry.buildHealthCareServiceDoctorSpecialityUri(_id);
+                } else {
+                    throw new SQLException("Failed to insert row into " + uri);
+                }
+                break;
+            }
+            case HEALTHCARE_SERVICE_DOCTORS_TIMESLOTS: {
+                long _id = db.insert(HealthCareContract.HealthCareServiceDoctorTimeslotEntry.TABLE_NAME, null, contentValues);
+                if (_id > 0) {
+                    insertedUri = HealthCareContract.HealthCareServiceDoctorTimeslotEntry.buildHealthCareServiceDoctorTimeslotUri(_id);
                 } else {
                     throw new SQLException("Failed to insert row into " + uri);
                 }
@@ -248,6 +432,12 @@ public class HealthCareProvider extends ContentProvider {
 
         uriMatcher.addURI(HealthCareContract.CONTENT_AUTHORITY, HealthCareContract.PATH_HEALTHCARE_SERVICES, HEALTHCARE_SERVICES);
         uriMatcher.addURI(HealthCareContract.CONTENT_AUTHORITY, HealthCareContract.PATH_HEALTHCARE_SERVICE_PHONES, HEALTHCARE_SERVICE_PHONES);
+        uriMatcher.addURI(HealthCareContract.CONTENT_AUTHORITY, HealthCareContract.PATH_HEALTHCARE_SERVICE_FAX, HEALTHCARE_SERVICE_FAX);
+        uriMatcher.addURI(HealthCareContract.CONTENT_AUTHORITY, HealthCareContract.PATH_HEALTHCARE_SERVICE_TAGS, HEALTHCARE_SERVICE_TAGS);
+        uriMatcher.addURI(HealthCareContract.CONTENT_AUTHORITY, HealthCareContract.PATH_HEALTHCARE_SERVICE_OPERATIONS, HEALTHCARE_SERVICE_OPERATIONS);
+        uriMatcher.addURI(HealthCareContract.CONTENT_AUTHORITY, HealthCareContract.PATH_HEALTHCARE_SERVICE_DOCTORS, HEALTHCARE_SERVICE_DOCTORS);
+        uriMatcher.addURI(HealthCareContract.CONTENT_AUTHORITY, HealthCareContract.PATH_HEALTHCARE_SERVICE_DOCTOR_SPECIALITIES, HEALTHCARE_SERVICE_DOCTORS_SPECIALITIES);
+        uriMatcher.addURI(HealthCareContract.CONTENT_AUTHORITY, HealthCareContract.PATH_HEALTHCARE_SERVICE_DOCTOR_TIMESLOTS, HEALTHCARE_SERVICE_DOCTORS_TIMESLOTS);
         uriMatcher.addURI(HealthCareContract.CONTENT_AUTHORITY, HealthCareContract.PATH_HEALTHCARE_INFOS, HEALTHCARE_INFOS);
         uriMatcher.addURI(HealthCareContract.CONTENT_AUTHORITY, HealthCareContract.PATH_HEALTHCARE_INFO_AUTHORS, HEALTHCARE_INFO_AUTHORS);
 
@@ -262,6 +452,18 @@ public class HealthCareProvider extends ContentProvider {
                 return HealthCareContract.HealthCareServiceEntry.TABLE_NAME;
             case HEALTHCARE_SERVICE_PHONES:
                 return HealthCareContract.HealthCareServicePhoneEntry.TABLE_NAME;
+            case HEALTHCARE_SERVICE_FAX:
+                return HealthCareContract.HealthCareServiceFaxEntry.TABLE_NAME;
+            case HEALTHCARE_SERVICE_TAGS:
+                return HealthCareContract.HealthCareServiceTagEntry.TABLE_NAME;
+            case HEALTHCARE_SERVICE_OPERATIONS:
+                return HealthCareContract.HealthCareServiceOperationEntry.TABLE_NAME;
+            case HEALTHCARE_SERVICE_DOCTORS:
+                return HealthCareContract.HealthCareServiceDoctorEntry.TABLE_NAME;
+            case HEALTHCARE_SERVICE_DOCTORS_SPECIALITIES:
+                return HealthCareContract.HealthCareServiceDoctorSpecialityEntry.TABLE_NAME;
+            case HEALTHCARE_SERVICE_DOCTORS_TIMESLOTS:
+                return HealthCareContract.HealthCareServiceDoctorTimeslotEntry.TABLE_NAME;
             case HEALTHCARE_INFOS:
                 return HealthCareContract.HealthCareInfoEntry.TABLE_NAME;
             case HEALTHCARE_INFO_AUTHORS:

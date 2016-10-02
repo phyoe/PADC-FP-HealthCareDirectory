@@ -17,7 +17,7 @@ public class FaxVO {
         return faxId;
     }
 
-    public void setFaxId(int faxId) {
+    public void setFaxId(long faxId) {
         this.faxId = faxId;
     }
 

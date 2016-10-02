@@ -32,8 +32,10 @@ public class HealthCareViewHolder extends RecyclerView.ViewHolder implements Vie
     @BindView(R.id.tv_address)
     TextView tvAddress;
 
+    /**
     @BindView(R.id.tv_phone)
     TextView tvPhone;
+    /**/
 
     private ControllerHealthCareItem mController;
     private HealthCareVO mHealthCare;
@@ -61,7 +63,7 @@ public class HealthCareViewHolder extends RecyclerView.ViewHolder implements Vie
         }
         tvName.setText(healthCare.getName());
         tvAddress.setText(healthCare.getAddress());
-        tvPhone.setText(phones);
+        //tvPhone.setText(phones);
 
         String category = healthCare.getCategory();
         int img = R.drawable.dummy_healthcare;

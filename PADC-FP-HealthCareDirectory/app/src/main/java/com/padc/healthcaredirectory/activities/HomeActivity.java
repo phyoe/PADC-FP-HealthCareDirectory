@@ -21,6 +21,7 @@ import com.padc.healthcaredirectory.data.vos.DoctorVO;
 import com.padc.healthcaredirectory.data.vos.HealthCareInfoVO;
 import com.padc.healthcaredirectory.data.vos.HealthCareServiceVO;
 import com.padc.healthcaredirectory.data.vos.HealthCareVO;
+import com.padc.healthcaredirectory.data.vos.PhoneVO;
 import com.padc.healthcaredirectory.fragments.HealthCarePagerFragment;
 import com.padc.healthcaredirectory.utils.HealthCareDirectoryConstants;
 import com.padc.healthcaredirectory.utils.MMFontUtils;
@@ -29,6 +30,8 @@ import com.padc.healthcaredirectory.views.holders.DoctorViewHolder;
 import com.padc.healthcaredirectory.views.holders.HealthCareInfoViewHolder;
 import com.padc.healthcaredirectory.views.holders.HealthCareServiceViewHolder;
 import com.padc.healthcaredirectory.views.holders.HealthCareViewHolder;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -241,10 +244,12 @@ public class HomeActivity extends BaseActivity
     }
 
     @Override
-    public void onTapPhoneCall(HealthCareServiceVO healthcare) {
-        /**
-        if(healthcare.getPhones()[0] != null) {
-            String numberToCall = healthcare.getPhones()[0];
+    public void onTapPhoneCall(HealthCareServiceVO healthCare) {
+        /**/
+        List<PhoneVO> healthCarePhones = healthCare.getPhones();
+        String numberToCall = HealthCareDirectoryConstants.STR_NO_DATA;
+        if(healthCarePhones != null && !healthCarePhones.isEmpty()){
+            numberToCall = healthCarePhones.get(0).getPhoneName();
             makeCall(numberToCall);
         }
         /**/

@@ -56,6 +56,7 @@ public class RetrofitDataAgent implements HealthCareDataAgent {
         loadHealthCareServiceCall.enqueue(new Callback<HealthCareServiceListResponse>() {
             @Override
             public void onResponse(Call<HealthCareServiceListResponse> call, Response<HealthCareServiceListResponse> response) {
+
                 if (response.isSuccessful()) {
                     HealthCareServiceListResponse healthCareServiceListResponse = response.body();
                     if (healthCareServiceListResponse == null) {

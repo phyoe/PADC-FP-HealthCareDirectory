@@ -55,9 +55,11 @@
             android:name=".activities.ArticleDetailActivity"
             android:parentActivityName=".activities.ArticleListActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activities.ArticleDetailWebViewActivity"
+        <activity
+            android:name=".activities.ArticleDetailWebViewActivity"
             android:parentActivityName=".activities.ArticleListActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
+
         <provider
             android:name=".data.persistence.HealthCareProvider"
             android:authorities="com.padc.healthcaredirectory"
@@ -68,32 +70,26 @@
             android:name=".activities.VeterinaryCategoryActivity"
             android:parentActivityName=".activities.VeterinaryCategoryActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity
             android:name=".activities.VeterinaryClinicListActivity"
             android:parentActivityName=".activities.VeterinaryClinicListActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity
             android:name=".activities.VeterinaryClinicDetailActivity"
             android:parentActivityName=".activities.VeterinaryClinicDetailActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity
             android:name=".activities.VeterinaryEquipmentDetailActivity"
             android:parentActivityName=".activities.VeterinaryEquipmentDetailActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
-
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.VeterinaryMedicineDetailActivity"
             android:parentActivityName=".activities.VeterinaryMedicineDetailActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
-
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.VeterinarySpaDetailActivity"
             android:parentActivityName=".activities.VeterinarySpaDetailActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
-
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.DiseaseListActivity"
             android:parentActivityName=".activities.HomeActivity"
