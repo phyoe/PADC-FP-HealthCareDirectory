@@ -16,6 +16,7 @@ import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Toast;
 
 import com.padc.healthcaredirectory.HealthCareDirectoryApp;
@@ -135,6 +136,7 @@ public class ArticleDetailWebViewActivity extends AppCompatActivity
         webSettings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
 
         wvWeb.setWebChromeClient(new WebChromeClient());
+        wvWeb.setWebViewClient(new WebViewClient());
 
         wvWeb.requestFocus(View.FOCUS_DOWN);
         wvWeb.setFocusable(true);
