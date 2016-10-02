@@ -19,6 +19,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.padc.healthcaredirectory.HealthCareDirectoryApp;
 import com.padc.healthcaredirectory.R;
@@ -27,7 +28,10 @@ import com.padc.healthcaredirectory.adapters.HealthCareServiceAdapter;
 import com.padc.healthcaredirectory.data.models.HealthCareInfoModel;
 import com.padc.healthcaredirectory.data.models.HealthCareServiceModel;
 import com.padc.healthcaredirectory.data.persistence.HealthCareContract;
+import com.padc.healthcaredirectory.data.vos.AvailableDoctorVO;
 import com.padc.healthcaredirectory.data.vos.HealthCareServiceVO;
+import com.padc.healthcaredirectory.data.vos.SpecialityVO;
+import com.padc.healthcaredirectory.data.vos.TimeSlotVO;
 import com.padc.healthcaredirectory.events.DataEvent;
 import com.padc.healthcaredirectory.utils.HealthCareDirectoryConstants;
 import com.padc.healthcaredirectory.views.holders.HealthCareServiceViewHolder;
@@ -109,14 +113,13 @@ public class HospitalListFragment extends BaseFragment
     }
 
     public void onEventMainThread(DataEvent.HealthCareServiceDataLoadedEvent event) {
-        /*
+
         String extra = event.getExtraMessage();
         Toast.makeText(getContext(), "Extra : " + extra, Toast.LENGTH_SHORT).show();
 
         List<HealthCareServiceVO> newHealthCareServiceList = event.getHealthCareServiceList();
         mHealthCareServiceAdapter.setNewData(newHealthCareServiceList);
         mHealthCareServiceAdapter.notifyDataSetChanged();
-        */
     }
 
     @Override
@@ -151,13 +154,13 @@ public class HospitalListFragment extends BaseFragment
         @Override
         public void onReceive(Context context, Intent intent) {
             //TODO instructions when the new data is ready.
-            /*
+
             String extra = intent.getStringExtra("key-for-extra");
             Toast.makeText(getContext(), "Extra : " + extra, Toast.LENGTH_SHORT).show();
 
             List<HealthCareServiceVO> newHealthCareServiceList = HealthCareServiceModel.getInstance().getHealthCareServiceList();
             mHealthCareServiceAdapter.setNewData(newHealthCareServiceList);
-            */
+
         }
     };
 
@@ -184,7 +187,29 @@ public class HospitalListFragment extends BaseFragment
         if (data != null && data.moveToFirst()) {
             do {
                 HealthCareServiceVO healthCareService = HealthCareServiceVO.parseFromCursor(data);
-                healthCareService.setPhones(HealthCareServiceVO.loadHealthCareServicePhoneByServiceId(healthCareService.getHealthCareId()));
+                long service_id = healthCareService.getHealthCareId();
+
+                healthCareService.setPhones(HealthCareServiceVO.loadHealthCareServicePhoneByServiceId(service_id));
+                healthCareService.setFax(HealthCareServiceVO.loadHealthCareServiceFaxByServiceId(service_id));
+                healthCareService.setTags(HealthCareServiceVO.loadHealthCareServiceTagsByServiceId(service_id));
+                healthCareService.setOperations(HealthCareServiceVO.loadHealthCareServiceOperationsByServiceId(service_id));
+
+                //for Speciality and TimeSlots
+                ArrayList<AvailableDoctorVO> doctorList = HealthCareServiceVO.loadHealthCareServiceDoctorsByServiceId(service_id);
+                for(int i=0 ; i < doctorList.size() ; i++){
+                    AvailableDoctorVO doctor = doctorList.get(i);
+                    long doctor_id = doctor.getDoctorId();
+
+                    SpecialityVO speciality = HealthCareServiceVO.loadHealthCareServiceDoctorSpecialityByServiceId(service_id, doctor_id);
+                    doctor.setSpeciality(speciality);
+
+                    ArrayList<TimeSlotVO> timeSlots = HealthCareServiceVO.loadHealthCareServiceDoctorTimeslotsByServiceId(service_id, doctor_id);
+                    doctor.setTimeSlots(timeSlots);
+
+                    doctorList.add(doctor);
+                }
+                healthCareService.setDoctors(doctorList);
+
                 healthCareServiceList.add(healthCareService);
             } while (data.moveToNext());
         }

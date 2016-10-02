@@ -2,6 +2,8 @@ package com.padc.healthcaredirectory.data.vos;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
+
 /**
  * Created by Phyoe Khant on 9/20/2016.
  */
@@ -16,13 +18,11 @@ public class AvailableDoctorVO {
     @SerializedName("title")
     private String title;
 
-    /**
     @SerializedName("speciality")
     private SpecialityVO speciality;
-    /**/
 
     @SerializedName("time-slots")
-    private TimeSlotVO timeSlots;
+    private ArrayList<TimeSlotVO> timeSlots;
 
     public long getDoctorId() {
         return doctorId;
@@ -48,7 +48,6 @@ public class AvailableDoctorVO {
         this.title = title;
     }
 
-    /**
     public SpecialityVO getSpeciality() {
         return speciality;
     }
@@ -56,13 +55,12 @@ public class AvailableDoctorVO {
     public void setSpeciality(SpecialityVO speciality) {
         this.speciality = speciality;
     }
-    /**/
 
-    public TimeSlotVO getTimeSlots() {
+    public ArrayList<TimeSlotVO> getTimeSlots() {
         return timeSlots;
     }
 
-    public void setTimeSlots(TimeSlotVO timeSlots) {
+    public void setTimeSlots(ArrayList<TimeSlotVO> timeSlots) {
         this.timeSlots = timeSlots;
     }
 }

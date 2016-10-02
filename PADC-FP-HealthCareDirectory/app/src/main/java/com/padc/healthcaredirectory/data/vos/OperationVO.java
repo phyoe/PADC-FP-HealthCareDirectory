@@ -17,7 +17,7 @@ public class OperationVO {
         return operationId;
     }
 
-    public void setOperationId(int operationId) {
+    public void setOperationId(long operationId) {
         this.operationId = operationId;
     }
 

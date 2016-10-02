@@ -17,7 +17,7 @@ public class SpecialityVO {
         return specialityId;
     }
 
-    public void setSpecialityId(int specialityId) {
+    public void setSpecialityId(long specialityId) {
         this.specialityId = specialityId;
     }
 

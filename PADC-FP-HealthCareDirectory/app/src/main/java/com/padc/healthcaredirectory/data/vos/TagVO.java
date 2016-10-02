@@ -20,7 +20,7 @@ public class TagVO {
         return tagId;
     }
 
-    public void setTagId(int tagId) {
+    public void setTagId(long tagId) {
         this.tagId = tagId;
     }
 
