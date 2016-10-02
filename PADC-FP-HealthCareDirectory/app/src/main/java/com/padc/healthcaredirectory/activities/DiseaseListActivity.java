@@ -10,14 +10,16 @@ import android.support.v7.widget.Toolbar;
 import com.padc.healthcaredirectory.HealthCareDirectoryApp;
 import com.padc.healthcaredirectory.R;
 import com.padc.healthcaredirectory.data.vos.DiseaseVO;
+import com.padc.healthcaredirectory.data.vos.HealthCareInfoVO;
 import com.padc.healthcaredirectory.fragments.ArticleListFragment;
 import com.padc.healthcaredirectory.fragments.DiseaseListFragment;
 import com.padc.healthcaredirectory.views.holders.DiseaseViewHolder;
+import com.padc.healthcaredirectory.views.holders.HealthCareInfoViewHolder;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class DiseaseListActivity extends AppCompatActivity implements DiseaseViewHolder.ControllerDiseaseItem {
+public class DiseaseListActivity extends AppCompatActivity implements HealthCareInfoViewHolder.ControllerHealthCareInfoItem {
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
@@ -52,10 +54,19 @@ public class DiseaseListActivity extends AppCompatActivity implements DiseaseVie
         return intent;
     }
 
+
+
     @Override
-    public void onTapDisease(DiseaseVO diseaseVO) {
-        long id = 0001;
-        Intent intent = DiseaseDetailActivity.newIntent(id);
+    public void onTapHealthCareInfo(HealthCareInfoVO healthCareInfo) {
+
+        long id = healthCareInfo.getId();
+
+        /**
+         Intent intent = ArticleDetailActivity.newIntent(id);
+         startActivity(intent);
+         /**/
+
+        Intent intent = ArticleDetailWebViewActivity.newIntent(id);
         startActivity(intent);
     }
 }

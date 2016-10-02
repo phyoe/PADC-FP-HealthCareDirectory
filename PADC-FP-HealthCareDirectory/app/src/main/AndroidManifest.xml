@@ -96,10 +96,10 @@
 
         <activity
             android:name=".activities.DiseaseListActivity"
-            android:parentActivityName=".activities.DiseaseListActivity"
+            android:parentActivityName=".activities.HomeActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activities.DiseaseDetailActivity"
-            android:parentActivityName=".activities.DiseaseDetailActivity"
+            android:parentActivityName=".activities.DiseaseListActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
 
     </application>

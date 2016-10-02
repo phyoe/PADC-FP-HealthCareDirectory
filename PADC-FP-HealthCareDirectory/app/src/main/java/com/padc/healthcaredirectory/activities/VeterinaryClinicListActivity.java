@@ -5,18 +5,21 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.widget.ImageView;
 
 import com.padc.healthcaredirectory.HealthCareDirectoryApp;
 import com.padc.healthcaredirectory.R;
+import com.padc.healthcaredirectory.data.vos.HealthCareServiceVO;
 import com.padc.healthcaredirectory.data.vos.VeterinaryClinicVO;
 import com.padc.healthcaredirectory.fragments.VeterinaryClinicListFragment;
 import com.padc.healthcaredirectory.utils.HealthCareDirectoryConstants;
+import com.padc.healthcaredirectory.views.holders.HealthCareServiceViewHolder;
 import com.padc.healthcaredirectory.views.holders.VeterinaryClinicViewHolder;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class VeterinaryClinicListActivity extends AppCompatActivity implements VeterinaryClinicViewHolder.ControllerVeterinaryClinicItem{
+public class VeterinaryClinicListActivity extends AppCompatActivity implements HealthCareServiceViewHolder.ControllerHealthCareItem{
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
@@ -38,7 +41,7 @@ public class VeterinaryClinicListActivity extends AppCompatActivity implements V
         }
 
         if (savedInstanceState == null) {
-            VeterinaryClinicListFragment fragment = VeterinaryClinicListFragment.newInstance(mcurrentClick);
+            VeterinaryClinicListFragment fragment = VeterinaryClinicListFragment.newInstance();
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.fl_veterinary_clinic_container, fragment)
                     .commit();
@@ -57,31 +60,32 @@ public class VeterinaryClinicListActivity extends AppCompatActivity implements V
         return intent;
     }
 
+
+
     @Override
-    public void onTapVeterinaryClinic(VeterinaryClinicVO veterinaryClinicVO, String currentClick) {
-        long id = 0001;
+    public void onTapPhoneCall(HealthCareServiceVO healthcare) {
 
-        mcurrentClick=currentClick;
+    }
 
-        Intent intent = VeterinaryClinicDetailActivity.newIntent(id);
+    @Override
+    public void onTapHealthCareService(HealthCareServiceVO healthcare, ImageView ivHealthCare) {
+        long id = healthcare.getHealthCareId();
+        String name = healthcare.getHealthCareName();
+        String loadedCategory = healthcare.getCategory();
 
-        switch (mcurrentClick)
-        {
-            case HealthCareDirectoryConstants.STR_VET_CLINIC:
-                intent = VeterinaryClinicDetailActivity.newIntent(id);
-                break;
-            case HealthCareDirectoryConstants.STR_VET_EQUIPMENT:
-                intent = VeterinaryEquipmentDetailActivity.newIntent(id);
-                break;
-            case HealthCareDirectoryConstants.STR_VET_MEDICINE:
-                intent = VeterinaryMedicineDetailActivity.newIntent(id);
-                break;
-            case HealthCareDirectoryConstants.STR_VET_SPA:
-                intent = VeterinarySpaDetailActivity.newIntent(id);
-                break;
+        Intent intent = null;
 
+        if(loadedCategory.contains(HealthCareDirectoryConstants.STR_HOSPITAL)) {
+            intent = HospitalDetailActivity.newIntent(id);
+            startActivity(intent);
         }
-
-        startActivity(intent);
+        if(loadedCategory.contains(HealthCareDirectoryConstants.STR_CLINIC)) {
+            intent = ClinicDetailActivity.newIntent(name);
+            startActivity(intent);
+        }
+        if(loadedCategory.contains(HealthCareDirectoryConstants.STR_PHARMACY)) {
+            intent = PhamacyDetailActivity.newIntent(name);
+            startActivity(intent);
+        }
     }
 }

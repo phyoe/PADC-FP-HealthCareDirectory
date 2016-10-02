@@ -1,6 +1,7 @@
 package com.padc.healthcaredirectory.adapters;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,8 +9,10 @@ import android.view.ViewGroup;
 import com.padc.healthcaredirectory.HealthCareDirectoryApp;
 import com.padc.healthcaredirectory.R;
 import com.padc.healthcaredirectory.data.vos.HealthCareInfoVO;
+import com.padc.healthcaredirectory.data.vos.HealthCareVO;
 import com.padc.healthcaredirectory.views.holders.HealthCareInfoViewHolder;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -46,5 +49,27 @@ public class HealthCareInfoAdapter  extends RecyclerView.Adapter<HealthCareInfoV
     public void setNewData(List<HealthCareInfoVO> newHealthCareInfoList) {
         mHealthCareInfoList = newHealthCareInfoList;
         notifyDataSetChanged();//framework method
+    }
+
+    public void setNewData(List<HealthCareInfoVO> newHelathCareInfoList, String type) {
+        //Filter here
+        List<HealthCareInfoVO> tempList = new ArrayList<>();
+        for(HealthCareInfoVO healthcareInfo: newHelathCareInfoList)
+        {
+            if(healthcareInfo.getInfoType()==null)
+            {
+                healthcareInfo.setInfoType("article");
+            }
+            if(healthcareInfo.getInfoType().equals(type) )
+            {
+                tempList.add(healthcareInfo);
+                Log.d(HealthCareDirectoryApp.TAG,healthcareInfo.getInfoType() );
+            }
+        }
+
+        mHealthCareInfoList = tempList;
+        notifyDataSetChanged();
+
+
     }
 }
