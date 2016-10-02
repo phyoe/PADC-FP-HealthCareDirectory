@@ -8,45 +8,40 @@ import android.view.ViewGroup;
 import com.padc.healthcaredirectory.HealthCareDirectoryApp;
 import com.padc.healthcaredirectory.R;
 import com.padc.healthcaredirectory.data.vos.DiseaseVO;
+import com.padc.healthcaredirectory.data.vos.HealthCareInfoVO;
 import com.padc.healthcaredirectory.views.holders.DiseaseViewHolder;
+import com.padc.healthcaredirectory.views.holders.HealthCareInfoViewHolder;
 
 import java.util.List;
 
 /** extends RecyclerView.Adapter<HealthCareInfoViewHolder>
  * Created by Saw Yu Nwe on 9/29/2016.
  */
-public class DiseaseAdapter extends RecyclerView.Adapter<DiseaseViewHolder>{
+public class DiseaseAdapter extends RecyclerView.Adapter<DiseaseViewHolder> {
+
 
     private LayoutInflater mInflater;
-    private List<DiseaseVO> mDiseaseList;
-    private DiseaseViewHolder.ControllerDiseaseItem mControllerDiseaseItem;
+    private List<HealthCareInfoVO> mHealthCareInfoList;
+    private DiseaseViewHolder.ControllerHealthCareInfoItem mControllerHealthCareInfoItem;
 
-    public DiseaseAdapter(List<DiseaseVO> mDiseaseList, DiseaseViewHolder.ControllerDiseaseItem mControllerDiseaseItem) {
+    public DiseaseAdapter(List<HealthCareInfoVO> healthCareInfoList, DiseaseViewHolder.ControllerHealthCareInfoItem controllerHealthCareInfoItem) {
         mInflater = LayoutInflater.from(HealthCareDirectoryApp.getContext());
-        this.mDiseaseList = mDiseaseList;
-        this.mControllerDiseaseItem = mControllerDiseaseItem;
+        mHealthCareInfoList = healthCareInfoList;
+        mControllerHealthCareInfoItem = controllerHealthCareInfoItem;
     }
 
     @Override
     public DiseaseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = mInflater.inflate(R.layout.view_item_disease, parent, false);
-        return new DiseaseViewHolder(itemView,mControllerDiseaseItem);
-
+        return null;
     }
 
     @Override
     public void onBindViewHolder(DiseaseViewHolder holder, int position) {
-        holder.bindData(mDiseaseList.get(position));
 
     }
 
     @Override
     public int getItemCount() {
-        return mDiseaseList.size();
-    }
-
-    public void setNewData(List<DiseaseVO> newDiseaseList) {
-        mDiseaseList = newDiseaseList;
-        notifyDataSetChanged();//framework method
+        return 0;
     }
 }

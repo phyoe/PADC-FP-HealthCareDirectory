@@ -1,18 +1,38 @@
 package com.padc.healthcaredirectory.fragments;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.LoaderManager;
+import android.support.v4.content.CursorLoader;
+import android.support.v4.content.Loader;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.padc.healthcaredirectory.HealthCareDirectoryApp;
 import com.padc.healthcaredirectory.R;
+import com.padc.healthcaredirectory.adapters.HealthCareAdapter;
+import com.padc.healthcaredirectory.adapters.HealthCareServiceAdapter;
 import com.padc.healthcaredirectory.adapters.VeterinaryClinicAdapter;
+import com.padc.healthcaredirectory.data.models.HealthCareInfoModel;
+import com.padc.healthcaredirectory.data.models.HealthCareServiceModel;
+import com.padc.healthcaredirectory.data.persistence.HealthCareContract;
+import com.padc.healthcaredirectory.data.vos.HealthCareServiceVO;
 import com.padc.healthcaredirectory.data.vos.VeterinaryClinicVO;
+import com.padc.healthcaredirectory.events.DataEvent;
 import com.padc.healthcaredirectory.utils.HealthCareDirectoryConstants;
+import com.padc.healthcaredirectory.views.holders.HealthCareServiceViewHolder;
+import com.padc.healthcaredirectory.views.holders.HealthCareViewHolder;
 import com.padc.healthcaredirectory.views.holders.VeterinaryClinicViewHolder;
 
 import java.util.ArrayList;
@@ -20,32 +40,27 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import de.greenrobot.event.EventBus;
 
 /**
  * Created by Saw Yu Nwe on 9/29/2016.
- */
-public class VeterinaryClinicListFragment extends BaseFragment {
-
-    private static String mCurrentClick;
+        */
+public class VeterinaryClinicListFragment extends BaseFragment  implements LoaderManager.LoaderCallbacks<Cursor>{
 
     @BindView(R.id.rv_veterinary_clinic)
     RecyclerView rvVeterinaryClinic;
 
 
 
-    private VeterinaryClinicAdapter mVeterinaryClinicAdapter;
-    private VeterinaryClinicViewHolder.ControllerVeterinaryClinicItem controllerVeterinaryClinicItem;
+    private HealthCareServiceAdapter mHealthCareServiceAdapter;
+    private HealthCareServiceViewHolder.ControllerHealthCareItem mControllerHealthCareServiceItem;
 
     public static VeterinaryClinicListFragment newInstance() {
         VeterinaryClinicListFragment fragment = new VeterinaryClinicListFragment();
         return fragment;
     }
 
-    public static VeterinaryClinicListFragment newInstance(String currentClick) {
-        mCurrentClick=currentClick;
-        VeterinaryClinicListFragment fragment = new VeterinaryClinicListFragment();
-        return fragment;
-    }
+
 
     @Nullable
     @Override
@@ -54,143 +69,133 @@ public class VeterinaryClinicListFragment extends BaseFragment {
         View rootView = inflater.inflate(R.layout.fragment_veterinary_clinic_list, container, false);
         ButterKnife.bind(this, rootView);
 
-        List<VeterinaryClinicVO> veterinaryClinicList = setTempClinicData();
+        /**
+         List<HealthCareVO> healthCareList = HealthCareModel.getInstance().getHealthCareList();
+         //List<HealthCareVO> healthCareList = super.setTempData(R.string.health_care_hospital, HealthCareDirectoryConstants.FRAGMENT_HOSPITAL);
 
-        //List<HealthCareVO> healthCareList = HealthCareModel.getInstance().getHealthCareList();
+         mHealthCareAdapter = new HealthCareAdapter(healthCareList, mControllerHealthCareItem);
+         rvHospitals.setAdapter(mHealthCareAdapter);
+         /**/
 
-        switch (mCurrentClick)
-        {
-            case HealthCareDirectoryConstants.STR_VET_CLINIC:
-                veterinaryClinicList=setTempClinicData();
-                break;
-            case HealthCareDirectoryConstants.STR_VET_EQUIPMENT:
-                veterinaryClinicList=setTempEquipmentData();
-                break;
-            case HealthCareDirectoryConstants.STR_VET_MEDICINE:
-                veterinaryClinicList=setTempMedicineData();
-                break;
-            case HealthCareDirectoryConstants.STR_VET_SPA:
-                veterinaryClinicList=setTempSpaData();
-                break;
+        /**/
+        List<HealthCareServiceVO> healthCareList = HealthCareServiceModel.getInstance().getHealthCareServiceList();
 
-        }
-
-
-        mVeterinaryClinicAdapter = new VeterinaryClinicAdapter(veterinaryClinicList,controllerVeterinaryClinicItem,mCurrentClick);
-        rvVeterinaryClinic.setAdapter(mVeterinaryClinicAdapter);
+        mHealthCareServiceAdapter = new HealthCareServiceAdapter(healthCareList, mControllerHealthCareServiceItem);
+        rvVeterinaryClinic.setAdapter(mHealthCareServiceAdapter);
+        /**/
 
         rvVeterinaryClinic.setLayoutManager(new GridLayoutManager(getContext(), super.gridColumnSpanCount));
+
         return rootView;
     }
 
-    protected List<VeterinaryClinicVO> setTempClinicData(){
-        List<VeterinaryClinicVO> veterinaryClinicList = new ArrayList<>();
 
-
-        for(int i=0 ; i<10 ; i++){
-
-            String[] phones={"+95 9 526 2313"};
-            String[] images={"veterinary_clinic2"};
-
-            VeterinaryClinicVO veterinaryClinic=new VeterinaryClinicVO();
-            veterinaryClinic.setId(001);
-            veterinaryClinic.setName("ျပည္");
-            veterinaryClinic.setAddress("အမွတ္ (၄၇၁)၊ ျပည္လမ္းမၾကီး၊ ကမာရြတ္ ျမိဳ႕နယ္၊ ရန္ကုန္ျမိဳ႕။");
-
-            veterinaryClinic.setPhones(phones);
-            veterinaryClinic.setWebsite("https://www.pyayvetclinic.com/");
-            veterinaryClinic.setEmail("pyayvetclinic@gmail.com");
-            veterinaryClinic.setFacebook("www.facebook.com/pyay-vet-clinic");
-            veterinaryClinic.setMapinfo("MapInfo");
-            veterinaryClinic.setStockPhotoPath(images);
-            veterinaryClinicList.add(veterinaryClinic);
-        }
-        return veterinaryClinicList;
-    }
-
-    protected List<VeterinaryClinicVO> setTempEquipmentData(){
-        List<VeterinaryClinicVO> veterinaryClinicList = new ArrayList<>();
-
-
-        for(int i=0 ; i<10 ; i++){
-
-            String[] phones={"09421071288"};
-            String[] images={"veterinary_equipment_icon"};
-
-            VeterinaryClinicVO veterinaryClinic=new VeterinaryClinicVO();
-            veterinaryClinic.setId(002);
-            veterinaryClinic.setName("ေမလိခ");
-            veterinaryClinic.setAddress("အမွတ္ (၃၆၀ ခ)၊ ၀ိုင္ယာလက္ ၁ လမ္း၊ ကမာၻေအးဘုရားလမ္း၊ မရမ္းကုန္းျမိဳ႕နယ္");
-
-            veterinaryClinic.setPhones(phones);
-            veterinaryClinic.setWebsite("https://www.maylikhaveterinaryclinic.com/");
-            veterinaryClinic.setEmail("maylikhavetclinic@gmail.com");
-            veterinaryClinic.setFacebook("May Li Kha Veterinary Clinic");
-            veterinaryClinic.setMapinfo("MapInfo");
-            veterinaryClinic.setStockPhotoPath(images);
-            veterinaryClinicList.add(veterinaryClinic);
-        }
-        return veterinaryClinicList;
-    }
-
-    protected List<VeterinaryClinicVO> setTempMedicineData(){
-        List<VeterinaryClinicVO> veterinaryClinicList = new ArrayList<>();
-
-
-        for(int i=0 ; i<10 ; i++){
-
-            String[] phones={"095014606"};
-            String[] images={"veterinary_medicine_shop_icon"};
-
-            VeterinaryClinicVO veterinaryClinic=new VeterinaryClinicVO();
-            veterinaryClinic.setId(003);
-            veterinaryClinic.setName("မင္း");
-            veterinaryClinic.setAddress("အမွတ္ (၇)၊ ျမင့္မိုရ္လမ္း၊ စမ္းေခ်ာင္းျမိဳ႕နယ္");
-
-            veterinaryClinic.setPhones(phones);
-            veterinaryClinic.setWebsite("https://www.minvetclinic.com/");
-            veterinaryClinic.setEmail("minvetclinic@gmail.com");
-            veterinaryClinic.setFacebook("www.facebook.com/min-vet-clinic");
-            veterinaryClinic.setMapinfo("MapInfo");
-            veterinaryClinic.setStockPhotoPath(images);
-            veterinaryClinicList.add(veterinaryClinic);
-        }
-        return veterinaryClinicList;
-    }
-
-    protected List<VeterinaryClinicVO> setTempSpaData(){
-        List<VeterinaryClinicVO> veterinaryClinicList = new ArrayList<>();
-
-
-        for(int i=0 ; i<10 ; i++){
-
-            String[] phones={"09262190500"};
-            String[] images={"veterinary_medicine_spa_icon"};
-
-            VeterinaryClinicVO veterinaryClinic=new VeterinaryClinicVO();
-            veterinaryClinic.setId(004);
-            veterinaryClinic.setName("Diamond Apex Pet Care Center");
-            veterinaryClinic.setAddress("အမွတ္(၃၇)၊ ေအာင္ေဇယ်လမ္း၊ ေက်ာက္ကုန္း၊ ရန္ကင္းျမိဳ႕နယ္္");
-
-            veterinaryClinic.setPhones(phones);
-            veterinaryClinic.setWebsite("https://www.diamondapexpetcare.com/");
-            veterinaryClinic.setEmail("diamondapexpetcare@gmail.com");
-            veterinaryClinic.setFacebook("www.facebook.com/diamond-apex-pet-care-center");
-            veterinaryClinic.setMapinfo("MapInfo");
-            veterinaryClinic.setStockPhotoPath(images);
-            veterinaryClinicList.add(veterinaryClinic);
-        }
-        return veterinaryClinicList;
-    }
 
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if(context instanceof VeterinaryClinicViewHolder.ControllerVeterinaryClinicItem){
-            controllerVeterinaryClinicItem = (VeterinaryClinicViewHolder.ControllerVeterinaryClinicItem) context;
+        /**
+         if(context instanceof HealthCareViewHolder.ControllerHealthCareItem){
+         mControllerHealthCareItem = (HealthCareViewHolder.ControllerHealthCareItem) context;
+         } else {
+         throw new RuntimeException("Unsupported Type");
+         }
+         /**/
+        /**/
+        if(context instanceof HealthCareServiceViewHolder.ControllerHealthCareItem){
+            mControllerHealthCareServiceItem = (HealthCareServiceViewHolder.ControllerHealthCareItem) context;
         } else {
             throw new RuntimeException("Unsupported Type");
         }
+        /**/
+    }
+
+    public void onEventMainThread(DataEvent.HealthCareServiceDataLoadedEvent event) {
+        String extra = event.getExtraMessage();
+        Toast.makeText(getContext(), "Extra : " + extra, Toast.LENGTH_SHORT).show();
+
+        List<HealthCareServiceVO> newHealthCareServiceList = event.getHealthCareServiceList();
+        mHealthCareServiceAdapter.setNewData(newHealthCareServiceList);
+        mHealthCareServiceAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        //For Persistence Layer
+        LocalBroadcastManager.getInstance(getContext()).registerReceiver(mDataLoadedBroadcastReceiver, new IntentFilter(HealthCareInfoModel.BROADCAST_DATA_LOADED));
+
+        //For Network Layer
+        EventBus eventBus = EventBus.getDefault();
+        if (!eventBus.isRegistered(this)) {
+            eventBus.register(this);
+        }
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        //For Persistence Layer
+        LocalBroadcastManager.getInstance(getContext()).unregisterReceiver(mDataLoadedBroadcastReceiver);
+
+
+        //For Network Layer
+        EventBus eventBus = EventBus.getDefault();
+        eventBus.unregister(this);
+    }
+
+    private BroadcastReceiver mDataLoadedBroadcastReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            //TODO instructions when the new data is ready.
+            String extra = intent.getStringExtra("key-for-extra");
+            Toast.makeText(getContext(), "Extra : " + extra, Toast.LENGTH_SHORT).show();
+
+            List<HealthCareServiceVO> newHealthCareServiceList = HealthCareServiceModel.getInstance().getHealthCareServiceList();
+            mHealthCareServiceAdapter.setNewData(newHealthCareServiceList);
+        }
+    };
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        getActivity().getSupportLoaderManager().initLoader(HealthCareDirectoryConstants.HEALTHCARE_SERVICE_LIST_LOADER, null, this);
+    }
+
+
+
+    @Override
+    public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+        return new CursorLoader(getContext(),
+                HealthCareContract.HealthCareServiceEntry.CONTENT_URI,
+                null,
+                null,
+                null,
+                HealthCareContract.HealthCareServiceEntry.COLUMN_HEALTHCARE_SERVICE_NAME + " DESC");
+
+    }
+
+    @Override
+    public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+        List<HealthCareServiceVO> healthCareServiceList = new ArrayList<>();
+        if (data != null && data.moveToFirst()) {
+            do {
+                HealthCareServiceVO healthCareService = HealthCareServiceVO.parseFromCursor(data);
+                //HealthCareServiceVO.setPhones(HealthCareInfoVO.loadHealthCareInfoAuthorByInfoId(healthCareService.getId()));
+                healthCareServiceList.add(healthCareService);
+            } while (data.moveToNext());
+        }
+
+        Log.d(HealthCareDirectoryApp.TAG, "Retrieved healthCareService DESC : " + healthCareServiceList.size());
+        mHealthCareServiceAdapter.setNewData(healthCareServiceList);
+
+        HealthCareServiceModel.getInstance().setStoredData(healthCareServiceList);
+
+    }
+
+    @Override
+    public void onLoaderReset(Loader<Cursor> loader) {
+
     }
 }

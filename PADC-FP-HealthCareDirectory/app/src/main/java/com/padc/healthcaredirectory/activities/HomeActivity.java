@@ -168,7 +168,7 @@ public class HomeActivity extends BaseActivity
 
     private void navigateToVeterinaryList() {
 
-        Intent inent = VeterinaryCategoryActivity.newIntent();
+        Intent inent = VeterinaryClinicListActivity.newIntent();
         startActivity(inent);
     }
 
