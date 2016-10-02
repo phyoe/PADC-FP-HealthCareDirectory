@@ -53,10 +53,9 @@ public class HealthCareServiceVO {
     @SerializedName("price-category")
     private int priceCategory;
 
-    /**
     @SerializedName("phones")
     private ArrayList<PhoneVO> phones;
-
+    /**
     @SerializedName("fax")
     private ArrayList<FaxVO> fax;
 
@@ -167,7 +166,7 @@ public class HealthCareServiceVO {
         this.priceCategory = priceCategory;
     }
 
-    /**
+
     public ArrayList<PhoneVO> getPhones() {
         return phones;
     }
@@ -175,7 +174,7 @@ public class HealthCareServiceVO {
     public void setPhones(ArrayList<PhoneVO> phones) {
         this.phones = phones;
     }
-
+    /**
     public ArrayList<FaxVO> getFax() {
         return fax;
     }
@@ -219,10 +218,10 @@ public class HealthCareServiceVO {
             HealthCareServiceVO healthCareService = healthCareServiceList.get(index);
             healthCareServiceCVs[index] = healthCareService.parseToContentValues();
 
-            /**
+            /**/
             //Bulk insert into phones.
             long service_id = healthCareService.getHealthCareId();
-            ArrayList<PhoneVO> phoneList = null; //healthCareService.getPhones();
+            ArrayList<PhoneVO> phoneList = healthCareService.getPhones();
             HealthCareServiceVO.saveHealthCareServicePhones(service_id, phoneList);
             /**/
         }

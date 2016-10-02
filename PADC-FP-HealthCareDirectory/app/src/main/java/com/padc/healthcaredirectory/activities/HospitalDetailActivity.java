@@ -167,7 +167,7 @@ public class HospitalDetailActivity extends BaseActivity
             do {
                 if (!findData) {
                     mHealthCareService = HealthCareServiceVO.parseFromCursor(data);
-                    //mHealthCareService.setPhones(HealthCareServiceVO.loadHealthCareServicePhoneByServiceId(mHealthCareServiceId));
+                    mHealthCareService.setPhones(HealthCareServiceVO.loadHealthCareServicePhoneByServiceId(mHealthCareServiceId));
 
                     if (mHealthCareService.getHealthCareId() == mHealthCareServiceId) {
                         bindData(mHealthCareService);
@@ -193,7 +193,11 @@ public class HospitalDetailActivity extends BaseActivity
         String address = (!healthCareService.getAddress().isEmpty())? healthCareService.getAddress() : HealthCareDirectoryConstants.STR_NO_DATA;
         tvServiceAddress.setText(address);
 
-        //tvServicePhone.setText(healthCareService.getPhones());
+        String phones = "";
+        for(int i=0 ; i < healthCareService.getPhones().size() ; i++){
+            phones = phones + healthCareService.getPhones().get(i).getPhoneName() + "\n";
+        }
+        tvServicePhone.setText(phones);
 
         String email = (!healthCareService.getEmail().isEmpty())? healthCareService.getEmail() : HealthCareDirectoryConstants.STR_NO_DATA;
         tvServiceEmail.setText(email);

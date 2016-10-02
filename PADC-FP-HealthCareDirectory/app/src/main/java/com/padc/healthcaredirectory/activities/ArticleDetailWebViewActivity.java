@@ -123,6 +123,11 @@ public class ArticleDetailWebViewActivity extends AppCompatActivity
         //Data retrieve from Persistence Layer
         String url = healthCareInfo.getCompleteUrl();
 
+        /**
+        if(!url.contains ("www."))
+            url = url.replaceAll("http://","http://www.");
+        /**/
+
         Log.e("WebView URL : ", url);
 
         // Websettings to setup the webview
