@@ -25,7 +25,6 @@ import com.padc.healthcaredirectory.HealthCareDirectoryApp;
 import com.padc.healthcaredirectory.R;
 import com.padc.healthcaredirectory.adapters.HealthCareAdapter;
 import com.padc.healthcaredirectory.adapters.HealthCareServiceAdapter;
-import com.padc.healthcaredirectory.data.models.HealthCareInfoModel;
 import com.padc.healthcaredirectory.data.models.HealthCareServiceModel;
 import com.padc.healthcaredirectory.data.persistence.HealthCareContract;
 import com.padc.healthcaredirectory.data.vos.HealthCareServiceVO;
@@ -67,14 +66,14 @@ public class HospitalListFragment extends BaseFragment
         super.onAttach(context);
 
         /**
-        if(context instanceof HealthCareViewHolder.ControllerHealthCareItem){
-            mControllerHealthCareItem = (HealthCareViewHolder.ControllerHealthCareItem) context;
-        } else {
-            throw new RuntimeException("Unsupported Type");
-        }
+         if(context instanceof HealthCareViewHolder.ControllerHealthCareItem){
+         mControllerHealthCareItem = (HealthCareViewHolder.ControllerHealthCareItem) context;
+         } else {
+         throw new RuntimeException("Unsupported Type");
+         }
         /**/
         /**/
-        if(context instanceof HealthCareServiceViewHolder.ControllerHealthCareItem){
+        if (context instanceof HealthCareServiceViewHolder.ControllerHealthCareItem) {
             mControllerHealthCareServiceItem = (HealthCareServiceViewHolder.ControllerHealthCareItem) context;
         } else {
             throw new RuntimeException("Unsupported Type");
@@ -90,14 +89,15 @@ public class HospitalListFragment extends BaseFragment
         ButterKnife.bind(this, rootView);
 
         /**
-        List<HealthCareVO> healthCareList = HealthCareModel.getInstance().getHealthCareList();
-        //List<HealthCareVO> healthCareList = super.setTempData(R.string.health_care_hospital, HealthCareDirectoryConstants.FRAGMENT_HOSPITAL);
+         List<HealthCareVO> healthCareList = HealthCareModel.getInstance().getHealthCareList();
+         //List<HealthCareVO> healthCareList = super.setTempData(R.string.health_care_hospital, HealthCareDirectoryConstants.FRAGMENT_HOSPITAL);
 
-        mHealthCareAdapter = new HealthCareAdapter(healthCareList, mControllerHealthCareItem);
-        rvHospitals.setAdapter(mHealthCareAdapter);
+         mHealthCareAdapter = new HealthCareAdapter(healthCareList, mControllerHealthCareItem);
+         rvHospitals.setAdapter(mHealthCareAdapter);
+         /**/
+
         /**/
 
-        /**/
         List<HealthCareServiceVO> healthCareList = HealthCareServiceModel.getInstance().getHealthCareServiceList();
 
         mHealthCareServiceAdapter = new HealthCareServiceAdapter(healthCareList, mControllerHealthCareServiceItem);
@@ -123,7 +123,7 @@ public class HospitalListFragment extends BaseFragment
     public void onStart() {
         super.onStart();
         //For Persistence Layer
-        LocalBroadcastManager.getInstance(getContext()).registerReceiver(mDataLoadedBroadcastReceiver, new IntentFilter(HealthCareInfoModel.BROADCAST_DATA_LOADED));
+        LocalBroadcastManager.getInstance(getContext()).registerReceiver(mDataLoadedBroadcastReceiver, new IntentFilter(HealthCareServiceModel.BROADCAST_DATA_LOADED));
 
         //For Network Layer
         EventBus eventBus = EventBus.getDefault();
@@ -186,30 +186,33 @@ public class HospitalListFragment extends BaseFragment
                 HealthCareServiceVO healthCareService = HealthCareServiceVO.parseFromCursor(data);
                 long service_id = healthCareService.getHealthCareId();
 
-                healthCareService.setPhones(HealthCareServiceVO.loadHealthCareServicePhoneByServiceId(service_id));
-                healthCareService.setFax(HealthCareServiceVO.loadHealthCareServiceFaxByServiceId(service_id));
-                healthCareService.setTags(HealthCareServiceVO.loadHealthCareServiceTagsByServiceId(service_id));
-                healthCareService.setOperations(HealthCareServiceVO.loadHealthCareServiceOperationsByServiceId(service_id));
+                if (healthCareService.getCategory().contains(HealthCareDirectoryConstants.STR_HOSPITAL)) {
 
-                /**
-                //for Speciality and TimeSlots
-                ArrayList<AvailableDoctorVO> doctorList = HealthCareServiceVO.loadHealthCareServiceDoctorsByServiceId(service_id);
-                for(int i=0 ; i < doctorList.size() ; i++){
-                    AvailableDoctorVO doctor = doctorList.get(i);
-                    long doctor_id = doctor.getDoctorId();
+                    healthCareService.setPhones(HealthCareServiceVO.loadHealthCareServicePhoneByServiceId(service_id));
+                    healthCareService.setFax(HealthCareServiceVO.loadHealthCareServiceFaxByServiceId(service_id));
+                    healthCareService.setTags(HealthCareServiceVO.loadHealthCareServiceTagsByServiceId(service_id));
+                    healthCareService.setOperations(HealthCareServiceVO.loadHealthCareServiceOperationsByServiceId(service_id));
 
-                    SpecialityVO speciality = HealthCareServiceVO.loadHealthCareServiceDoctorSpecialityByServiceId(service_id, doctor_id);
-                    doctor.setSpeciality(speciality);
+                    /**
+                     //for Speciality and TimeSlots
+                     ArrayList<AvailableDoctorVO> doctorList = HealthCareServiceVO.loadHealthCareServiceDoctorsByServiceId(service_id);
+                     for(int i=0 ; i < doctorList.size() ; i++){
+                     AvailableDoctorVO doctor = doctorList.get(i);
+                     long doctor_id = doctor.getDoctorId();
 
-                    ArrayList<TimeSlotVO> timeSlots = HealthCareServiceVO.loadHealthCareServiceDoctorTimeslotsByServiceId(service_id, doctor_id);
-                    doctor.setTimeSlots(timeSlots);
+                     SpecialityVO speciality = HealthCareServiceVO.loadHealthCareServiceDoctorSpecialityByServiceId(service_id, doctor_id);
+                     doctor.setSpeciality(speciality);
 
-                    doctorList.add(doctor);
+                     ArrayList<TimeSlotVO> timeSlots = HealthCareServiceVO.loadHealthCareServiceDoctorTimeslotsByServiceId(service_id, doctor_id);
+                     doctor.setTimeSlots(timeSlots);
+
+                     doctorList.add(doctor);
+                     }
+                     healthCareService.setDoctors(doctorList);
+                     /**/
+
+                    healthCareServiceList.add(healthCareService);
                 }
-                healthCareService.setDoctors(doctorList);
-                /**/
-
-                healthCareServiceList.add(healthCareService);
             } while (data.moveToNext());
         }
 

@@ -77,15 +77,6 @@ public class HealthCareServiceModel extends BaseModel {
         return mHealthCareServiceList;
     }
 
-    public HealthCareServiceVO getHealthCareServiceById(int id) {
-        for (HealthCareServiceVO healthcare : mHealthCareServiceList) {
-            if (healthcare.getHealthCareId() == id) {
-                return healthcare;
-            }
-        }
-        return null;
-    }
-
     /**
      * for Network Layer
      */

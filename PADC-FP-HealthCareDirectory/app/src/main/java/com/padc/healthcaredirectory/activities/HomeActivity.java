@@ -247,7 +247,7 @@ public class HomeActivity extends BaseActivity
     public void onTapPhoneCall(HealthCareServiceVO healthCare) {
         /**/
         List<PhoneVO> healthCarePhones = healthCare.getPhones();
-        String numberToCall = HealthCareDirectoryConstants.STR_NO_DATA;
+        String numberToCall = "";
         if(healthCarePhones != null && !healthCarePhones.isEmpty()){
             numberToCall = healthCarePhones.get(0).getPhoneName();
             makeCall(numberToCall);
