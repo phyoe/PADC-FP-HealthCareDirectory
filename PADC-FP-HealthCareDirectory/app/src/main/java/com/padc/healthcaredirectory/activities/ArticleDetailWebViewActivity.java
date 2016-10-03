@@ -7,7 +7,6 @@ import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
@@ -28,7 +27,7 @@ import com.padc.healthcaredirectory.utils.HealthCareDirectoryConstants;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class ArticleDetailWebViewActivity extends AppCompatActivity
+public class ArticleDetailWebViewActivity extends BaseActivity
         implements LoaderManager.LoaderCallbacks<Cursor>{
 
     @BindView(R.id.toolbar)
@@ -60,7 +59,9 @@ public class ArticleDetailWebViewActivity extends AppCompatActivity
         int id = item.getItemId();
         switch (id) {
             case R.id.action_share:
+                String articleUrl = mHealthCareInfo.getCompleteUrl();
                 Toast.makeText(HealthCareDirectoryApp.getContext(), getString(R.string.lbl_share), Toast.LENGTH_SHORT).show();
+                super.sendViaShareIntent(mHealthCareInfo.getTitle() + "\n" + articleUrl);
                 return true;
         }
 

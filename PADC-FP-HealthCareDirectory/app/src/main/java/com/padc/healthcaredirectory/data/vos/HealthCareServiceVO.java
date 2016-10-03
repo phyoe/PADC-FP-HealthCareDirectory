@@ -228,14 +228,16 @@ public class HealthCareServiceVO {
 
             ArrayList<OperationVO> operationList = new ArrayList<>();
             if(healthCareService.getOperations() != null && !healthCareService.getOperations().isEmpty()){
-                //operationList = healthCareService.getOperations();
+                operationList = healthCareService.getOperations();
+                HealthCareServiceVO.saveHealthCareServiceOperations(service_id, operationList);
             }
-            ArrayList<AvailableDoctorVO> doctorList = healthCareService.getDoctors();
+            /**/
+
+            //ArrayList<AvailableDoctorVO> doctorList = healthCareService.getDoctors();
 
             HealthCareServiceVO.saveHealthCareServicePhones(service_id, phoneList);
             HealthCareServiceVO.saveHealthCareServiceFax(service_id, faxList);
             HealthCareServiceVO.saveHealthCareServiceTags(service_id, tagList);
-            HealthCareServiceVO.saveHealthCareServiceOperations(service_id, operationList);
             //HealthCareServiceVO.saveHealthCareServiceDoctors(service_id, doctorList);
             /**/
         }
@@ -427,26 +429,25 @@ public class HealthCareServiceVO {
     private static void saveHealthCareServiceOperations(long service_id, ArrayList<OperationVO> operationList) {
         ContentValues[] healthCareServiceOperationCVs = new ContentValues[operationList.size()];
 
-        if( operationList != null && !operationList.isEmpty()){
-            for (int index = 0; index < operationList.size(); index++) {
-                OperationVO operation = operationList.get(index);
+        for (int index = 0; index < operationList.size(); index++) {
+            OperationVO operation = operationList.get(index);
 
-                ContentValues cv = new ContentValues();
-                long operation_id = operation.getOperationId();
-                String operation_name = operation.getOperationName();
+            ContentValues cv = new ContentValues();
+            long operation_id = operation.getOperationId();
+            String operation_name = operation.getOperationName();
 
-                cv.put(HealthCareContract.HealthCareServiceOperationEntry.COLUMN_SERVICE_ID, service_id);
-                cv.put(HealthCareContract.HealthCareServiceOperationEntry.COLUMN_OPERATION_ID, operation_id);
-                cv.put(HealthCareContract.HealthCareServiceOperationEntry.COLUMN_OPERATION_NAME, operation_name);
+            cv.put(HealthCareContract.HealthCareServiceOperationEntry.COLUMN_SERVICE_ID, service_id);
+            cv.put(HealthCareContract.HealthCareServiceOperationEntry.COLUMN_OPERATION_ID, operation_id);
+            cv.put(HealthCareContract.HealthCareServiceOperationEntry.COLUMN_OPERATION_NAME, operation_name);
 
-                healthCareServiceOperationCVs[index] = cv;
-            }
-
-            Context context = HealthCareDirectoryApp.getContext();
-            int insertCount = context.getContentResolver().bulkInsert(HealthCareContract.HealthCareServiceOperationEntry.CONTENT_URI, healthCareServiceOperationCVs);
-
-            Log.d(HealthCareDirectoryApp.TAG, "Bulk inserted into healthcare_service_operation table : " + insertCount);
+            healthCareServiceOperationCVs[index] = cv;
         }
+
+        Context context = HealthCareDirectoryApp.getContext();
+        int insertCount = context.getContentResolver().bulkInsert(HealthCareContract.HealthCareServiceOperationEntry.CONTENT_URI, healthCareServiceOperationCVs);
+
+        Log.d(HealthCareDirectoryApp.TAG, "Bulk inserted into healthcare_service_operation table : " + insertCount);
+
     }
     public static ArrayList<OperationVO> loadHealthCareServiceOperationsByServiceId(long service_id){
         Context context = HealthCareDirectoryApp.getContext();

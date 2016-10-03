@@ -60,6 +60,11 @@
         <item name="android:textColor">@color/primary_dark</item>
     </style>
 
+    <style name="PriceCategory" parent="HealthCareCardView">
+        <item name="android:textSize">@dimen/text_regular_3x</item>
+        <item name="android:textColor">@android:color/holo_orange_dark</item>
+    </style>
+
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>

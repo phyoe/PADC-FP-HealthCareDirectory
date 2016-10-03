@@ -14,6 +14,7 @@
 
         <!-- title -->
         <com.padc.healthcaredirectory.components.MMTextView
+            android:id="@+id/tv_detail_info_title"
             style="@style/DetailInfoTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

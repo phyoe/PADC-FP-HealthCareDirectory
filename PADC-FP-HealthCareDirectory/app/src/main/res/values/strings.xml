@@ -148,6 +148,9 @@
     <string name="str_veterinary_equipment_info_label">အသံုးေဆာင္ပစၥည္းဆိုင္ အခ်က္အလက္္</string>
     <string name="str_veterinary_medicine_info_label">ေဆး၀ါးပစၥည္းဆိုင္ အခ်က္အလက္္</string>
     <string name="str_veterinary_spa_info_label">Spa Information</string>
+    <string name="str_operation_label">၀န္ေဆာင္မႈမ်ား</string>
+    <string name="dummy_opearations">အေရးေပၚလူနာကုသျခင္</string>
+    <string name="health_care_price_category">★★★★★</string>
 
 
 </resources>

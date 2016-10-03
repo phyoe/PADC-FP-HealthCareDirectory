@@ -1,18 +1,14 @@
 package com.padc.healthcaredirectory.views.holders;
 
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.padc.healthcaredirectory.HealthCareDirectoryApp;
 import com.padc.healthcaredirectory.R;
 import com.padc.healthcaredirectory.data.vos.HealthCareVO;
 import com.padc.healthcaredirectory.utils.HealthCareDirectoryConstants;
-
-import java.util.Arrays;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -49,10 +45,8 @@ public class HealthCareViewHolder extends RecyclerView.ViewHolder implements Vie
 
     public void bindData(HealthCareVO healthCare) {
         mHealthCare = healthCare;
+
         String phones = "";
-
-        Log.d(HealthCareDirectoryApp.TAG, Arrays.toString(healthCare.getPhones()));
-
         if(healthCare.getPhones() != null){
             String[] arr_phones = healthCare.getPhones();
             for (String ph : arr_phones) {

@@ -68,7 +68,14 @@ public class HealthCareServiceViewHolder extends RecyclerView.ViewHolder impleme
         /**/
 
         tvName.setText(healthCare.getHealthCareName());
-        tvCategory.setText(healthCare.getCategoryMM());
+
+        String category_mm = healthCare.getCategoryMM();
+        String tags = "";
+        for(int i=0 ; i < healthCare.getTags().size() ; i++) {
+            tags = tags + "(" + healthCare.getTags().get(i).getTagNameMM() + ") ";
+        }
+        tvCategory.setText(category_mm + "" + tags);
+
         tvAddress.setText(healthCare.getAddress());
 
         /**

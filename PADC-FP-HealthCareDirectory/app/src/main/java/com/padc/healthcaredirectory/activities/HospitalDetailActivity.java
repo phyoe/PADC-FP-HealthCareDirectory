@@ -49,6 +49,9 @@ public class HospitalDetailActivity extends BaseActivity
     @BindView(R.id.tv_service_category)
     TextView tvServiceCategory;
 
+    @BindView(R.id.tv_price_category)
+    TextView tvPriceCategory;
+
     @BindView(R.id.tv_service_address)
     TextView tvServiceAddress;
 
@@ -64,8 +67,16 @@ public class HospitalDetailActivity extends BaseActivity
     @BindView(R.id.tv_service_facebook)
     TextView tvServiceFacebook;
 
+    /**
     @BindView(R.id.img_service_map)
     ImageView imgServiceMap;
+    /**/
+
+    @BindView(R.id.tv_detail_info_title)
+    TextView tvDetailInfoTitle;
+
+    @BindView(R.id.tv_service_operations)
+    TextView tvServiceOperations;
 
     @BindView(R.id.collapsing_toolbar)
     CollapsingToolbarLayout collapsingToolbar;
@@ -97,7 +108,7 @@ public class HospitalDetailActivity extends BaseActivity
             case R.id.action_share:
                 String imageUrl = mHealthCareService.getImage();
                 Toast.makeText(HealthCareDirectoryApp.getContext(), getString(R.string.lbl_share), Toast.LENGTH_SHORT).show();
-                sendViaShareIntent(mHealthCareService.getHealthCareName() + " - " + imageUrl);
+                super.sendViaShareIntent(mHealthCareService.getCategoryMM() + "\n" + imageUrl);
                 return true;
         }
 
@@ -120,7 +131,7 @@ public class HospitalDetailActivity extends BaseActivity
         fabFavourite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Toast.makeText(HealthCareDirectoryApp.getContext(), "Coming Soon ..." , Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -209,16 +220,35 @@ public class HospitalDetailActivity extends BaseActivity
 
         //Data retrieve from Persistence Layer
         tvServiceName.setText(healthCareService.getHealthCareName());
-        tvServiceCategory.setText(healthCareService.getCategoryMM());
+
+        String category_mm = healthCareService.getCategoryMM();
+        String tags = "";
+        for(int i=0 ; i < healthCareService.getTags().size() ; i++) {
+            tags = tags + "(" + healthCareService.getTags().get(i).getTagNameMM() + ") ";
+        }
+        tvServiceCategory.setText(category_mm + "" + tags);
+
+        int price_category = healthCareService.getPriceCategory();
+        String star = "";
+        for(int s=1 ; s<=price_category ; s++)
+            star = star + "★";
+        tvPriceCategory.setText(star);
+
+        tvDetailInfoTitle.setText(category_mm + "" + "အခ်က္အလက္");
 
         String address = (!healthCareService.getAddress().isEmpty())? healthCareService.getAddress() : HealthCareDirectoryConstants.STR_NO_DATA;
         tvServiceAddress.setText(address);
 
         String phones = "";
         for(int i=0 ; i < healthCareService.getPhones().size() ; i++){
-            phones = phones + healthCareService.getPhones().get(i).getPhoneName() + "\n";
+            if(i == healthCareService.getPhones().size()-1)
+                phones = phones + healthCareService.getPhones().get(i).getPhoneName();
+            else
+                phones = phones + healthCareService.getPhones().get(i).getPhoneName() + "\n";
         }
-        tvServicePhone.setText(phones);
+        //tvServicePhone.setText(phones);
+        String phone = mHealthCareService.getPhones().get(0).getPhoneName();
+        tvServicePhone.setText((phone != null && !phone.isEmpty())? phone : HealthCareDirectoryConstants.STR_NO_DATA);
 
         String email = (!healthCareService.getEmail().isEmpty())? healthCareService.getEmail() : HealthCareDirectoryConstants.STR_NO_DATA;
         tvServiceEmail.setText(email);
@@ -230,6 +260,15 @@ public class HospitalDetailActivity extends BaseActivity
         tvServiceFacebook.setText(facebook);
 
         collapsingToolbar.setTitle(healthCareService.getHealthCareName());
+
+        String operations = "";
+        for(int i=0 ; i < healthCareService.getOperations().size() ; i++) {
+            if(i == healthCareService.getOperations().size()-1)
+                operations = operations + healthCareService.getOperations().get(i).getOperationName();
+            else
+                operations = operations + healthCareService.getOperations().get(i).getOperationName() + "\n";
+        }
+        tvServiceOperations.setText(operations);
 
         String imageUrl = healthCareService.getImage();
         Glide.with(imgService.getContext())
@@ -256,5 +295,12 @@ public class HospitalDetailActivity extends BaseActivity
     public void onTapFacebook(View view) {
         String facebook = mHealthCareService.getFacebook();
         super.openInFacebook(facebook);
+    }
+
+    @OnClick(R.id.tv_service_phone)
+    public void onTapPhone(View view) {
+        String phone = mHealthCareService.getPhones().get(0).getPhoneName();
+        if(phone != null && !phone.isEmpty())
+            super.makeCall(phone);
     }
 }

@@ -76,7 +76,7 @@ public class ArticleDetailActivity extends BaseActivity
             case R.id.action_share:
                 String imageUrl = mHealthCareInfo.getImage();
                 Toast.makeText(HealthCareDirectoryApp.getContext(), getString(R.string.lbl_share), Toast.LENGTH_SHORT).show();
-                sendViaShareIntent(mHealthCareInfo.getTitle() + " - " + imageUrl);
+                super.sendViaShareIntent(mHealthCareInfo.getTitle() + "\n" + imageUrl);
                 return true;
         }
 
