@@ -21,11 +21,9 @@ import android.widget.Toast;
 
 import com.padc.healthcaredirectory.HealthCareDirectoryApp;
 import com.padc.healthcaredirectory.R;
-import com.padc.healthcaredirectory.adapters.DiseaseAdapter;
 import com.padc.healthcaredirectory.adapters.HealthCareInfoAdapter;
 import com.padc.healthcaredirectory.data.models.HealthCareInfoModel;
 import com.padc.healthcaredirectory.data.persistence.HealthCareContract;
-import com.padc.healthcaredirectory.data.vos.DiseaseVO;
 import com.padc.healthcaredirectory.data.vos.HealthCareInfoVO;
 import com.padc.healthcaredirectory.events.DataEvent;
 import com.padc.healthcaredirectory.utils.HealthCareDirectoryConstants;
@@ -49,8 +47,6 @@ public class DiseaseListFragment extends BaseFragment implements LoaderManager.L
     private HealthCareInfoAdapter mHealthCareInfoAdapter;
     private HealthCareInfoViewHolder.ControllerHealthCareInfoItem mControllerHealthCareInfoItem;
     private List<HealthCareInfoVO> diseaseList;
-    public static final String TYPE_DISEASE = "disease-info";
-
 
     public static DiseaseListFragment newInstance() {
         DiseaseListFragment fragment = new DiseaseListFragment();
@@ -95,7 +91,7 @@ public class DiseaseListFragment extends BaseFragment implements LoaderManager.L
         Toast.makeText(getContext(), "Extra : " + extra, Toast.LENGTH_SHORT).show();
 
         List<HealthCareInfoVO> newHealthCareInfoList = event.getHealthCareInfoList();
-        mHealthCareInfoAdapter.setNewData(newHealthCareInfoList, TYPE_DISEASE);
+        mHealthCareInfoAdapter.setNewData(newHealthCareInfoList, HealthCareDirectoryConstants.STR_DISEASE);
         mHealthCareInfoAdapter.notifyDataSetChanged();
     }
 
@@ -166,7 +162,7 @@ public class DiseaseListFragment extends BaseFragment implements LoaderManager.L
             Toast.makeText(getContext(), "Extra : " + extra, Toast.LENGTH_SHORT).show();
 
             List<HealthCareInfoVO> newHealthCareInfoList = HealthCareInfoModel.getInstance().getHealthCareInfoList();
-            mHealthCareInfoAdapter.setNewData(newHealthCareInfoList,TYPE_DISEASE);
+            mHealthCareInfoAdapter.setNewData(newHealthCareInfoList, HealthCareDirectoryConstants.STR_DISEASE);
         }
     };
 
@@ -200,7 +196,7 @@ public class DiseaseListFragment extends BaseFragment implements LoaderManager.L
         }
 
         Log.d(HealthCareDirectoryApp.TAG, "Retrieved healthCareInfo DESC : " + healthCareInfoList.size());
-        mHealthCareInfoAdapter.setNewData(healthCareInfoList,TYPE_DISEASE);
+        mHealthCareInfoAdapter.setNewData(healthCareInfoList, HealthCareDirectoryConstants.STR_DISEASE);
 
         HealthCareInfoModel.getInstance().setStoredData(healthCareInfoList);
     }

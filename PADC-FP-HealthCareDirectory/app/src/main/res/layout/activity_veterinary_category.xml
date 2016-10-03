@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -34,35 +33,34 @@
     </android.support.design.widget.AppBarLayout>
 
     <LinearLayout
+        style="@style/PrimaryTitle"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="တိရစာၦန္ ေဆးကုခန္းမ်ား"
-        style="@style/PrimaryTitle"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:orientation="vertical"
-        >
+        android:text="တိရစာၦန္ ေဆးကုခန္းမ်ား"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <RelativeLayout
             android:id="@+id/rl_clinic"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#EBEEEC"
-            android:layout_weight="0.25"
-            android:clickable="true"
             android:layout_marginLeft="@dimen/margin_medium_1"
             android:layout_marginRight="@dimen/margin_medium_1"
-            android:layout_marginTop="@dimen/margin_medium_1">
+            android:layout_marginTop="@dimen/margin_medium_1"
+            android:layout_weight="0.25"
+            android:background="#EBEEEC"
+            android:clickable="true">
 
             <ImageView
                 android:id="@+id/iv_1"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
-                android:src="@drawable/veterinary_clinic2"
                 android:layout_alignParentLeft="true"
+                android:layout_marginBottom="@dimen/margin_medium_1"
                 android:layout_marginLeft="@dimen/margin_medium_1"
                 android:layout_marginTop="@dimen/margin_medium_1"
-                android:layout_marginBottom="@dimen/margin_medium_1"
-                android:scaleType="centerCrop"/>
+                android:scaleType="centerCrop"
+                android:src="@drawable/veterinary_clinic2" />
 
 
             <com.padc.healthcaredirectory.components.MMTextView
@@ -70,13 +68,12 @@
                 style="@style/ListViewItem"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/veterinary_clinic_title"
-                android:background="#EBEEEC"
-                android:layout_toRightOf="@id/iv_1"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/margin_medium_1"
                 android:layout_marginRight="@dimen/margin_medium_1"
-           />
+                android:layout_toRightOf="@id/iv_1"
+                android:background="#EBEEEC"
+                android:text="@string/veterinary_clinic_title" />
 
         </RelativeLayout>
 
@@ -85,23 +82,23 @@
             android:id="@+id/rl_equipment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#EBEEEC"
-            android:layout_weight="0.25"
-            android:clickable="true"
             android:layout_marginLeft="@dimen/margin_medium_1"
             android:layout_marginRight="@dimen/margin_medium_1"
-            android:layout_marginTop="@dimen/margin_medium_1">>
+            android:layout_marginTop="@dimen/margin_medium_1"
+            android:layout_weight="0.25"
+            android:background="#EBEEEC"
+            android:clickable="true">>
 
             <ImageView
                 android:id="@+id/iv_2"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
-                android:src="@drawable/veterinary_equipment_icon"
                 android:layout_alignParentLeft="true"
+                android:layout_marginBottom="@dimen/margin_medium_1"
                 android:layout_marginLeft="@dimen/margin_medium_1"
                 android:layout_marginTop="@dimen/margin_medium_1"
-                android:layout_marginBottom="@dimen/margin_medium_1"
-                android:scaleType="centerCrop"/>
+                android:scaleType="centerCrop"
+                android:src="@drawable/veterinary_equipment_icon" />
 
 
             <com.padc.healthcaredirectory.components.MMTextView
@@ -109,15 +106,12 @@
                 style="@style/ListViewItem"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/veterinary_equipment_title"
-                android:background="#EBEEEC"
-                android:layout_toRightOf="@id/iv_2"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/margin_medium_1"
                 android:layout_marginRight="@dimen/margin_medium_1"
-                />
-
-
+                android:layout_toRightOf="@id/iv_2"
+                android:background="#EBEEEC"
+                android:text="@string/veterinary_equipment_title" />
 
 
         </RelativeLayout>
@@ -126,23 +120,23 @@
             android:id="@+id/rl_medicine"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#EBEEEC"
-            android:layout_weight="0.25"
-            android:clickable="true"
             android:layout_marginLeft="@dimen/margin_medium_1"
             android:layout_marginRight="@dimen/margin_medium_1"
-            android:layout_marginTop="@dimen/margin_medium_1">
+            android:layout_marginTop="@dimen/margin_medium_1"
+            android:layout_weight="0.25"
+            android:background="#EBEEEC"
+            android:clickable="true">
 
             <ImageView
                 android:id="@+id/iv_3"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
-                android:src="@drawable/veterinary_medicine_shop_icon"
                 android:layout_alignParentLeft="true"
+                android:layout_marginBottom="@dimen/margin_medium_1"
                 android:layout_marginLeft="@dimen/margin_medium_1"
                 android:layout_marginTop="@dimen/margin_medium_1"
-                android:layout_marginBottom="@dimen/margin_medium_1"
-                android:scaleType="centerCrop"/>
+                android:scaleType="centerCrop"
+                android:src="@drawable/veterinary_medicine_shop_icon" />
 
 
             <com.padc.healthcaredirectory.components.MMTextView
@@ -150,15 +144,12 @@
                 style="@style/ListViewItem"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/veterinary_medicine_title"
-                android:background="#EBEEEC"
-                android:layout_toRightOf="@id/iv_3"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/margin_medium_1"
                 android:layout_marginRight="@dimen/margin_medium_1"
-                />
-
-
+                android:layout_toRightOf="@id/iv_3"
+                android:background="#EBEEEC"
+                android:text="@string/veterinary_medicine_title" />
 
 
         </RelativeLayout>
@@ -167,24 +158,24 @@
             android:id="@+id/rl_spa"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#EBEEEC"
-            android:layout_weight="0.25"
-            android:clickable="true"
+            android:layout_marginBottom="12dp"
             android:layout_marginLeft="@dimen/margin_medium_1"
             android:layout_marginRight="@dimen/margin_medium_1"
             android:layout_marginTop="@dimen/margin_medium_1"
-            android:layout_marginBottom="12dp">
+            android:layout_weight="0.25"
+            android:background="#EBEEEC"
+            android:clickable="true">
 
             <ImageView
                 android:id="@+id/iv_4"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
-                android:src="@drawable/veterinary_spa_icon"
                 android:layout_alignParentLeft="true"
+                android:layout_marginBottom="@dimen/margin_medium_1"
                 android:layout_marginLeft="@dimen/margin_medium_1"
                 android:layout_marginTop="@dimen/margin_medium_1"
-                android:layout_marginBottom="@dimen/margin_medium_1"
-                android:scaleType="centerCrop"/>
+                android:scaleType="centerCrop"
+                android:src="@drawable/veterinary_spa_icon" />
 
 
             <com.padc.healthcaredirectory.components.MMTextView
@@ -192,21 +183,15 @@
                 style="@style/ListViewItem"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/veterinary_spa_title"
-                android:background="#EBEEEC"
-                android:layout_toRightOf="@id/iv_4"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/margin_medium_1"
                 android:layout_marginRight="@dimen/margin_medium_1"
-                />
-
-
+                android:layout_toRightOf="@id/iv_4"
+                android:background="#EBEEEC"
+                android:text="@string/veterinary_spa_title" />
 
 
         </RelativeLayout>
-
-
-
 
 
     </LinearLayout>

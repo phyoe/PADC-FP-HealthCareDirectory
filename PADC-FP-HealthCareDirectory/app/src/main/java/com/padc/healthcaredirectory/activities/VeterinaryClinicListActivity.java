@@ -10,16 +10,15 @@ import android.widget.ImageView;
 import com.padc.healthcaredirectory.HealthCareDirectoryApp;
 import com.padc.healthcaredirectory.R;
 import com.padc.healthcaredirectory.data.vos.HealthCareServiceVO;
-import com.padc.healthcaredirectory.data.vos.VeterinaryClinicVO;
 import com.padc.healthcaredirectory.fragments.VeterinaryClinicListFragment;
 import com.padc.healthcaredirectory.utils.HealthCareDirectoryConstants;
 import com.padc.healthcaredirectory.views.holders.HealthCareServiceViewHolder;
-import com.padc.healthcaredirectory.views.holders.VeterinaryClinicViewHolder;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class VeterinaryClinicListActivity extends AppCompatActivity implements HealthCareServiceViewHolder.ControllerHealthCareItem{
+public class VeterinaryClinicListActivity extends AppCompatActivity
+        implements HealthCareServiceViewHolder.ControllerHealthCareItem{
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;

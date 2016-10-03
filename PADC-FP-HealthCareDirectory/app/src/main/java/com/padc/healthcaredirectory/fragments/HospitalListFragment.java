@@ -23,7 +23,6 @@ import android.widget.Toast;
 
 import com.padc.healthcaredirectory.HealthCareDirectoryApp;
 import com.padc.healthcaredirectory.R;
-import com.padc.healthcaredirectory.adapters.HealthCareAdapter;
 import com.padc.healthcaredirectory.adapters.HealthCareServiceAdapter;
 import com.padc.healthcaredirectory.data.models.HealthCareServiceModel;
 import com.padc.healthcaredirectory.data.persistence.HealthCareContract;
@@ -31,7 +30,6 @@ import com.padc.healthcaredirectory.data.vos.HealthCareServiceVO;
 import com.padc.healthcaredirectory.events.DataEvent;
 import com.padc.healthcaredirectory.utils.HealthCareDirectoryConstants;
 import com.padc.healthcaredirectory.views.holders.HealthCareServiceViewHolder;
-import com.padc.healthcaredirectory.views.holders.HealthCareViewHolder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,9 +48,6 @@ public class HospitalListFragment extends BaseFragment
     @BindView(R.id.rv_hospitals)
     RecyclerView rvHospitals;
 
-    private HealthCareAdapter mHealthCareAdapter;
-    private HealthCareViewHolder.ControllerHealthCareItem mControllerHealthCareItem;
-
     private HealthCareServiceAdapter mHealthCareServiceAdapter;
     private HealthCareServiceViewHolder.ControllerHealthCareItem mControllerHealthCareServiceItem;
 
@@ -64,21 +59,11 @@ public class HospitalListFragment extends BaseFragment
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-
-        /**
-         if(context instanceof HealthCareViewHolder.ControllerHealthCareItem){
-         mControllerHealthCareItem = (HealthCareViewHolder.ControllerHealthCareItem) context;
-         } else {
-         throw new RuntimeException("Unsupported Type");
-         }
-        /**/
-        /**/
         if (context instanceof HealthCareServiceViewHolder.ControllerHealthCareItem) {
             mControllerHealthCareServiceItem = (HealthCareServiceViewHolder.ControllerHealthCareItem) context;
         } else {
             throw new RuntimeException("Unsupported Type");
         }
-        /**/
     }
 
     @Override
@@ -88,24 +73,12 @@ public class HospitalListFragment extends BaseFragment
         View rootView = inflater.inflate(R.layout.fragment_hospital_list, container, false);
         ButterKnife.bind(this, rootView);
 
-        /**
-         List<HealthCareVO> healthCareList = HealthCareModel.getInstance().getHealthCareList();
-         //List<HealthCareVO> healthCareList = super.setTempData(R.string.health_care_hospital, HealthCareDirectoryConstants.FRAGMENT_HOSPITAL);
-
-         mHealthCareAdapter = new HealthCareAdapter(healthCareList, mControllerHealthCareItem);
-         rvHospitals.setAdapter(mHealthCareAdapter);
-         /**/
-
-        /**/
-
         List<HealthCareServiceVO> healthCareList = HealthCareServiceModel.getInstance().getHealthCareServiceList();
 
         mHealthCareServiceAdapter = new HealthCareServiceAdapter(healthCareList, mControllerHealthCareServiceItem);
         rvHospitals.setAdapter(mHealthCareServiceAdapter);
-        /**/
 
         rvHospitals.setLayoutManager(new GridLayoutManager(getContext(), super.gridColumnSpanCount));
-
         return rootView;
     }
 
@@ -115,7 +88,7 @@ public class HospitalListFragment extends BaseFragment
         Toast.makeText(getContext(), "Extra : " + extra, Toast.LENGTH_SHORT).show();
 
         List<HealthCareServiceVO> newHealthCareServiceList = event.getHealthCareServiceList();
-        mHealthCareServiceAdapter.setNewData(newHealthCareServiceList);
+        mHealthCareServiceAdapter.setNewData(newHealthCareServiceList,  HealthCareDirectoryConstants.STR_HOSPITAL);
         mHealthCareServiceAdapter.notifyDataSetChanged();
     }
 
@@ -138,7 +111,6 @@ public class HospitalListFragment extends BaseFragment
         //For Persistence Layer
         LocalBroadcastManager.getInstance(getContext()).unregisterReceiver(mDataLoadedBroadcastReceiver);
 
-
         //For Network Layer
         EventBus eventBus = EventBus.getDefault();
         eventBus.unregister(this);
@@ -156,7 +128,7 @@ public class HospitalListFragment extends BaseFragment
             Toast.makeText(getContext(), "Extra : " + extra, Toast.LENGTH_SHORT).show();
 
             List<HealthCareServiceVO> newHealthCareServiceList = HealthCareServiceModel.getInstance().getHealthCareServiceList();
-            mHealthCareServiceAdapter.setNewData(newHealthCareServiceList);
+            mHealthCareServiceAdapter.setNewData(newHealthCareServiceList, HealthCareDirectoryConstants.STR_HOSPITAL);
 
         }
     };
@@ -186,38 +158,18 @@ public class HospitalListFragment extends BaseFragment
                 HealthCareServiceVO healthCareService = HealthCareServiceVO.parseFromCursor(data);
                 long service_id = healthCareService.getHealthCareId();
 
-                if (healthCareService.getCategory().contains(HealthCareDirectoryConstants.STR_HOSPITAL)) {
+                healthCareService.setPhones(HealthCareServiceVO.loadHealthCareServicePhoneByServiceId(service_id));
+                healthCareService.setFax(HealthCareServiceVO.loadHealthCareServiceFaxByServiceId(service_id));
+                healthCareService.setTags(HealthCareServiceVO.loadHealthCareServiceTagsByServiceId(service_id));
+                healthCareService.setOperations(HealthCareServiceVO.loadHealthCareServiceOperationsByServiceId(service_id));
 
-                    healthCareService.setPhones(HealthCareServiceVO.loadHealthCareServicePhoneByServiceId(service_id));
-                    healthCareService.setFax(HealthCareServiceVO.loadHealthCareServiceFaxByServiceId(service_id));
-                    healthCareService.setTags(HealthCareServiceVO.loadHealthCareServiceTagsByServiceId(service_id));
-                    healthCareService.setOperations(HealthCareServiceVO.loadHealthCareServiceOperationsByServiceId(service_id));
+                healthCareServiceList.add(healthCareService);
 
-                    /**
-                     //for Speciality and TimeSlots
-                     ArrayList<AvailableDoctorVO> doctorList = HealthCareServiceVO.loadHealthCareServiceDoctorsByServiceId(service_id);
-                     for(int i=0 ; i < doctorList.size() ; i++){
-                     AvailableDoctorVO doctor = doctorList.get(i);
-                     long doctor_id = doctor.getDoctorId();
-
-                     SpecialityVO speciality = HealthCareServiceVO.loadHealthCareServiceDoctorSpecialityByServiceId(service_id, doctor_id);
-                     doctor.setSpeciality(speciality);
-
-                     ArrayList<TimeSlotVO> timeSlots = HealthCareServiceVO.loadHealthCareServiceDoctorTimeslotsByServiceId(service_id, doctor_id);
-                     doctor.setTimeSlots(timeSlots);
-
-                     doctorList.add(doctor);
-                     }
-                     healthCareService.setDoctors(doctorList);
-                     /**/
-
-                    healthCareServiceList.add(healthCareService);
-                }
             } while (data.moveToNext());
         }
 
         Log.d(HealthCareDirectoryApp.TAG, "Retrieved healthCareService DESC : " + healthCareServiceList.size());
-        mHealthCareServiceAdapter.setNewData(healthCareServiceList);
+        mHealthCareServiceAdapter.setNewData(healthCareServiceList, HealthCareDirectoryConstants.STR_HOSPITAL);
 
         HealthCareServiceModel.getInstance().setStoredData(healthCareServiceList);
     }

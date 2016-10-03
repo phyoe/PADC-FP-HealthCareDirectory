@@ -27,6 +27,7 @@ import com.padc.healthcaredirectory.adapters.HealthCareServiceAdapter;
 import com.padc.healthcaredirectory.data.models.HealthCareServiceModel;
 import com.padc.healthcaredirectory.data.persistence.HealthCareContract;
 import com.padc.healthcaredirectory.data.vos.HealthCareServiceVO;
+import com.padc.healthcaredirectory.events.DataEvent;
 import com.padc.healthcaredirectory.utils.HealthCareDirectoryConstants;
 import com.padc.healthcaredirectory.views.holders.HealthCareServiceViewHolder;
 
@@ -80,6 +81,17 @@ public class ClinicListFragment extends BaseFragment
         return rootView;
     }
 
+    public void onEventMainThread(DataEvent.HealthCareServiceDataLoadedEvent event) {
+
+        String extra = event.getExtraMessage();
+        Toast.makeText(getContext(), "Extra : " + extra, Toast.LENGTH_SHORT).show();
+
+        List<HealthCareServiceVO> newHealthCareServiceList = event.getHealthCareServiceList();
+        mHealthCareServiceAdapter.setNewData(newHealthCareServiceList,  HealthCareDirectoryConstants.STR_CLINIC);
+        mHealthCareServiceAdapter.notifyDataSetChanged();
+
+    }
+
     @Override
     public void onStart() {
         super.onStart();
@@ -100,13 +112,14 @@ public class ClinicListFragment extends BaseFragment
     private BroadcastReceiver mDataLoadedBroadcastReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            //TODO instructions when the new data is ready.
+        //TODO instructions when the new data is ready.
 
-            String extra = intent.getStringExtra("key-for-extra");
-            Toast.makeText(getContext(), "Extra : " + extra, Toast.LENGTH_SHORT).show();
+        String extra = intent.getStringExtra("key-for-extra");
+        Toast.makeText(getContext(), "Extra : " + extra, Toast.LENGTH_SHORT).show();
 
-            List<HealthCareServiceVO> newHealthCareServiceList = HealthCareServiceModel.getInstance().getHealthCareServiceList();
-            mHealthCareServiceAdapter.setNewData(newHealthCareServiceList);
+        List<HealthCareServiceVO> newHealthCareServiceList = HealthCareServiceModel.getInstance().getHealthCareServiceList();
+        mHealthCareServiceAdapter.setNewData(newHealthCareServiceList, HealthCareDirectoryConstants.STR_CLINIC);
+
 
         }
     };
@@ -133,23 +146,27 @@ public class ClinicListFragment extends BaseFragment
         List<HealthCareServiceVO> healthCareServiceList = new ArrayList<>();
         if (data != null && data.moveToFirst()) {
             do {
+                //Filter here
                 HealthCareServiceVO healthCareService = HealthCareServiceVO.parseFromCursor(data);
                 long service_id = healthCareService.getHealthCareId();
+                String category = healthCareService.getCategory();
+                if(category != null && !category.isEmpty()){
+                    if(category.contains(HealthCareDirectoryConstants.STR_CLINIC)){
+                        healthCareService.setPhones(HealthCareServiceVO.loadHealthCareServicePhoneByServiceId(service_id));
+                        healthCareService.setFax(HealthCareServiceVO.loadHealthCareServiceFaxByServiceId(service_id));
+                        healthCareService.setTags(HealthCareServiceVO.loadHealthCareServiceTagsByServiceId(service_id));
+                        healthCareService.setOperations(HealthCareServiceVO.loadHealthCareServiceOperationsByServiceId(service_id));
 
-                if (healthCareService.getCategory().contains(HealthCareDirectoryConstants.STR_CLINIC)) {
-
-                    healthCareService.setPhones(HealthCareServiceVO.loadHealthCareServicePhoneByServiceId(service_id));
-                    healthCareService.setFax(HealthCareServiceVO.loadHealthCareServiceFaxByServiceId(service_id));
-                    healthCareService.setTags(HealthCareServiceVO.loadHealthCareServiceTagsByServiceId(service_id));
-                    healthCareService.setOperations(HealthCareServiceVO.loadHealthCareServiceOperationsByServiceId(service_id));
-
-                    healthCareServiceList.add(healthCareService);
+                        healthCareServiceList.add(healthCareService);
+                    }
                 }
+
             } while (data.moveToNext());
         }
 
         Log.d(HealthCareDirectoryApp.TAG, "Retrieved healthCareService DESC : " + healthCareServiceList.size());
-        mHealthCareServiceAdapter.setNewData(healthCareServiceList);
+        mHealthCareServiceAdapter.setNewData(healthCareServiceList, HealthCareDirectoryConstants.STR_CLINIC);
+        mHealthCareServiceAdapter.notifyDataSetChanged();
 
         HealthCareServiceModel.getInstance().setStoredData(healthCareServiceList);
     }

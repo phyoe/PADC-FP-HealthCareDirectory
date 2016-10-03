@@ -26,6 +26,9 @@ public class HealthCareDirectoryConstants {
     public static final String STR_HOSPITAL = "hospital";
     public static final String STR_CLINIC = "clinic";
     public static final String STR_PHARMACY = "pharmacy";
+    public static final String STR_ARTICLE = "article";
+    public static final String STR_DISEASE = "disease";
+    public static final String STR_VET = "vet";
     public static final String STR_NO_DATA = "( မရွိေသးပါ )";
 
     //Veterinary Activity

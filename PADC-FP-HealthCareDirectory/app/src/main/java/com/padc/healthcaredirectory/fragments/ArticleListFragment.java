@@ -49,7 +49,6 @@ public class ArticleListFragment extends BaseFragment
 
     private HealthCareInfoAdapter mHealthCareInfoAdapter;
     private HealthCareInfoViewHolder.ControllerHealthCareInfoItem mControllerHealthCareInfoItem;
-    public static final String TYPE_ARTICLE = "article";
 
     public static ArticleListFragment newInstance(){
         ArticleListFragment fragment = new ArticleListFragment();
@@ -89,7 +88,7 @@ public class ArticleListFragment extends BaseFragment
         Toast.makeText(getContext(), "Extra : " + extra, Toast.LENGTH_SHORT).show();
 
         List<HealthCareInfoVO> newHealthCareInfoList = event.getHealthCareInfoList();
-        mHealthCareInfoAdapter.setNewData(newHealthCareInfoList,TYPE_ARTICLE);
+        mHealthCareInfoAdapter.setNewData(newHealthCareInfoList, HealthCareDirectoryConstants.STR_ARTICLE);
         mHealthCareInfoAdapter.notifyDataSetChanged();
     }
 
@@ -128,7 +127,7 @@ public class ArticleListFragment extends BaseFragment
             Toast.makeText(getContext(), "Extra : " + extra, Toast.LENGTH_SHORT).show();
 
             List<HealthCareInfoVO> newHealthCareInfoList = HealthCareInfoModel.getInstance().getHealthCareInfoList();
-            mHealthCareInfoAdapter.setNewData(newHealthCareInfoList,TYPE_ARTICLE);
+            mHealthCareInfoAdapter.setNewData(newHealthCareInfoList,HealthCareDirectoryConstants.STR_ARTICLE);
         }
     };
 
@@ -160,7 +159,7 @@ public class ArticleListFragment extends BaseFragment
         }
 
         Log.d(HealthCareDirectoryApp.TAG, "Retrieved healthCareInfo DESC : " + healthCareInfoList.size());
-        mHealthCareInfoAdapter.setNewData(healthCareInfoList,TYPE_ARTICLE);
+        mHealthCareInfoAdapter.setNewData(healthCareInfoList,HealthCareDirectoryConstants.STR_ARTICLE);
 
         HealthCareInfoModel.getInstance().setStoredData(healthCareInfoList);
     }

@@ -27,6 +27,7 @@ import com.padc.healthcaredirectory.adapters.HealthCareServiceAdapter;
 import com.padc.healthcaredirectory.data.models.HealthCareServiceModel;
 import com.padc.healthcaredirectory.data.persistence.HealthCareContract;
 import com.padc.healthcaredirectory.data.vos.HealthCareServiceVO;
+import com.padc.healthcaredirectory.events.DataEvent;
 import com.padc.healthcaredirectory.utils.HealthCareDirectoryConstants;
 import com.padc.healthcaredirectory.views.holders.HealthCareServiceViewHolder;
 
@@ -81,6 +82,16 @@ public class PharmacyListFragment extends BaseFragment
         return rootView;
     }
 
+    public void onEventMainThread(DataEvent.HealthCareServiceDataLoadedEvent event) {
+
+        String extra = event.getExtraMessage();
+        Toast.makeText(getContext(), "Extra : " + extra, Toast.LENGTH_SHORT).show();
+
+        List<HealthCareServiceVO> newHealthCareServiceList = event.getHealthCareServiceList();
+        mHealthCareServiceAdapter.setNewData(newHealthCareServiceList,  HealthCareDirectoryConstants.STR_PHARMACY);
+        mHealthCareServiceAdapter.notifyDataSetChanged();
+    }
+
     @Override
     public void onStart() {
         super.onStart();
@@ -117,7 +128,7 @@ public class PharmacyListFragment extends BaseFragment
             Toast.makeText(getContext(), "Extra : " + extra, Toast.LENGTH_SHORT).show();
 
             List<HealthCareServiceVO> newHealthCareServiceList = HealthCareServiceModel.getInstance().getHealthCareServiceList();
-            mHealthCareServiceAdapter.setNewData(newHealthCareServiceList);
+            mHealthCareServiceAdapter.setNewData(newHealthCareServiceList, HealthCareDirectoryConstants.STR_PHARMACY);
 
         }
     };
@@ -147,20 +158,18 @@ public class PharmacyListFragment extends BaseFragment
                 HealthCareServiceVO healthCareService = HealthCareServiceVO.parseFromCursor(data);
                 long service_id = healthCareService.getHealthCareId();
 
-                if (healthCareService.getCategory().contains(HealthCareDirectoryConstants.STR_PHARMACY)) {
+                healthCareService.setPhones(HealthCareServiceVO.loadHealthCareServicePhoneByServiceId(service_id));
+                healthCareService.setFax(HealthCareServiceVO.loadHealthCareServiceFaxByServiceId(service_id));
+                healthCareService.setTags(HealthCareServiceVO.loadHealthCareServiceTagsByServiceId(service_id));
+                healthCareService.setOperations(HealthCareServiceVO.loadHealthCareServiceOperationsByServiceId(service_id));
 
-                    healthCareService.setPhones(HealthCareServiceVO.loadHealthCareServicePhoneByServiceId(service_id));
-                    healthCareService.setFax(HealthCareServiceVO.loadHealthCareServiceFaxByServiceId(service_id));
-                    healthCareService.setTags(HealthCareServiceVO.loadHealthCareServiceTagsByServiceId(service_id));
-                    healthCareService.setOperations(HealthCareServiceVO.loadHealthCareServiceOperationsByServiceId(service_id));
+                healthCareServiceList.add(healthCareService);
 
-                    healthCareServiceList.add(healthCareService);
-                }
             } while (data.moveToNext());
         }
 
         Log.d(HealthCareDirectoryApp.TAG, "Retrieved healthCareService DESC : " + healthCareServiceList.size());
-        mHealthCareServiceAdapter.setNewData(healthCareServiceList);
+        mHealthCareServiceAdapter.setNewData(healthCareServiceList, HealthCareDirectoryConstants.STR_PHARMACY);
 
         HealthCareServiceModel.getInstance().setStoredData(healthCareServiceList);
     }

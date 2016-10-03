@@ -17,7 +17,7 @@ import com.padc.healthcaredirectory.data.persistence.HealthCareContract.HealthCa
  */
 public class HealthCareDBHelper extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION = 7;
+    private static final int DATABASE_VERSION = 8;
     public static final String DATABASE_NAME = "healthcares.db";
 
     private static final String SQL_CREATE_HEALTHCARE_SERVICES_TABLE = "CREATE TABLE " + HealthCareServiceEntry.TABLE_NAME + " (" +

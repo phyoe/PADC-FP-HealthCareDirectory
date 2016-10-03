@@ -21,19 +21,14 @@ import android.widget.Toast;
 
 import com.padc.healthcaredirectory.HealthCareDirectoryApp;
 import com.padc.healthcaredirectory.R;
-import com.padc.healthcaredirectory.adapters.HealthCareAdapter;
 import com.padc.healthcaredirectory.adapters.HealthCareServiceAdapter;
-import com.padc.healthcaredirectory.adapters.VeterinaryClinicAdapter;
 import com.padc.healthcaredirectory.data.models.HealthCareInfoModel;
 import com.padc.healthcaredirectory.data.models.HealthCareServiceModel;
 import com.padc.healthcaredirectory.data.persistence.HealthCareContract;
 import com.padc.healthcaredirectory.data.vos.HealthCareServiceVO;
-import com.padc.healthcaredirectory.data.vos.VeterinaryClinicVO;
 import com.padc.healthcaredirectory.events.DataEvent;
 import com.padc.healthcaredirectory.utils.HealthCareDirectoryConstants;
 import com.padc.healthcaredirectory.views.holders.HealthCareServiceViewHolder;
-import com.padc.healthcaredirectory.views.holders.HealthCareViewHolder;
-import com.padc.healthcaredirectory.views.holders.VeterinaryClinicViewHolder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -116,7 +111,7 @@ public class VeterinaryClinicListFragment extends BaseFragment  implements Loade
         Toast.makeText(getContext(), "Extra : " + extra, Toast.LENGTH_SHORT).show();
 
         List<HealthCareServiceVO> newHealthCareServiceList = event.getHealthCareServiceList();
-        mHealthCareServiceAdapter.setNewData(newHealthCareServiceList);
+        mHealthCareServiceAdapter.setNewData(newHealthCareServiceList, HealthCareDirectoryConstants.STR_VET);
         mHealthCareServiceAdapter.notifyDataSetChanged();
     }
 
@@ -153,7 +148,7 @@ public class VeterinaryClinicListFragment extends BaseFragment  implements Loade
             Toast.makeText(getContext(), "Extra : " + extra, Toast.LENGTH_SHORT).show();
 
             List<HealthCareServiceVO> newHealthCareServiceList = HealthCareServiceModel.getInstance().getHealthCareServiceList();
-            mHealthCareServiceAdapter.setNewData(newHealthCareServiceList);
+            mHealthCareServiceAdapter.setNewData(newHealthCareServiceList, HealthCareDirectoryConstants.STR_VET);
         }
     };
 
@@ -188,7 +183,7 @@ public class VeterinaryClinicListFragment extends BaseFragment  implements Loade
         }
 
         Log.d(HealthCareDirectoryApp.TAG, "Retrieved healthCareService DESC : " + healthCareServiceList.size());
-        mHealthCareServiceAdapter.setNewData(healthCareServiceList);
+        mHealthCareServiceAdapter.setNewData(healthCareServiceList, HealthCareDirectoryConstants.STR_VET);
 
         HealthCareServiceModel.getInstance().setStoredData(healthCareServiceList);
 

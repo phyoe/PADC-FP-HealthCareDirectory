@@ -34,8 +34,6 @@ public class VeterinaryCategoryActivity extends AppCompatActivity {
 
     String currentClick;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,7 +83,6 @@ public class VeterinaryCategoryActivity extends AppCompatActivity {
     }
 
     public static Intent newIntent() {
-
         Intent intent = new Intent(HealthCareDirectoryApp.getContext(), VeterinaryCategoryActivity.class);
         return intent;
     }

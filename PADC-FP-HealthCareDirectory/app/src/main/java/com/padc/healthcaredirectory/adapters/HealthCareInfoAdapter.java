@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import com.padc.healthcaredirectory.HealthCareDirectoryApp;
 import com.padc.healthcaredirectory.R;
 import com.padc.healthcaredirectory.data.vos.HealthCareInfoVO;
-import com.padc.healthcaredirectory.data.vos.HealthCareVO;
+import com.padc.healthcaredirectory.utils.HealthCareDirectoryConstants;
 import com.padc.healthcaredirectory.views.holders.HealthCareInfoViewHolder;
 
 import java.util.ArrayList;
@@ -51,22 +51,18 @@ public class HealthCareInfoAdapter  extends RecyclerView.Adapter<HealthCareInfoV
         notifyDataSetChanged();//framework method
     }
 
-    public void setNewData(List<HealthCareInfoVO> newHelathCareInfoList, String type) {
+    public void setNewData(List<HealthCareInfoVO> newHelathCareInfoList, String infoType) {
         //Filter here
         List<HealthCareInfoVO> tempList = new ArrayList<>();
-        for(HealthCareInfoVO healthcareInfo: newHelathCareInfoList)
-        {
-            if(healthcareInfo.getInfoType()==null)
-            {
-                healthcareInfo.setInfoType("article");
+        for(HealthCareInfoVO healthcareInfo: newHelathCareInfoList){
+            if(healthcareInfo.getInfoType() == null || healthcareInfo.getInfoType().isEmpty()){
+                healthcareInfo.setInfoType(HealthCareDirectoryConstants.STR_ARTICLE);
             }
-            if(healthcareInfo.getInfoType().equals(type) )
-            {
+            if(healthcareInfo.getInfoType().contains(infoType)){
                 tempList.add(healthcareInfo);
                 Log.d(HealthCareDirectoryApp.TAG,healthcareInfo.getInfoType() );
             }
         }
-
         mHealthCareInfoList = tempList;
         notifyDataSetChanged();
 
