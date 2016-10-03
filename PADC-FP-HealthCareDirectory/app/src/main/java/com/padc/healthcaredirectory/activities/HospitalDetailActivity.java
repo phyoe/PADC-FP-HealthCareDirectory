@@ -23,14 +23,9 @@ import com.bumptech.glide.Glide;
 import com.padc.healthcaredirectory.HealthCareDirectoryApp;
 import com.padc.healthcaredirectory.R;
 import com.padc.healthcaredirectory.data.persistence.HealthCareContract;
-import com.padc.healthcaredirectory.data.vos.AvailableDoctorVO;
 import com.padc.healthcaredirectory.data.vos.HealthCareServiceVO;
 import com.padc.healthcaredirectory.data.vos.HealthCareVO;
-import com.padc.healthcaredirectory.data.vos.SpecialityVO;
-import com.padc.healthcaredirectory.data.vos.TimeSlotVO;
 import com.padc.healthcaredirectory.utils.HealthCareDirectoryConstants;
-
-import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -177,6 +172,7 @@ public class HospitalDetailActivity extends BaseActivity
                     mHealthCareService.setTags(HealthCareServiceVO.loadHealthCareServiceTagsByServiceId(mHealthCareServiceId));
                     mHealthCareService.setOperations(HealthCareServiceVO.loadHealthCareServiceOperationsByServiceId(mHealthCareServiceId));
 
+                    /**
                     //for Speciality and TimeSlots
                     ArrayList<AvailableDoctorVO> doctorList = HealthCareServiceVO.loadHealthCareServiceDoctorsByServiceId(mHealthCareServiceId);
                     for(int i=0 ; i < doctorList.size() ; i++){
@@ -192,6 +188,7 @@ public class HospitalDetailActivity extends BaseActivity
                         doctorList.add(doctor);
                     }
                     mHealthCareService.setDoctors(doctorList);
+                    /**/
 
                     if (mHealthCareService.getHealthCareId() == mHealthCareServiceId) {
                         bindData(mHealthCareService);

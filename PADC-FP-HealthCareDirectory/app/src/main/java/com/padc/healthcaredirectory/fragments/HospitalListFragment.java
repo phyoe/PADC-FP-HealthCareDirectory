@@ -28,10 +28,7 @@ import com.padc.healthcaredirectory.adapters.HealthCareServiceAdapter;
 import com.padc.healthcaredirectory.data.models.HealthCareInfoModel;
 import com.padc.healthcaredirectory.data.models.HealthCareServiceModel;
 import com.padc.healthcaredirectory.data.persistence.HealthCareContract;
-import com.padc.healthcaredirectory.data.vos.AvailableDoctorVO;
 import com.padc.healthcaredirectory.data.vos.HealthCareServiceVO;
-import com.padc.healthcaredirectory.data.vos.SpecialityVO;
-import com.padc.healthcaredirectory.data.vos.TimeSlotVO;
 import com.padc.healthcaredirectory.events.DataEvent;
 import com.padc.healthcaredirectory.utils.HealthCareDirectoryConstants;
 import com.padc.healthcaredirectory.views.holders.HealthCareServiceViewHolder;
@@ -194,6 +191,7 @@ public class HospitalListFragment extends BaseFragment
                 healthCareService.setTags(HealthCareServiceVO.loadHealthCareServiceTagsByServiceId(service_id));
                 healthCareService.setOperations(HealthCareServiceVO.loadHealthCareServiceOperationsByServiceId(service_id));
 
+                /**
                 //for Speciality and TimeSlots
                 ArrayList<AvailableDoctorVO> doctorList = HealthCareServiceVO.loadHealthCareServiceDoctorsByServiceId(service_id);
                 for(int i=0 ; i < doctorList.size() ; i++){
@@ -209,6 +207,7 @@ public class HospitalListFragment extends BaseFragment
                     doctorList.add(doctor);
                 }
                 healthCareService.setDoctors(doctorList);
+                /**/
 
                 healthCareServiceList.add(healthCareService);
             } while (data.moveToNext());

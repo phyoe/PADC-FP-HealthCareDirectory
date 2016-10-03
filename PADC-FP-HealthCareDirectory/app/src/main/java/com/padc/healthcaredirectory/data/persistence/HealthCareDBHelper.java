@@ -11,16 +11,13 @@ import com.padc.healthcaredirectory.data.persistence.HealthCareContract.HealthCa
 import com.padc.healthcaredirectory.data.persistence.HealthCareContract.HealthCareServicePhoneEntry;
 import com.padc.healthcaredirectory.data.persistence.HealthCareContract.HealthCareServiceTagEntry;
 import com.padc.healthcaredirectory.data.persistence.HealthCareContract.HealthCareServiceOperationEntry;
-import com.padc.healthcaredirectory.data.persistence.HealthCareContract.HealthCareServiceDoctorEntry;
-import com.padc.healthcaredirectory.data.persistence.HealthCareContract.HealthCareServiceDoctorSpecialityEntry;
-import com.padc.healthcaredirectory.data.persistence.HealthCareContract.HealthCareServiceDoctorTimeslotEntry;
 
 /**
  * Created by Phyoe Khant on 9/23/2016.
  */
 public class HealthCareDBHelper extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION = 5;
+    private static final int DATABASE_VERSION = 6;
     public static final String DATABASE_NAME = "healthcares.db";
 
     private static final String SQL_CREATE_HEALTHCARE_SERVICES_TABLE = "CREATE TABLE " + HealthCareServiceEntry.TABLE_NAME + " (" +
@@ -83,6 +80,7 @@ public class HealthCareDBHelper extends SQLiteOpenHelper {
             HealthCareServiceOperationEntry.COLUMN_SERVICE_ID + ") ON CONFLICT IGNORE" +
             " );";
 
+    /**
     private static final String SQL_CREATE_HEALTHCARE_SERVICE_DOCTORS_TABLE = "CREATE TABLE " + HealthCareServiceDoctorEntry.TABLE_NAME + " (" +
             HealthCareServiceDoctorEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
             HealthCareServiceDoctorEntry.COLUMN_DOCTOR_ID + " INTEGER NULL, "+
@@ -116,7 +114,7 @@ public class HealthCareDBHelper extends SQLiteOpenHelper {
             " UNIQUE (" + HealthCareServiceDoctorTimeslotEntry.COLUMN_TIMESLOT_ID + ", "+
             HealthCareServiceDoctorTimeslotEntry.COLUMN_SERVICE_ID + ") ON CONFLICT IGNORE" +
             " );";
-
+    /**/
     private static final String SQL_CREATE_HEALTHCARE_INFOS_TABLE = "CREATE TABLE " + HealthCareInfoEntry.TABLE_NAME + " (" +
             HealthCareInfoEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
             HealthCareInfoEntry.COLUMN_HEALTHCARE_INFO_ID + " INTEGER NOT NULL, "+
@@ -152,9 +150,9 @@ public class HealthCareDBHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(SQL_CREATE_HEALTHCARE_SERVICE_FAX_TABLE);
         sqLiteDatabase.execSQL(SQL_CREATE_HEALTHCARE_SERVICE_TAGS_TABLE);
         sqLiteDatabase.execSQL(SQL_CREATE_HEALTHCARE_SERVICE_OPERATIONS_TABLE);
-        sqLiteDatabase.execSQL(SQL_CREATE_HEALTHCARE_SERVICE_DOCTORS_TABLE);
-        sqLiteDatabase.execSQL(SQL_CREATE_HEALTHCARE_SERVICE_DOCTOR_SPECIALITIES_TABLE);
-        sqLiteDatabase.execSQL(SQL_CREATE_HEALTHCARE_SERVICE_DOCTOR_TIMESLOTS_TABLE);
+        //sqLiteDatabase.execSQL(SQL_CREATE_HEALTHCARE_SERVICE_DOCTORS_TABLE);
+        //sqLiteDatabase.execSQL(SQL_CREATE_HEALTHCARE_SERVICE_DOCTOR_SPECIALITIES_TABLE);
+        //sqLiteDatabase.execSQL(SQL_CREATE_HEALTHCARE_SERVICE_DOCTOR_TIMESLOTS_TABLE);
         sqLiteDatabase.execSQL(SQL_CREATE_HEALTHCARE_INFOS_TABLE);
         sqLiteDatabase.execSQL(SQL_CREATE_HEALTHCARE_INFO_AUTHORS_TABLE);
     }
@@ -166,9 +164,9 @@ public class HealthCareDBHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + HealthCareServiceFaxEntry.TABLE_NAME);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + HealthCareServiceTagEntry.TABLE_NAME);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + HealthCareServiceOperationEntry.TABLE_NAME);
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + HealthCareServiceDoctorEntry.TABLE_NAME);
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + HealthCareServiceDoctorSpecialityEntry.TABLE_NAME);
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + HealthCareServiceDoctorTimeslotEntry.TABLE_NAME);
+        //sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + HealthCareServiceDoctorEntry.TABLE_NAME);
+        //sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + HealthCareServiceDoctorSpecialityEntry.TABLE_NAME);
+        //sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + HealthCareServiceDoctorTimeslotEntry.TABLE_NAME);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + HealthCareInfoEntry.TABLE_NAME);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + HealthCareInfoAuthorEntry.TABLE_NAME);
 

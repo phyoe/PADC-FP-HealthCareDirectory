@@ -198,6 +198,7 @@ public class HealthCareContract {
         }
     }
 
+    /**
     public static final class HealthCareServiceDoctorEntry implements BaseColumns{
         public static final Uri CONTENT_URI =
                 BASE_CONTENT_URI.buildUpon().appendPath(PATH_HEALTHCARE_SERVICE_DOCTORS).build();
@@ -254,13 +255,13 @@ public class HealthCareContract {
         }
 
         public static Uri buildHealthCareServiceDoctorSpecialityUriWithServiceId(long healthCareServiceId, long healthcareServiceDoctorId) {
-            /**
-            content://com.padc.healthcaredirectory/healthcare_service_doctor_specialities
-                ?healthcare_service_id=xxxx&healthcare_service_doctor_id=xxxx
-            /**/
+
+            //content://com.padc.healthcaredirectory/healthcare_service_doctor_specialities
+                //?healthcare_service_id=xxxx&healthcare_service_doctor_id=xxxx
+
             return CONTENT_URI.buildUpon()
                     .appendQueryParameter(COLUMN_SERVICE_ID, String.valueOf(healthCareServiceId))
-                    .appendQueryParameter(COLUMN_SERVICE_DOCTOR_ID, String.valueOf(healthcareServiceDoctorId))
+                    //.appendQueryParameter(COLUMN_SERVICE_DOCTOR_ID, String.valueOf(healthcareServiceDoctorId))
                     .build();
         }
         public static String getHealthCareServiceIdFromParam(Uri uri) {
@@ -296,13 +297,13 @@ public class HealthCareContract {
         }
 
         public static Uri buildHealthCareServiceDoctorTimeslotUriWithServiceId(long healthCareServiceId, long healthcareServiceDoctorId) {
-            /**
-             content://com.padc.healthcaredirectory/healthcare_service_doctor_timeslots
-             ?healthcare_service_id=xxxx&healthcare_service_doctor_id=xxxx
-             /**/
+
+            //content://com.padc.healthcaredirectory/healthcare_service_doctor_timeslots
+             //?healthcare_service_id=xxxx&healthcare_service_doctor_id=xxxx
+
             return CONTENT_URI.buildUpon()
                     .appendQueryParameter(COLUMN_SERVICE_ID, String.valueOf(healthCareServiceId))
-                    .appendQueryParameter(COLUMN_SERVICE_DOCTOR_ID, String.valueOf(healthcareServiceDoctorId))
+                    //.appendQueryParameter(COLUMN_SERVICE_DOCTOR_ID, String.valueOf(healthcareServiceDoctorId))
                     .build();
         }
         public static String getHealthCareServiceIdFromParam(Uri uri) {
@@ -313,7 +314,7 @@ public class HealthCareContract {
             return uri.getQueryParameter(COLUMN_SERVICE_DOCTOR_ID);
         }
     }
-
+    /**/
     public static final class HealthCareInfoEntry implements BaseColumns{
         public static final Uri CONTENT_URI =
                 BASE_CONTENT_URI.buildUpon().appendPath(PATH_HEALTHCARE_INFOS).build();

@@ -225,14 +225,18 @@ public class HealthCareServiceVO {
             ArrayList<PhoneVO> phoneList = healthCareService.getPhones();
             ArrayList<FaxVO> faxList = healthCareService.getFax();
             ArrayList<TagVO> tagList = healthCareService.getTags();
-            ArrayList<OperationVO> operationList = healthCareService.getOperations();
+
+            ArrayList<OperationVO> operationList = new ArrayList<>();
+            if(healthCareService.getOperations() != null && !healthCareService.getOperations().isEmpty()){
+                //operationList = healthCareService.getOperations();
+            }
             ArrayList<AvailableDoctorVO> doctorList = healthCareService.getDoctors();
 
             HealthCareServiceVO.saveHealthCareServicePhones(service_id, phoneList);
             HealthCareServiceVO.saveHealthCareServiceFax(service_id, faxList);
             HealthCareServiceVO.saveHealthCareServiceTags(service_id, tagList);
             HealthCareServiceVO.saveHealthCareServiceOperations(service_id, operationList);
-            HealthCareServiceVO.saveHealthCareServiceDoctors(service_id, doctorList);
+            //HealthCareServiceVO.saveHealthCareServiceDoctors(service_id, doctorList);
             /**/
         }
 
@@ -422,24 +426,27 @@ public class HealthCareServiceVO {
      */
     private static void saveHealthCareServiceOperations(long service_id, ArrayList<OperationVO> operationList) {
         ContentValues[] healthCareServiceOperationCVs = new ContentValues[operationList.size()];
-        for (int index = 0; index < operationList.size(); index++) {
-            OperationVO operation = operationList.get(index);
 
-            ContentValues cv = new ContentValues();
-            long operation_id = operation.getOperationId();
-            String operation_name = operation.getOperationName();
+        if( operationList != null && !operationList.isEmpty()){
+            for (int index = 0; index < operationList.size(); index++) {
+                OperationVO operation = operationList.get(index);
 
-            cv.put(HealthCareContract.HealthCareServiceOperationEntry.COLUMN_SERVICE_ID, service_id);
-            cv.put(HealthCareContract.HealthCareServiceOperationEntry.COLUMN_OPERATION_ID, operation_id);
-            cv.put(HealthCareContract.HealthCareServiceOperationEntry.COLUMN_OPERATION_NAME, operation_name);
+                ContentValues cv = new ContentValues();
+                long operation_id = operation.getOperationId();
+                String operation_name = operation.getOperationName();
 
-            healthCareServiceOperationCVs[index] = cv;
+                cv.put(HealthCareContract.HealthCareServiceOperationEntry.COLUMN_SERVICE_ID, service_id);
+                cv.put(HealthCareContract.HealthCareServiceOperationEntry.COLUMN_OPERATION_ID, operation_id);
+                cv.put(HealthCareContract.HealthCareServiceOperationEntry.COLUMN_OPERATION_NAME, operation_name);
+
+                healthCareServiceOperationCVs[index] = cv;
+            }
+
+            Context context = HealthCareDirectoryApp.getContext();
+            int insertCount = context.getContentResolver().bulkInsert(HealthCareContract.HealthCareServiceOperationEntry.CONTENT_URI, healthCareServiceOperationCVs);
+
+            Log.d(HealthCareDirectoryApp.TAG, "Bulk inserted into healthcare_service_operation table : " + insertCount);
         }
-
-        Context context = HealthCareDirectoryApp.getContext();
-        int insertCount = context.getContentResolver().bulkInsert(HealthCareContract.HealthCareServiceOperationEntry.CONTENT_URI, healthCareServiceOperationCVs);
-
-        Log.d(HealthCareDirectoryApp.TAG, "Bulk inserted into healthcare_service_operation table : " + insertCount);
     }
     public static ArrayList<OperationVO> loadHealthCareServiceOperationsByServiceId(long service_id){
         Context context = HealthCareDirectoryApp.getContext();
@@ -466,6 +473,7 @@ public class HealthCareServiceVO {
     /**
      * HealthCareServiceDoctors
      */
+    /**
     private static void saveHealthCareServiceDoctors(long service_id, ArrayList<AvailableDoctorVO> doctorList) {
         ContentValues[] healthCareServiceDoctorCVs = new ContentValues[doctorList.size()];
         for (int index = 0; index < doctorList.size(); index++) {
@@ -492,7 +500,7 @@ public class HealthCareServiceVO {
         }
 
         Context context = HealthCareDirectoryApp.getContext();
-        int insertCount = context.getContentResolver().bulkInsert(HealthCareContract.HealthCareServiceOperationEntry.CONTENT_URI, healthCareServiceDoctorCVs);
+        int insertCount = context.getContentResolver().bulkInsert(HealthCareContract.HealthCareServiceDoctorEntry.CONTENT_URI, healthCareServiceDoctorCVs);
 
         Log.d(HealthCareDirectoryApp.TAG, "Bulk inserted into healthcare_service_doctors table : " + insertCount);
     }
@@ -519,10 +527,12 @@ public class HealthCareServiceVO {
         }
         return doctorList;
     }
+     /**/
 
     /**
      * HealthCareServiceDoctorSpeciality
      */
+    /**
     private static void saveHealthCareServiceDoctorSpeciality(long service_id, long doctor_id, SpecialityVO specialityList) {
         ContentValues[] specialityCVs = new ContentValues[1];
 
@@ -561,10 +571,12 @@ public class HealthCareServiceVO {
         }
         return speciality;
     }
+     /**/
 
     /**
      * HealthCareServiceDoctorTimeslots
      */
+    /**
     private static void saveHealthCareServiceDoctorTimeslots(long service_id, long doctor_id, ArrayList<TimeSlotVO> timeSlotsList) {
         ContentValues[] timeslotCVs = new ContentValues[timeSlotsList.size()];
         for (int index = 0; index < timeSlotsList.size(); index++) {
@@ -616,4 +628,5 @@ public class HealthCareServiceVO {
         }
         return timeSlotList;
     }
+    /**/
 }
