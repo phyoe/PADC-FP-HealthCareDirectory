@@ -155,7 +155,7 @@ public class ClinicListFragment extends BaseFragment
         if (data != null && data.moveToFirst()) {
             do {
                 HealthCareServiceVO healthCareService = HealthCareServiceVO.parseFromCursor(data);
-                //HealthCareServiceVO.setPhones(HealthCareInfoVO.loadHealthCareInfoAuthorByInfoId(healthCareService.getId()));
+                healthCareService.setPhones(HealthCareServiceVO.loadHealthCareServicePhoneByServiceId(healthCareService.getHealthCareId()));
                 healthCareServiceList.add(healthCareService);
             } while (data.moveToNext());
         }

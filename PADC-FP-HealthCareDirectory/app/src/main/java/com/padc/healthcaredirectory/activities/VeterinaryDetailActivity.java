@@ -31,8 +31,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class HospitalDetailActivity extends BaseActivity
-        implements LoaderManager.LoaderCallbacks<Cursor>{
+public class VeterinaryDetailActivity extends BaseActivity
+        implements LoaderManager.LoaderCallbacks<Cursor> {
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
@@ -68,9 +68,9 @@ public class HospitalDetailActivity extends BaseActivity
     TextView tvServiceFacebook;
 
     /**
-    @BindView(R.id.img_service_map)
-    ImageView imgServiceMap;
-    /**/
+     @BindView(R.id.img_service_map)
+     ImageView imgServiceMap;
+     /**/
 
     @BindView(R.id.tv_detail_info_title)
     TextView tvDetailInfoTitle;
@@ -89,7 +89,7 @@ public class HospitalDetailActivity extends BaseActivity
     private static final String IE_SERVCE_ID = "IE_SERVCE_ID";
 
     public static Intent newIntent(long serviceId) {
-        Intent intent = new Intent(HealthCareDirectoryApp.getContext(), HospitalDetailActivity.class);
+        Intent intent = new Intent(HealthCareDirectoryApp.getContext(), VeterinaryDetailActivity.class);
         intent.putExtra(IE_SERVCE_ID, serviceId);
         return intent;
     }
@@ -118,7 +118,7 @@ public class HospitalDetailActivity extends BaseActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_hospital_detail);
+        setContentView(R.layout.activity_veterinary_detail);
         ButterKnife.bind(this, this);
 
         setSupportActionBar(toolbar);
@@ -139,16 +139,16 @@ public class HospitalDetailActivity extends BaseActivity
 
         //Data retrieve from Offline Json
         /**
-        mHealthCare = HealthCareModel.getInstance().getHealthCareById(mHospitalId);
-        tvHospitalName.setText(mHealthCare.getName());
-        collapsingToolbar.setTitle(mHealthCare.getName());
+         mHealthCare = HealthCareModel.getInstance().getHealthCareById(mHospitalId);
+         tvHospitalName.setText(mHealthCare.getName());
+         collapsingToolbar.setTitle(mHealthCare.getName());
 
-        Glide.with(imgHospital.getContext())
-                .load(R.drawable.asia_royal_hospital)
-                .fitCenter()
-                .placeholder(R.drawable.asia_royal_hospital)
-                .error(R.drawable.asia_royal_hospital)
-                .into(imgHospital);
+         Glide.with(imgHospital.getContext())
+         .load(R.drawable.asia_royal_hospital)
+         .fitCenter()
+         .placeholder(R.drawable.asia_royal_hospital)
+         .error(R.drawable.asia_royal_hospital)
+         .into(imgHospital);
 
          /**/
 
@@ -184,22 +184,22 @@ public class HospitalDetailActivity extends BaseActivity
                     mHealthCareService.setOperations(HealthCareServiceVO.loadHealthCareServiceOperationsByServiceId(mHealthCareServiceId));
 
                     /**
-                    //for Speciality and TimeSlots
-                    ArrayList<AvailableDoctorVO> doctorList = HealthCareServiceVO.loadHealthCareServiceDoctorsByServiceId(mHealthCareServiceId);
-                    for(int i=0 ; i < doctorList.size() ; i++){
-                        AvailableDoctorVO doctor = doctorList.get(i);
-                        long doctor_id = doctor.getDoctorId();
+                     //for Speciality and TimeSlots
+                     ArrayList<AvailableDoctorVO> doctorList = HealthCareServiceVO.loadHealthCareServiceDoctorsByServiceId(mHealthCareServiceId);
+                     for(int i=0 ; i < doctorList.size() ; i++){
+                     AvailableDoctorVO doctor = doctorList.get(i);
+                     long doctor_id = doctor.getDoctorId();
 
-                        SpecialityVO speciality = HealthCareServiceVO.loadHealthCareServiceDoctorSpecialityByServiceId(mHealthCareServiceId, doctor_id);
-                        doctor.setSpeciality(speciality);
+                     SpecialityVO speciality = HealthCareServiceVO.loadHealthCareServiceDoctorSpecialityByServiceId(mHealthCareServiceId, doctor_id);
+                     doctor.setSpeciality(speciality);
 
-                        ArrayList<TimeSlotVO> timeSlots = HealthCareServiceVO.loadHealthCareServiceDoctorTimeslotsByServiceId(mHealthCareServiceId, doctor_id);
-                        doctor.setTimeSlots(timeSlots);
+                     ArrayList<TimeSlotVO> timeSlots = HealthCareServiceVO.loadHealthCareServiceDoctorTimeslotsByServiceId(mHealthCareServiceId, doctor_id);
+                     doctor.setTimeSlots(timeSlots);
 
-                        doctorList.add(doctor);
-                    }
-                    mHealthCareService.setDoctors(doctorList);
-                    /**/
+                     doctorList.add(doctor);
+                     }
+                     mHealthCareService.setDoctors(doctorList);
+                     /**/
 
                     if (mHealthCareService.getHealthCareId() == mHealthCareServiceId) {
                         bindData(mHealthCareService);
@@ -300,10 +300,7 @@ public class HospitalDetailActivity extends BaseActivity
     @OnClick(R.id.tv_service_phone)
     public void onTapPhone(View view) {
         String phone = mHealthCareService.getPhones().get(0).getPhoneName();
-        if(phone != null && !phone.isEmpty()) {
+        if(phone != null && !phone.isEmpty())
             super.makeCall(phone);
-        } else {
-            Toast.makeText(HealthCareDirectoryApp.getContext(), getString(R.string.str_no_phone_number), Toast.LENGTH_SHORT).show();
-        }
     }
 }

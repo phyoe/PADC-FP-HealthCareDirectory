@@ -80,11 +80,11 @@ public class SearchResultActivity extends AppCompatActivity
             startActivity(intent);
         }
         if(loadedCategory.contains(HealthCareDirectoryConstants.STR_CLINIC)) {
-            intent = ClinicDetailActivity.newIntent(name);
+            intent = ClinicDetailActivity.newIntent(id);
             startActivity(intent);
         }
         if(loadedCategory.contains(HealthCareDirectoryConstants.STR_PHARMACY)) {
-            intent = PhamacyDetailActivity.newIntent(name);
+            intent = PhamacyDetailActivity.newIntent(id);
             startActivity(intent);
         }
     }

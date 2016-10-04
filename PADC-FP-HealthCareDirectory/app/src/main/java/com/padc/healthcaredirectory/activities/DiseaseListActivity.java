@@ -2,18 +2,15 @@ package com.padc.healthcaredirectory.activities;
 
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
 import com.padc.healthcaredirectory.HealthCareDirectoryApp;
 import com.padc.healthcaredirectory.R;
-import com.padc.healthcaredirectory.data.vos.DiseaseVO;
 import com.padc.healthcaredirectory.data.vos.HealthCareInfoVO;
-import com.padc.healthcaredirectory.fragments.ArticleListFragment;
 import com.padc.healthcaredirectory.fragments.DiseaseListFragment;
-import com.padc.healthcaredirectory.views.holders.DiseaseViewHolder;
 import com.padc.healthcaredirectory.views.holders.HealthCareInfoViewHolder;
 
 import butterknife.BindView;
@@ -24,6 +21,11 @@ public class DiseaseListActivity extends AppCompatActivity implements HealthCare
     @BindView(R.id.toolbar)
     Toolbar toolbar;
 
+    public static Intent newIntent() {
+        Intent intent = new Intent(HealthCareDirectoryApp.getContext(), DiseaseListActivity.class);
+        return intent;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,8 +33,6 @@ public class DiseaseListActivity extends AppCompatActivity implements HealthCare
         ButterKnife.bind(this, this);
 
         setSupportActionBar(toolbar);
-
-
 
         final ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -47,14 +47,6 @@ public class DiseaseListActivity extends AppCompatActivity implements HealthCare
                     .commit();
         }
     }
-
-    public static Intent newIntent() {
-
-        Intent intent = new Intent(HealthCareDirectoryApp.getContext(), DiseaseListActivity.class);
-        return intent;
-    }
-
-
 
     @Override
     public void onTapHealthCareInfo(HealthCareInfoVO healthCareInfo) {

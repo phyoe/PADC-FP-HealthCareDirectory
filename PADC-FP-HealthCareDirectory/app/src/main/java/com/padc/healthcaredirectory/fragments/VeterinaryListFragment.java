@@ -40,70 +40,45 @@ import de.greenrobot.event.EventBus;
 /**
  * Created by Saw Yu Nwe on 9/29/2016.
  */
-public class VeterinaryClinicListFragment extends BaseFragment  implements LoaderManager.LoaderCallbacks<Cursor>{
+public class VeterinaryListFragment extends BaseFragment
+        implements LoaderManager.LoaderCallbacks<Cursor> {
 
-    @BindView(R.id.rv_veterinary_clinic)
-    RecyclerView rvVeterinaryClinic;
-
-
+    @BindView(R.id.rv_veterinary)
+    RecyclerView rvVeterinary;
 
     private HealthCareServiceAdapter mHealthCareServiceAdapter;
     private HealthCareServiceViewHolder.ControllerHealthCareItem mControllerHealthCareServiceItem;
 
-    public static VeterinaryClinicListFragment newInstance() {
-        VeterinaryClinicListFragment fragment = new VeterinaryClinicListFragment();
+    public static VeterinaryListFragment newInstance() {
+        VeterinaryListFragment fragment = new VeterinaryListFragment();
         return fragment;
     }
-
-
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater,ViewGroup container,Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.fragment_veterinary_clinic_list, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_veterinary_list, container, false);
         ButterKnife.bind(this, rootView);
 
-        /**
-         List<HealthCareVO> healthCareList = HealthCareModel.getInstance().getHealthCareList();
-         //List<HealthCareVO> healthCareList = super.setTempData(R.string.health_care_hospital, HealthCareDirectoryConstants.FRAGMENT_HOSPITAL);
-
-         mHealthCareAdapter = new HealthCareAdapter(healthCareList, mControllerHealthCareItem);
-         rvHospitals.setAdapter(mHealthCareAdapter);
-         /**/
-
-        /**/
         List<HealthCareServiceVO> healthCareList = HealthCareServiceModel.getInstance().getHealthCareServiceList(HealthCareDirectoryConstants.STR_VET);
 
         mHealthCareServiceAdapter = new HealthCareServiceAdapter(healthCareList, mControllerHealthCareServiceItem);
-        rvVeterinaryClinic.setAdapter(mHealthCareServiceAdapter);
-        /**/
-
-        rvVeterinaryClinic.setLayoutManager(new GridLayoutManager(getContext(), super.gridColumnSpanCount));
+        rvVeterinary.setAdapter(mHealthCareServiceAdapter);
+        rvVeterinary.setLayoutManager(new GridLayoutManager(getContext(), super.gridColumnSpanCount));
 
         return rootView;
     }
 
-
-
-
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        /**
-         if(context instanceof HealthCareViewHolder.ControllerHealthCareItem){
-         mControllerHealthCareItem = (HealthCareViewHolder.ControllerHealthCareItem) context;
-         } else {
-         throw new RuntimeException("Unsupported Type");
-         }
-         /**/
-        /**/
+
         if(context instanceof HealthCareServiceViewHolder.ControllerHealthCareItem){
             mControllerHealthCareServiceItem = (HealthCareServiceViewHolder.ControllerHealthCareItem) context;
         } else {
             throw new RuntimeException("Unsupported Type");
         }
-        /**/
     }
 
     public void onEventMainThread(DataEvent.HealthCareServiceDataLoadedEvent event) {
@@ -158,8 +133,6 @@ public class VeterinaryClinicListFragment extends BaseFragment  implements Loade
         getActivity().getSupportLoaderManager().initLoader(HealthCareDirectoryConstants.HEALTHCARE_SERVICE_LIST_LOADER, null, this);
     }
 
-
-
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         return new CursorLoader(getContext(),
@@ -177,7 +150,7 @@ public class VeterinaryClinicListFragment extends BaseFragment  implements Loade
         if (data != null && data.moveToFirst()) {
             do {
                 HealthCareServiceVO healthCareService = HealthCareServiceVO.parseFromCursor(data);
-                //HealthCareServiceVO.setPhones(HealthCareInfoVO.loadHealthCareInfoAuthorByInfoId(healthCareService.getId()));
+                healthCareService.setPhones(HealthCareServiceVO.loadHealthCareServicePhoneByServiceId(healthCareService.getHealthCareId()));
                 healthCareServiceList.add(healthCareService);
             } while (data.moveToNext());
         }

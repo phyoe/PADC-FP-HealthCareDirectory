@@ -14,7 +14,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import com.padc.healthcaredirectory.HealthCareDirectoryApp;
 import com.padc.healthcaredirectory.R;
 import com.padc.healthcaredirectory.data.vos.DoctorVO;
 import com.padc.healthcaredirectory.data.vos.HealthCareInfoVO;
@@ -111,10 +113,12 @@ public class HomeActivity extends BaseActivity
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
+        /**
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
+        /**/
 
         return super.onOptionsItemSelected(item);
     }
@@ -179,13 +183,11 @@ public class HomeActivity extends BaseActivity
     }
 
     private void navigateToVeterinaryList() {
-
-        Intent inent = VeterinaryClinicListActivity.newIntent();
-        startActivity(inent);
+        Intent intent = VeterinaryListActivity.newIntent();
+        startActivity(intent);
     }
 
     private void navigateToDiseaseList() {
-
         Intent intent = DiseaseListActivity.newIntent();
         startActivity(intent);
 
@@ -233,11 +235,11 @@ public class HomeActivity extends BaseActivity
             startActivity(intent);
         }
         if(loadedCategory.contains(HealthCareDirectoryConstants.STR_CLINIC)) {
-            intent = ClinicDetailActivity.newIntent(name);
+            intent = ClinicDetailActivity.newIntent(id);
             startActivity(intent);
         }
         if(loadedCategory.contains(HealthCareDirectoryConstants.STR_PHARMACY)) {
-            intent = PhamacyDetailActivity.newIntent(name);
+            intent = PhamacyDetailActivity.newIntent(id);
             startActivity(intent);
         }
     }
@@ -259,7 +261,9 @@ public class HomeActivity extends BaseActivity
         String numberToCall = "";
         if(healthCarePhones != null && !healthCarePhones.isEmpty()){
             numberToCall = healthCarePhones.get(0).getPhoneName();
-            makeCall(numberToCall);
+            super.makeCall(numberToCall);
+        } else {
+            Toast.makeText(HealthCareDirectoryApp.getContext(), getString(R.string.str_no_phone_number), Toast.LENGTH_SHORT).show();
         }
         /**/
     }
@@ -277,11 +281,11 @@ public class HomeActivity extends BaseActivity
             startActivity(intent);
         }
         if(loadedCategory.contains(HealthCareDirectoryConstants.STR_CLINIC)) {
-            intent = ClinicDetailActivity.newIntent(name);
+            intent = ClinicDetailActivity.newIntent(id);
             startActivity(intent);
         }
         if(loadedCategory.contains(HealthCareDirectoryConstants.STR_PHARMACY)) {
-            intent = PhamacyDetailActivity.newIntent(name);
+            intent = PhamacyDetailActivity.newIntent(id);
             startActivity(intent);
         }
     }

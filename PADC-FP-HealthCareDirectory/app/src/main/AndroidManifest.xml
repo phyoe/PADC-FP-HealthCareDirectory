@@ -59,36 +59,13 @@
             android:name=".activities.ArticleDetailWebViewActivity"
             android:parentActivityName=".activities.ArticleListActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-
-        <provider
-            android:name=".data.persistence.HealthCareProvider"
-            android:authorities="com.padc.healthcaredirectory"
-            android:exported="false"
-            android:syncable="true" />
-
         <activity
-            android:name=".activities.VeterinaryCategoryActivity"
-            android:parentActivityName=".activities.VeterinaryCategoryActivity"
+            android:name=".activities.VeterinaryListActivity"
+            android:parentActivityName=".activities.VeterinaryListActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".activities.VeterinaryClinicListActivity"
-            android:parentActivityName=".activities.VeterinaryClinicListActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".activities.VeterinaryClinicDetailActivity"
-            android:parentActivityName=".activities.VeterinaryClinicDetailActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".activities.VeterinaryEquipmentDetailActivity"
-            android:parentActivityName=".activities.VeterinaryEquipmentDetailActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".activities.VeterinaryMedicineDetailActivity"
-            android:parentActivityName=".activities.VeterinaryMedicineDetailActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".activities.VeterinarySpaDetailActivity"
-            android:parentActivityName=".activities.VeterinarySpaDetailActivity"
+            android:name=".activities.VeterinaryDetailActivity"
+            android:parentActivityName=".activities.VeterinaryDetailActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.DiseaseListActivity"
@@ -98,12 +75,20 @@
             android:name=".activities.DiseaseDetailActivity"
             android:parentActivityName=".activities.DiseaseListActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activities.SearchActivity"
+        <activity
+            android:name=".activities.SearchActivity"
             android:parentActivityName=".activities.HomeActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activities.SearchResultActivity"
+        <activity
+            android:name=".activities.SearchResultActivity"
             android:parentActivityName=".activities.SearchActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <provider
+            android:name=".data.persistence.HealthCareProvider"
+            android:authorities="com.padc.healthcaredirectory"
+            android:exported="false"
+            android:syncable="true" />
     </application>
 
 </manifest>
