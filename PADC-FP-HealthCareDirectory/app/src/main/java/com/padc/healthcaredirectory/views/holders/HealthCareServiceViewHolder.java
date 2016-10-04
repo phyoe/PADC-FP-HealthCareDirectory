@@ -40,8 +40,8 @@ public class HealthCareServiceViewHolder extends RecyclerView.ViewHolder impleme
         mController = controller;
     }
 
-    public void bindData(HealthCareServiceVO healthCare) {
-        mHealthCareService = healthCare;
+    public void bindData(HealthCareServiceVO healthCareService) {
+        mHealthCareService = healthCareService;
 
         //For Retrieve from Offline Json
         /**
@@ -62,11 +62,18 @@ public class HealthCareServiceViewHolder extends RecyclerView.ViewHolder impleme
          if(category == HealthCareDirectoryConstants.STR_PHARMACY) img = R.drawable.dummy_pharmacy;
          /**/
 
-        tvName.setText(healthCare.getHealthCareName());
-        tvCategory.setText(healthCare.getCategoryMM());
-        tvAddress.setText(healthCare.getAddress());
+        tvName.setText(healthCareService.getHealthCareName());
 
-        String img = healthCare.getImage();
+        String category_mm = healthCareService.getCategoryMM();
+        String tags = "";
+        for(int i=0 ; i < healthCareService.getTags().size() ; i++) {
+            tags = tags + "(" + healthCareService.getTags().get(i).getTagNameMM() + ") ";
+        }
+        tvCategory.setText(category_mm + "" + tags);
+
+        tvAddress.setText(healthCareService.getAddress());
+
+        String img = healthCareService.getImage();
         Glide.with(ivHealthCare.getContext())
                 .load(img)
                 .centerCrop()

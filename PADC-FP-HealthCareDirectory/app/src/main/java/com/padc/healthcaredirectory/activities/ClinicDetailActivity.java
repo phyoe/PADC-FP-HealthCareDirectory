@@ -288,19 +288,30 @@ public class ClinicDetailActivity extends BaseActivity
     @OnClick(R.id.tv_service_website)
     public void onTapWebsiteURL(View view) {
         String website = mHealthCareService.getWebsite();
-        super.openInWebsiteUrl(website);
+        if(website != null && !website.isEmpty()) {
+            super.openInWebsiteUrl(website);
+        } else {
+            Toast.makeText(HealthCareDirectoryApp.getContext(), HealthCareDirectoryConstants.STR_NO_DATA_UNICODE, Toast.LENGTH_SHORT).show();
+        }
     }
 
     @OnClick(R.id.tv_service_facebook)
     public void onTapFacebook(View view) {
         String facebook = mHealthCareService.getFacebook();
-        super.openInFacebook(facebook);
+        if(facebook != null && !facebook.isEmpty()) {
+            super.openInFacebook(facebook);
+        } else {
+            Toast.makeText(HealthCareDirectoryApp.getContext(), HealthCareDirectoryConstants.STR_NO_DATA_UNICODE, Toast.LENGTH_SHORT).show();
+        }
     }
 
     @OnClick(R.id.tv_service_phone)
     public void onTapPhone(View view) {
         String phone = mHealthCareService.getPhones().get(0).getPhoneName();
-        if(phone != null && !phone.isEmpty())
+        if(phone != null && !phone.isEmpty()) {
             super.makeCall(phone);
+        } else {
+            Toast.makeText(HealthCareDirectoryApp.getContext(), HealthCareDirectoryConstants.STR_NO_DATA_UNICODE, Toast.LENGTH_SHORT).show();
+        }
     }
 }

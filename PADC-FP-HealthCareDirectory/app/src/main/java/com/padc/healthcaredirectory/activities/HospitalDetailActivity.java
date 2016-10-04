@@ -288,13 +288,21 @@ public class HospitalDetailActivity extends BaseActivity
     @OnClick(R.id.tv_service_website)
     public void onTapWebsiteURL(View view) {
         String website = mHealthCareService.getWebsite();
-        super.openInWebsiteUrl(website);
+        if(website != null && !website.isEmpty()) {
+            super.openInWebsiteUrl(website);
+        } else {
+            Toast.makeText(HealthCareDirectoryApp.getContext(), HealthCareDirectoryConstants.STR_NO_DATA_UNICODE, Toast.LENGTH_SHORT).show();
+        }
     }
 
     @OnClick(R.id.tv_service_facebook)
     public void onTapFacebook(View view) {
         String facebook = mHealthCareService.getFacebook();
-        super.openInFacebook(facebook);
+        if(facebook != null && !facebook.isEmpty()) {
+            super.openInFacebook(facebook);
+        } else {
+            Toast.makeText(HealthCareDirectoryApp.getContext(), HealthCareDirectoryConstants.STR_NO_DATA_UNICODE, Toast.LENGTH_SHORT).show();
+        }
     }
 
     @OnClick(R.id.tv_service_phone)
@@ -303,7 +311,7 @@ public class HospitalDetailActivity extends BaseActivity
         if(phone != null && !phone.isEmpty()) {
             super.makeCall(phone);
         } else {
-            Toast.makeText(HealthCareDirectoryApp.getContext(), getString(R.string.str_no_phone_number), Toast.LENGTH_SHORT).show();
+            Toast.makeText(HealthCareDirectoryApp.getContext(), HealthCareDirectoryConstants.STR_NO_DATA_UNICODE, Toast.LENGTH_SHORT).show();
         }
     }
 }

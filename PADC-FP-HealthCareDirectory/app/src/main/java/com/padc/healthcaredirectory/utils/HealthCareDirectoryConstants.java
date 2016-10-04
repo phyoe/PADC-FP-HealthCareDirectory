@@ -30,6 +30,7 @@ public class HealthCareDirectoryConstants {
     public static final String STR_DISEASE = "disease";
     public static final String STR_VET = "vet";
     public static final String STR_NO_DATA = "( မရွိေသးပါ )";
+    public static final String STR_NO_DATA_UNICODE = "( မရှိသေးပါ )";
 
     //Veterinary Activity
     public static final String STR_VET_CLINIC="VeterinaryClinic";

@@ -73,7 +73,7 @@ public class SearchResultActivity extends BaseActivity
             numberToCall = healthCarePhones.get(0).getPhoneName();
             super.makeCall(numberToCall);
         } else {
-            Toast.makeText(HealthCareDirectoryApp.getContext(), getString(R.string.str_no_phone_number), Toast.LENGTH_SHORT).show();
+            Toast.makeText(HealthCareDirectoryApp.getContext(), HealthCareDirectoryConstants.STR_NO_DATA_UNICODE, Toast.LENGTH_SHORT).show();
         }
     }
 

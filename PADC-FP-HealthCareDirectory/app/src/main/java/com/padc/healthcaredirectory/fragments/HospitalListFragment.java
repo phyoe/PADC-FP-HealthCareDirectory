@@ -182,6 +182,7 @@ public class HospitalListFragment extends BaseFragment
             do {
                 HealthCareServiceVO healthCareService = HealthCareServiceVO.parseFromCursor(data);
                 healthCareService.setPhones(HealthCareServiceVO.loadHealthCareServicePhoneByServiceId(healthCareService.getHealthCareId()));
+                healthCareService.setTags(HealthCareServiceVO.loadHealthCareServiceTagsByServiceId(healthCareService.getHealthCareId()));
                 healthCareServiceList.add(healthCareService);
             } while (data.moveToNext());
         }
