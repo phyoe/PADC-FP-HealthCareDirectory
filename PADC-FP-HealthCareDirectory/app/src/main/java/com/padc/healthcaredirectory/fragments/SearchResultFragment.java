@@ -1,18 +1,9 @@
 package com.padc.healthcaredirectory.fragments;
 
 
-import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.database.Cursor;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.LoaderManager;
-import android.support.v4.content.CursorLoader;
-import android.support.v4.content.Loader;
-import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -21,18 +12,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.padc.healthcaredirectory.HealthCareDirectoryApp;
 import com.padc.healthcaredirectory.R;
 import com.padc.healthcaredirectory.adapters.HealthCareServiceAdapter;
-import com.padc.healthcaredirectory.data.models.HealthCareInfoModel;
 import com.padc.healthcaredirectory.data.models.HealthCareServiceModel;
-import com.padc.healthcaredirectory.data.persistence.HealthCareContract;
 import com.padc.healthcaredirectory.data.vos.HealthCareServiceVO;
 import com.padc.healthcaredirectory.events.DataEvent;
-import com.padc.healthcaredirectory.utils.HealthCareDirectoryConstants;
 import com.padc.healthcaredirectory.views.holders.HealthCareServiceViewHolder;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -42,8 +28,7 @@ import de.greenrobot.event.EventBus;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class SearchResultFragment extends BaseFragment
-        implements LoaderManager.LoaderCallbacks<Cursor>  {
+public class SearchResultFragment extends BaseFragment {
 
     @BindView(R.id.rv_search_result)
     RecyclerView rvSearchResult;
@@ -100,9 +85,6 @@ public class SearchResultFragment extends BaseFragment
     @Override
     public void onStart() {
         super.onStart();
-        //For Persistence Layer
-        LocalBroadcastManager.getInstance(getContext()).registerReceiver(mDataLoadedBroadcastReceiver, new IntentFilter(HealthCareInfoModel.BROADCAST_DATA_LOADED));
-
         //For Network Layer
         EventBus eventBus = EventBus.getDefault();
         if (!eventBus.isRegistered(this)) {
@@ -113,67 +95,9 @@ public class SearchResultFragment extends BaseFragment
     @Override
     public void onStop() {
         super.onStop();
-        //For Persistence Layer
-        LocalBroadcastManager.getInstance(getContext()).unregisterReceiver(mDataLoadedBroadcastReceiver);
-
-
         //For Network Layer
         EventBus eventBus = EventBus.getDefault();
         eventBus.unregister(this);
-    }
-    /**
-     * For Persistence Layer
-     */
-    private BroadcastReceiver mDataLoadedBroadcastReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            //TODO instructions when the new data is ready.
-            String extra = intent.getStringExtra("key-for-extra");
-            Toast.makeText(getContext(), "Extra : " + extra, Toast.LENGTH_SHORT).show();
-
-            List<HealthCareServiceVO> newHealthCareServiceList = HealthCareServiceModel.getInstance().getHealthCareServiceListBySearchText(mSearchText);
-            mHealthCareServiceAdapter.setNewDataBySearchText(newHealthCareServiceList, mSearchText);
-        }
-    };
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        getActivity().getSupportLoaderManager().initLoader(HealthCareDirectoryConstants.HEALTHCARE_SERVICE_LIST_LOADER, null, this);
-    }
-
-    @Override
-    public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-        return new CursorLoader(getContext(),
-                HealthCareContract.HealthCareServiceEntry.CONTENT_URI,
-                null,
-                null,
-                null,
-                HealthCareContract.HealthCareServiceEntry.COLUMN_HEALTHCARE_SERVICE_NAME + " DESC");
-
-    }
-
-    @Override
-    public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-        List<HealthCareServiceVO> healthCareServiceList = new ArrayList<>();
-        if (data != null && data.moveToFirst()) {
-            do {
-                HealthCareServiceVO healthCareService = HealthCareServiceVO.parseFromCursor(data);
-                //HealthCareServiceVO.setPhones(HealthCareInfoVO.loadHealthCareInfoAuthorByInfoId(healthCareService.getId()));
-                healthCareServiceList.add(healthCareService);
-            } while (data.moveToNext());
-        }
-
-        Log.d(HealthCareDirectoryApp.TAG, "Retrieved healthCareService DESC : " + healthCareServiceList.size());
-        List<HealthCareServiceVO> filterList = mHealthCareServiceAdapter.setNewDataBySearchText(healthCareServiceList, mSearchText);
-
-        HealthCareServiceModel.getInstance().setStoredData(filterList);
-
-    }
-
-    @Override
-    public void onLoaderReset(Loader<Cursor> loader) {
-
     }
 
 }

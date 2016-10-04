@@ -12,13 +12,13 @@
         android:layout_width="wrap_content"
         android:layout_marginTop="@dimen/margin_large"
         android:layout_height="wrap_content"
-        android:hint="ရွာေဖြလိုုေသာနာမည္ကိုုေရးပါ …" />
+        android:hint="@string/str_search_text" />
     
     <com.padc.healthcaredirectory.components.MMButton
         android:id="@+id/btnSearch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=" ရွာေဖြပါ"/>
+        android:text="@string/btn_search"/>
 
     <com.padc.healthcaredirectory.components.MMTextView
         android:textSize="@dimen/text_regular_3x"
@@ -27,6 +27,6 @@
         android:layout_marginTop="@dimen/margin_large"
         android:padding="@dimen/margin_large"
         android:gravity="center_horizontal"
-        android:text="သင္ရွာေဖြလိုုေသာ ေဆးရံုု ၊ ေဆးခန္း ၊ ေဆးဆိုုင္၏နာမည္ျဖင့္ ရွာေဖြႏုုိင္ပါသည္"/>
+        android:text="@string/str_search_body"/>
 
 </LinearLayout>

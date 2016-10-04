@@ -152,6 +152,9 @@
     <string name="dummy_opearations">အေရးေပၚလူနာကုသျခင္</string>
     <string name="health_care_price_category">★★★★★</string>
     <string name="str_no_phone_number">ဖုန္းနံပါတ္မရွိေသးပါ ...</string>
+    <string name="str_search_text">ရွာေဖြလိုေသာနာမည္ကိုေရးပါ ...</string>
+    <string name="str_search_body">သင္ရွာေဖြလိုေသာ ေဆးရံု ၊ ေဆးခန္း ၊ ေဆးဆိုုင္၏နာမည္ျဖင့္ ရွာေဖြႏုိင္ပါသည္</string>
+    <string name="btn_search">ရွာေဖြပါ</string>
 
 
 </resources>

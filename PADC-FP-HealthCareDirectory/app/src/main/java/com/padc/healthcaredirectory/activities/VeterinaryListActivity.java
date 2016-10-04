@@ -34,7 +34,7 @@ public class VeterinaryListActivity extends BaseActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_article_list);
+        setContentView(R.layout.activity_veterinary_list);
         ButterKnife.bind(this, this);
 
         setSupportActionBar(toolbar);
