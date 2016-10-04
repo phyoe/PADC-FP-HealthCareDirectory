@@ -1,8 +1,13 @@
 package com.padc.healthcaredirectory.events;
 
+import android.util.Log;
+
+import com.padc.healthcaredirectory.HealthCareDirectoryApp;
 import com.padc.healthcaredirectory.data.vos.HealthCareInfoVO;
 import com.padc.healthcaredirectory.data.vos.HealthCareServiceVO;
+import com.padc.healthcaredirectory.utils.HealthCareDirectoryConstants;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -24,8 +29,36 @@ public class DataEvent {
             return extraMessage;
         }
 
-        public List<HealthCareServiceVO> getHealthCareServiceList() {
-            return mHealthCareServiceList;
+        public List<HealthCareServiceVO> getHealthCareServiceList(String category) {
+            //Filter here
+            List<HealthCareServiceVO> filterList = new ArrayList<>();
+            for(HealthCareServiceVO healthcareService: mHealthCareServiceList)
+            {
+                if(healthcareService.getCategory()==null)
+                {
+                    healthcareService.setCategory(HealthCareDirectoryConstants.STR_HOSPITAL);
+                }
+                if(healthcareService.getCategory().equals(category) )
+                {
+                    filterList.add(healthcareService);
+                    Log.d(HealthCareDirectoryApp.TAG,healthcareService.getCategory() );
+                }
+            }
+            return filterList;
+        }
+
+        public List<HealthCareServiceVO> getHealthCareServiceListBySearchText(String searchText) {
+            //Filter here
+            List<HealthCareServiceVO> filterList = new ArrayList<>();
+            for(HealthCareServiceVO healthcareService: mHealthCareServiceList)
+            {
+                if(healthcareService.getHealthCareName().contains(searchText) )
+                {
+                    filterList.add(healthcareService);
+                    Log.d(HealthCareDirectoryApp.TAG,healthcareService.getHealthCareName() );
+                }
+            }
+            return filterList;
         }
     }
 

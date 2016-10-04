@@ -36,6 +36,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import de.greenrobot.event.EventBus;
 
 
 /**
@@ -58,7 +59,7 @@ public class ClinicListFragment extends BaseFragment
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof HealthCareServiceViewHolder.ControllerHealthCareItem) {
+        if(context instanceof HealthCareServiceViewHolder.ControllerHealthCareItem){
             mControllerHealthCareServiceItem = (HealthCareServiceViewHolder.ControllerHealthCareItem) context;
         } else {
             throw new RuntimeException("Unsupported Type");
@@ -72,24 +73,23 @@ public class ClinicListFragment extends BaseFragment
         View rootView = inflater.inflate(R.layout.fragment_clinic_list, container, false);
         ButterKnife.bind(this, rootView);
 
-        List<HealthCareServiceVO> healthCareList = HealthCareServiceModel.getInstance().getHealthCareServiceList();
+        List<HealthCareServiceVO> healthCareList = HealthCareServiceModel.getInstance().getHealthCareServiceList(HealthCareDirectoryConstants.STR_CLINIC);
 
         mHealthCareServiceAdapter = new HealthCareServiceAdapter(healthCareList, mControllerHealthCareServiceItem);
         rvClinics.setAdapter(mHealthCareServiceAdapter);
+        /**/
 
         rvClinics.setLayoutManager(new GridLayoutManager(getContext(), super.gridColumnSpanCount));
+
         return rootView;
     }
-
     public void onEventMainThread(DataEvent.HealthCareServiceDataLoadedEvent event) {
-
         String extra = event.getExtraMessage();
         Toast.makeText(getContext(), "Extra : " + extra, Toast.LENGTH_SHORT).show();
 
-        List<HealthCareServiceVO> newHealthCareServiceList = event.getHealthCareServiceList();
-        mHealthCareServiceAdapter.setNewData(newHealthCareServiceList,  HealthCareDirectoryConstants.STR_CLINIC);
+        List<HealthCareServiceVO> newHealthCareServiceList = event.getHealthCareServiceList(HealthCareDirectoryConstants.STR_CLINIC);
+        mHealthCareServiceAdapter.setNewData(newHealthCareServiceList, HealthCareDirectoryConstants.STR_CLINIC);
         mHealthCareServiceAdapter.notifyDataSetChanged();
-
     }
 
     @Override
@@ -97,6 +97,12 @@ public class ClinicListFragment extends BaseFragment
         super.onStart();
         //For Persistence Layer
         LocalBroadcastManager.getInstance(getContext()).registerReceiver(mDataLoadedBroadcastReceiver, new IntentFilter(HealthCareServiceModel.BROADCAST_DATA_LOADED));
+
+        //For Network Layer
+        EventBus eventBus = EventBus.getDefault();
+        if (!eventBus.isRegistered(this)) {
+            eventBus.register(this);
+        }
     }
 
     @Override
@@ -104,6 +110,11 @@ public class ClinicListFragment extends BaseFragment
         super.onStop();
         //For Persistence Layer
         LocalBroadcastManager.getInstance(getContext()).unregisterReceiver(mDataLoadedBroadcastReceiver);
+
+
+        //For Network Layer
+        EventBus eventBus = EventBus.getDefault();
+        eventBus.unregister(this);
     }
 
     /**
@@ -112,15 +123,12 @@ public class ClinicListFragment extends BaseFragment
     private BroadcastReceiver mDataLoadedBroadcastReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-        //TODO instructions when the new data is ready.
+            //TODO instructions when the new data is ready.
+            String extra = intent.getStringExtra("key-for-extra");
+            Toast.makeText(getContext(), "Extra : " + extra, Toast.LENGTH_SHORT).show();
 
-        String extra = intent.getStringExtra("key-for-extra");
-        Toast.makeText(getContext(), "Extra : " + extra, Toast.LENGTH_SHORT).show();
-
-        List<HealthCareServiceVO> newHealthCareServiceList = HealthCareServiceModel.getInstance().getHealthCareServiceList();
-        mHealthCareServiceAdapter.setNewData(newHealthCareServiceList, HealthCareDirectoryConstants.STR_CLINIC);
-
-
+            List<HealthCareServiceVO> newHealthCareServiceList = HealthCareServiceModel.getInstance().getHealthCareServiceList(HealthCareDirectoryConstants.STR_CLINIC);
+            mHealthCareServiceAdapter.setNewData(newHealthCareServiceList, HealthCareDirectoryConstants.STR_CLINIC);
         }
     };
 
@@ -146,29 +154,17 @@ public class ClinicListFragment extends BaseFragment
         List<HealthCareServiceVO> healthCareServiceList = new ArrayList<>();
         if (data != null && data.moveToFirst()) {
             do {
-                //Filter here
                 HealthCareServiceVO healthCareService = HealthCareServiceVO.parseFromCursor(data);
-                long service_id = healthCareService.getHealthCareId();
-                String category = healthCareService.getCategory();
-                if(category != null && !category.isEmpty()){
-                    if(category.contains(HealthCareDirectoryConstants.STR_CLINIC)){
-                        healthCareService.setPhones(HealthCareServiceVO.loadHealthCareServicePhoneByServiceId(service_id));
-                        healthCareService.setFax(HealthCareServiceVO.loadHealthCareServiceFaxByServiceId(service_id));
-                        healthCareService.setTags(HealthCareServiceVO.loadHealthCareServiceTagsByServiceId(service_id));
-                        healthCareService.setOperations(HealthCareServiceVO.loadHealthCareServiceOperationsByServiceId(service_id));
-
-                        healthCareServiceList.add(healthCareService);
-                    }
-                }
-
+                //HealthCareServiceVO.setPhones(HealthCareInfoVO.loadHealthCareInfoAuthorByInfoId(healthCareService.getId()));
+                healthCareServiceList.add(healthCareService);
             } while (data.moveToNext());
         }
 
         Log.d(HealthCareDirectoryApp.TAG, "Retrieved healthCareService DESC : " + healthCareServiceList.size());
         mHealthCareServiceAdapter.setNewData(healthCareServiceList, HealthCareDirectoryConstants.STR_CLINIC);
-        mHealthCareServiceAdapter.notifyDataSetChanged();
 
         HealthCareServiceModel.getInstance().setStoredData(healthCareServiceList);
+
     }
 
     @Override

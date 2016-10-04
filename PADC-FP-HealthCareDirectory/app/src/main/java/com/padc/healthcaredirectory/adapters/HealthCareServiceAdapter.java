@@ -51,19 +51,40 @@ public class HealthCareServiceAdapter  extends RecyclerView.Adapter<HealthCareSe
         notifyDataSetChanged();//framework method
     }
 
-    public void setNewData(List<HealthCareServiceVO> newHealthCareServiceList, String category) {
+    public List<HealthCareServiceVO> setNewData(List<HealthCareServiceVO> newHealthCareServiceList, String type) {
         //Filter here
-        List<HealthCareServiceVO> tempList = new ArrayList<>();
-        for(HealthCareServiceVO healthcareService: newHealthCareServiceList){
-
-            if(healthcareService.getCategory() == null || healthcareService.getCategory().isEmpty()){
+        List<HealthCareServiceVO> filterList = new ArrayList<>();
+        for(HealthCareServiceVO healthcareService: newHealthCareServiceList)
+        {
+            if(healthcareService.getCategory()==null)
+            {
                 healthcareService.setCategory(HealthCareDirectoryConstants.STR_HOSPITAL);
-            } else if(healthcareService.getCategory().equals(category)){
-                tempList.add(healthcareService);
-                Log.d(HealthCareDirectoryApp.TAG,healthcareService.getCategory());
+            }
+            if(healthcareService.getCategory().equals(type) )
+            {
+                filterList.add(healthcareService);
+                Log.d(HealthCareDirectoryApp.TAG,healthcareService.getCategory() );
             }
         }
-        mHealthCareServiceList = tempList;
+        mHealthCareServiceList = filterList;
         notifyDataSetChanged();//framework method
+        return filterList;
+    }
+
+    public List<HealthCareServiceVO> setNewDataBySearchText(List<HealthCareServiceVO> newHealthCareServiceList, String searchText) {
+        //Filter here
+        List<HealthCareServiceVO> filterList = new ArrayList<>();
+        for(HealthCareServiceVO healthcareService: mHealthCareServiceList)
+        {
+            if(healthcareService.getHealthCareName().contains(searchText) )
+            {
+                filterList.add(healthcareService);
+                Log.d(HealthCareDirectoryApp.TAG,healthcareService.getHealthCareName() );
+            }
+        }
+
+        mHealthCareServiceList = filterList;
+        notifyDataSetChanged();//framework method
+        return filterList;
     }
 }

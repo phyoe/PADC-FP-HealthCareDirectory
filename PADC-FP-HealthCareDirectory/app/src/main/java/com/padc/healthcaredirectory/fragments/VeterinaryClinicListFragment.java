@@ -39,7 +39,7 @@ import de.greenrobot.event.EventBus;
 
 /**
  * Created by Saw Yu Nwe on 9/29/2016.
-        */
+ */
 public class VeterinaryClinicListFragment extends BaseFragment  implements LoaderManager.LoaderCallbacks<Cursor>{
 
     @BindView(R.id.rv_veterinary_clinic)
@@ -73,7 +73,7 @@ public class VeterinaryClinicListFragment extends BaseFragment  implements Loade
          /**/
 
         /**/
-        List<HealthCareServiceVO> healthCareList = HealthCareServiceModel.getInstance().getHealthCareServiceList();
+        List<HealthCareServiceVO> healthCareList = HealthCareServiceModel.getInstance().getHealthCareServiceList(HealthCareDirectoryConstants.STR_VET);
 
         mHealthCareServiceAdapter = new HealthCareServiceAdapter(healthCareList, mControllerHealthCareServiceItem);
         rvVeterinaryClinic.setAdapter(mHealthCareServiceAdapter);
@@ -110,7 +110,7 @@ public class VeterinaryClinicListFragment extends BaseFragment  implements Loade
         String extra = event.getExtraMessage();
         Toast.makeText(getContext(), "Extra : " + extra, Toast.LENGTH_SHORT).show();
 
-        List<HealthCareServiceVO> newHealthCareServiceList = event.getHealthCareServiceList();
+        List<HealthCareServiceVO> newHealthCareServiceList = event.getHealthCareServiceList(HealthCareDirectoryConstants.STR_VET);
         mHealthCareServiceAdapter.setNewData(newHealthCareServiceList, HealthCareDirectoryConstants.STR_VET);
         mHealthCareServiceAdapter.notifyDataSetChanged();
     }
@@ -147,7 +147,7 @@ public class VeterinaryClinicListFragment extends BaseFragment  implements Loade
             String extra = intent.getStringExtra("key-for-extra");
             Toast.makeText(getContext(), "Extra : " + extra, Toast.LENGTH_SHORT).show();
 
-            List<HealthCareServiceVO> newHealthCareServiceList = HealthCareServiceModel.getInstance().getHealthCareServiceList();
+            List<HealthCareServiceVO> newHealthCareServiceList = HealthCareServiceModel.getInstance().getHealthCareServiceList(HealthCareDirectoryConstants.STR_VET);
             mHealthCareServiceAdapter.setNewData(newHealthCareServiceList, HealthCareDirectoryConstants.STR_VET);
         }
     };

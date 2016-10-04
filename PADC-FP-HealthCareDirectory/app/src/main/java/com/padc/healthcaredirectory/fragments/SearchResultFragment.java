@@ -24,6 +24,7 @@ import android.widget.Toast;
 import com.padc.healthcaredirectory.HealthCareDirectoryApp;
 import com.padc.healthcaredirectory.R;
 import com.padc.healthcaredirectory.adapters.HealthCareServiceAdapter;
+import com.padc.healthcaredirectory.data.models.HealthCareInfoModel;
 import com.padc.healthcaredirectory.data.models.HealthCareServiceModel;
 import com.padc.healthcaredirectory.data.persistence.HealthCareContract;
 import com.padc.healthcaredirectory.data.vos.HealthCareServiceVO;
@@ -38,65 +39,69 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import de.greenrobot.event.EventBus;
 
-
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PharmacyListFragment extends BaseFragment
-        implements LoaderManager.LoaderCallbacks<Cursor>{
+public class SearchResultFragment extends BaseFragment
+        implements LoaderManager.LoaderCallbacks<Cursor>  {
 
-    @BindView(R.id.rv_pharmacies)
-    RecyclerView rvPharmacies;
+    @BindView(R.id.rv_search_result)
+    RecyclerView rvSearchResult;
 
     private HealthCareServiceAdapter mHealthCareServiceAdapter;
     private HealthCareServiceViewHolder.ControllerHealthCareItem mControllerHealthCareServiceItem;
 
-    public static PharmacyListFragment newInstance() {
-        PharmacyListFragment fragment = new PharmacyListFragment();
+    private static String mSearchText;
+
+    public static SearchResultFragment newInstance() {
+        SearchResultFragment fragment = new SearchResultFragment();
         return fragment;
     }
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+
         if(context instanceof HealthCareServiceViewHolder.ControllerHealthCareItem){
             mControllerHealthCareServiceItem = (HealthCareServiceViewHolder.ControllerHealthCareItem) context;
         } else {
             throw new RuntimeException("Unsupported Type");
         }
     }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.fragment_pharmacy_list, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_search_result, container, false);
         ButterKnife.bind(this, rootView);
 
-        List<HealthCareServiceVO> healthCareList = HealthCareServiceModel.getInstance().getHealthCareServiceList(HealthCareDirectoryConstants.STR_PHARMACY);
+        mSearchText = getArguments().getString("searchText");
+
+        Log.e("searchText : ", mSearchText);
+
+        List<HealthCareServiceVO> healthCareList = HealthCareServiceModel.getInstance().getHealthCareServiceListBySearchText(mSearchText);
 
         mHealthCareServiceAdapter = new HealthCareServiceAdapter(healthCareList, mControllerHealthCareServiceItem);
-        rvPharmacies.setAdapter(mHealthCareServiceAdapter);
-        /**/
+        rvSearchResult.setAdapter(mHealthCareServiceAdapter);
 
-        rvPharmacies.setLayoutManager(new GridLayoutManager(getContext(), super.gridColumnSpanCount));
+        rvSearchResult.setLayoutManager(new GridLayoutManager(getContext(), super.gridColumnSpanCount));
 
         return rootView;
     }
+
     public void onEventMainThread(DataEvent.HealthCareServiceDataLoadedEvent event) {
         String extra = event.getExtraMessage();
         Toast.makeText(getContext(), "Extra : " + extra, Toast.LENGTH_SHORT).show();
 
-        List<HealthCareServiceVO> newHealthCareServiceList = event.getHealthCareServiceList(HealthCareDirectoryConstants.STR_PHARMACY);
-        mHealthCareServiceAdapter.setNewData(newHealthCareServiceList, HealthCareDirectoryConstants.STR_PHARMACY);
+        List<HealthCareServiceVO> newHealthCareServiceList = event.getHealthCareServiceListBySearchText(mSearchText);
+        mHealthCareServiceAdapter.setNewDataBySearchText(newHealthCareServiceList, mSearchText);
         mHealthCareServiceAdapter.notifyDataSetChanged();
     }
-
     @Override
     public void onStart() {
         super.onStart();
         //For Persistence Layer
-        LocalBroadcastManager.getInstance(getContext()).registerReceiver(mDataLoadedBroadcastReceiver, new IntentFilter(HealthCareServiceModel.BROADCAST_DATA_LOADED));
+        LocalBroadcastManager.getInstance(getContext()).registerReceiver(mDataLoadedBroadcastReceiver, new IntentFilter(HealthCareInfoModel.BROADCAST_DATA_LOADED));
 
         //For Network Layer
         EventBus eventBus = EventBus.getDefault();
@@ -116,7 +121,6 @@ public class PharmacyListFragment extends BaseFragment
         EventBus eventBus = EventBus.getDefault();
         eventBus.unregister(this);
     }
-
     /**
      * For Persistence Layer
      */
@@ -127,8 +131,8 @@ public class PharmacyListFragment extends BaseFragment
             String extra = intent.getStringExtra("key-for-extra");
             Toast.makeText(getContext(), "Extra : " + extra, Toast.LENGTH_SHORT).show();
 
-            List<HealthCareServiceVO> newHealthCareServiceList = HealthCareServiceModel.getInstance().getHealthCareServiceList(HealthCareDirectoryConstants.STR_PHARMACY);
-            mHealthCareServiceAdapter.setNewData(newHealthCareServiceList, HealthCareDirectoryConstants.STR_PHARMACY);
+            List<HealthCareServiceVO> newHealthCareServiceList = HealthCareServiceModel.getInstance().getHealthCareServiceListBySearchText(mSearchText);
+            mHealthCareServiceAdapter.setNewDataBySearchText(newHealthCareServiceList, mSearchText);
         }
     };
 
@@ -161,9 +165,9 @@ public class PharmacyListFragment extends BaseFragment
         }
 
         Log.d(HealthCareDirectoryApp.TAG, "Retrieved healthCareService DESC : " + healthCareServiceList.size());
-        mHealthCareServiceAdapter.setNewData(healthCareServiceList, HealthCareDirectoryConstants.STR_PHARMACY);
+        List<HealthCareServiceVO> filterList = mHealthCareServiceAdapter.setNewDataBySearchText(healthCareServiceList, mSearchText);
 
-        HealthCareServiceModel.getInstance().setStoredData(healthCareServiceList);
+        HealthCareServiceModel.getInstance().setStoredData(filterList);
 
     }
 

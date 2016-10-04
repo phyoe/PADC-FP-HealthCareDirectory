@@ -94,10 +94,16 @@
             android:name=".activities.DiseaseListActivity"
             android:parentActivityName=".activities.HomeActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activities.DiseaseDetailActivity"
+        <activity
+            android:name=".activities.DiseaseDetailActivity"
             android:parentActivityName=".activities.DiseaseListActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
-
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activities.SearchActivity"
+            android:parentActivityName=".activities.HomeActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activities.SearchResultActivity"
+            android:parentActivityName=".activities.SearchActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

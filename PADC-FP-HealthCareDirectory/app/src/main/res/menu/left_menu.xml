@@ -30,6 +30,7 @@
             android:title="@string/health_care_articles" />
     </group>
 
+    <!--
     <item android:title="@string/str_favourite_title">
         <menu>
             <group android:checkableBehavior="single">
@@ -40,7 +41,7 @@
             </group>
         </menu>
     </item>
-
+    -->
     <item android:title="">
         <menu>
             <group android:checkableBehavior="single">

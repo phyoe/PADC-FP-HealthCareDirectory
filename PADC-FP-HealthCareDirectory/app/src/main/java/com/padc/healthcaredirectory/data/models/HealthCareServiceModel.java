@@ -3,9 +3,11 @@ package com.padc.healthcaredirectory.data.models;
 import android.util.Log;
 
 import com.google.gson.reflect.TypeToken;
+import com.padc.healthcaredirectory.HealthCareDirectoryApp;
 import com.padc.healthcaredirectory.data.vos.HealthCareServiceVO;
 import com.padc.healthcaredirectory.events.DataEvent;
 import com.padc.healthcaredirectory.utils.CommonInstance;
+import com.padc.healthcaredirectory.utils.HealthCareDirectoryConstants;
 import com.padc.healthcaredirectory.utils.JsonUtils;
 
 import org.json.JSONException;
@@ -29,7 +31,7 @@ public class HealthCareServiceModel extends BaseModel {
     private static HealthCareServiceModel objInstance;
 
     private List<HealthCareServiceVO> mHealthCareServiceList;
-    
+
     public HealthCareServiceModel() {
         /**/
         //From Network Layer
@@ -39,10 +41,10 @@ public class HealthCareServiceModel extends BaseModel {
         /**/
 
         /**
-        //From Json file
-        super();
-        mHealthCareServiceList = initializeHealthCareService();
-        /**/
+         //From Json file
+         super();
+         mHealthCareServiceList = initializeHealthCareService();
+         /**/
     }
 
     public static HealthCareServiceModel getInstance(){
@@ -55,6 +57,7 @@ public class HealthCareServiceModel extends BaseModel {
     private List<HealthCareServiceVO> initializeHealthCareService() {
 
         List<HealthCareServiceVO> healthCareServiceList = new ArrayList<>();
+        //ArrayList<HealthCareServiceVO> list = new ArrayList<HealthCareServiceVO>();
 
         try {
 
@@ -75,6 +78,41 @@ public class HealthCareServiceModel extends BaseModel {
 
     public List<HealthCareServiceVO> getHealthCareServiceList() {
         return mHealthCareServiceList;
+    }
+
+    public List<HealthCareServiceVO> getHealthCareServiceList(String category) {
+
+        //Filter here
+        List<HealthCareServiceVO> filterList = new ArrayList<>();
+        for(HealthCareServiceVO healthcareService: mHealthCareServiceList)
+        {
+            if(healthcareService.getCategory()==null)
+            {
+                healthcareService.setCategory(HealthCareDirectoryConstants.STR_HOSPITAL);
+            }
+            if(healthcareService.getCategory().equals(category) )
+            {
+                filterList.add(healthcareService);
+                Log.d(HealthCareDirectoryApp.TAG,healthcareService.getCategory() );
+            }
+        }
+
+        return filterList;
+    }
+
+    public List<HealthCareServiceVO> getHealthCareServiceListBySearchText(String searchText) {
+        //Filter here
+        List<HealthCareServiceVO> filterList = new ArrayList<>();
+        for(HealthCareServiceVO healthcareService: mHealthCareServiceList)
+        {
+            if(healthcareService.getHealthCareName().contains(searchText) )
+            {
+                filterList.add(healthcareService);
+                Log.d(HealthCareDirectoryApp.TAG,healthcareService.getHealthCareName() );
+            }
+        }
+
+        return filterList;
     }
 
     /**

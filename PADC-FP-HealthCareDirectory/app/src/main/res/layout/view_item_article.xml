@@ -116,9 +116,9 @@
             <ImageView
                 android:id="@+id/iv_article"
                 android:layout_width="128dp"
-                android:layout_height="114dp"
+                android:layout_height="100dp"
                 android:layout_weight="1"
-                android:scaleType="fitStart"
+                android:scaleType="centerCrop"
                 android:src="@drawable/article_img" />
         </LinearLayout>
 

@@ -30,11 +30,6 @@ public class HealthCareServiceViewHolder extends RecyclerView.ViewHolder impleme
     @BindView(R.id.tv_address)
     TextView tvAddress;
 
-    /**
-    @BindView(R.id.tv_phone)
-    TextView tvPhone;
-    /**/
-
     private ControllerHealthCareItem mController;
     private HealthCareServiceVO mHealthCareService;
 
@@ -50,40 +45,26 @@ public class HealthCareServiceViewHolder extends RecyclerView.ViewHolder impleme
 
         //For Retrieve from Offline Json
         /**
-        String phones = "";
-        if(healthCare.getPhones() != null){
-            String[] arr_phones = healthCare.getPhones();
-            for (String ph : arr_phones) {
-                phones = phones + ph + ", ";
-            }
-        } else {
-            throw new NullPointerException("Data is empty.");
-        }
+         String phones = "";
+         if(healthCare.getPhones() != null){
+         String[] arr_phones = healthCare.getPhones();
+         for (String ph : arr_phones) {
+         phones = phones + ph + ", ";
+         }
+         } else {
+         throw new NullPointerException("Data is empty.");
+         }
 
-        String category = healthCare.getCategory();
-        int img = R.drawable.dummy_healthcare;
-        if(category.contains(HealthCareDirectoryConstants.STR_HOSPITAL)) img = R.drawable.asia_royal_hospital;
-        if(category == HealthCareDirectoryConstants.STR_CLINIC) img = R.drawable.dummy_clinic;
-        if(category == HealthCareDirectoryConstants.STR_PHARMACY) img = R.drawable.dummy_pharmacy;
-        /**/
+         String category = healthCare.getCategory();
+         int img = R.drawable.dummy_healthcare;
+         if(category.contains(HealthCareDirectoryConstants.STR_HOSPITAL)) img = R.drawable.asia_royal_hospital;
+         if(category == HealthCareDirectoryConstants.STR_CLINIC) img = R.drawable.dummy_clinic;
+         if(category == HealthCareDirectoryConstants.STR_PHARMACY) img = R.drawable.dummy_pharmacy;
+         /**/
 
         tvName.setText(healthCare.getHealthCareName());
-
-        String category_mm = healthCare.getCategoryMM();
-        String tags = "";
-        for(int i=0 ; i < healthCare.getTags().size() ; i++) {
-            tags = tags + "(" + healthCare.getTags().get(i).getTagNameMM() + ") ";
-        }
-        tvCategory.setText(category_mm + "" + tags);
-
+        tvCategory.setText(healthCare.getCategoryMM());
         tvAddress.setText(healthCare.getAddress());
-
-        /**
-        List<PhoneVO> healthCarePhones = healthCare.getPhones();
-        String phone = (healthCarePhones != null && !healthCarePhones.isEmpty())?
-                healthCarePhones.get(0).getPhoneName() : HealthCareDirectoryConstants.STR_NO_DATA;
-        tvPhone.setText(phone);
-        /**/
 
         String img = healthCare.getImage();
         Glide.with(ivHealthCare.getContext())
