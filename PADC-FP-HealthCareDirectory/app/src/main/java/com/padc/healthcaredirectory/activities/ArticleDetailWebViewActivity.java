@@ -60,7 +60,7 @@ public class ArticleDetailWebViewActivity extends BaseActivity
         switch (id) {
             case R.id.action_share:
                 String articleUrl = mHealthCareInfo.getCompleteUrl();
-                Toast.makeText(HealthCareDirectoryApp.getContext(), getString(R.string.lbl_share), Toast.LENGTH_SHORT).show();
+                Toast.makeText(HealthCareDirectoryApp.getContext(), getString(R.string.str_share_unicode), Toast.LENGTH_SHORT).show();
                 super.sendViaShareIntent(mHealthCareInfo.getTitle() + "\n" + articleUrl);
                 return true;
         }

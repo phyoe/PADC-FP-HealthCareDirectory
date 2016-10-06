@@ -75,7 +75,7 @@ public class ArticleDetailActivity extends BaseActivity
         switch (id) {
             case R.id.action_share:
                 String imageUrl = mHealthCareInfo.getImage();
-                Toast.makeText(HealthCareDirectoryApp.getContext(), getString(R.string.lbl_share), Toast.LENGTH_SHORT).show();
+                Toast.makeText(HealthCareDirectoryApp.getContext(), getString(R.string.str_share_unicode), Toast.LENGTH_SHORT).show();
                 super.sendViaShareIntent(mHealthCareInfo.getTitle() + "\n" + imageUrl);
                 return true;
         }

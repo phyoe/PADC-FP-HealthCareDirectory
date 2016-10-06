@@ -107,7 +107,7 @@ public class VeterinaryDetailActivity extends BaseActivity
         switch (id) {
             case R.id.action_share:
                 String imageUrl = mHealthCareService.getImage();
-                Toast.makeText(HealthCareDirectoryApp.getContext(), getString(R.string.lbl_share), Toast.LENGTH_SHORT).show();
+                Toast.makeText(HealthCareDirectoryApp.getContext(), getString(R.string.str_share_unicode), Toast.LENGTH_SHORT).show();
                 super.sendViaShareIntent(mHealthCareService.getCategoryMM() + "\n" + imageUrl);
                 return true;
         }
@@ -268,7 +268,11 @@ public class VeterinaryDetailActivity extends BaseActivity
             else
                 operations = operations + healthCareService.getOperations().get(i).getOperationName() + "\n";
         }
-        tvServiceOperations.setText(operations);
+        if(operations != null && !operations.isEmpty()){
+            tvServiceOperations.setText(operations);
+        } else {
+            tvServiceOperations.setText(getString(R.string.default_opeartion_vet));
+        }
 
         String imageUrl = healthCareService.getImage();
         Glide.with(imgService.getContext())

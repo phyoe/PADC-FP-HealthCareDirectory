@@ -6,7 +6,7 @@
         android:id="@+id/action_share"
         android:icon="@drawable/ic_share_24dp"
         android:orderInCategory="90"
-        android:title="@string/lbl_share"
+        android:title="@string/str_share_unicode"
         app:showAsAction="ifRoom" />
 
 </menu>

@@ -5,40 +5,13 @@
     <string name="str_email">asiaroyal@asiaroyal.com.mm</string>
     <string name="str_website">http://www.asiaroyalhospital.com</string>
     <string name="str_facebook">https://www.facebook.com/Asia-Royal-Hospital-246812222184086/?ref=br_rs</string>
-
     <string name="str_hospital_info_label">ေဆးရံုအခ်က္အလက္</string>
 
-    <string name="str_clinic_name">မိုးသီး</string>
-    <string name="str_clinic_info">ပုဂၢလိက ေဆးခန္းျဖစ္သည္။ ၂၄ နာရီဖြင့္သည္။</string>
-    <string name="str_clinic_address">ယမံုနာလမ္း (ရႈခင္းသာလမ္းမၾကီး)၊ သာေကတျမိဳ႕နယ္။</string>
-    <string name="str_clinic_phone">0920134</string>
-    <string name="str_clinic_mail">moetheeclinic@gmail.com</string>
-    <string name="str_clinic_website">www.moetheeclinic.com</string>
-    <string name="str_clinic_facebook">www.facebook.com/moetheeclinic</string>
-
-    <string name="str_clinic_name_label">အမည္</string>
-    <string name="str_clinic_info_label">သတင္းအခ်က္အလက္</string>
-    <string name="str_clinic_address_label">လိပ္စာ</string>
-    <string name="str_clinic_phone_label">ဖုန္း</string>
-    <string name="str_clinic_mail_label">Mail</string>
-    <string name="str_clinic_website_label">Website</string>
-    <string name="str_clinic_facebook_label">Facebook</string>
-
-    <string name="str_phamacy_name">ဆုလာဘ္</string>
-    <string name="str_phamacy_info">သာေကတျမိဳ႕နယ္ ၇ ရပ္ကြက္ အတြင္းမွ ေဆးဆိုင္ေလးျဖစ္သည္။ ေစ်းနႈန္းခ်ိဳသာျပီး ဆက္ဆံေရးေျပျပစ္သည္။</string>
-    <string name="str_phamacy_address">ေအာင္သေျပလမ္း ၇ အေရွ႕ရပ္ကြက္ သာေကတျမိဳနယ္။</string>
-    <string name="str_phamacy_phone">092015454</string>
-    <string name="str_phamacy_mail">sularbphamacy@gmail.com</string>
-    <string name="str_phamacy_website">www.sularbphamacy.com</string>
-    <string name="str_phamacy_facebook">www.facebook.com/sularbphamacy</string>
-
-    <string name="str_phamacy_name_label">အမည္</string>
-    <string name="str_phamacy_info_label">သတင္းအခ်က္အလက္</string>
-    <string name="str_phamacy_address_label">လိပ္စာ</string>
-    <string name="str_phamacy_phone_label">ဖုန္း</string>
-    <string name="str_phamacy_mail_label">Mail</string>
-    <string name="str_phamacy_website_label">Website</string>
-    <string name="str_phamacy_facebook_label">Facebook</string>
+    <!-- Default Strings -->
+    <string name="default_opeartion_hospital">အေရးေပၚလူနာကုသျခင္</string>
+    <string name="default_opeartion_clinic">General Medicine</string>
+    <string name="default_opeartion_pharmacy">ေဆး၀ါးမ်ားေရာင္းခ်ျခင္း</string>
+    <string name="default_opeartion_vet">Diagnosis and Treatment</string>
 
     <!-- Left Menu -->
     <string name="home_screen_title">PADC - က်န္းမာေရးလမ္းညႊန္</string>
@@ -91,7 +64,7 @@
     <string name="dummy_author">ေဒါက္တာ တင့္ေဆြ</string>
     <string name="dummy_website">https://www.sitename.com/1678802282351604/1818536395044858/?type=3</string>
     <string name="str_readmore">ဆက္ဖတ္ရန္</string>
-    <string name="lbl_share">မွ်ေ၀ရန္</string>
+    <string name="str_share_unicode">မျှဝေရန်</string>
 
     <!-- Disease List + Detail -->
     <string name="disease_screen_title">အျဖစ္မ်ားေရာဂါမ်ား</string>
@@ -112,42 +85,6 @@
     <string name="veterinary_medicine_title">အိမ္ေမြးတိရစာၦန္ ေဆး၀ါးပစၥည္းဆိုင္္</string>
     <string name="veterinary_spa_title">Pet Spa</string>
 
-    <!-- Veterinary Clinic Detail-->
-    <string name="veterinary_clinic_name">ေမလိခ</string>
-    <string name="veterinary_clinic_address">အမွတ္ (၃၆၀ ခ)၊ ၀ိုင္ယာလက္ ၁ လမ္း၊ ကမာၻေအးဘုရားလမ္း၊ မရမ္းကုန္းျမိဳ႕နယ္</string>
-    <string name="veterinary_clinic_phone">09421071288</string>
-    <string name="veterinary_clinic_mail">maylikha@gmail.com</string>
-    <string name="veterinary_clinic_website">www.maylikhavetclinic.com</string>
-    <string name="veterinary_clinic_facebook">www.facebook.com/pyay-vet-clinic</string>
-
-    <!-- Veterinary Equipment Detail-->
-    <string name="veterinary_equipment_name">ေမလိခ</string>
-    <string name="veterinary_equipment_address">အမွတ္ (၃၆၀ ခ)၊ ၀ိုင္ယာလက္ ၁ လမ္း၊ ကမာၻေအးဘုရားလမ္း၊ မရမ္းကုန္းျမိဳ႕နယ္</string>
-    <string name="veterinary_equipment_phone">09421071288</string>
-    <string name="veterinary_equipment_mail">maylikha@gmail.com</string>
-    <string name="veterinary_equipment_website">www.maylikhavetclinic.com</string>
-    <string name="veterinary_equipment_facebook">www.facebook.com/May-Li-Kha</string>
-
-    <!-- Veterinary Medicine Detail-->
-    <string name="veterinary_medicine_name">မင္း</string>
-    <string name="veterinary_medicine_address">အမွတ္ (၇)၊ ျမင့္မိုရ္လမ္း၊ စမ္းေခ်ာင္းျမိဳ႕နယ္္</string>
-    <string name="veterinary_medicine_phone">095014606</string>
-    <string name="veterinary_medicine_mail">minvetclinic@gmail.com</string>
-    <string name="veterinary_medicine_website">https://www.minvetclinic.com/</string>
-    <string name="veterinary_medicine_facebook">www.facebook.com/min-vet-clinic</string>
-
-    <!-- Veterinary Spa Detail-->
-    <string name="veterinary_spa_name">Diamond Apex Pet Care Center</string>
-    <string name="veterinary_spa_address">အမွတ္(၃၇)၊ ေအာင္ေဇယ်လမ္း၊ ေက်ာက္ကုန္း၊ ရန္ကင္းျမိဳ႕နယ္္</string>
-    <string name="veterinary_spa_phone">09262190500</string>
-    <string name="veterinary_spa_mail">diamondapexpetcare@gmail.com</string>
-    <string name="veterinary_spa_website">https://www.diamondapexpetcare.com/</string>
-    <string name="veterinary_spa_facebook">www.facebook.com/diamond-apex-pet-care-center</string>
-
-    <string name="str_veterinary_clinic_info_label">ေဆးခန္းအခ်က္အလက္</string>
-    <string name="str_veterinary_equipment_info_label">အသံုးေဆာင္ပစၥည္းဆိုင္ အခ်က္အလက္္</string>
-    <string name="str_veterinary_medicine_info_label">ေဆး၀ါးပစၥည္းဆိုင္ အခ်က္အလက္္</string>
-    <string name="str_veterinary_spa_info_label">Spa Information</string>
     <string name="str_operation_label">၀န္ေဆာင္မႈမ်ား</string>
     <string name="dummy_opearations">အေရးေပၚလူနာကုသျခင္</string>
     <string name="health_care_price_category">★★★★★</string>
