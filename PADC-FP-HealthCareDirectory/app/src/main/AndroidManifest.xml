@@ -83,7 +83,10 @@
             android:name=".activities.SearchResultActivity"
             android:parentActivityName=".activities.SearchActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-
+        <activity
+            android:name=".activities.HelpActivity"
+            android:parentActivityName=".activities.HomeActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <provider
             android:name=".data.persistence.HealthCareProvider"
             android:authorities="com.padc.healthcaredirectory"

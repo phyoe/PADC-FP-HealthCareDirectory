@@ -199,7 +199,8 @@ public class HomeActivity extends BaseActivity
     }
 
     private void navigateToHelp() {
-
+        Intent intent = HelpActivity.newIntent();
+        startActivity(intent);
     }
 
     private void navigateToArticleList() {
@@ -210,10 +211,8 @@ public class HomeActivity extends BaseActivity
     }
 
     private void navigateToAboutUs() {
-        /**/
         ViewDialog alert = new ViewDialog();
         alert.showDialog(this, "dummy string");
-        /**/
     }
 
     @Override

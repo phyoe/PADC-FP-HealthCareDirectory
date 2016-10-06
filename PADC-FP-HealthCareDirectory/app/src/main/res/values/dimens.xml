@@ -41,5 +41,6 @@
     <dimen name="icon_size">20dp</dimen>
     <dimen name="detail_article_height">180dp</dimen>
     <dimen name="icon_width">24dp</dimen>
+    <dimen name="help_image_size_width">280dp</dimen>
 
 </resources>
