@@ -26,6 +26,7 @@ import com.padc.healthcaredirectory.data.vos.PhoneVO;
 import com.padc.healthcaredirectory.fragments.HealthCarePagerFragment;
 import com.padc.healthcaredirectory.utils.HealthCareDirectoryConstants;
 import com.padc.healthcaredirectory.utils.MMFontUtils;
+import com.padc.healthcaredirectory.views.dialogs.ViewDialog;
 import com.padc.healthcaredirectory.views.holders.DoctorCategoryViewHolder;
 import com.padc.healthcaredirectory.views.holders.DoctorViewHolder;
 import com.padc.healthcaredirectory.views.holders.HealthCareInfoViewHolder;
@@ -209,7 +210,10 @@ public class HomeActivity extends BaseActivity
     }
 
     private void navigateToAboutUs() {
-
+        /**/
+        ViewDialog alert = new ViewDialog();
+        alert.showDialog(this, "dummy string");
+        /**/
     }
 
     @Override

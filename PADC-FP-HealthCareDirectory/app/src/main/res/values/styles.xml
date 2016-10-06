@@ -55,6 +55,11 @@
         <item name="android:padding">@dimen/margin_extra_small</item>
     </style>
 
+    <style name="HealthCareCardDialogButton">
+        <item name="android:background">@drawable/bg_blank</item>
+        <item name="android:textColor">@color/primary</item>
+    </style>
+
     <style name="ListViewItem" parent="HealthCareCardView">
         <item name="android:textSize">@dimen/text_regular_2x</item>
         <item name="android:textColor">@color/primary_dark</item>

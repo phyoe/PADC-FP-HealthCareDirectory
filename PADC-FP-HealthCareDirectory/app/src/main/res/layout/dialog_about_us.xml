@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:padding="@dimen/margin_medium">
+
+        <ImageView
+            android:id="@+id/iv_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_medium"
+            android:layout_marginRight="@dimen/margin_small"
+            android:paddingTop="@dimen/margin_medium"
+            android:src="@drawable/ic_healthcare_launcher_icon" />
+
+        <com.padc.healthcaredirectory.components.MMTextView
+            android:id="@+id/tv_title"
+            style="@style/PrimaryTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/iv_logo"
+            android:background="@drawable/bg_blank"
+            android:gravity="center_vertical"
+            android:paddingTop="@dimen/margin_medium"
+            android:text="@string/dialog_about_us_title" />
+
+        <com.padc.healthcaredirectory.components.MMTextView
+            android:id="@+id/tv_message"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_title"
+            android:gravity="left"
+            android:paddingBottom="@dimen/margin_small"
+            android:paddingLeft="@dimen/margin_large"
+            android:paddingRight="@dimen/margin_large"
+            android:paddingTop="@dimen/margin_large"
+            android:text="@string/dialog_about_us_messge" />
+
+        <com.padc.healthcaredirectory.components.MMTextView
+            android:id="@+id/tv_version"
+            style="@style/SecondaryTitle"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_message"
+            android:background="@drawable/bg_blank"
+            android:gravity="left"
+            android:paddingBottom="@dimen/margin_medium"
+            android:paddingLeft="@dimen/margin_large"
+            android:paddingRight="@dimen/margin_medium"
+            android:text="@string/dummy_version" />
+
+        <com.padc.healthcaredirectory.components.MMButton
+            android:id="@+id/dialogButtonClose"
+            style="@style/HealthCareCardButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/tv_version"
+            android:layout_margin="@dimen/margin_small"
+            android:layout_marginBottom="@dimen/margin_large"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/dialog_about_us_btnClose" />
+
+    </RelativeLayout>
+</ScrollView>
