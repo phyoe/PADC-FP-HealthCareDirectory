@@ -17,7 +17,6 @@ import butterknife.ButterKnife;
 
 public class HelpActivity extends AppCompatActivity {
 
-
     @BindView(R.id.toolbar)
     Toolbar toolbar;
 
