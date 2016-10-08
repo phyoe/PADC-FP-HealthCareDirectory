@@ -15,10 +15,8 @@ import butterknife.ButterKnife;
 
 public class SearchActivity extends AppCompatActivity {
 
-
     @BindView(R.id.toolbar)
     Toolbar toolbar;
-
 
     public static Intent newIntent(){
         Intent intent = new Intent(HealthCareDirectoryApp.getContext(), SearchActivity.class);

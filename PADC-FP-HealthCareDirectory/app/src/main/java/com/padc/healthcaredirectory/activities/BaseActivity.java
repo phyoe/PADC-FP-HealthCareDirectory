@@ -37,7 +37,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         startActivity(Intent.createChooser(ShareCompat.IntentBuilder.from(BaseActivity.this)
                 .setType("text/plain")
                 .setText(msg)
-                .getIntent(), getString(R.string.str_share_unicode)));
+                .getIntent(), getString(R.string.str_share_eng)));
     }
 
     protected void openInWebsiteUrl(String url) {

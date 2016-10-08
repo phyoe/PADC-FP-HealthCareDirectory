@@ -34,7 +34,7 @@
             android:background="#FFF"
             android:layout_weight="1"
             android:padding="1dp"
-            android:src="@drawable/healthcare01" />
+            android:src="@drawable/help01" />
 
         <ImageView
             android:id="@+id/iv_right"

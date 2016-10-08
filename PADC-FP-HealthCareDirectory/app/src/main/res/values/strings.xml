@@ -64,6 +64,8 @@
     <string name="dummy_author">ေဒါက္တာ တင့္ေဆြ</string>
     <string name="dummy_website">https://www.sitename.com/1678802282351604/1818536395044858/?type=3</string>
     <string name="str_readmore">ဆက္ဖတ္ရန္</string>
+    <string name="str_share_eng">Share</string>
+    <string name="str_share">မွ်ေ၀ရန္</string>
     <string name="str_share_unicode">မျှဝေရန်</string>
 
     <!-- Disease List + Detail -->
@@ -90,14 +92,13 @@
     <string name="health_care_price_category">★★★★★</string>
     <string name="str_no_phone_number">ဖုန္းနံပါတ္မရွိေသးပါ ...</string>
     <string name="str_search_text">ရွာေဖြလိုေသာနာမည္ကိုေရးပါ ...</string>
-    <string name="str_search_body">သင္ရွာေဖြလိုေသာ ေဆးရံု ၊ ေဆးခန္း ၊ ေဆးဆိုုင္၏နာမည္ျဖင့္ ရွာေဖြႏုိင္ပါသည္</string>
+    <string name="str_search_body">သင္ရွာေဖြလိုေသာ ေဆးရံု ၊ ေဆးခန္း ၊ ေဆးဆိုင္၏နာမည္ျဖင့္ ရွာေဖြႏုိင္ပါသည္</string>
     <string name="btn_search">ရွာေဖြပါ</string>
 
     <!-- About us -->
     <string name="dialog_about_us_title">က်န္းမာေရးလမ္းညြန္ဆိုုတာ</string>
     <string name="dialog_about_us_btnClose">ပိတ္ရန္</string>
-    <string name="dialog_about_us_messge">က်န္းမာေရးလမ္းညြန္ (HealthCare Directory) Application တြင္ ရန္ကုန္ၿမိဳ႕တြင္းရွိ ေဆး႐ုံ ၊ ေဆးခန္း ၊ ေဆးပစၥည္းအေရာင္းဆိုင္မ်ားအား သတင္းအခ်က္အလက္ စံုစံုလင္လင္ႏွင့္ ရွာေဖြနိုုင္မည့္အျပင္ အိမ္ေမြးတိရစာၦန္ေစာင့္ေရွာက္မႈဆိုင္ရာ ေဆး႐ံု ၊ ေဆးခန္း ၊ အသံုးအေဆာင္ပစၥည္းအေရာင္းဆိုင္မ်ားအား လြယ္ကူလ်င္ျမန္စြာရွာေဖြနိုင္ပါသည္။ ထိုု႔အျပင္ က်န္းမာေရးဆိုုင္ရာ ေဆာင္းပါးမ်ားအား စံုစံုလင္လင္ဖတ္ရွုနိုုင္ရန္ စုုစည္းထားၿပီး အျဖစ္မ်ားေသာေရာဂါမ်ားအေၾကာင္းမ်ားကိုုလည္း ဗဟုုသုုတရေစရန္ စုစည္းေပးထားပါသည္။</string>
-    <string name="dummy_version">ယခုုလက္ရွိ ေဆာ့၀ဲလ္ ဗားရွင္း 1.0</string>
+    <string name="dialog_about_us_messge">က်န္းမာေရးလမ္းညြန္ (HealthCare Directory) Application တြင္ ရန္ကုန္ၿမိဳ႕တြင္းရွိ ေဆး႐ုံ ၊ ေဆးခန္း ၊ ေဆးပစၥည္းအေရာင္းဆိုင္မ်ားအား သတင္းအခ်က္အလက္ စံုစံုလင္လင္ႏွင့္ ရွာေဖြနိုုင္မည့္အျပင္ အိမ္ေမြးတိရစာၦန္ ေစာင့္ေရွာက္မႈဆိုင္ရာ ေဆး႐ံု ၊ ေဆးခန္း ၊ အသံုးအေဆာင္ပစၥည္း အေရာင္းဆိုင္မ်ားအား လြယ္ကူလ်င္ျမန္စြာ ရွာေဖြနိုင္ပါသည္။ ထိုု႔အျပင္ က်န္းမာေရးဆိုုင္ရာ ေဆာင္းပါးမ်ားအား စံုစံုလင္လင္ဖတ္ရွုနိုုင္ရန္ စုုစည္းထားၿပီး အျဖစ္မ်ားေသာေရာဂါမ်ားအေၾကာင္းမ်ားကိုုလည္း ဗဟုုသုုတရေစရန္ စုစည္းေပးထားပါသည္။</string> <string name="dummy_version">ယခုုလက္ရွိ ေဆာ့၀ဲလ္ ဗားရွင္း 1.0</string>
 
     <!-- Help -->
     <string name="str_help_slide_next">အသံုးျပဳနည္း အေသးစိတ္အားၾကည့္ရန္ ေနာက္သိုု႕ တစ္ပံုခ်င္းစီ ေဘးတိုုက္ဆြဲကာ အသံုုးျပဳႏိုင္ပါသည္။</string>

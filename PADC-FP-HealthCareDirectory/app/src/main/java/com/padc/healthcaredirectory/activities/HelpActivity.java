@@ -38,9 +38,14 @@ public class HelpActivity extends AppCompatActivity {
         ButterKnife.bind(this, this);
         setSupportActionBar(toolbar);
 
-        screenShots = new int[] { R.drawable.healthcare01,
-                R.drawable.healthcare02, R.drawable.healthcare03,
-                R.drawable.healthcare04, R.drawable.healthcare05 };
+        screenShots = new int[] {
+                R.drawable.help01,
+                R.drawable.help02, R.drawable.help02i, R.drawable.help02ii,
+                R.drawable.help03, R.drawable.help03i, R.drawable.help03ii,
+                R.drawable.help04, R.drawable.help04i, R.drawable.help04ii,
+                R.drawable.help06, R.drawable.help06i, R.drawable.help06ii,
+                R.drawable.help07, R.drawable.help08, R.drawable.help09,
+                R.drawable.help10, R.drawable.help11, R.drawable.help12 };
 
         // Pass results to ViewPagerAdapter Class
         mPagerAdapter = new HelpViewPagerAdapter(this, screenShots);

@@ -52,7 +52,6 @@
     <style name="HealthCareCardButton">
         <item name="android:background">@drawable/bg_rounded</item>
         <item name="android:textColor">@color/primary</item>
-        <item name="android:padding">@dimen/margin_extra_small</item>
     </style>
 
     <style name="HealthCareCardDialogButton">
