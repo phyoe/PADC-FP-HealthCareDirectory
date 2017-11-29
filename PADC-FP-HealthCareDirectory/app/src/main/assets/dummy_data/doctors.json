@@ -1,0 +1,111 @@
+[{
+  "id": 1,
+  "name": "ပါေမာကၡ ဦးေဇာ္သန္းထြန္း",
+  "category": "doctor_general",
+  "category_mm": "အေထြေထြေရာဂါ",
+  "qualifications": "MBBS, MRCP(UK), FRCP(Edin), FRCP(Glasgow)",
+  "image": "doctor1.jpg",
+  "email": "drzawthanhtun@mail.com",
+  "facebook": "https://www.facebook.com/drzawthanhtun",
+  "website": "https://www.drzawthanhtun.com",
+  "hospital_list": [{
+    "id": 1,
+    "name": "Hospital-A",
+    "days": "Monday to Friday",
+    "times": "5:00PM-8:00PM"
+  }],
+  "clinic_list": [{
+    "id": 1,
+    "name": "Clinic-A",
+    "days": "Tuesday, Wednesday",
+    "times": "10:00AM-1:00PM"
+  }]
+}, {
+  "id": 2,
+  "name":  "ေဒါက္တာ လဲ့လဲ့ေဌး",
+  "category": "doctor_type1",
+  "category_mm": "သားဖြားႏွင့္မီးယပ္",
+  "qualifications": "MBBS, MMedSc (Int Med), Fellowship in Rheumatology (Singapore)",
+  "image": "doctor2.jpg",
+  "email": "doctor2@mail.com",
+  "facebook": "https://www.facebook.com/doctor2",
+  "website": "https://www.doctor2.com",
+  "hospital_list": [{
+    "id": 1,
+    "name": "Hospital-A",
+    "days": "Monday to Friday",
+    "times": "5:00PM-8:00PM"
+  }],
+  "clinic_list": [{
+    "id": 1,
+    "name": "Clinic-A",
+    "days": "Tuesday, Wednesday",
+    "times": "10:00AM-1:00PM"
+  }]
+}, {
+  "id": 3,
+  "name": "ေဒါက္တာ ေဒၚမိုးမိုးစမ္း (တြဲဖတ္ပါေမာကၡ)",
+  "category": "doctor_heart",
+  "category_mm": "ႏွလံုုးေရာဂါ",
+  "qualifications": "MBBS, MMedSc (Int Med), DrMedSc (Gen Edu), FRCP (Glasgow)",
+  "image": "doctor3.jpg",
+  "email": "doctor3@mail.com",
+  "facebook": "https://www.facebook.com/doctor3",
+  "website": "https://www.doctor3.com",
+  "hospital_list": [{
+    "id": 1,
+    "name": "Hospital-A",
+    "days": "Monday to Friday",
+    "times": "5:00PM-8:00PM"
+  }],
+  "clinic_list": [{
+    "id": 1,
+    "name": "Clinic-A",
+    "days": "Tuesday, Wednesday",
+    "times": "10:00AM-1:00PM"
+  }]
+}, {
+  "id": 4,
+  "name":   "ပါေမာကၡ ဦးခ်စ္စိုး",
+  "category": "doctor_heart",
+  "category_mm": "အရိုးအဆစ္ေရာဂါ",
+  "qualifications":  "MBBS, MMedSc, MRCP (UK), DrMedSc (General Med), FRCP (Edin), Dip Med Ed",
+  "image": "doctor3.jpg",
+  "email": "doctor3@mail.com",
+  "facebook": "https://www.facebook.com/doctor3",
+  "website": "https://www.doctor3.com",
+  "hospital_list": [{
+    "id": 1,
+    "name": "Hospital-A",
+    "days": "Monday to Friday",
+    "times": "5:00PM-8:00PM"
+  }],
+  "clinic_list": [{
+    "id": 1,
+    "name": "Clinic-A",
+    "days": "Tuesday, Wednesday",
+    "times": "10:00AM-1:00PM"
+  }]
+}, {
+  "id": 5,
+  "name":   "ေဒါက္တာ ေအာင္ကိုကိုေက်ာ္",
+  "category": "doctor_heart",
+  "category_mm": "ကင္ဆာေရာဂါ",
+  "qualifications": "MBBS, MMedSc (Int Med), MRCP (UK), Fellowship in Hepatology (Korea)",
+  "image": "doctor3.jpg",
+  "email": "doctor3@mail.com",
+  "facebook": "https://www.facebook.com/doctor3",
+  "website": "https://www.doctor3.com",
+  "hospital_list": [{
+    "id": 1,
+    "name": "Hospital-A",
+    "days": "Monday to Friday",
+    "times": "5:00PM-8:00PM"
+  }],
+  "clinic_list": [{
+    "id": 1,
+    "name": "Clinic-A",
+    "days": "Tuesday, Wednesday",
+    "times": "10:00AM-1:00PM"
+  }]
+}]

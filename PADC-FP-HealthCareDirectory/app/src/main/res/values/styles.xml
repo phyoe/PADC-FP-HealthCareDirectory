@@ -3,9 +3,70 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/accent</item>
+    </style>
+
+    <style name="HealthCareCardView">
+        <item name="android:background">@color/white_full</item>
+    </style>
+
+    <style name="PrimaryTitle" parent="HealthCareCardView">
+        <item name="android:textSize">@dimen/text_regular_3x</item>
+        <item name="android:textColor">@color/primary</item>
+    </style>
+
+    <style name="SecondaryTitle" parent="HealthCareCardView">
+        <item name="android:textSize">@dimen/text_regular</item>
+        <item name="android:textColor">@color/primary_dark</item>
+    </style>
+
+    <style name="ContentText" parent="HealthCareCardView">
+        <item name="android:textSize">@dimen/text_regular</item>
+        <item name="android:textColor">@color/black_overlay</item>
+        <item name="android:lineSpacingMultiplier">1.2</item>
+    </style>
+
+    <style name="DetailInfoTitle" parent="HealthCareCardView">
+        <item name="android:textSize">@dimen/text_regular_2x</item>
+        <item name="android:textColor">@color/primary</item>
+    </style>
+
+    <style name="LinkText" parent="HealthCareCardView">
+        <item name="android:textSize">@dimen/text_regular</item>
+        <item name="android:textColor">@android:color/holo_blue_light</item>
+    </style>
+
+    <style name="ArticleDate" parent="HealthCareCardView">
+        <item name="android:textSize">@dimen/text_small</item>
+        <item name="android:textColor">@color/black_overlay</item>
+    </style>
+
+    <style name="ArticleTitle" parent="HealthCareCardView">
+        <item name="android:textSize">@dimen/text_regular_3x</item>
+        <item name="android:textColor">@color/black_full</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="HealthCareCardButton">
+        <item name="android:background">@drawable/bg_rounded</item>
+        <item name="android:textColor">@color/primary</item>
+    </style>
+
+    <style name="HealthCareCardDialogButton">
+        <item name="android:background">@drawable/bg_blank</item>
+        <item name="android:textColor">@color/primary</item>
+    </style>
+
+    <style name="ListViewItem" parent="HealthCareCardView">
+        <item name="android:textSize">@dimen/text_regular_2x</item>
+        <item name="android:textColor">@color/primary_dark</item>
+    </style>
+
+    <style name="PriceCategory" parent="HealthCareCardView">
+        <item name="android:textSize">@dimen/text_regular_3x</item>
+        <item name="android:textColor">@android:color/holo_orange_dark</item>
     </style>
 
     <style name="AppTheme.NoActionBar">

@@ -1,4 +1,108 @@
 <resources>
     <string name="app_name">PADC-FP-HealthCareDirectory</string>
     <string name="action_settings">Settings</string>
+
+    <string name="str_email">asiaroyal@asiaroyal.com.mm</string>
+    <string name="str_website">http://www.asiaroyalhospital.com</string>
+    <string name="str_facebook">https://www.facebook.com/Asia-Royal-Hospital-246812222184086/?ref=br_rs</string>
+    <string name="str_hospital_info_label">ေဆးရံုအခ်က္အလက္</string>
+
+    <!-- Default Strings -->
+    <string name="default_opeartion_hospital">အေရးေပၚလူနာကုသျခင္</string>
+    <string name="default_opeartion_clinic">General Medicine</string>
+    <string name="default_opeartion_pharmacy">ေဆး၀ါးမ်ားေရာင္းခ်ျခင္း</string>
+    <string name="default_opeartion_vet">Diagnosis and Treatment</string>
+
+    <!-- Left Menu -->
+    <string name="home_screen_title">PADC - က်န္းမာေရးလမ္းညႊန္</string>
+    <string name="health_care_clinics">ေဆးရံု ၊ ေဆးခန္း ၊ ေဆးဆိုင္မ်ား</string>
+    <string name="health_care_doctors">ဆရာ၀န္မ်ား</string>
+    <string name="health_care_diseases">အျဖစ္မ်ားေရာဂါမ်ား</string>
+    <string name="health_care_articles">က်န္းမာေရးေဆာင္းပါးမ်ား</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="str_help">အသံုးျပဳနည္း</string>
+    <string name="str_about_us">က်န္းမာေရးလမ္းညႊန္ဆိုတာ</string>
+    <string name="str_favourite_title">My Favourites</string>
+    <string name="str_favourite">Favourites</string>
+    <string name="health_care_veterinary">အိမ္ေမြးတိရစာၦန္ဆိုင္ရာ</string>
+
+    <!-- Home Screen List + Detail -->
+    <string name="health_care_hospital">ေဆးရံု</string>
+    <string name="health_care_hospital_category">ေဆးရံု(အစိုးရ)</string>
+    <string name="health_care_clinic">ေဆးခန္း</string>
+    <string name="health_care_clinic_category">အေထြေထြေဆးကုခန္း</string>
+    <string name="health_care_pharmacy">ေဆးဆိုင္</string>
+    <string name="health_care_pharmacy_category">ေဆးရံုသံုးပစၥည္းမ်ား</string>
+    <string name="dummy_township">စမ္းေခ်ာင္း</string>
+    <string name="dummy_address">No. 14, Baho Street Township, Yangon, Myanmar (Burma)</string>
+    <string name="dummy_phone_1">+95 1 230 4999</string>
+    <string name="dummy_phone_2">+95 1 538 055</string>
+    <string name="lbl_phone">ဖုန္းေခၚဆိုရန္</string>
+    <string name="lbl_detail">အေသးစိတ္</string>
+    <string name="title_activity_test">TestActivity</string>
+    <string name="healthcare_list_detail_transition_name">healthcare_list_detail_transition_name</string>
+
+    <!-- Doctor List + Detail -->
+    <string name="doctor_screen_title">ဆရာ၀န္မ်ား</string>
+    <string name="doctor_hospital_info">ေဆးရံုအခ်က္အလက္</string>
+    <string name="doctor_clinic_info">ေဆးခန္းအခ်က္အလက္</string>
+    <string name="dummy_name">ပါေမာကၡ ဦးေဇာ္သန္းထြန္း</string>
+    <string name="dummy_qualifications">MBBS, MRCP(UK), FRCP(Edin), FRCP(Glasgow)</string>
+    <string name="dummy_doctor_hospital_name">အာရွေတာ္၀င္</string>
+    <string name="dummy_doctor_hospital_timetable">အဂၤါ၊ၾကာသပေတး - ညေန ၃ နာရီ \n တနဂၤေႏြ - နံနက္ ၁၀ နာရီ မွ ၁ နာရီ</string>
+    <string name="dummy_doctor_clinic_name">နီနီ ေရာဂါရွာေဖြေရးႏွင့္ အထူးကုေဆးခန္း</string>
+    <string name="dummy_doctor_clinic_timetable">တနလာၤ၊ဗုဒၶဟူး၊ေသာၾကာ - ညေန ၄ နာရီ \n စေန - ေန႕လယ္ ၂ နာရီ မွ ၃ နာရီ</string>
+    <string name="dummy_facebook">https://www.facebook.com/</string>
+    <string name="dummy_email">personname@mail.com</string>
+
+    <!-- Article List + Detail -->
+    <string name="article_screen_title">က်န္းမာေရးေဆာင္းပါးမ်ား</string>
+    <string name="dummy_title">ညနက္တဲ့အထိ ေဖ့စ္ဘုတ္သံုးသူမ်ား သတိထား</string>
+    <string name="dummy_description">က်န္းမာေရးပါရဂူၾကီးမ်ားရဲ့ ေလ့လာေတြ့ရွိခ်က္အရ လူသားေတြအတြက္ အေကာင္းဆံုး အိပ္စက္အနားယူခ်ိန္ဟာ ည ၁၁ နာရီမွ မနက္ ၃ နာရီအတြင္းျဖစ္တယ္လို့ သိရပါတယ္။ ဒီအဆိုကို ေဆးပညာရွင္မ်ားအားလံုးနီးကလည္း လက္ခံထားၾကပါတယ္။ ၁၁-၃ အတြင္း အနားမယူပဲ အလုပ္တစ္ခုခု လုပ္ေနမယ္ဆိုရင္ က်နး္မာေရးကို ထိခိုက္ေစလိမ့္မယ္။ ခ်က္ခ်င္းမဟုတ္ေပမယ့္ ေရရွည္မွာ ဆိုး၀ါးလာေစႏိုင္ပါတယ္။အေၾကာင္းကေတာ့ လူ့ခႏၶာကိုယ္ထဲမွာ အဓိကအေရးၾကီးဆံုး အလုပ္လုပ္ေပးေနတဲ့ အသည္းဟာ ၁၁-၃ အခ်ိန္မွာ လူတို့စားသံုးထားတဲ့ အစားအစာမ်ားထဲမွ အဆိပ္အေတာက္နဲ့ မလိုအပ္တဲ့အရာမ်ားကို စစ္ထုတ္ေပးေနရလို့ပါပဲ။ အသည္းရဲ့ အလုပ္လုပ္ခ်ိန္လို့ ဆိုရင္ ပိုမွန္ပါလိမ့္မယ္။အဲဒီအခ်ိန္အတြင္း ခႏၶာကိုယ္ကို အနားေပးထားရပါတယ္။ အိပ္စက္အနားယူရပါတယ္။ အနားမေပးရင္ အသည္းရဲ့ လုပ္ေဆာင္မွဳမ်ားကို ထိခိုက္ေလွ်ာ့နည္းေစျပီး အသည္းကို တေျဖးေျဖး ပ်က္စီးသြားေစပါတယ္။ အသည္းမေကာင္းေတာ့ရင္ ခႏၶာကိုယ္ဇီ၀ကမၼျဖစ္စဥ္မ်ား ပံုမွန္မလည္ပတ္ႏိုင္ေတာ့ပဲ စက္ပစၥည္းတစ္ခုခုမွာ မူလီတစ္ခု ခြ်တ္ယြင္းရင္ က်န္တဲ့အစိတ္အပိုင္းမ်ားလည္း အဆင္မေျပႏိုင္ေတာ့သလို လူ့ခႏၶာကိုယ္မွာလည္း အသည္းက အလုပ္မလုပ္ႏိုင္ေတာ့ရင္ အသည္းေရာင္အသား၀ါ B ပိုး၊ C ပိုး၊ စတဲ့ အသည္းေရာဂါမ်ားအျပင္ အျခားေရာဂါမ်ားလည္း တစ္ခုျပီးတစ္ခု ျဖစ္ေစပါတယ္။ ဒါ့ေၾကာင့္ က်န္းမာေရးေစာက္ေရွာက္မွဳ ျမင့္မားတဲ့ အခ်ိဳ့ႏိုင္ငံေတြမွာ ညဖက္အလုပ္လုပ္ရတဲ့ ၀န္ထမ္းမ်ားကို ေရရွည္မလုပ္ေစပဲ အလွည့္က် လွဲလယ္ေပးတတ္ၾကပါတယ္။ အခုေခတ္မွာ ေဖ့စ္ဘုတ္ဟာ အိပ္ခ်ိန္ကို အဓိက ဖဲ့ယူေနတဲ့အရာျဖစ္ေနတာေၾကာင့္ အသက္ကိုဉာဏ္ေစာင့္ဆိုတဲ့ စကားအတိုင္း ကိုယ့္အသက္ကို အသိဉာဏ္ျဖင့္ ဂရုျပဳႏိုင္ၾကေစရန္ က်န္းမာေရးဗဟုသုတအျဖစ္ အသိေပးလိုက္ပါတယ္။ ေဖ့စ္ဘုတ္တစ္ခုတည္းမဟုတ္ပဲ အျခား ဘာပဲလုပ္လုပ္ အဲဒီအခ်ိန္မွာ မအိပ္ရင္ အသည္းရဲ့ လုပ္ေဆာင္ခ်က္မ်ားကို ထိခိုက္ေစပါတယ္။ လူသားအားလံုး က်န္းမာစြာ အသက္ရွည္ႏိုင္ၾကပါေစ။</string>
+    <string name="dummy_date">Wednesday, September 7, 2016</string>
+    <string name="dummy_author">ေဒါက္တာ တင့္ေဆြ</string>
+    <string name="dummy_website">https://www.sitename.com/1678802282351604/1818536395044858/?type=3</string>
+    <string name="str_readmore">ဆက္ဖတ္ရန္</string>
+    <string name="str_share_eng">Share</string>
+    <string name="str_share">မွ်ေ၀ရန္</string>
+    <string name="str_share_unicode">မျှဝေရန်</string>
+
+    <!-- Disease List + Detail -->
+    <string name="disease_screen_title">အျဖစ္မ်ားေရာဂါမ်ား</string>
+    <string name="dummy_disease_title">နား၊ ႏွာေခါင္း၊ လည္ေခ်ာင္းေရာဂါ</string>
+    <string name="dummy_disease_author">သိုက္ရာဇာ</string>
+    <string name="dummy_disease_reference">ျမ၀တီ</string>
+    <string name="dummy_disease_website">http://www.ygnnews.com/2014/01/blog-post_9225.html</string>
+    <string name="dummy_disease_description">ႏွာေခါင္းႏွင့္ လည္ေခ်ာင္းသည္ လူ႔ကိုယ္ခႏၶာ၏
+        အဓိက အေရးႀကီးေသာ အဂၤါျဖစ္ၿပီး အသက္႐ွဴသြင္း ႐ွဴထုတ္ရာႏွင့္ စကားေျပာရာတြင္ အဓိက အေရးပါသည္။
+        ယခုေခတ္တြင္ စက္မႈလုပ္ငန္းမ်ား ေခတ္မီဖြံ႕ၿဖိဳး တိုးတက္လာသည္ႏွင့္ အမွ် ပတ္ဝန္းက်င္ ေလထုသည္လည္း
+        ညစ္ညမ္းလာေသာေၾကာင့္ ႏွာေခါင္း ေရာင္နာႏွင့္ လည္ေခ်ာင္းေရာင္ ေရာဂါ အမ်ဳိးမ်ဳိး ျဖစ္ေပၚလာသည္။</string>
+
+
+    <!-- Veterinary List +Category-->
+    <string name="veterinary_screen_title">အိမ္ေမြးတိရစာၦန္ဆိုင္ရာ</string>
+    <string name="veterinary_clinic_title">အိမ္ေမြးတိရစာၦန္ ေဆးကုခန္းမ်ား</string>
+    <string name="veterinary_equipment_title">အိမ္ေမြးတိရစာၦန္ အသံုးအေဆာင္ဆိုင္ရာ</string>
+    <string name="veterinary_medicine_title">အိမ္ေမြးတိရစာၦန္ ေဆး၀ါးပစၥည္းဆိုင္္</string>
+    <string name="veterinary_spa_title">Pet Spa</string>
+
+    <string name="str_operation_label">၀န္ေဆာင္မႈမ်ား</string>
+    <string name="dummy_opearations">အေရးေပၚလူနာကုသျခင္</string>
+    <string name="health_care_price_category">★★★★★</string>
+    <string name="str_no_phone_number">ဖုန္းနံပါတ္မရွိေသးပါ ...</string>
+    <string name="str_search_text">ရွာေဖြလိုေသာနာမည္ကိုေရးပါ ...</string>
+    <string name="str_search_body">သင္ရွာေဖြလိုေသာ ေဆးရံု ၊ ေဆးခန္း ၊ ေဆးဆိုင္၏နာမည္ျဖင့္ ရွာေဖြႏုိင္ပါသည္</string>
+    <string name="btn_search">ရွာေဖြပါ</string>
+
+    <!-- About us -->
+    <string name="dialog_about_us_title">က်န္းမာေရးလမ္းညြန္ဆိုုတာ</string>
+    <string name="dialog_about_us_btnClose">ပိတ္ရန္</string>
+    <string name="dialog_about_us_messge">က်န္းမာေရးလမ္းညြန္ (HealthCare Directory) Application တြင္ ရန္ကုန္ၿမိဳ႕တြင္းရွိ ေဆး႐ုံ ၊ ေဆးခန္း ၊ ေဆးပစၥည္းအေရာင္းဆိုင္မ်ားအား သတင္းအခ်က္အလက္ စံုစံုလင္လင္ႏွင့္ ရွာေဖြနိုုင္မည့္အျပင္ အိမ္ေမြးတိရစာၦန္ ေစာင့္ေရွာက္မႈဆိုင္ရာ ေဆး႐ံု ၊ ေဆးခန္း ၊ အသံုးအေဆာင္ပစၥည္း အေရာင္းဆိုင္မ်ားအား လြယ္ကူလ်င္ျမန္စြာ ရွာေဖြနိုင္ပါသည္။ ထိုု႔အျပင္ က်န္းမာေရးဆိုုင္ရာ ေဆာင္းပါးမ်ားအား စံုစံုလင္လင္ဖတ္ရွုနိုုင္ရန္ စုုစည္းထားၿပီး အျဖစ္မ်ားေသာေရာဂါမ်ားအေၾကာင္းမ်ားကိုုလည္း ဗဟုုသုုတရေစရန္ စုစည္းေပးထားပါသည္။</string> <string name="dummy_version">ယခုုလက္ရွိ ေဆာ့၀ဲလ္ ဗားရွင္း 1.0</string>
+
+    <!-- Help -->
+    <string name="str_help_slide_next">အသံုးျပဳနည္း အေသးစိတ္အားၾကည့္ရန္ ေနာက္သိုု႕ တစ္ပံုခ်င္းစီ ေဘးတိုုက္ဆြဲကာ အသံုုးျပဳႏိုင္ပါသည္။</string>
+
+
+
 </resources>
